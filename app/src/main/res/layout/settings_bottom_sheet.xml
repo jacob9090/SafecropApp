@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#5d5d5d">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#DEDEDE">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:gravity="center"
+            android:background="@drawable/brown_rounded_top_corners">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/app_settings"
+                android:layout_marginStart="5sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:gravity="center"/>
+
+            <ImageView
+                android:id="@+id/closeSettingsBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/close_white"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="20dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_profile_card"
+                android:paddingBottom="24dp">
+
+                <TextView
+                    android:id="@+id/textView26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Settings and Management"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/sbsNotificationTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="Notification"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    app:drawableLeftCompat="@drawable/notifications_brown"
+                    app:layout_constraintStart_toStartOf="@id/textView26"
+                    app:layout_constraintTop_toBottomOf="@id/textView26" />
+
+                <com.github.angads25.toggle.widget.LabeledSwitch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30dp"
+                    android:textSize="14sp"
+                    app:on="true"
+                    app:colorBorder="@color/colorAccent"
+                    app:layout_constraintBottom_toBottomOf="@id/sbsNotificationTv"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <View
+                    android:id="@+id/ibsDivider4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sbsNotificationTv" />
+
+                <TextView
+                    android:id="@+id/sbsBackgroundTaskTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="Background Task"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    app:drawableLeftCompat="@drawable/cloud_sync_brown"
+                    app:layout_constraintStart_toStartOf="@id/ibsDivider4"
+                    app:layout_constraintTop_toBottomOf="@id/ibsDivider4" />
+
+                <com.github.angads25.toggle.widget.LabeledSwitch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30dp"
+                    android:textSize="14sp"
+                    app:on="true"
+                    app:colorBorder="@color/colorAccent"
+                    app:layout_constraintBottom_toBottomOf="@id/sbsBackgroundTaskTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/sbsBackgroundTaskTv" />
+
+                <View
+                    android:id="@+id/ibsDivider5"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sbsBackgroundTaskTv" />
+
+                <TextView
+                    android:id="@+id/sbsAutoUpdateTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="Auto Update"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    app:drawableLeftCompat="@drawable/system_update_brown"
+                    app:layout_constraintStart_toStartOf="@id/ibsDivider5"
+                    app:layout_constraintTop_toBottomOf="@id/ibsDivider5" />
+
+                <com.github.angads25.toggle.widget.LabeledSwitch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30dp"
+                    android:textSize="14sp"
+                    app:on="true"
+                    app:colorBorder="@color/colorAccent"
+                    app:layout_constraintBottom_toBottomOf="@id/sbsAutoUpdateTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/sbsAutoUpdateTv" />
+
+                <View
+                    android:id="@+id/ibsDivider6"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sbsAutoUpdateTv" />
+
+                <TextView
+                    android:id="@+id/sbsReportBugTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="Report Bug"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    app:drawableLeftCompat="@drawable/bug_brown"
+                    app:layout_constraintStart_toStartOf="@id/ibsDivider6"
+                    app:layout_constraintTop_toBottomOf="@id/ibsDivider6" />
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="30dp"
+                    android:contentDescription="@string/forward_arrow_outline"
+                    android:src="@drawable/ic_next_page"
+                    app:layout_constraintBottom_toBottomOf="@id/sbsReportBugTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/sbsReportBugTv" />
+                
+                <View
+                    android:id="@+id/ibsDivider8"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sbsReportBugTv" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/updateFarmerListBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_end_btn_brown_background"
+                    style="@android:style/Widget.Button"
+                    android:text="@string/load_farmer_list"
+                    android:textSize="17sp"
+                    android:textColor="@color/white"
+                    android:layout_margin="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibsDivider8"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/updateTrainingListBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_end_btn_brown_background"
+                    style="@android:style/Widget.Button"
+                    android:text="@string/load_train_topic"
+                    android:textSize="17sp"
+                    android:textColor="@color/white"
+                    android:layout_margin="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/updateFarmerListBtn"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

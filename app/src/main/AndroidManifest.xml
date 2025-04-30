@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.media.action.IMAGE_CAPTURE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.hardware.location.gps" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FEDCOINTERNALINSPECTION"
+        tools:targetApi="31">
+        <activity
+            android:name=".farmertrain.TrainingAttendance"
+            android:exported="false" />
+        <activity
+            android:name=".farmertrain.NewTrainingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".hrdd.HrddLocalBottomSheet"
+            android:exported="false" />
+        <activity
+            android:name=".hrdd.HrddCloudBottomSheet"
+            android:exported="false" />
+        <activity
+            android:name=".hrdd.HrddDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".traintopic.TrainingListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".traintopic.TrainingDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".farmertrain.TrainLocalBottomSheet"
+            android:exported="false" />
+        <activity
+            android:name=".farmertrain.TrainCloudBottomSheet"
+            android:exported="false" />
+        <activity
+            android:name=".farmertrain.TrainingDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.sch.SyncSchoolInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.obs.SyncObsInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.hh.SyncHhInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.ch.SyncChildInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.com.SyncComInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.fiis.InspectedFarmersWebActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.fiis.InspectionSurveyWebActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SyncSurveyInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".organic.OrgDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".organic.orgpro.UpdateSurveyedOrgProActivity"
+            android:exported="false" />
+        <activity
+            android:name=".organic.orgpro.SurveyedOrgProActivity"
+            android:exported="false" />
+        <activity
+            android:name=".organic.orgpro.OrgProWebSurveyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".organic.orgpro.OrgProSurveyedDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".organic.orgpro.OrgProSurveyCompletedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".organic.orgpro.GetOrgProPhotoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".organic.orgpro.GetOrgProLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.obs.UpdateSurveyedObsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.obs.ObsSurveyedDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.hh.UpdateHhSurveyedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.hh.HhSurveyedDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.com.CommunitySurveyedDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.sch.SchoolSurveyedDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.hh.HhSurveyCompletedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.obs.ObsSurveyCompletedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.gmrs.GMRSurveyedDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.gmrs.EditGMRSurvedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.gmrs.GMRSurveyCompletedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.gmrs.GetGMRFarmerThumbprintActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.gmrs.GetGMRFarmerPhotoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.gmrs.GMRProfiledFarmersListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.obs.SurveyedObservationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.hh.SurveyedHouseHoldActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.gmrs.GetGMRFarmerIdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.gmrs.GetGMRLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.obs.GetObservationPhotoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.obs.GetObservationLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.hh.GetHhPhotoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.hh.GetHhLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.gmrs.GMRProfilingWebActivity"
+            android:exported="false" />
+        <activity
+            android:name=".farmerlist.FarmerDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.ch.UpdateSurvedChildActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.ch.ChildSurveyedDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.com.UpdateSurveyedCommunitiesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.com.SurveyedCommunitiesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.com.CommunitySurveyCompletedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.com.GetComPhotoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.com.GetComLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.ch.ChildWebSurveyedListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.ch.ChildSurveyCompletedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.ch.GetChildLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.sch.UpdateSurveyedSchoolsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.sch.SurveyedSchoolsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.sch.GetSchPhotoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.sch.GetSchLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.sch.SchoolSurveyCompletedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.obs.ObservationWebSurveyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.obs.ObservationWebListFarmersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.ch.ChildWebListFarmersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReportBugActivity"
+            android:exported="false" />
+        <activity
+            android:name=".farmerlist.FarmersDayListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".farmerlist.FarmerListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.hh.HouseHoldWebListFarmersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.ch.ChildWebSurveyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.sch.SchoolWebSurveyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.com.CommunityWebSurveyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.hh.HouseHoldWebSurveyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".env.EnvDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.ComDevDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.SusCertDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.fiis.ProfileExistingFarmerThreeFIIS"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.fiis.ProfileExistingFarmerTwoFIIS"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.fiis.UpdateFIIS"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.fiis.RegisteredFarmerListMainActivityFIIS"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.fiis.RecordDetailActivityFIIS"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.fiis.ProfileExistingFarmerOneFIIS"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.fiis.ListFIISFarmersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".login.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".login.ForgetPassActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".login.LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

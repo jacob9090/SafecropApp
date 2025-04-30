@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".comdev.sch.GetSchPhotoActivity">
+
+    <ImageView
+        android:id="@+id/schImageView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="15dp"
+        android:padding="70dp"
+        android:src="@drawable/camera_brown"
+        android:background="@android:color/darker_gray"
+        android:contentDescription="@string/capture_or_select_image" />
+
+    <Button
+        android:id="@+id/schBtnCaptureOrSelect"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/capture_or_select_image" />
+
+    <Button
+        android:id="@+id/schBtnOk"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="@string/done" />
+
+</LinearLayout>

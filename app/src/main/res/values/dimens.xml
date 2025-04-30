@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dimen_16dp">16dp</dimen>
+
+    <!--dimes for design 3-->
+    <dimen name="headerTextSize">22sp</dimen>
+    <dimen name="newsMoreTextSize">16sp</dimen>
+    <dimen name="loginViewsMargin">20dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+</resources>

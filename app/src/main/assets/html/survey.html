@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #d3d3d3; /* colorGray */
+            font-family: Arial, sans-serif;
+        }
+        .scroll-view {
+            max-height: 100vh;
+            overflow-y: auto;
+        }
+        .card {
+            overflow: hidden;
+            padding: 16px;
+            margin: 7px 7px 20px 7px;
+            background: #f5f5f5;
+            border-radius: 7px;
+        }
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
+        .card-content label {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+        .input-field {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 15px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 17px;
+            background: #DDDDDD;
+        }
+        .date-picker {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 17px;
+            background: #DDDDDD;
+        }
+        .btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 12px;
+            background-color: #8B4513; /* brown */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .image-placeholder {
+            margin-bottom: 10px;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .camera-btn, .gallery-btn {
+            width: 48%;
+            padding: 12px;
+            background-color: #8B4513; /* brown */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<div class="scroll-view">
+    <div class="card">
+        <div class="card-content">
+            <label for="student-name">Student Name</label>
+            <input type="text" id="student-name" class="input-field" placeholder="Enter student name" maxlength="50" onclick="openDialog('student-name')">
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-content">
+            <label for="course">Select course</label>
+            <select id="course" class="input-field">
+                <option>Select Course</option>
+                <option value="English">English</option>
+                <option value="Maths">Maths</option>
+            </select>
+        </div>
+    </div>
+    <div class="card" id="english-duration-card">
+        <div class="card-content">
+            <label for="english-duration">English Duration</label>
+            <input type="text" id="english-duration" class="input-field" placeholder="Enter duration" maxlength="50">
+        </div>
+    </div>
+    <div class="card" id="maths-duration-card">
+        <div class="card-content">
+            <label for="maths-duration">Maths Duration</label>
+            <input type="text" id="maths-duration" class="input-field" placeholder="Enter duration" maxlength="50">
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-content">
+            <label for="hostel">Select hostel</label>
+            <select id="hostel" class="input-field">
+                <option>Select hostel</option>
+                <option value="Hostel-A">Hostel-A</option>
+                <option value="Hostel-B">Hostel-B</option>
+            </select>
+        </div>
+    </div>
+    <div class="card" id="hostel-a-card">
+        <div class="card-content">
+            <label for="hostel-a">Hostel A</label>
+            <input type="text" id="hostel-a" class="input-field" placeholder="Enter days" maxlength="3">
+        </div>
+    </div>
+    <div class="card" id="hostel-b-card">
+        <div class="card-content">
+            <label for="hostel-b">Hostel B</label>
+            <input type="text" id="hostel-b" class="input-field" placeholder="Enter days" maxlength="3">
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-content">
+            <label>Student Photo</label>
+            <div class="image-placeholder" aria-label="Add Photo">
+                <center><img id="student-photo" src="file:///android_res/drawable/user.png" alt="Photo" width="100" height="100" onclick="requestPhotoCapture()"></center>
+            </div>
+            <div class="btn-container">
+                <button type="button" class="camera-btn" onclick="requestCamera()">Camera</button>
+                <button type="button" class="gallery-btn" onclick="requestGallery()">Gallery</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-content">
+            <label>Geo-location</label>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <input type="text" id="geo-location" class="input-field" placeholder="1.111111 -1.111111" disabled>
+            </div>
+            <button type="button" class="get-loc-btn" onclick="requestCurrentGeoLocation()">Get Location</button>
+        </div>
+    </div>
+    <button class="btn" id="saveBtn" onclick="saveProfile()">Save Profile</button>
+
+    <script type="text/javascript">
+        const courseSelect = document.getElementById('course');
+        const englishDurationCard = document.getElementById('english-duration-card');
+        const mathsDurationCard = document.getElementById('maths-duration-card');
+
+        // Initially hide both cards
+        englishDurationCard.style.display = 'none';
+        mathsDurationCard.style.display = 'none';
+
+        courseSelect.addEventListener('change', () => {
+          const selectedCourse = courseSelect.value;
+
+          if (selectedCourse === 'English') {
+            englishDurationCard.style.display = 'block';
+            mathsDurationCard.style.display = 'none';
+          } else if (selectedCourse === 'Maths') {
+            englishDurationCard.style.display = 'none';
+            mathsDurationCard.style.display = 'block';
+          } else {
+            englishDurationCard.style.display = 'none';
+            mathsDurationCard.style.display = 'none';
+          }
+        });
+
+        const hostelSelect = document.getElementById('hostel');
+        const hostelACard = document.getElementById('hostel-a-card');
+        const hostelBCard = document.getElementById('hostel-b-card');
+
+        // Initially hide both cards
+        hostelACard.style.display = 'none';
+        hostelBCard.style.display = 'none';
+
+        hostelSelect.addEventListener('change', () => {
+          const selectedHostel = hostelSelect.value;
+
+          if (selectedHostel === 'Hostel-A') {
+            hostelACard.style.display = 'block';
+            hostelBCard.style.display = 'none';
+          } else if (selectedHostel === 'Hostel-B') {
+            hostelACard.style.display = 'none';
+            hostelBCard.style.display = 'block';
+          } else {
+            hostelACard.style.display = 'none';
+            hostelBCard.style.display = 'none';
+          }
+        });
+
+        function requestPhotoCapture() {
+                AndroidInterface.capturePhoto();
+            }
+
+            function requestCurrentGeoLocation() {
+                AndroidInterface.requestGeoLocation();
+            }
+
+            function setFieldValue(fieldId, value) {
+                document.getElementById(fieldId).value = value;
+            }
+
+            function setGeoLocation(latitude, longitude) {
+                document.getElementById('geo-location').value = "Lat: " + latitude + ", Lon: " + longitude;
+            }
+
+            function setStudentPhoto(base64Image) {
+                document.getElementById('student-photo').src = base64Image;
+            }
+
+            function setGeoLocation(latitude, longitude) {
+                document.getElementById('geo-location').value = latitude + ', ' + longitude;
+            }
+    </script>
+</div>
+</body>
+</html>

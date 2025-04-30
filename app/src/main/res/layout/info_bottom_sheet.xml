@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#5d5d5d">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#DEDEDE">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:gravity="center"
+            android:background="@drawable/brown_rounded_top_corners">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/survey_details"
+                android:layout_marginStart="5sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:gravity="center"/>
+
+            <ImageView
+                android:id="@+id/closeInfoBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/close_white"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="20dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_profile_card"
+                android:paddingBottom="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/bsSusCertHedTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/sustainability_certification_survey"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/ibsFarmerProfilingTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/farmer_profiling"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    app:drawableLeftCompat="@drawable/people_brown"
+                    app:layout_constraintStart_toStartOf="@id/bsSusCertHedTv"
+                    app:layout_constraintTop_toBottomOf="@id/bsSusCertHedTv" />
+
+                <ImageView
+                    android:id="@+id/ibsFarmerProfilingIV"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="30dp"
+                    android:contentDescription="@string/info_icon_outline"
+                    android:src="@drawable/ic_info"
+                    app:tint="@color/black_two"
+                    app:layout_constraintBottom_toBottomOf="@id/ibsFarmerProfilingTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ibsFarmerProfilingTv" />
+
+                <View
+                    android:id="@+id/ibsDivider1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibsFarmerProfilingTv" />
+
+
+                <TextView
+                    android:id="@+id/ibsInspectionSurveyTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/inspection_survey"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    app:drawableLeftCompat="@drawable/checklist_brown"
+                    app:layout_constraintStart_toStartOf="@id/ibsDivider1"
+                    app:layout_constraintTop_toBottomOf="@id/ibsDivider1" />
+
+                <ImageView
+                    android:id="@+id/ibsInspectionSurveyIV"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="30dp"
+                    android:contentDescription="@string/info_icon_outline"
+                    android:src="@drawable/ic_info"
+                    app:tint="@color/black_two"
+                    app:layout_constraintBottom_toBottomOf="@id/ibsInspectionSurveyTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ibsInspectionSurveyTv" />
+
+                <View
+                    android:id="@+id/ibsDivider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibsInspectionSurveyTv" />
+
+                <TextView
+                    android:id="@+id/ibsFarmerTrainingTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/farmer_training"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    app:drawableLeftCompat="@drawable/book_brown"
+                    app:layout_constraintStart_toStartOf="@id/ibsDivider2"
+                    app:layout_constraintTop_toBottomOf="@id/ibsDivider2" />
+
+                <ImageView
+                    android:id="@+id/ibsFarmerTrainingIV"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="30dp"
+                    android:contentDescription="@string/info_icon_outline"
+                    android:src="@drawable/ic_info"
+                    app:tint="@color/black_two"
+                    app:layout_constraintBottom_toBottomOf="@id/ibsFarmerTrainingTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ibsFarmerTrainingTv" />
+
+                <View
+                    android:id="@+id/ibsDivider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibsFarmerTrainingTv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/background_profile_card"
+                android:paddingBottom="24dp">
+
+                <TextView
+                    android:id="@+id/textView26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/community_development_surveys"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/ibsComSurveyTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/community_survey"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    android:maxLines="1"
+                    app:drawableLeftCompat="@drawable/groups_brown"
+                    app:layout_constraintStart_toStartOf="@id/textView26"
+                    app:layout_constraintTop_toBottomOf="@id/textView26" />
+
+                <ImageView
+                    android:id="@+id/ibsComSurveyIV"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="30dp"
+                    android:contentDescription="@string/info_icon_outline"
+                    android:src="@drawable/ic_info"
+                    app:tint="@color/black_two"
+                    app:layout_constraintBottom_toBottomOf="@id/ibsComSurveyTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ibsComSurveyTv" />
+
+                <View
+                    android:id="@+id/ibsDivider4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibsComSurveyTv" />
+
+                <TextView
+                    android:id="@+id/ibsSchSurveyTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/school_survey"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    android:maxLines="1"
+                    app:drawableLeftCompat="@drawable/school_brown"
+                    app:layout_constraintStart_toStartOf="@id/ibsDivider4"
+                    app:layout_constraintTop_toBottomOf="@id/ibsDivider4" />
+
+                <ImageView
+                    android:id="@+id/ibsSchSurveyIV"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="30dp"
+                    android:contentDescription="@string/info_icon_outline"
+                    android:src="@drawable/ic_info"
+                    app:tint="@color/black_two"
+                    app:layout_constraintBottom_toBottomOf="@id/ibsSchSurveyTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ibsSchSurveyTv" />
+
+                <View
+                    android:id="@+id/ibsDivider5"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibsSchSurveyTv" />
+
+                <TextView
+                    android:id="@+id/ibsHouseholdSurveyTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/household_survey"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    android:maxLines="1"
+                    app:drawableLeftCompat="@drawable/people_brown"
+                    app:layout_constraintStart_toStartOf="@id/ibsDivider5"
+                    app:layout_constraintTop_toBottomOf="@id/ibsDivider5" />
+
+                <ImageView
+                    android:id="@+id/ibsHouseholdSurveyIV"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="30dp"
+                    android:contentDescription="@string/info_icon_outline"
+                    android:src="@drawable/ic_info"
+                    app:tint="@color/black_two"
+                    app:layout_constraintBottom_toBottomOf="@id/ibsHouseholdSurveyTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ibsHouseholdSurveyTv" />
+
+                <View
+                    android:id="@+id/ibsDivider6"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibsHouseholdSurveyTv" />
+                
+                <TextView
+                    android:id="@+id/ibsObservationSurveyTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/observation_survey"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    android:maxLines="1"
+                    app:drawableLeftCompat="@drawable/preview_brown"
+                    app:layout_constraintStart_toStartOf="@id/ibsDivider6"
+                    app:layout_constraintTop_toBottomOf="@id/ibsDivider6" />
+
+                <ImageView
+                    android:id="@+id/ibsObservationSurveyIV"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="30dp"
+                    android:contentDescription="@string/info_icon_outline"
+                    android:src="@drawable/ic_info"
+                    app:tint="@color/black_two"
+                    app:layout_constraintBottom_toBottomOf="@id/ibsObservationSurveyTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ibsObservationSurveyTv" />
+
+                <View
+                    android:id="@+id/ibsDivider7"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibsObservationSurveyTv" />
+
+
+                <TextView
+                    android:id="@+id/ibsChildSurveyTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/child_survey"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    android:maxLines="1"
+                    app:drawableLeftCompat="@drawable/person_brown"
+                    app:layout_constraintStart_toStartOf="@id/ibsDivider7"
+                    app:layout_constraintTop_toBottomOf="@id/ibsDivider7" />
+
+                <ImageView
+                    android:id="@+id/ibsChildSurveyIV"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="30dp"
+                    android:contentDescription="@string/info_icon_outline"
+                    android:src="@drawable/ic_info"
+                    app:tint="@color/black_two"
+                    app:layout_constraintBottom_toBottomOf="@id/ibsChildSurveyTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ibsChildSurveyTv" />
+
+                <View
+                    android:id="@+id/ibsDivider8"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibsChildSurveyTv" />
+                
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

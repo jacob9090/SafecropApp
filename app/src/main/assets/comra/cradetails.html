@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .detail {
+            margin-bottom: 15px;
+        }
+        .label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="detail">
+    <span class="label">Farmer ID:</span> <span id="farmerId"></span>
+</div>
+<div class="detail">
+    <span class="label">District:</span> <span id="farmerDistrict"></span>
+</div>
+<div class="detail">
+    <span class="label">Village:</span> <span id="farmerVillage"></span>
+</div>
+
+
+<div class="detail"><span class="label">How many children between 5 to 17 years are in this household?:</span> <span id="childquestion4"></span></div>
+<div class="detail"><span class="label">(1.1)  Name of Child 1:</span> <span id="child1question1"></span></div>
+<div class="detail"><span class="label">(1.2)  Age of Child 1:</span> <span id="child1question2"></span></div>
+<div class="detail"><span class="label">(1.3)  Gender of Child 1:</span> <span id="child1question3"></span></div>
+<div class="detail"><span class="label">(1.4)  Who does child 1 live with?:</span> <span id="child1question4"></span></div>
+<div class="detail"><span class="label">(1.5)  Can child 1 read or write in English?:</span> <span id="child1question5"></span></div>
+<div class="detail"><span class="label">(1.6)  Does child 1 go to school?:</span> <span id="child1question6"></span></div>
+<div class="detail"><span class="label">(1.7)  At what age did child 1 start school?:</span> <span id="child1question7"></span></div>
+<div class="detail"><span class="label">(1.8)  What is the name of child 1 school?:</span> <span id="child1question8"></span></div>
+<div class="detail"><span class="label">(1.9)  What is child 1 current educational level?:</span> <span id="child1question9"></span></div>
+<div class="detail"><span class="label">(1.10)  At what level/age did child 1 stop school?\n:</span> <span id="child1question10"></span></div>
+<div class="detail"><span class="label">(1.11)  What are the reasons for absence of schooling?:</span> <span id="child1question11"></span></div>
+<div class="detail"><span class="label">(1.12)  Did child 1 work in the previous year?:</span> <span id="child1question12"></span></div>
+<div class="detail"><span class="label">(1.13)  What are the types of work did child 1 performed on the farm?:</span> <span id="child1question13"></span></div>
+<div class="detail"><span class="label">(1.14)  Daily working hours on a school day:</span> <span id="child1question14"></span></div>
+<div class="detail"><span class="label">(1.15)  Period of work:</span> <span id="child1question15"></span></div>
+<div class="detail"><span class="label">(1.16)  Daily working hours on a non-school day:</span> <span id="child1question16"></span></div>
+<div class="detail"><span class="label">(1.17)  Period of work :</span> <span id="child1question17"></span></div>
+<div class="detail"><span class="label">(1.18)  Why is child 1 working?:</span> <span id="child1question18"></span></div>
+<div class="detail"><span class="label">(1.19)  For whom does child 1 work?:</span> <span id="child1question19"></span></div>
+<div class="detail"><span class="label">(2.1)  Name of Child 2:</span> <span id="child2question1"></span></div>
+<div class="detail"><span class="label">(2.2)  Age of Child 2:</span> <span id="child2question2"></span></div>
+<div class="detail"><span class="label">(2.3)  Gender of Child 2:</span> <span id="child2question3"></span></div>
+<div class="detail"><span class="label">(2.4)  Who does child 2 live with?:</span> <span id="child2question4"></span></div>
+<div class="detail"><span class="label">(2.5)  Can child 2 read or write in English?:</span> <span id="child2question5"></span></div>
+<div class="detail"><span class="label">(2.6)  Does child 2 go to school?:</span> <span id="child2question6"></span></div>
+<div class="detail"><span class="label">(2.7)  At what age did child 2 start school?:</span> <span id="child2question7"></span></div>
+<div class="detail"><span class="label">(2.8)  What is the name of child 2 school?:</span> <span id="child2question8"></span></div>
+<div class="detail"><span class="label">(2.9)  What is child 2 current educational level?:</span> <span id="child2question9"></span></div>
+<div class="detail"><span class="label">(2.10)  At what level/age did child 2 stop school?:</span> <span id="child2question10"></span></div>
+<div class="detail"><span class="label">(2.11)  What are the reasons for absence of schooling?:</span> <span id="child2question11"></span></div>
+<div class="detail"><span class="label">(2.12)  Did child 2 work in the previous year?:</span> <span id="child2question12"></span></div>
+<div class="detail"><span class="label">(2.13)  What are the types of work did child 2 performed on the farm?:</span> <span id="child2question13"></span></div>
+<div class="detail"><span class="label">(2.14)  Daily working hours on a school day:</span> <span id="child2question14"></span></div>
+<div class="detail"><span class="label">(2.15)  Period of work:</span> <span id="child2question15"></span></div>
+<div class="detail"><span class="label">(2.16)  Daily working hours on a non-school day:</span> <span id="child2question16"></span></div>
+<div class="detail"><span class="label">(2.17)  Period of work:</span> <span id="child2question17"></span></div>
+<div class="detail"><span class="label">(2.18)  Why is child 2 working?:</span> <span id="child2question18"></span></div>
+<div class="detail"><span class="label">(2.19)  For whom does child 2 work?:</span> <span id="child2question19"></span></div>
+<div class="detail"><span class="label">(3.1)  Name of Child 3:</span> <span id="child3question1"></span></div>
+<div class="detail"><span class="label">(3.2)  Age of Child 3:</span> <span id="child3question2"></span></div>
+<div class="detail"><span class="label">(3.3)  Gender of Child 3:</span> <span id="child3question3"></span></div>
+<div class="detail"><span class="label">(3.4)  Who does child 3 live with?:</span> <span id="child3question4"></span></div>
+<div class="detail"><span class="label">(3.5)  Can child 3 read or write in English?:</span> <span id="child3question5"></span></div>
+<div class="detail"><span class="label">(3.6)  Does child 3 go to school?:</span> <span id="child3question6"></span></div>
+<div class="detail"><span class="label">(3.7)  At what age did child 3 start school?:</span> <span id="child3question7"></span></div>
+<div class="detail"><span class="label">(3.8)  What is the name of child 3 school?:</span> <span id="child3question8"></span></div>
+<div class="detail"><span class="label">(3.9)  What is child 3 current educational level?:</span> <span id="child3question9"></span></div>
+<div class="detail"><span class="label">(3.10)  At what level/age did child 3 stop school?:</span> <span id="child3question10"></span></div>
+<div class="detail"><span class="label">(3.11)  What are the reasons for absence of schooling?:</span> <span id="child3question11"></span></div>
+<div class="detail"><span class="label">(3.12)  Did child 3 work in the previous year?:</span> <span id="child3question12"></span></div>
+<div class="detail"><span class="label">(3.13)  What are the types of work did child 3 performed on the farm?:</span> <span id="child3question13"></span></div>
+<div class="detail"><span class="label">(3.14)  Daily working hours on a school day:</span> <span id="child3question14"></span></div>
+<div class="detail"><span class="label">(3.15)  Period of work:</span> <span id="child3question15"></span></div>
+<div class="detail"><span class="label">(3.16)  Daily working hours on a non-school day:</span> <span id="child3question16"></span></div>
+<div class="detail"><span class="label">(3.17)  Period of work:</span> <span id="child3question17"></span></div>
+<div class="detail"><span class="label">(3.18)  Why is child 3 working?:</span> <span id="child3question18"></span></div>
+<div class="detail"><span class="label">(3.19)  For whom does child 3 work?:</span> <span id="child3question19"></span></div>
+<div class="detail"><span class="label">(4.1)  Name of Child 4:</span> <span id="child4question1"></span></div>
+<div class="detail"><span class="label">(4.2)  Age of Child 4:</span> <span id="child4question2"></span></div>
+<div class="detail"><span class="label">(4.3)  Gender of Child 4:</span> <span id="child4question3"></span></div>
+<div class="detail"><span class="label">(4.4)  Who does child 4 live with?:</span> <span id="child4question4"></span></div>
+<div class="detail"><span class="label">(4.5)  Can child 4 read or write in English?:</span> <span id="child4question5"></span></div>
+<div class="detail"><span class="label">(4.6)  Does child 4 go to school?:</span> <span id="child4question6"></span></div>
+<div class="detail"><span class="label">(4.7)  At what age did child 4 start school?:</span> <span id="child4question7"></span></div>
+<div class="detail"><span class="label">(4.8)  What is the name of child 4 school?:</span> <span id="child4question8"></span></div>
+<div class="detail"><span class="label">(4.9)  What is child 4 current educational level?:</span> <span id="child4question9"></span></div>
+<div class="detail"><span class="label">(4.10)  At what level/age did child 4 stop school?:</span> <span id="child4question10"></span></div>
+<div class="detail"><span class="label">(4.11)  What are the reasons for absence of schooling?:</span> <span id="child4question11"></span></div>
+<div class="detail"><span class="label">(4.12)  Did child 4 work in the previous year?:</span> <span id="child4question12"></span></div>
+<div class="detail"><span class="label">(4.13)  What are the types of work did child 4 performed on the farm?:</span> <span id="child4question13"></span></div>
+<div class="detail"><span class="label">(4.14)  Daily working hours on a school day:</span> <span id="child4question14"></span></div>
+<div class="detail"><span class="label">(4.15)  Period of work:</span> <span id="child4question15"></span></div>
+<div class="detail"><span class="label">(4.16)  Daily working hours on a non-school day:</span> <span id="child4question16"></span></div>
+<div class="detail"><span class="label">(4.17)  Period of work:</span> <span id="child4question17"></span></div>
+<div class="detail"><span class="label">(4.18)  Why is child 4 working?:</span> <span id="child4question18"></span></div>
+<div class="detail"><span class="label">(4.19)  For whom does child 4 work?:</span> <span id="child4question19"></span></div>
+<div class="detail"><span class="label">(5.1)  Name of Child 5:</span> <span id="child5question1"></span></div>
+<div class="detail"><span class="label">(5.2)  Age of Child 5:</span> <span id="child5question2"></span></div>
+<div class="detail"><span class="label">(5.3)  Gender of Child 5:</span> <span id="child5question3"></span></div>
+<div class="detail"><span class="label">(5.4)  Who does child 5 live with?:</span> <span id="child5question4"></span></div>
+<div class="detail"><span class="label">(5.5)  Can child 5 read or write in English?:</span> <span id="child5question5"></span></div>
+<div class="detail"><span class="label">(5.6)  Does child 5 go to school?:</span> <span id="child5question6"></span></div>
+<div class="detail"><span class="label">(5.7)  At what age did child 5 start school?:</span> <span id="child5question7"></span></div>
+<div class="detail"><span class="label">(5.8)  What is the name of child 5 school?:</span> <span id="child5question8"></span></div>
+<div class="detail"><span class="label">(5.9)  What is child 5 current educational level?:</span> <span id="child5question9"></span></div>
+<div class="detail"><span class="label">(5.10)  At what level/age did child 5 stop school?:</span> <span id="child5question10"></span></div>
+<div class="detail"><span class="label">(5.11)  What are the reasons for absence of schooling?:</span> <span id="child5question11"></span></div>
+<div class="detail"><span class="label">(5.12)  Did child 5 work in the previous year?:</span> <span id="child5question12"></span></div>
+<div class="detail"><span class="label">(5.13)  What are the types of work did child 5 performed on the farm?:</span> <span id="child5question13"></span></div>
+<div class="detail"><span class="label">(5.14)  Daily working hours on a school day:</span> <span id="child5question14"></span></div>
+<div class="detail"><span class="label">(5.15)  Period of work:</span> <span id="child5question15"></span></div>
+<div class="detail"><span class="label">(5.16)  Daily working hours on a non-school day:</span> <span id="child5question16"></span></div>
+<div class="detail"><span class="label">(5.17)  Period of work:</span> <span id="child5question17"></span></div>
+<div class="detail"><span class="label">(5.18)  Why is child 5 working?:</span> <span id="child5question18"></span></div>
+<div class="detail"><span class="label">(5.19)  For whom does child 5 work?:</span> <span id="child5question19"></span></div>
+<div class="detail"><span class="label">(6.1)  Name of Child 6:</span> <span id="child6question1"></span></div>
+<div class="detail"><span class="label">(6.2)  Age of Child 6:</span> <span id="child6question2"></span></div>
+<div class="detail"><span class="label">(6.3)  Gender of Child 6:</span> <span id="child6question3"></span></div>
+<div class="detail"><span class="label">(6.4)  Who does child 6 live with?:</span> <span id="child6question4"></span></div>
+<div class="detail"><span class="label">(6.5)  Can child 6 read or write in English?:</span> <span id="child6question5"></span></div>
+<div class="detail"><span class="label">(6.6)  Does child 6 go to school?:</span> <span id="child6question6"></span></div>
+<div class="detail"><span class="label">(6.7)  At what age did child 6 start school?:</span> <span id="child6question7"></span></div>
+<div class="detail"><span class="label">(6.8)  What is the name of child 6 school?:</span> <span id="child6question8"></span></div>
+<div class="detail"><span class="label">(6.9)  What is child 6 current educational level?:</span> <span id="child6question9"></span></div>
+<div class="detail"><span class="label">(6.10)  At what level/age did child 6 stop school?:</span> <span id="child6question10"></span></div>
+<div class="detail"><span class="label">(6.11)  What are the reasons for absence of schooling?:</span> <span id="child6question11"></span></div>
+<div class="detail"><span class="label">(6.12)  Did child 6 work in the previous year?:</span> <span id="child6question12"></span></div>
+<div class="detail"><span class="label">(6.13)  What are the types of work did child 6 performed on the farm?:</span> <span id="child6question13"></span></div>
+<div class="detail"><span class="label">(6.14)  Daily working hours on a school day:</span> <span id="child6question14"></span></div>
+<div class="detail"><span class="label">(6.15)  Period of work:</span> <span id="child6question15"></span></div>
+<div class="detail"><span class="label">(6.16)  Daily working hours on a non-school day:</span> <span id="child6question16"></span></div>
+<div class="detail"><span class="label">(6.17)  Period of work:</span> <span id="child6question17"></span></div>
+<div class="detail"><span class="label">(6.18)  Why is child 6 working?:</span> <span id="child6question18"></span></div>
+<div class="detail"><span class="label">(6.19)  For whom does child 6 work?:</span> <span id="child6question19"></span></div>
+<div class="detail"><span class="label">(7.1)  Name of Child 7:</span> <span id="child7question1"></span></div>
+<div class="detail"><span class="label">(7.2)  Age of Child 7:</span> <span id="child7question2"></span></div>
+<div class="detail"><span class="label">(7.3)  Gender of Child 7:</span> <span id="child7question3"></span></div>
+<div class="detail"><span class="label">(7.4)  Who does child 7 live with?:</span> <span id="child7question4"></span></div>
+<div class="detail"><span class="label">(7.5)  Can child 7 read or write in English?:</span> <span id="child7question5"></span></div>
+<div class="detail"><span class="label">(7.6)  Does child 7 go to school?:</span> <span id="child7question6"></span></div>
+<div class="detail"><span class="label">(7.7)  At what age did child 7 start school?:</span> <span id="child7question7"></span></div>
+<div class="detail"><span class="label">(7.8)  What is the name of child 7 school?:</span> <span id="child7question8"></span></div>
+<div class="detail"><span class="label">(7.9)  What is child 7 current educational level?:</span> <span id="child7question9"></span></div>
+<div class="detail"><span class="label">(7.10)  At what level/age did child 7 stop school?:</span> <span id="child7question10"></span></div>
+<div class="detail"><span class="label">(7.11)  What are the reasons for absence of schooling?:</span> <span id="child7question11"></span></div>
+<div class="detail"><span class="label">(7.12)  Did child 7 work in the previous year?:</span> <span id="child7question12"></span></div>
+<div class="detail"><span class="label">(7.13)  What are the types of work did child 7 performed on the farm?:</span> <span id="child7question13"></span></div>
+<div class="detail"><span class="label">(7.14)  Daily working hours on a school day:</span> <span id="child7question14"></span></div>
+<div class="detail"><span class="label">(7.15)  Period of work:</span> <span id="child7question15"></span></div>
+<div class="detail"><span class="label">(7.16)  Daily working hours on a non-school day:</span> <span id="child7question16"></span></div>
+<div class="detail"><span class="label">(7.17)  Period of work:</span> <span id="child7question17"></span></div>
+<div class="detail"><span class="label">(7.18)  Why is child 7 working?:</span> <span id="child7question18"></span></div>
+<div class="detail"><span class="label">(7.19)  For whom does child 7 work?:</span> <span id="child7question19"></span></div>
+<div class="detail"><span class="label">(8.1)  Name of Child 8:</span> <span id="child8question1"></span></div>
+<div class="detail"><span class="label">(8.2)  Age of Child 8:</span> <span id="child8question2"></span></div>
+<div class="detail"><span class="label">(8.3)  Gender of Child 8:</span> <span id="child8question3"></span></div>
+<div class="detail"><span class="label">(8.4)  Who does child 8 live with?:</span> <span id="child8question4"></span></div>
+<div class="detail"><span class="label">(8.5)  Can child 8 read or write in English?:</span> <span id="child8question5"></span></div>
+<div class="detail"><span class="label">(8.6)  Does child 8 go to school?:</span> <span id="child8question6"></span></div>
+<div class="detail"><span class="label">(8.7)  At what age did child 8 start school?:</span> <span id="child8question7"></span></div>
+<div class="detail"><span class="label">(8.8)  What is the name of child 8 school?:</span> <span id="child8question8"></span></div>
+<div class="detail"><span class="label">(8.9)  What is child 8 current educational level?:</span> <span id="child8question9"></span></div>
+<div class="detail"><span class="label">(8.10)  At what level/age did child 8 stop school?:</span> <span id="child8question10"></span></div>
+<div class="detail"><span class="label">(8.11)  What are the reasons for absence of schooling?:</span> <span id="child8question11"></span></div>
+<div class="detail"><span class="label">(8.12)  Did child 8 work in the previous year?:</span> <span id="child8question12"></span></div>
+<div class="detail"><span class="label">(8.13)  What are the types of work did child 8 performed on the farm?:</span> <span id="child8question13"></span></div>
+<div class="detail"><span class="label">(8.14)  Daily working hours on a school day:</span> <span id="child8question14"></span></div>
+<div class="detail"><span class="label">(8.15)  Period of work:</span> <span id="child8question15"></span></div>
+<div class="detail"><span class="label">(8.16)  Daily working hours on a non-school day:</span> <span id="child8question16"></span></div>
+<div class="detail"><span class="label">(8.17)  Period of work:</span> <span id="child8question17"></span></div>
+<div class="detail"><span class="label">(8.18)  Why is child 8 working?:</span> <span id="child8question18"></span></div>
+<div class="detail"><span class="label">(8.19)  For whom does child 8 work?:</span> <span id="child8question19"></span></div>
+<div class="detail"><span class="label">(9.1)  Name of Child 9:</span> <span id="child9question1"></span></div>
+<div class="detail"><span class="label">(9.2)  Age of Child 9:</span> <span id="child9question2"></span></div>
+<div class="detail"><span class="label">(9.3)  Gender of Child 9:</span> <span id="child9question3"></span></div>
+<div class="detail"><span class="label">(9.4)  Who does child 9 live with?:</span> <span id="child9question4"></span></div>
+<div class="detail"><span class="label">(9.5)  Can child 9 read or write in English?:</span> <span id="child9question5"></span></div>
+<div class="detail"><span class="label">(9.6)  Does child 9 go to school?:</span> <span id="child9question6"></span></div>
+<div class="detail"><span class="label">(9.7)  At what age did child 9 start school?:</span> <span id="child9question7"></span></div>
+<div class="detail"><span class="label">(9.8)  What is the name of child 9 school?:</span> <span id="child9question8"></span></div>
+<div class="detail"><span class="label">(9.9)  What is child 9 current educational level?:</span> <span id="child9question9"></span></div>
+<div class="detail"><span class="label">(9.10)  At what level/age did child 9 stop school?:</span> <span id="child9question10"></span></div>
+<div class="detail"><span class="label">(9.11)  What are the reasons for absence of schooling?:</span> <span id="child9question11"></span></div>
+<div class="detail"><span class="label">(9.12)  Did child 9 work in the previous year?:</span> <span id="child9question12"></span></div>
+<div class="detail"><span class="label">(9.13)  What are the types of work did child 9 performed on the farm?:</span> <span id="child9question13"></span></div>
+<div class="detail"><span class="label">(9.14)  Daily working hours on a school day:</span> <span id="child9question14"></span></div>
+<div class="detail"><span class="label">(9.15)  Period of work:</span> <span id="child9question15"></span></div>
+<div class="detail"><span class="label">(9.16)  Daily working hours on a non-school day:</span> <span id="child9question16"></span></div>
+<div class="detail"><span class="label">(9.17)  Period of work:</span> <span id="child9question17"></span></div>
+<div class="detail"><span class="label">(9.18)  Why is child 9 working?:</span> <span id="child9question18"></span></div>
+<div class="detail"><span class="label">(9.19)  For whom does child 9 work?:</span> <span id="child9question19"></span></div>
+<div class="detail"><span class="label">(10.1)  Name of Child 10:</span> <span id="child10question1"></span></div>
+<div class="detail"><span class="label">(10.2)  Age of Child 10:</span> <span id="child10question2"></span></div>
+<div class="detail"><span class="label">(10.3)  Gender of Child 10:</span> <span id="child10question3"></span></div>
+<div class="detail"><span class="label">(10.4)  Who does child 10 live with?:</span> <span id="child10question4"></span></div>
+<div class="detail"><span class="label">(10.5)  Can child 10 read or write in English?:</span> <span id="child10question5"></span></div>
+<div class="detail"><span class="label">(10.6)  Does child 10 go to school?:</span> <span id="child10question6"></span></div>
+<div class="detail"><span class="label">(10.7)  At what age did child 10 start school?:</span> <span id="child10question7"></span></div>
+<div class="detail"><span class="label">(10.8)  What is the name of child 10 school?:</span> <span id="child10question8"></span></div>
+<div class="detail"><span class="label">(10.9)  What is child 10 current educational level?:</span> <span id="child10question9"></span></div>
+<div class="detail"><span class="label">(10.10)  At what level/age did child 10 stop school?:</span> <span id="child10question10"></span></div>
+<div class="detail"><span class="label">(10.11)  What are the reasons for absence of schooling?:</span> <span id="child10question11"></span></div>
+<div class="detail"><span class="label">(10.12)  Did child 10 work in the previous year?:</span> <span id="child10question12"></span></div>
+<div class="detail"><span class="label">(10.13)  What are the types of work did child 10 performed on the farm?:</span> <span id="child10question13"></span></div>
+<div class="detail"><span class="label">(10.14)  Daily working hours on a school day:</span> <span id="child10question14"></span></div>
+<div class="detail"><span class="label">(10.16)  Daily working hours on a non-school day:</span> <span id="child10question16"></span></div>
+<div class="detail"><span class="label">(10.17)  Period of work:</span> <span id="child10question17"></span></div>
+<div class="detail"><span class="label">(10.18)  Why is child 10 working?:</span> <span id="child10question18"></span></div>
+<div class="detail"><span class="label">(10.19)  For whom does child 10 work?:</span> <span id="child10question19"></span></div>
+<div class="detail"><span class="label">(4) Please write any personal observation (e.g blind, deaf, dumb, no arms/legs):</span> <span id="childquestion5"></span></div>
+
+<div class="detail">
+    <span class="label">Geo-Location:</span> <span id="childLocation"></span>
+</div>
+<div class="detail">
+    <span class="label">Signature:</span> <br>
+    <img id="signature" src="" alt="Signature" style="width:100%; max-width:300px;"/>
+</div>
+<div class="detail">
+    <span class="label">Created On:</span> <span id="onCreate"></span>
+</div>
+
+<div class="detail">
+    <span class="label">First Name:</span> <span id="UserFname"></span>
+</div>
+
+<div class="detail">
+    <span class="label">Other Names:</span> <span id="UserOname"></span>
+</div>
+</body>
+</html>

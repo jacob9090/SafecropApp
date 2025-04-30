@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--    <external-files-path name="id_card" path="IdCard/" />-->
+<!--    <external-files-path name="farmer_photo" path="FarmerPhoto/" />-->
+<!--    <external-files-path name="farmer_tp" path="FarmerTP/" />-->
+
+    <files-path name="id_photos" path="IdCard/" />
+    <files-path name="farmer_photos" path="FarmerPhoto/" />
+    <files-path name="tp_photos" path="TpPhoto/" />
+    <files-path name="gmrsign_photos" path="GMRSignPhoto/" />
+
+    <files-path name="com_photos" path="ComPhoto/" />
+    <files-path name="comsign_photos" path="ComSignPhoto/" />
+    <external-files-path name="external_comphoto" path="Pictures/ComPhoto/" />
+
+    <files-path name="sch_photos" path="SchPhoto/" />
+    <files-path name="schsign_photos" path="SchSignPhoto/" />
+    <!-- Internal app-specific storage path -->
+<!--    <files-path name="internal_schphoto" path="SchPhoto/" />-->
+    <!-- External storage path in the Pictures directory -->
+    <external-files-path name="external_schphoto" path="Pictures/SchPhoto/" />
+
+
+    <files-path name="hh_photos" path="HhPhoto/" />
+    <files-path name="hhsign_photos" path="HhSignPhoto/" />
+    <external-files-path name="external_hhphoto" path="Pictures/HhPhoto/" />
+
+
+    <files-path name="obs_photos" path="ObsPhoto/" />
+    <files-path name="obssign_photos" path="ObsSignPhoto/" />
+    <external-files-path name="external_obsphoto" path="Pictures/ObsPhoto/" />
+
+
+    <files-path name="signature_path" path="Signature/" />
+    <external-files-path name="signature_path" path="Signature/" />
+
+
+    <files-path name="internal_files" path="child-signature/" />
+
+</paths>

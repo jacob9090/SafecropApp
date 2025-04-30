@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SyncSurveyInfoActivity">
+
+    <ProgressBar
+        android:id="@+id/syncSurveyInfoProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/syncSurveyInfoFilterLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Horizontal Layout for Start & End Date Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/syncSurveyInfoStartDateBtn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/start_date"
+                android:drawableEnd="@drawable/ic_calendar_white"
+                android:drawablePadding="5dp"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/syncSurveyInfoEndDateBtn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/end_date"
+                android:drawableEnd="@drawable/ic_calendar_white"
+                android:drawablePadding="5dp" />
+        </LinearLayout>
+
+        <!-- Filter Button Below -->
+        <Button
+            android:id="@+id/syncSurveyInfoFilterBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/filter"
+            android:drawableEnd="@drawable/ic_search_white"
+            android:drawablePadding="5dp"
+            android:layout_marginTop="5dp" />
+
+        <!-- Sync Count Below -->
+        <TextView
+            android:id="@+id/syncSurveyInfoCountTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/total_records_synced_0"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingTop="20dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/syncSurveyInfoChartFilterTV"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/filter_by"
+                android:layout_marginBottom="10dp"/>
+
+            <Spinner
+                android:id="@+id/syncSurveyInfoChartFilterSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"/>
+
+        </LinearLayout>
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/syncSurveyInfoBarChart"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
+</FrameLayout>

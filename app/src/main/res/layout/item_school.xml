@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="7dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="7dp"
+    app:cardElevation="5dp"
+    app:cardMaxElevation="3dp"
+    app:cardPreventCornerOverlap="true"
+    app:contentPadding="12dp">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/photoTextView"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/sign_pen"
+            app:civ_border_width="1dp"
+            app:civ_border_color="@color/brown"/>
+
+        <LinearLayout
+            android:layout_marginStart="10dp"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="17sp"
+                android:id="@+id/nameTextView"
+                android:text="@string/aa_aa_aa001"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/districtTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="@string/district"
+                    android:layout_marginTop="3dp"/>
+
+                <TextView
+                    android:id="@+id/communityTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="@string/community"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginStart="5dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/createdAtTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textSize="13sp"
+                android:text="@string/date_time" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/schMoreBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_more_black"
+            android:layout_alignParentEnd="true"
+            android:background="@null"
+            android:contentDescription="@string/child_survey"/>
+
+    </RelativeLayout>
+
+<!--    <TextView-->
+<!--        android:id="@+id/nameTextView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="School Name"-->
+<!--        android:textStyle="bold" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/districtTextView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="District" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/communityTextView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Community" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/locationTextView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Location" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/photoTextView"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:text="Photo" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/signatureTextView"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:text="Signature" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/createdAtTextView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Created At" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/updatedAtTextView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Updated At" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/gmrMoreBtn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/ic_more_black"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:background="@null"-->
+<!--        android:contentDescription="@string/child_survey"/>-->
+
+</androidx.cardview.widget.CardView>

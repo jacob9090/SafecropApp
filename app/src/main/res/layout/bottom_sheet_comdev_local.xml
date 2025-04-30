@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#5d5d5d">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#DEDEDE">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:gravity="center"
+            android:background="@drawable/brown_rounded_top_corners">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/local_backup_header"
+                android:layout_marginStart="5sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:gravity="center"/>
+
+            <ImageView
+                android:id="@+id/comDevLocalCloseBackupBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/close"
+                android:src="@drawable/close_white"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="20dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_profile_card"
+                android:paddingBottom="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/bsComDevHedTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/local_backup_sub_header"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/cdbsLocalBackupComTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/backup_com_survey"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    app:drawableLeftCompat="@drawable/sd_storage_brown"
+                    app:layout_constraintStart_toStartOf="@id/bsComDevHedTv"
+                    app:layout_constraintTop_toBottomOf="@id/bsComDevHedTv" />
+
+                <ImageView
+                    android:id="@+id/bsFarmerProfilingFowardIv"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="30dp"
+                    android:contentDescription="@string/forward_arrow_outline"
+                    android:src="@drawable/ic_next_page"
+                    app:layout_constraintBottom_toBottomOf="@id/cdbsLocalBackupComTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/cdbsLocalBackupComTv" />
+
+                <View
+                    android:id="@+id/ibsDivider1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cdbsLocalBackupComTv" />
+
+                <TextView
+                    android:id="@+id/cdbsCloudBackupSchoolTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/backup_sch_survey"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    app:drawableLeftCompat="@drawable/sd_storage_brown"
+                    app:layout_constraintStart_toStartOf="@id/ibsDivider1"
+                    app:layout_constraintTop_toBottomOf="@id/ibsDivider1" />
+
+                <ImageView
+                    android:id="@+id/iv_change_pin"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="30dp"
+                    android:contentDescription="@string/forward_arrow_outline"
+                    android:src="@drawable/ic_next_page"
+                    app:layout_constraintBottom_toBottomOf="@id/cdbsCloudBackupSchoolTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/cdbsCloudBackupSchoolTv" />
+
+                <View
+                    android:id="@+id/ibsDivider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cdbsCloudBackupSchoolTv" />
+
+                <TextView
+                    android:id="@+id/cdbsCloudBackupHouseholdTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/backup_hh_survey"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    app:drawableLeftCompat="@drawable/sd_storage_brown"
+                    app:layout_constraintStart_toStartOf="@id/ibsDivider2"
+                    app:layout_constraintTop_toBottomOf="@id/ibsDivider2" />
+
+                <ImageView
+                    android:id="@+id/iv_change_pin2"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="30dp"
+                    android:contentDescription="@string/forward_arrow_outline"
+                    android:src="@drawable/ic_next_page"
+                    app:layout_constraintBottom_toBottomOf="@id/cdbsCloudBackupHouseholdTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/cdbsCloudBackupHouseholdTv" />
+
+                <View
+                    android:id="@+id/ibsDivider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cdbsCloudBackupHouseholdTv" />
+
+                <TextView
+                    android:id="@+id/cdbsCloudBackupObservationTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/backup_ob_survey"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    app:drawableLeftCompat="@drawable/sd_storage_brown"
+                    app:layout_constraintStart_toStartOf="@id/ibsDivider3"
+                    app:layout_constraintTop_toBottomOf="@id/ibsDivider3" />
+
+                <ImageView
+                    android:id="@+id/iv_change_pin3"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="30dp"
+                    android:contentDescription="@string/forward_arrow_outline"
+                    android:src="@drawable/ic_next_page"
+                    app:layout_constraintBottom_toBottomOf="@id/cdbsCloudBackupObservationTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/cdbsCloudBackupObservationTv" />
+
+                <View
+                    android:id="@+id/ibsDivider4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cdbsCloudBackupObservationTv" />
+
+                <TextView
+                    android:id="@+id/cdbsCloudBackupChTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/backup_ch_survey"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    app:drawableLeftCompat="@drawable/sd_storage_brown"
+                    app:layout_constraintStart_toStartOf="@id/ibsDivider4"
+                    app:layout_constraintTop_toBottomOf="@id/ibsDivider4" />
+
+                <ImageView
+                    android:id="@+id/iv_change_pin4"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="30dp"
+                    android:contentDescription="@string/forward_arrow_outline"
+                    android:src="@drawable/ic_next_page"
+                    app:layout_constraintBottom_toBottomOf="@id/cdbsCloudBackupChTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/cdbsCloudBackupChTv" />
+
+                <View
+                    android:id="@+id/ibsDivider5"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cdbsCloudBackupChTv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:gravity="center"
+            android:background="@drawable/brown_rounded_top_corners">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/account_details"
+                android:layout_marginStart="5sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:gravity="center"/>
+
+            <ImageView
+                android:id="@+id/closeAccountBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/close_white"/>
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="24dp"
+            android:background="#E0E0E0">
+
+            <LinearLayout
+                android:id="@+id/textView21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="84dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="30"
+                        android:src="@drawable/user" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="70"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/userNameTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="fName"
+                                android:layout_marginEnd="5dp"
+                                android:textColor="#000000"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/userONameTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@+id/userNameTV"
+                                android:text="oName"
+                                android:textColor="#000000"
+                                android:textSize="20sp"
+                                android:textStyle="bold"/>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                app:layout_constraintTop_toBottomOf="@id/textView21"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="20dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_profile_card"
+                    android:paddingBottom="24dp">
+
+                    <TextView
+                        android:id="@+id/bsSusCertHedTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/user_dtails"
+                        android:textSize="11sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RelativeLayout
+                        android:id="@+id/ibsFarmerProfilingTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="@string/user_name"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:drawablePadding="10dp"
+                        android:maxLines="1"
+                        app:layout_constraintStart_toStartOf="@id/bsSusCertHedTv"
+                        app:layout_constraintTop_toBottomOf="@id/bsSusCertHedTv">
+
+                        <TextView
+                            android:id="@+id/userDistrictTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:text="@string/district"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:drawablePadding="10dp"
+                            android:maxLines="1"
+                            app:drawableLeftCompat="@drawable/location_brown"/>
+
+                    </RelativeLayout>
+
+                    <View
+                        android:id="@+id/ibsDivider1"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="24dp"
+                        android:background="@color/black"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ibsFarmerProfilingTv" />
+
+                    <TextView
+                        android:id="@+id/userPhoneTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="@string/_0000000000"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:drawablePadding="10dp"
+                        android:maxLines="1"
+                        app:drawableLeftCompat="@drawable/phone_brown"
+                        app:layout_constraintStart_toStartOf="@id/ibsDivider1"
+                        app:layout_constraintTop_toBottomOf="@id/ibsDivider1" />
+
+                    <View
+                        android:id="@+id/ibsDivider2"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="24dp"
+                        android:background="@color/black"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/userPhoneTV" />
+
+                    <TextView
+                        android:id="@+id/userEmailTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="@string/name_domain_com"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:drawablePadding="10dp"
+                        android:maxLines="1"
+                        app:drawableLeftCompat="@drawable/email_brown"
+                        app:layout_constraintStart_toStartOf="@id/ibsDivider2"
+                        app:layout_constraintTop_toBottomOf="@id/ibsDivider2" />
+
+                    <View
+                        android:id="@+id/ibsDivider3"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="24dp"
+                        android:background="@color/black"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/userEmailTV" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/logOutBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/round_end_btn_brown_background"
+                        style="@android:style/Widget.Button"
+                        android:text="Log Out"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="24dp"
+                        android:layout_marginBottom="24dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/userEmailTV"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".organic.OrgDashboard">
+
+<!--    <RelativeLayout-->
+
+<!--    android:background="@drawable/gradient_background"-->
+
+<!--        android:id="@+id/topArea"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingTop="20dp"-->
+<!--        android:paddingBottom="20dp"-->
+<!--        app:flow_verticalAlign="center"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/userProfileBtn"-->
+<!--            android:layout_width="25dp"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_marginStart="20dp"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:src="@drawable/ic_person_white" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/userFNameTv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_toEndOf="@+id/userProfileBtn"-->
+<!--            android:layout_marginStart="3dp"-->
+<!--            android:text="@string/name"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textSize="15sp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/userEmailTv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/email"-->
+<!--            android:textSize="11sp"-->
+<!--            android:layout_below="@id/userFNameTv"-->
+<!--            android:layout_alignStart="@id/userFNameTv"-->
+<!--            android:layout_toEndOf="@+id/userProfileBtn"-->
+<!--            android:textColor="@android:color/white" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/infoBtn"-->
+<!--            android:layout_width="25dp"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:layout_marginEnd="18dp"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:layout_toStartOf="@+id/settingseBtn"-->
+<!--            android:src="@drawable/ic_info" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/settingseBtn"-->
+<!--            android:layout_width="25dp"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:src="@drawable/settings_white" />-->
+
+<!--    </RelativeLayout>-->
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:background="@drawable/shape_home"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/topArea">-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/survey_details"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:layout_marginTop="12dp"-->
+<!--            android:layout_marginEnd="5dp"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.0"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.0">-->
+
+<!--        </LinearLayout>-->
+
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:layout_marginEnd="5dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.0"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.0"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/survey_details">-->
+
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/susCertTxt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="5dp"-->
+<!--                    android:gravity="center"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:text="@string/organic_survey"-->
+<!--                    android:textColor="#999999"-->
+<!--                    android:fontFamily="sans-serif-medium"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    app:layout_constraintBottom_toTopOf="@+id/orgProfileNewFarmerCV"/>-->
+
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:id="@+id/orgProfileNewFarmerCV"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="5dp"-->
+<!--                    app:cardCornerRadius="6dp"-->
+<!--                    app:cardElevation="2dp"-->
+<!--                    app:cardUseCompatPadding="true"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/susCertTxt"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal"-->
+<!--                        android:padding="15dp">-->
+
+<!--                        <RelativeLayout-->
+<!--                            android:layout_width="20dp"-->
+<!--                            android:layout_height="20dp"-->
+<!--                            android:layout_marginTop="1dp">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:layout_centerInParent="true"-->
+<!--                                android:src="@drawable/shape_default"-->
+<!--                                app:tint="#E6E6E6"/>-->
+<!--                            <ImageView-->
+<!--                                android:layout_width="15dp"-->
+<!--                                android:layout_height="15dp"-->
+<!--                                android:layout_centerInParent="true"-->
+<!--                                android:src="@drawable/ico_image_search"-->
+<!--                                app:tint="#999999" />-->
+<!--                        </RelativeLayout>-->
+
+<!--                        <View-->
+<!--                            android:layout_width="10dp"-->
+<!--                            android:layout_height="0dp"/>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="@string/farmer_profiling"-->
+<!--                                android:textAppearance="@style/TextAppearance.AppCompat.Body2"-->
+<!--                                android:textColor="@color/brown" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="@string/profile_new_farmer"-->
+<!--                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"-->
+<!--                                android:textColor="#999999"/>-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:gravity="end"-->
+<!--                            android:orientation="vertical">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="30dp"-->
+<!--                                android:layout_height="30dp"-->
+<!--                                app:tint="#999999"-->
+<!--                                android:src="@drawable/ic_next_page"/>-->
+<!--                        </LinearLayout>-->
+
+<!--                    </LinearLayout>-->
+<!--                </androidx.cardview.widget.CardView>-->
+
+<!--&lt;!&ndash;                <androidx.cardview.widget.CardView&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:id="@+id/schSurveyCV"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:cardCornerRadius="6dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:cardElevation="2dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:cardUseCompatPadding="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:layout_constraintTop_toBottomOf="@+id/orgProfileNewFarmerCV"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:layout_constraintEnd_toEndOf="parent">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:orientation="horizontal"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:padding="15dp">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_marginTop="1dp">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_centerInParent="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:src="@drawable/shape_default"&ndash;&gt;-->
+<!--&lt;!&ndash;                                app:tint="#E6E6E6"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_centerInParent="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:src="@drawable/ico_image_search"&ndash;&gt;-->
+<!--&lt;!&ndash;                                app:tint="#999999" />&ndash;&gt;-->
+<!--&lt;!&ndash;                        </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <View&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="0dp"/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_weight="1"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:orientation="vertical">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:text="@string/school_survey"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:textAppearance="@style/TextAppearance.AppCompat.Body2"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:textColor="@color/brown" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:text="@string/start_a_new_school_survey"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:textColor="#999999" />&ndash;&gt;-->
+<!--&lt;!&ndash;                        </LinearLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:gravity="end"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:orientation="vertical">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="30dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="30dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                app:tint="#999999"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:src="@drawable/ic_next_page"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </LinearLayout>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </LinearLayout>&ndash;&gt;-->
+<!--&lt;!&ndash;                </androidx.cardview.widget.CardView>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <androidx.cardview.widget.CardView&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:id="@+id/householdCV"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:cardCornerRadius="6dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:cardElevation="2dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:cardUseCompatPadding="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:layout_constraintTop_toBottomOf="@+id/schSurveyCV"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:layout_constraintEnd_toEndOf="parent">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:orientation="horizontal"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:padding="15dp">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_marginTop="1dp">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_centerInParent="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:src="@drawable/shape_default"&ndash;&gt;-->
+<!--&lt;!&ndash;                                app:tint="#E6E6E6"/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_centerInParent="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:src="@drawable/ico_image_search"&ndash;&gt;-->
+<!--&lt;!&ndash;                                app:tint="#999999" />&ndash;&gt;-->
+<!--&lt;!&ndash;                        </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <View&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="0dp"/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_weight="1"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:orientation="vertical">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:text="@string/household_survey"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:textAppearance="@style/TextAppearance.AppCompat.Body2"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:textColor="@color/brown" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:text="@string/start_a_new_household_survey"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:textColor="#999999" />&ndash;&gt;-->
+<!--&lt;!&ndash;                        </LinearLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:gravity="end"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:orientation="vertical">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="30dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="30dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                app:tint="#999999"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:src="@drawable/ic_next_page"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </LinearLayout>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </LinearLayout>&ndash;&gt;-->
+<!--&lt;!&ndash;                </androidx.cardview.widget.CardView>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;                <androidx.cardview.widget.CardView&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:id="@+id/obsHoldCV"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:cardCornerRadius="6dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:cardElevation="2dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:cardUseCompatPadding="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:layout_constraintTop_toBottomOf="@+id/householdCV"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:layout_constraintEnd_toEndOf="parent">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:orientation="horizontal"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:padding="15dp">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_marginTop="1dp">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_centerInParent="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:src="@drawable/shape_default"&ndash;&gt;-->
+<!--&lt;!&ndash;                                app:tint="#E6E6E6"/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_centerInParent="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:src="@drawable/ico_image_search"&ndash;&gt;-->
+<!--&lt;!&ndash;                                app:tint="#999999" />&ndash;&gt;-->
+<!--&lt;!&ndash;                        </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <View&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="0dp"/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_weight="1"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:orientation="vertical">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:text="@string/observation_survey"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:textAppearance="@style/TextAppearance.AppCompat.Body2"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:textColor="@color/brown" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:text="@string/start_a_new_household_survey"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:textColor="#999999" />&ndash;&gt;-->
+<!--&lt;!&ndash;                        </LinearLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:gravity="end"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:orientation="vertical">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="30dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="30dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                app:tint="#999999"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:src="@drawable/ic_next_page"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </LinearLayout>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </LinearLayout>&ndash;&gt;-->
+<!--&lt;!&ndash;                </androidx.cardview.widget.CardView>&ndash;&gt;-->
+
+
+
+
+
+
+<!--&lt;!&ndash;                <androidx.cardview.widget.CardView&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:id="@+id/childSurveyCV"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:cardCornerRadius="6dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:cardElevation="2dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:cardUseCompatPadding="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:layout_constraintTop_toBottomOf="@+id/obsHoldCV"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:layout_constraintEnd_toEndOf="parent">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:orientation="horizontal"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:padding="15dp">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_marginTop="1dp">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_centerInParent="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:src="@drawable/shape_default"&ndash;&gt;-->
+<!--&lt;!&ndash;                                app:tint="#E6E6E6"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_centerInParent="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:src="@drawable/ico_image_search"&ndash;&gt;-->
+<!--&lt;!&ndash;                                app:tint="#999999" />&ndash;&gt;-->
+<!--&lt;!&ndash;                        </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <View&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="0dp"/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_weight="1"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:orientation="vertical">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:text="@string/child_survey"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:textAppearance="@style/TextAppearance.AppCompat.Body2"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:textColor="@color/brown" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:text="@string/start_a_new_child_survey"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:textColor="#999999" />&ndash;&gt;-->
+<!--&lt;!&ndash;                        </LinearLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:gravity="end"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:orientation="vertical">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="30dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="30dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                app:tint="#999999"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:src="@drawable/ic_next_page"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </LinearLayout>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </LinearLayout>&ndash;&gt;-->
+<!--&lt;!&ndash;                </androidx.cardview.widget.CardView>&ndash;&gt;-->
+
+<!--                <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--                    android:id="@+id/comDevBackupFb"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="end"-->
+<!--                    android:layout_marginEnd="16dp"-->
+<!--                    android:layout_marginBottom="16dp"-->
+<!--                    android:contentDescription="@string/backup"-->
+<!--                    android:src="@drawable/save_white"-->
+<!--                    android:backgroundTint="@color/brown"-->
+<!--                    app:fabSize="normal"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent" />-->
+
+
+<!--                <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--                    android:id="@+id/cloudBackupFb"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginBottom="20dp"-->
+<!--                    android:contentDescription="@string/cloud_backup"-->
+<!--                    android:backgroundTint="@color/brown"-->
+<!--                    app:fabSize="normal"-->
+<!--                    app:layout_constraintBottom_toTopOf="@+id/comDevBackupFb"-->
+<!--                    app:layout_constraintEnd_toEndOf="@+id/comDevBackupFb"-->
+<!--                    app:layout_constraintStart_toStartOf="@+id/comDevBackupFb"-->
+<!--                    app:srcCompat="@drawable/outline_backup" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/cloudBackupTv"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginEnd="8dp"-->
+<!--                    android:text="@string/cloud_backup"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@+id/cloudBackupFb"-->
+<!--                    app:layout_constraintEnd_toStartOf="@+id/cloudBackupFb"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/cloudBackupFb" />-->
+
+<!--                <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--                    android:id="@+id/localBackupFb"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginBottom="20dp"-->
+<!--                    android:contentDescription="@string/local_backup"-->
+<!--                    android:backgroundTint="@color/brown"-->
+<!--                    app:fabSize="normal"-->
+<!--                    app:layout_constraintBottom_toTopOf="@+id/cloudBackupFb"-->
+<!--                    app:layout_constraintEnd_toEndOf="@+id/cloudBackupFb"-->
+<!--                    app:layout_constraintStart_toStartOf="@+id/cloudBackupFb"-->
+<!--                    app:srcCompat="@drawable/folder_white" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/localBackupTv"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginEnd="8dp"-->
+<!--                    android:text="@string/local_backup"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@+id/localBackupFb"-->
+<!--                    app:layout_constraintEnd_toStartOf="@+id/localBackupFb"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/localBackupFb" />-->
+
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

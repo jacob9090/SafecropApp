@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .detail {
+            margin-bottom: 15px;
+        }
+        .label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="detail"><span class="label">Select district:</span> <span id="commquestion1"></span></div>
+<div class="detail"><span class="label">Select community:</span> <span id="commquestion2"></span></div>
+<div class="detail"><span class="label">The total population of the community:</span> <span id="commquestion3"></span></div>
+<div class="detail"><span class="label">Percentage of women in the community who can read and write:</span> <span id="commquestion4"></span></div>
+<div class="detail"><span class="label">Are women in this community considered for or involved in leadership roles?:</span> <span id="commquestion5"></span></div>
+<div class="detail"><span class="label">Condition of the nearest road:</span> <span id="commquestion6"></span></div>
+<div class="detail"><span class="label">Presence of electricity:</span> <span id="commquestion7"></span></div>
+<div class="detail"><span class="label">Connectivity to mobile network:</span> <span id="commquestion8"></span></div>
+<div class="detail"><span class="label">Is drinking water available in the community?:</span> <span id="commquestion9"></span></div>
+<div class="detail"><span class="label">If yes, drinking water source?:</span> <span id="commquestion10"></span></div>
+<div class="detail"><span class="label">How many are functional?:</span> <span id="commquestion11"></span></div>
+<div class="detail"><span class="label">How many are not functional?:</span> <span id="commquestion12"></span></div>
+<div class="detail"><span class="label">Are toilets available?:</span> <span id="commquestion13"></span></div>
+<div class="detail"><span class="label">If yes, in what condition are they?:</span> <span id="commquestion14"></span></div>
+<div class="detail"><span class="label">Does the community have a market place?:</span> <span id="commquestion15"></span></div>
+<div class="detail"><span class="label">If yes, what is the condition of the market place?:</span> <span id="commquestion16"></span></div>
+<div class="detail"><span class="label">Availability of adult occasional workers (Hired/By-day worker):</span> <span id="commquestion17"></span></div>
+<div class="detail"><span class="label">How many public primary schools exist in the community?:</span> <span id="commquestion18"></span></div>
+<div class="detail"><span class="label">What is the approximate distance between the community and the nearest primary school? (km):</span> <span id="commquestion19"></span></div>
+<div class="detail"><span class="label">How many public Junior High Schools (JHS) exist in the community?:</span> <span id="commquestion20"></span></div>
+<div class="detail"><span class="label">Approximate distance between the community and the nearest Junior High School (JHS)? (km):</span> <span id="commquestion21"></span></div>
+<div class="detail"><span class="label">Approximate distance between the community and the nearest Senior High School (SHS)? (km):</span> <span id="commquestion22"></span></div>
+<div class="detail"><span class="label">Do you know of families in this community whose children are regularly absent from school?:</span> <span id="commquestion23"></span></div>
+<div class="detail"><span class="label">Do you know of families in this community whose children combine school and work?:</span> <span id="commquestion24"></span></div>
+<div class="detail"><span class="label">Are there children in this community who are particularly vulnerable because of their circumstances at home?:</span> <span id="commquestion25"></span></div>
+<div class="detail"><span class="label">Is the community capable of supporting children identified in child labor?:</span> <span id="commquestion26"></span></div>
+<div class="detail"><span class="label">Please specify what the community does to help these children avoid child labor?:</span> <span id="commquestion27"></span></div>
+<div class="detail"><span class="label">Do organisations fighting against the Worst Forms of Child Labor exist in this community?:</span> <span id="commquestion28"></span></div>
+<div class="detail"><span class="label">If so, what kinds of organisations?:</span> <span id="commquestion29"></span></div>
+<div class="detail"><span class="label">What are the names of the organisations?:</span> <span id="commquestion30"></span></div>
+<div class="detail"><span class="label">What activities do they carry out?:</span> <span id="commquestion31"></span></div>
+<div class="detail"><span class="label">Do you hear of any poor working conditions, poor treatment, or wage-related problems in farms belonging to this community?:</span> <span id="commquestion32"></span></div>
+<div class="detail"><span class="label">Are there facilities in this community that would allow workers to complain about on-farm working conditions safely?:</span> <span id="commquestion33"></span></div>
+<div class="detail"><span class="label">If yes: Please detail what these facilities are:</span> <span id="commquestion34"></span></div>
+<div class="detail"><span class="label">Does the farmer group associated in this community have a grievance committee?:</span> <span id="commquestion35"></span></div>
+<div class="detail"><span class="label">Have you heard of farmers in this community referring to this grievance committee for help?:</span> <span id="commquestion36"></span></div>
+<div class="detail"><span class="label">What other organisations/associations are present in the community?:</span> <span id="commquestion37"></span></div>
+<div class="detail"><span class="label">Do you know of any situation of sexual violence within a farm related to this community?:</span> <span id="commquestion38"></span></div>
+<div class="detail"><span class="label">If yes: Please how are these situations dealt with::</span> <span id="commquestion39"></span></div>
+<div class="detail"><span class="label">Do you know if workers are able to complain or report about any mistreatment regarding sexual violence in a safe and effective way?:</span> <span id="commquestion40"></span></div>
+<div class="detail"><span class="label">If yes: Please to whom is these complaints made::</span> <span id="commquestion41"></span></div>
+<div class="detail"><span class="label">Is there a Savings and Loans Association (VSLA):</span> <span id="commquestion42"></span></div>
+<div class="detail"><span class="label">Year of Creation of Savings and Loans Association (VSLA):</span> <span id="commquestion43"></span></div>
+<div class="detail"><span class="label">Number of beneficiaries of Savings and Loans Association (VSLA):</span> <span id="commquestion44"></span></div>
+<div class="detail"><span class="label">Number of women in the VSLA (who work in VSLA or who are beneficiaries:</span> <span id="commquestion45"></span></div>
+<div class="detail"><span class="label">Number of men in VSLA (that work in VSLA or that are beneficiaries:</span> <span id="commquestion46"></span></div>
+<div class="detail"><span class="label">Are there Income generating activities conducted by community members?:</span> <span id="commquestion47"></span></div>
+<div class="detail"><span class="label">Type of Income-Generating Activities:</span> <span id="commquestion48"></span></div>
+<div class="detail"><span class="label">Number of Active Income-Generating Activities:</span> <span id="commquestion49"></span></div>
+<div class="detail"><span class="label">Year of creation Latest Income Generating Activities:</span> <span id="commquestion50"></span></div>
+<div class="detail"><span class="label">Number of beneficiaries in Income Generating Activities:</span> <span id="commquestion51"></span></div>
+<div class="detail"><span class="label">Number of women participants in Income Generating Activities:</span> <span id="commquestion52"></span></div>
+<div class="detail"><span class="label">The donors/implementers of the Income Generating Activities:</span> <span id="commquestion53"></span></div>
+<div class="detail"><span class="label">Type of social development activities in the community:</span> <span id="commquestion54"></span></div>
+<div class="detail"><span class="label">Does the community have an active program of restoration and protection of the forests?:</span> <span id="commquestion56"></span></div>
+<div class="detail"><span class="label">Does a community action plan exist?:</span> <span id="commquestion57"></span></div>
+<div class="detail"><span class="label">Are the projects in the community action plan co-financed by the community, farmer groups, local authorities?:</span> <span id="commquestion58"></span></div>
+<div class="detail"><span class="label">Has the community received training on advocacy? (Community's rights and needs to the level of government):</span> <span id="commquestion59"></span></div>
+<div class="detail"><span class="label">How many schools have been built in the last 3 years?:</span> <span id="commquestion60"></span></div>
+<div class="detail"><span class="label">Are there days in the week when pupils are not served with food when they go to school (if the school is on the school feeding programme)?:</span> <span id="commquestion61"></span></div>
+<div class="detail"><span class="label">Does a village resource center or an IT center exist?:</span> <span id="commquestion62"></span></div>
+<div class="detail"><span class="label">Are school children supported with school kits, uniforms, school manuals etc in the last 3 years?:</span> <span id="commquestion63"></span></div>
+<div class="detail"><span class="label">Are young people engaged in vocational/professional training after school?:</span> <span id="commquestion64"></span></div>
+<div class="detail"><span class="label">How many young people are supported through apprenticeships?:</span> <span id="commquestion65"></span></div>
+<div class="detail"><span class="label">Does the community have a recreational center for children?:</span> <span id="commquestion66"></span></div>
+<div class="detail"><span class="label">Do community members use mobile banking services?:</span> <span id="commquestion67"></span></div>
+<div class="detail"><span class="label">Geo-Location:</span> <span id="com_location"></span></div>
+<div class="detail"><span class="Photo">Signature:</span> <br><img id="farmer_photo" src="" alt="Photo" style="width:100%; max-width:300px;"/></div>
+<div class="detail"><span class="label">Signature:</span> <br><img id="signature" src="" alt="Signature" style="width:100%; max-width:300px;"/></div>
+<div class="detail"><span class="label">Created On:</span> <span id="on_create"></span></div>
+<div class="detail"><span class="label">Created On:</span> <span id="on_update"></span></div>
+<div class="detail"><span class="label">First Name:</span> <span id="user_fname"></span></div>
+<div class="detail"><span class="label">Other Names:</span> <span id="user_oname"></span></div>
+<div class="detail"><span class="label">Email:</span> <span id="user_email"></span></div>
+</body>
+</html>
