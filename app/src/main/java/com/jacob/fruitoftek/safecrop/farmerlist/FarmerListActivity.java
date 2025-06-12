@@ -142,7 +142,7 @@ public class FarmerListActivity extends AppCompatActivity {
         loadingIndicator.setVisibility(View.VISIBLE);
 
         new OkHttpClient().newCall(new Request.Builder()
-                .url("https://fruitoftek.com/fedco/registry/sunyani_registry.php")
+                .url("https://app.safecropgh.org/registry/safecrop_registry.php")
                 .build()).enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
@@ -171,7 +171,6 @@ public class FarmerListActivity extends AppCompatActivity {
                         FarmerListModal farmer = new FarmerListModal(
                                 obj.getString("farm_id"),
                                 obj.getString("name"),
-                                obj.getString("surname"),
                                 obj.getString("phone_number"),
                                 obj.getString("district"),
                                 obj.getString("village_city"),

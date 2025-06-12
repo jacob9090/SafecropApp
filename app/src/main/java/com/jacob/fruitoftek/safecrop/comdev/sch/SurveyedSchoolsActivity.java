@@ -168,7 +168,7 @@ public class SurveyedSchoolsActivity extends AppCompatActivity {
                         : null;
                 String signature = cursor.getString(cursor.getColumnIndexOrThrow("signature"));
                 String user_fname = cursor.getString(cursor.getColumnIndexOrThrow("user_fname"));
-                String user_oname = cursor.getString(cursor.getColumnIndexOrThrow("user_oname"));
+                String user_lname = cursor.getString(cursor.getColumnIndexOrThrow("user_lname"));
                 String user_email = cursor.getString(cursor.getColumnIndexOrThrow("user_email"));
                 String onCreate = cursor.getString(cursor.getColumnIndexOrThrow("on_create"));
                 String onUpdate = cursor.getString(cursor.getColumnIndexOrThrow("on_update"));
@@ -179,7 +179,7 @@ public class SurveyedSchoolsActivity extends AppCompatActivity {
                         schquestion18, schquestion19, schquestion20, schquestion21, schquestion22, schquestion23, schquestion24,
                         schquestion25, schquestion26, schquestion27, schquestion28, schquestion29, schquestion30, schquestion31,
                         schquestion32, schquestion33, schquestion34, school_location, farmer_photo, signature, user_fname, user_email,
-                        user_oname, onCreate, onUpdate));
+                        user_lname, onCreate, onUpdate));
             } while (cursor.moveToNext());
             cursor.close();
         }

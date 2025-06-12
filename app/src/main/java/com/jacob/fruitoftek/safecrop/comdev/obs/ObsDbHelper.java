@@ -47,7 +47,7 @@ public class ObsDbHelper extends SQLiteOpenHelper {
     private static final String COLUMN_FARMER_PHOTO = "farmer_photo";
     private static final String COLUMN_SIGNATURE = "signature";
     private static final String COLUMN_USER_FNAME = "user_fname";
-    private static final String COLUMN_USER_ONAME = "user_oname";
+    private static final String COLUMN_USER_LNAME = "user_lname";
     private static final String COLUMN_USER_EMAIL = "user_email";
     private static final String COLUMN_ON_CREATE = "on_create";
     private static final String COLUMN_ON_UPDATE = "on_update";
@@ -86,7 +86,7 @@ public class ObsDbHelper extends SQLiteOpenHelper {
                 + COLUMN_FARMER_PHOTO + " TEXT,"
                 + COLUMN_SIGNATURE + " TEXT,"
                 + COLUMN_USER_FNAME + " TEXT,"
-                + COLUMN_USER_ONAME + " TEXT,"
+                + COLUMN_USER_LNAME + " TEXT,"
                 + COLUMN_USER_EMAIL + " TEXT,"
                 + COLUMN_ON_CREATE + " TEXT,"
                 + COLUMN_ON_UPDATE + " TEXT"
@@ -114,7 +114,7 @@ public class ObsDbHelper extends SQLiteOpenHelper {
                              String obsquestion14, String obsquestion15, String obsquestion16, String obsquestion17,
                              String obsquestion18, String obsquestion19, String obsquestion20, String obsquestion21,
                              String obs_location, String farmer_photo, String signatureBase64,
-                                String userFname, String userOname, String user_email, String onCreate, String onUpdate) {
+                                String userFname, String userLname, String user_email, String onCreate, String onUpdate) {
         String signaturePath = null;
         try {
             signaturePath = saveSignatureImage(signatureBase64);
@@ -147,7 +147,7 @@ public class ObsDbHelper extends SQLiteOpenHelper {
         values.put(COLUMN_FARMER_PHOTO, farmer_photo);
         values.put(COLUMN_SIGNATURE, signaturePath);
         values.put(COLUMN_USER_FNAME, userFname);
-        values.put(COLUMN_USER_ONAME, userOname);
+        values.put(COLUMN_USER_LNAME, userLname);
         values.put(COLUMN_USER_EMAIL, user_email);
         values.put(COLUMN_ON_CREATE, onCreate);
         values.put(COLUMN_ON_UPDATE, onUpdate);
@@ -267,7 +267,7 @@ public class ObsDbHelper extends SQLiteOpenHelper {
                 String farmer_photo = cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo"));
                 String signature = cursor.getString(cursor.getColumnIndexOrThrow("signature"));
                 String userFname = cursor.getString(cursor.getColumnIndexOrThrow("user_fname"));
-                String userOname = cursor.getString(cursor.getColumnIndexOrThrow("user_oname"));
+                String userLname = cursor.getString(cursor.getColumnIndexOrThrow("user_lname"));
                 String user_email = cursor.getString(cursor.getColumnIndexOrThrow("user_email"));
                 String onCreate = cursor.getString(cursor.getColumnIndexOrThrow("on_create"));
                 String onUpdate = cursor.getString(cursor.getColumnIndexOrThrow("on_update"));
@@ -278,7 +278,7 @@ public class ObsDbHelper extends SQLiteOpenHelper {
                         obsquestion12, obsquestion13, obsquestion14, obsquestion15, obsquestion16, obsquestion17,
                         obsquestion18, obsquestion19, obsquestion20, obsquestion21, obs_location,
                         farmer_photo != null ? Uri.parse(farmer_photo) : null,
-                        signature, userFname, userOname, user_email, onCreate, onUpdate
+                        signature, userFname, userLname, user_email, onCreate, onUpdate
                 );
 
                 surveyList.add(model);
@@ -329,7 +329,7 @@ public class ObsDbHelper extends SQLiteOpenHelper {
                     : null;
             String signature = cursor.getString(cursor.getColumnIndexOrThrow("signature"));
             String userFname = cursor.getString(cursor.getColumnIndexOrThrow("user_fname"));
-            String userOname = cursor.getString(cursor.getColumnIndexOrThrow("user_oname"));
+            String userLname = cursor.getString(cursor.getColumnIndexOrThrow("user_lname"));
             String userEmail = cursor.getString(cursor.getColumnIndexOrThrow("user_email"));
             String on_create = cursor.getString(cursor.getColumnIndexOrThrow("on_create"));
             String on_update = cursor.getString(cursor.getColumnIndexOrThrow("on_update"));
@@ -338,7 +338,7 @@ public class ObsDbHelper extends SQLiteOpenHelper {
                     obsquestion6, obsquestion7, obsquestion8, obsquestion9, obsquestion10, obsquestion11,
                     obsquestion12, obsquestion13, obsquestion14, obsquestion15, obsquestion16, obsquestion17,
                     obsquestion18, obsquestion19, obsquestion20, obsquestion21, obs_location,
-                    farmer_photo, signature, userFname, userOname, userEmail, on_create, on_update);
+                    farmer_photo, signature, userFname, userLname, userEmail, on_create, on_update);
             cursor.close();
         }
         return obsModel;

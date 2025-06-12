@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.jacob.fruitoftek.fedco",
+  "applicationId": "com.jacob.fruitoftek.safecrop",
   "variantName": "release",
   "elements": [
     {
@@ -33,5 +33,5 @@
       ]
     }
   ],
-  "minSdkVersionForDexing": 31
+  "minSdkVersionForDexing": 30
 }

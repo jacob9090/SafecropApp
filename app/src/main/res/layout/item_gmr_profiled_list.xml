@@ -116,10 +116,10 @@
 <!--        android:paddingBottom="4dp" />-->
 
 <!--    <TextView-->
-<!--        android:id="@+id/tvUserOname"-->
+<!--        android:id="@+id/tvUserLname"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:text="OName"-->
+<!--        android:text="LName"-->
 <!--        android:paddingBottom="4dp" />-->
 
 <!--    <TextView-->

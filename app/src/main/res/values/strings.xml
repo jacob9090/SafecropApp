@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Safecrop App</string>
-    <string name="version">Version: 2025.04.25</string>
+    <string name="app_name">Safecrop Insight</string>
+    <string name="version">Version: 2025.05.25</string>
 
     <string name="search_by_farmer_code">Search by farmer code</string>
     <string name="no_farmer_available">No farmer available</string>
@@ -164,40 +164,35 @@
     <string name="enter_year">Enter year</string>
     <string name="todo">TODO</string>
     <string name="fname">fName</string>
-    <string name="oname">oName</string>
+    <string name="lname">lName</string>
 
     <string name="name">Name</string>
 
     <string name="aa_aa_aa001">AA-AA-AA001</string>
     <string name="farmer_fname">fName</string>
-    <string name="farmer_oname">oName</string>
+    <string name="farmer_lname">lName</string>
     <string name="farmer_district">District</string>
     <string name="search_farmer">Search Farmer</string>
     <string name="farmer_not_found">farmer not found</string>
     <string name="dash">-</string>
-    <string name="select_role">Select role</string>
     <string name="farmer_list_title">Farmer List</string>
     <string name="farmer_profiling">Farmer Profiling</string>
     <string name="inspection_part3">Inspection (Part 2)</string>
     <string name="report_bug">Report Bug</string>
 
     <string name="login">Login</string>
-    <string name="have_an_account_sign_in">Have an account? Sign in</string>
-    <string name="sign_up">SIGN UP</string>
-    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign up</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="forgot_password">Forgot Password?</string>
-    <string name="reset_password">RESET PASSWORD</string>
-    <string name="logo">logo</string>
     <string name="sustainability_certification_surveys">Sustainability/Certification Surveys</string>
+    <string name="sustainability_certification_menu">Sustainability/Certification Menu</string>
     <string name="profiling_inspection_training">Profiling, Inspection, Training</string>
-    <string name="community_development_surveys">Community Development Surveys</string>
+    <string name="clmrs_menu">CLMRS Menu</string>
+    <string name="community_development_surveys">Com. Dev. Surveys</string>
     <string name="community_school_household_child">Community, School, Household, Child</string>
     <string name="org_pro">Organic Projects</string>
     <string name="org_pro_report">Organic project report</string>
     <string name="train">Training and Sensitisation Tracker</string>
-    <string name="train_details">Start a new training</string>
     <string name="start_a_new_community_survey">Start a new community survey</string>
     <string name="child_survey">Child Survey</string>
     <string name="start_a_new_household_survey">Start a new household survey</string>
@@ -230,6 +225,7 @@
 
     //School
     <string name="sch_survey">School Survey</string>
+    <string name="producer_entry">Producer Entry</string>
 
 
     //Children
@@ -253,6 +249,7 @@
     <string name="surveyed_household">Surveyed Household</string>
 
     <string name="surveyed_schools">Surveyed Schools</string>
+    <string name="farmers_entered">Farmers Entered</string>
 
     <string name="farmer_details">Farmer Details</string>
     <string name="surveyed_school">Surveyed Schools</string>
@@ -284,6 +281,10 @@
     <string name="ok">OK</string>
     <string name="no_record_found">No Record Found</string>
 
+    <string name="training_attendance">Training Attendance</string>
+    <string name="added_face">Added Face</string>
+    <string name="add_face">Add Face</string>
+    <string name="recognise_face">Recognise Face</string>
     <string name="sync_info">Sync Survey</string>
     <string name="start_date">Start Date</string>
     <string name="end_date">End Date</string>
@@ -295,11 +296,24 @@
     <string name="openstreetmap_contributors_data_available_under_the_open_database_license_odbl">© OpenStreetMap contributors. Data available under the Open Database License (ODbL).</string>
     <string name="_0_000_0_000">0.000, 0.000</string>
     <string name="close">Close</string>
-    <string name="image">image</string>
     <string name="training_description">Training description</string>
     <string name="training_topic">Training topic</string>
     <string name="training_topics">Training Topics</string>
     <string name="hrdd_norad">HRDD - NORAD</string>
-    <string name="hrdd_survey">HRDD survey</string>
+    <string name="dashboard_menu">Dashboard Menu</string>
+    <string name="community_risk_assessment">Community risk assessment</string>
+    <string name="community_assessment">Community Assessment</string>
+    <string name="child_forced_labour_assessment">Child / forced labour assessment</string>
+    <string name="start_new_assessment">Start new assessment</string>
+    <string name="gender_risk_assessment">Gender risk assessment</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="save_attendance">Save Attendance</string>
+    <string name="training_tracker">Training Tracker</string>
+    <string name="community_assessment_infobs">Community Assessment</string>
+    <string name="child_forced_labour_assmt">Child/Forced Labour Assmt.</string>
+    <string name="gender_assessment">Gender Assessment</string>
+    <string name="producer_entry_">Producer Entry</string>
+    <string name="start_new_entry">Start new entry</string>
 
 </resources>

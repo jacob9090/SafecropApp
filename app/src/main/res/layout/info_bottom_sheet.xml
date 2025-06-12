@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
@@ -177,6 +177,43 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/ibsFarmerTrainingTv" />
 
+                <TextView
+                    android:id="@+id/ibsPETv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/producer_entry"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    app:drawableLeftCompat="@drawable/person_add_brown"
+                    app:layout_constraintStart_toStartOf="@id/ibsDivider3"
+                    app:layout_constraintTop_toBottomOf="@id/ibsDivider3" />
+
+                <ImageView
+                    android:id="@+id/ibsPEIV"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="30dp"
+                    android:contentDescription="@string/info_icon_outline"
+                    android:src="@drawable/ic_info"
+                    app:tint="@color/black_two"
+                    app:layout_constraintBottom_toBottomOf="@id/ibsPETv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ibsPETv" />
+
+                <View
+                    android:id="@+id/ibsDivider3_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibsFarmerTrainingTv" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -310,7 +347,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/ibsHouseholdSurveyTv" />
-                
+
                 <TextView
                     android:id="@+id/ibsObservationSurveyTv"
                     android:layout_width="wrap_content"
@@ -387,11 +424,203 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/ibsChildSurveyTv" />
-                
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/background_profile_card"
+                android:paddingBottom="24dp">
+
+                <TextView
+                    android:id="@+id/textView27"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/train"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/ibsTSTTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/training_tracker"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    android:maxLines="1"
+                    app:drawableLeftCompat="@drawable/library_books_brown"
+                    app:layout_constraintStart_toStartOf="@id/textView27"
+                    app:layout_constraintTop_toBottomOf="@id/textView27" />
+
+                <ImageView
+                    android:id="@+id/ibsTSTIV"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="30dp"
+                    android:contentDescription="@string/info_icon_outline"
+                    android:src="@drawable/ic_info"
+                    app:tint="@color/black_two"
+                    app:layout_constraintBottom_toBottomOf="@id/ibsTSTTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ibsTSTTv" />
+
+                <View
+                    android:id="@+id/ibsDivider9"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibsTSTTv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/background_profile_card"
+                android:paddingBottom="24dp">
+
+                <TextView
+                    android:id="@+id/textView28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/hrdd_norad"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/ibsCRATv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/community_assessment_infobs"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    android:maxLines="1"
+                    app:drawableLeftCompat="@drawable/groups_brown"
+                    app:layout_constraintStart_toStartOf="@id/textView28"
+                    app:layout_constraintTop_toBottomOf="@id/textView28" />
+
+                <ImageView
+                    android:id="@+id/ibsCRAIV"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="30dp"
+                    android:contentDescription="@string/info_icon_outline"
+                    android:src="@drawable/ic_info"
+                    app:tint="@color/black_two"
+                    app:layout_constraintBottom_toBottomOf="@id/ibsCRATv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ibsCRATv" />
+
+                <View
+                    android:id="@+id/ibsDivider10"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibsCRATv" />
+
+                <TextView
+                    android:id="@+id/ibsCFLRATv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/child_forced_labour_assmt"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    android:maxLines="1"
+                    app:drawableLeftCompat="@drawable/assessment_brown"
+                    app:layout_constraintStart_toStartOf="@id/ibsDivider10"
+                    app:layout_constraintTop_toBottomOf="@id/ibsDivider10" />
+
+                <ImageView
+                    android:id="@+id/ibsCFLRAIV"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="30dp"
+                    android:contentDescription="@string/info_icon_outline"
+                    android:src="@drawable/ic_info"
+                    app:tint="@color/black_two"
+                    app:layout_constraintBottom_toBottomOf="@id/ibsCFLRATv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ibsCFLRATv" />
+
+                <View
+                    android:id="@+id/ibsDivider11"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibsCFLRATv" />
+
+                <TextView
+                    android:id="@+id/ibsGRATv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/gender_assessment"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:drawablePadding="10dp"
+                    android:maxLines="1"
+                    app:drawableLeftCompat="@drawable/people_brown"
+                    app:layout_constraintStart_toStartOf="@id/ibsDivider11"
+                    app:layout_constraintTop_toBottomOf="@id/ibsDivider11" />
+
+                <ImageView
+                    android:id="@+id/ibsGRAIV"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="30dp"
+                    android:contentDescription="@string/info_icon_outline"
+                    android:src="@drawable/ic_info"
+                    app:tint="@color/black_two"
+                    app:layout_constraintBottom_toBottomOf="@id/ibsGRATv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ibsGRATv" />
+
+                <View
+                    android:id="@+id/ibsDivider12"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibsGRATv" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
 
     </LinearLayout>
 
-</FrameLayout>
+</androidx.core.widget.NestedScrollView>

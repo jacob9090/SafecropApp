@@ -93,7 +93,6 @@ public class FarmerListAdapter extends RecyclerView.Adapter<FarmerListAdapter.Fa
 
         private final TextView fid;
         private final TextView name;
-        private final TextView surname;
         private final TextView district;
         private final TextView village;
         private final ImageView photo;
@@ -102,7 +101,6 @@ public class FarmerListAdapter extends RecyclerView.Adapter<FarmerListAdapter.Fa
             super(itemView);
             fid = itemView.findViewById(R.id.fidTv);
             name = itemView.findViewById(R.id.nameTv);
-            surname = itemView.findViewById(R.id.surnameTv);
             district = itemView.findViewById(R.id.districtTv);
             village = itemView.findViewById(R.id.villageTv);
             photo = itemView.findViewById(R.id.imgPhoto);
@@ -111,7 +109,6 @@ public class FarmerListAdapter extends RecyclerView.Adapter<FarmerListAdapter.Fa
         public void bind(final FarmerListModal farmer, final OnItemClickListener listener) {
             fid.setText(farmer.getFid());
             name.setText(farmer.getName());
-            surname.setText(farmer.getSurname());
             district.setText(farmer.getDistrict());
             village.setText(farmer.getVillage());
 

@@ -64,7 +64,7 @@ public class ChildWebSurveyActivity extends AppCompatActivity {
         injectDependencies();
 
         TextView tvUserName = findViewById(R.id.chUserFNameTV);
-        TextView tvUserName2 = findViewById(R.id.chUserONameTV);
+        TextView tvUserName2 = findViewById(R.id.chUserLNameTV);
         TextView tvUserEmail = findViewById(R.id.chUserEmailTV);
 
         // Set TextViews using PreferenceHelper
@@ -176,7 +176,7 @@ public class ChildWebSurveyActivity extends AppCompatActivity {
 
             Log.d("insertSurveyData", "ID: " + farmerId + ", Dis: " + farmerDistrict + ", Vil: " + farmerVillage + ", Loc: " + child_location + ", Signature: " + signature);
             String userFname = preferenceHelper.getFirstName();
-            String userOname = preferenceHelper.getLastName();
+            String userLname = preferenceHelper.getLastName();
             String userEmail = preferenceHelper.getEmail();
             String onCreate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
             String onUpdate = onCreate;
@@ -213,7 +213,7 @@ public class ChildWebSurveyActivity extends AppCompatActivity {
                     child10question3, child10question4, child10question5, child10question6, child10question7, child10question8,
                     child10question9, child10question10, child10question11, child10question12, child10question13, child10question14,
                     child10question15, child10question16, child10question17, child10question18, child10question19, childquestion5,
-                    child_location, signature, userFname, userOname, userEmail, onCreate, onUpdate);
+                    child_location, signature, userFname, userLname, userEmail, onCreate, onUpdate);
         }
 
         @JavascriptInterface

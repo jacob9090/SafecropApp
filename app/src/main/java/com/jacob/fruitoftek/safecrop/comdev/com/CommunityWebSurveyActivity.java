@@ -149,7 +149,7 @@ public class CommunityWebSurveyActivity extends AppCompatActivity {
             commquestion57 = commquestion57 == null || commquestion57.equals("undefined") ? "" : commquestion57;
 
             String userFname = preferenceHelper.getFirstName();
-            String userOname = preferenceHelper.getLastName();
+            String userLname = preferenceHelper.getLastName();
             String userEmail = preferenceHelper.getEmail();
             String onCreate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
             String onUpdate = onCreate;
@@ -168,7 +168,7 @@ public class CommunityWebSurveyActivity extends AppCompatActivity {
                     commquestion49, commquestion50, commquestion51, commquestion52, commquestion53, commquestion54,
                     commquestion56, commquestion57, commquestion58, commquestion59, commquestion60, commquestion61,
                     commquestion62, commquestion63, commquestion64, commquestion65, commquestion66, commquestion67,
-                    com_location, farmer_photo, signature, userFname, userOname, userEmail, onCreate, onUpdate);
+                    com_location, farmer_photo, signature, userFname, userLname, userEmail, onCreate, onUpdate);
 
             Log.d("CommunityWebSurveyActivity", "InsertSurveyData called with:");
             Log.d("CommunityWebSurveyActivity", "commquestion1: " + commquestion1);

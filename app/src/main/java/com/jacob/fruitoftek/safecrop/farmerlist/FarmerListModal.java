@@ -6,16 +6,14 @@ public class FarmerListModal implements Serializable {
 
     private String fid;
     private String name;
-    private String surname;
     private String phone;
     private String district;
     private String village;
     private String photo;
 
-    public FarmerListModal(String fid, String name, String surname, String phone, String district, String village, String photo) {
+    public FarmerListModal(String fid, String name, String phone, String district, String village, String photo) {
         this.fid = fid;
         this.name = name;
-        this.surname = surname;
         this.phone = phone;
         this.district = district;
         this.village = village;
@@ -36,14 +34,6 @@ public class FarmerListModal implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
     }
 
     public String getPhone() {

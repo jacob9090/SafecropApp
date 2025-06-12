@@ -12,3 +12,4 @@ public class AndyUtils {
         return activeNetwork != null && activeNetwork.isConnected();
     }
 }
+

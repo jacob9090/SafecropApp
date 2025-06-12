@@ -21,9 +21,11 @@ import com.jacob.fruitoftek.safecrop.R;
 import com.jacob.fruitoftek.safecrop.SettingsBottomSheet;
 import com.jacob.fruitoftek.safecrop.login.AccountBottomSheet;
 import com.jacob.fruitoftek.safecrop.login.utils.PreferenceHelper;
-import com.jacob.fruitoftek.safecrop.sustain.gmrs.GMRDbHelper;
-import com.jacob.fruitoftek.safecrop.sustain.gmrs.GMRProfiledFarmersListActivity;
-import com.jacob.fruitoftek.safecrop.sustain.gmrs.GMRProfilingWebActivity;
+import com.jacob.fruitoftek.safecrop.sustain.pentry.PEActivity;
+import com.jacob.fruitoftek.safecrop.sustain.profiling.GMRDbHelper;
+import com.jacob.fruitoftek.safecrop.sustain.profiling.GMRProfiledFarmersListActivity;
+import com.jacob.fruitoftek.safecrop.sustain.profiling.GMRProfilingWebActivity;
+import com.jacob.fruitoftek.safecrop.sustain.training.TrainingAttendance;
 
 import javax.inject.Inject;
 
@@ -91,6 +93,8 @@ public class SusCertDashboard extends AppCompatActivity {
 
         CardView profilingCv = findViewById(R.id.profilingCv);
         CardView inspectionCv = findViewById(R.id.inspectionCv);
+        CardView trainingCV = findViewById(R.id.trainingCV);
+        CardView proEnteryCv = findViewById(R.id.proEnteryCv);
         TextView cloudBackupTv = findViewById(R.id.cloudBackupTv);
         TextView localBackupTv = findViewById(R.id.localBackupTv);
         FloatingActionButton susBackupFb = findViewById(R.id.susBackupFb);
@@ -104,8 +108,10 @@ public class SusCertDashboard extends AppCompatActivity {
 
         isAllFabsVisible = false;
 
-        profilingCv.setOnClickListener(view -> startActivity(new Intent(SusCertDashboard.this, GMRProfilingWebActivity.class)));
-        inspectionCv.setOnClickListener(view -> startActivity(new Intent(SusCertDashboard.this, GMRProfiledFarmersListActivity.class)));
+//        profilingCv.setOnClickListener(view -> startActivity(new Intent(SusCertDashboard.this, GMRProfilingWebActivity.class)));
+//        inspectionCv.setOnClickListener(view -> startActivity(new Intent(SusCertDashboard.this, GMRProfiledFarmersListActivity.class)));
+//        trainingCV.setOnClickListener(v -> startActivity(new Intent(SusCertDashboard.this, TrainingAttendance.class)));
+        proEnteryCv.setOnClickListener(v -> startActivity(new Intent(SusCertDashboard.this, PEActivity.class)));
 
         susBackupFb.setOnClickListener(view -> {
             if (!isAllFabsVisible) {

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
-    tools:context=".farmertrain.TrainingDashboard">
+    tools:context=".sustain.training.TrainingDashboard">
 
     <RelativeLayout
         android:id="@+id/topArea"
@@ -90,6 +90,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:id="@+id/susCertTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:text="@string/training_topics"
+                android:textColor="#999999"
+                android:fontFamily="sans-serif-medium"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/emptyState"/>
+
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -110,18 +124,18 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/susCertTxt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:gravity="center"
-                    android:textSize="12sp"
-                    android:text="@string/training_topics"
-                    android:textColor="#999999"
-                    android:fontFamily="sans-serif-medium"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/emptyState"/>
+<!--                <TextView-->
+<!--                    android:id="@+id/susCertTxt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="5dp"-->
+<!--                    android:gravity="center"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:text="@string/training_topics"-->
+<!--                    android:textColor="#999999"-->
+<!--                    android:fontFamily="sans-serif-medium"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    app:layout_constraintBottom_toTopOf="@+id/emptyState"/>-->
 
                 <TextView
                     android:id="@+id/emptyState"
@@ -218,67 +232,6 @@
 
 <!--                    </LinearLayout>-->
 <!--                </androidx.cardview.widget.CardView>-->
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/comDevBackupFb"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:contentDescription="@string/backup"
-                    android:src="@drawable/save_white"
-                    android:backgroundTint="@color/brown"
-                    app:fabSize="normal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
-
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/cloudBackupFb"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:contentDescription="@string/cloud_backup"
-                    android:backgroundTint="@color/brown"
-                    app:fabSize="normal"
-                    app:layout_constraintBottom_toTopOf="@+id/comDevBackupFb"
-                    app:layout_constraintEnd_toEndOf="@+id/comDevBackupFb"
-                    app:layout_constraintStart_toStartOf="@+id/comDevBackupFb"
-                    app:srcCompat="@drawable/outline_backup" />
-
-                <TextView
-                    android:id="@+id/cloudBackupTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/cloud_backup"
-                    app:layout_constraintBottom_toBottomOf="@+id/cloudBackupFb"
-                    app:layout_constraintEnd_toStartOf="@+id/cloudBackupFb"
-                    app:layout_constraintTop_toTopOf="@+id/cloudBackupFb" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/localBackupFb"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:contentDescription="@string/local_backup"
-                    android:backgroundTint="@color/brown"
-                    app:fabSize="normal"
-                    app:layout_constraintBottom_toTopOf="@+id/cloudBackupFb"
-                    app:layout_constraintEnd_toEndOf="@+id/cloudBackupFb"
-                    app:layout_constraintStart_toStartOf="@+id/cloudBackupFb"
-                    app:srcCompat="@drawable/folder_white" />
-
-                <TextView
-                    android:id="@+id/localBackupTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/local_backup"
-                    app:layout_constraintBottom_toBottomOf="@+id/localBackupFb"
-                    app:layout_constraintEnd_toStartOf="@+id/localBackupFb"
-                    app:layout_constraintTop_toTopOf="@+id/localBackupFb" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

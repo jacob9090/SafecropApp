@@ -15,7 +15,6 @@ import java.net.URLEncoder;
 import java.util.Map;
 
 public class HttpRequest {
-
     public static final String METHOD_GET = "GET";
     public static final String METHOD_POST = "POST";
 
@@ -31,6 +30,7 @@ public class HttpRequest {
         connection.setRequestMethod(method);
         connection.setConnectTimeout(15000);
         connection.setReadTimeout(15000);
+        connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
         return this;
     }
 
@@ -38,7 +38,7 @@ public class HttpRequest {
         if(connection.getRequestMethod().equals(METHOD_POST)) {
             connection.setDoOutput(true);
             OutputStream os = connection.getOutputStream();
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os));
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
             writer.write(getQuery(data));
             writer.flush();
             writer.close();
@@ -48,11 +48,10 @@ public class HttpRequest {
     }
 
     public String sendAndReadString() throws IOException {
-        BufferedReader reader = new BufferedReader(
-                new InputStreamReader(connection.getInputStream()));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         StringBuilder response = new StringBuilder();
         String line;
-        while ((line = reader.readLine()) != null) {
+        while((line = reader.readLine()) != null) {
             response.append(line);
         }
         reader.close();
@@ -64,9 +63,9 @@ public class HttpRequest {
         try {
             for (Map.Entry<String, String> entry : params.entrySet()) {
                 result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
-                result.append("=");
+                result.append('=');
                 result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
-                result.append("&");
+                result.append('&');
             }
         } catch (UnsupportedEncodingException e) {
             Log.e("EncodingError", "UTF-8 not supported", e);
@@ -76,3 +75,4 @@ public class HttpRequest {
                 : result.toString();
     }
 }
+

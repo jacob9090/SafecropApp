@@ -110,7 +110,7 @@ public class ObsSurveyedDetailsActivity extends AppCompatActivity {
                         "document.getElementById('on_create').textContent = '%s';" +
                         "document.getElementById('on_update').textContent = '%s';" +
                         "document.getElementById('user_fname').textContent = '%s';" +
-                        "document.getElementById('user_oname').textContent = '%s';" +
+                        "document.getElementById('user_lname').textContent = '%s';" +
                         "document.getElementById('user_email').textContent = '%s';" +
                         "document.getElementById('signature').src = '%s';",
                 sanitize(obsModel.getObs_name()),
@@ -137,7 +137,7 @@ public class ObsSurveyedDetailsActivity extends AppCompatActivity {
                 sanitize(obsModel.getOnCreate()),
                 sanitize(obsModel.getOnUpdate()),
                 sanitize(obsModel.getUserFname()),
-                sanitize(obsModel.getUserOname()),
+                sanitize(obsModel.getUserLname()),
                 sanitize(obsModel.getUserEmail()),
                 sanitize(signatureUri));
 

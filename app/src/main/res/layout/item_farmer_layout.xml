@@ -54,14 +54,14 @@
                     android:text="@string/farmer_fname"
                     android:layout_marginTop="3dp"/>
 
-                <TextView
-                    android:id="@+id/surnameTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginStart="5dp"
-                    android:textSize="13sp"
-                    android:text="@string/farmer_oname" />
+<!--                <TextView-->
+<!--                    android:id="@+id/surnameTv"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="3dp"-->
+<!--                    android:layout_marginStart="5dp"-->
+<!--                    android:textSize="13sp"-->
+<!--                    android:text="@string/farmer_lname" />-->
 
             </LinearLayout>
 

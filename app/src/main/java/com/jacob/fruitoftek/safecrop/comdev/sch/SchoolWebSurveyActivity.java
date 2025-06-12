@@ -138,7 +138,7 @@ public class SchoolWebSurveyActivity extends AppCompatActivity {
             schquestion28 = schquestion28 == null || schquestion28.equals("undefined") ? "" : schquestion28;
 
             String userFname = preferenceHelper.getFirstName();
-            String userOname = preferenceHelper.getLastName();
+            String userLname = preferenceHelper.getLastName();
             String userEmail = preferenceHelper.getEmail();
             String onCreate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
             String onUpdate = onCreate;
@@ -151,12 +151,12 @@ public class SchoolWebSurveyActivity extends AppCompatActivity {
                     schquestion11, schquestion12, schquestion13, schquestion14, schquestion15, schquestion16, schquestion17,
                     schquestion18, schquestion19, schquestion20, schquestion21, schquestion22, schquestion23, schquestion24,
                     schquestion25, schquestion26, schquestion27, schquestion28, schquestion29, schquestion30, schquestion31,
-                    schquestion32, schquestion33, schquestion34, sch_location, farmer_photo, signature, userFname, userOname,
+                    schquestion32, schquestion33, schquestion34, sch_location, farmer_photo, signature, userFname, userLname,
                     userEmail, onCreate, onUpdate);
 
             Log.d("SchoolWebSurveyActivity", "InsertSurveyData called with:");
             Log.d("SchoolWebSurveyActivity", "sch_name: " + sch_name);
-            Log.d("SchoolWebSurveyActivity", "user_oname: " + sch_district);
+            Log.d("SchoolWebSurveyActivity", "user_lname: " + sch_district);
             Log.d("SchoolWebSurveyActivity", "sch_community: " + sch_community);
             Log.d("SchoolWebSurveyActivity", "sch_location: " + sch_location);
             Log.d("SchoolWebSurveyActivity", "farmer_photo: " + farmer_photo);

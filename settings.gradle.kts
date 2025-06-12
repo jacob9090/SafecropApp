@@ -30,5 +30,5 @@ dependencyResolutionManagement {
 //    }
 }
 
-rootProject.name = "Safecrop App"
+rootProject.name = "Safecrop Insight"
 include(":app")

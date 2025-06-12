@@ -14,7 +14,7 @@
         android:visibility="gone"/>
 
     <TextView
-        android:id="@+id/chUserONameTV"
+        android:id="@+id/chUserLNameTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"/>

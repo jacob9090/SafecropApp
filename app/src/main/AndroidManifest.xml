@@ -39,34 +39,116 @@
         android:theme="@style/Theme.FEDCOINTERNALINSPECTION"
         tools:targetApi="31">
         <activity
-            android:name=".farmertrain.TrainingAttendance"
+            android:name=".sustain.pentry.GetPEPhotoActivity"
             android:exported="false" />
         <activity
-            android:name=".farmertrain.NewTrainingActivity"
+            android:name=".sustain.pentry.UpdatePEActivity"
             android:exported="false" />
         <activity
-            android:name=".hrdd.HrddLocalBottomSheet"
+            android:name=".sustain.pentry.PEInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".hrdd.HrddCloudBottomSheet"
+            android:name=".sustain.pentry.PEDoneActivity"
             android:exported="false" />
         <activity
-            android:name=".hrdd.HrddDashboard"
+            android:name=".sustain.pentry.PEActivity"
             android:exported="false" />
         <activity
-            android:name=".traintopic.TrainingListActivity"
+            android:name=".sustain.pentry.PEnteryDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".traintopic.TrainingDetailsActivity"
+            android:name=".sustain.pentry.PEnteryCompletedActivity"
             android:exported="false" />
         <activity
-            android:name=".farmertrain.TrainLocalBottomSheet"
+            android:name=".comdev.lra.UpdateLraSurveyeActivity"
             android:exported="false" />
         <activity
-            android:name=".farmertrain.TrainCloudBottomSheet"
+            android:name=".comdev.lra.SyncLraInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".farmertrain.TrainingDashboard"
+            android:name=".comdev.lra.SurveyedLraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.lra.LraSurveyedDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.lra.LraSurveyCompletedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.lra.GetLraLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.profiling.GMRSurveyInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.gra.GetGraPhotoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.cra.UpdateCraSurveyeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.cra.SyncCraInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.cra.SurveyedCraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.cra.CraSurveyedDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.cra.CraSurveyCompletedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.cra.GetCraLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.gra.UpdateGraSurveyeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.gra.SyncGraInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.gra.SurveyedGraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.gra.GraSurveyedDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.gra.GraSurveyCompletedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.gra.GetGraLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.gra.GraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".comdev.lra.ChildForceLaborRiskAssceActivity"
+            android:exported="false"
+            android:theme="@style/Theme.FEDCOINTERNALINSPECTION" />
+        <activity
+            android:name=".comdev.cra.CommunityRiskAssceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".facerecognition.RecognitionFaceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".facerecognition.AddFaceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".facerecognition.AddedFaceListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.training.TrainingAttendance"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.traintopic.TrainingListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.traintopic.TrainingDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.training.TrainingDashboard"
             android:exported="false" />
         <activity
             android:name=".comdev.sch.SyncSchoolInfoActivity"
@@ -82,12 +164,6 @@
             android:exported="false" />
         <activity
             android:name=".comdev.com.SyncComInfoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".sustain.fiis.InspectedFarmersWebActivity"
-            android:exported="false" />
-        <activity
-            android:name=".sustain.fiis.InspectionSurveyWebActivity"
             android:exported="false" />
         <activity
             android:name=".SyncSurveyInfoActivity"
@@ -141,22 +217,22 @@
             android:name=".comdev.obs.ObsSurveyCompletedActivity"
             android:exported="false" />
         <activity
-            android:name=".sustain.gmrs.GMRSurveyedDetailsActivity"
+            android:name=".sustain.profiling.GMRSurveyedDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".sustain.gmrs.EditGMRSurvedActivity"
+            android:name=".sustain.profiling.EditGMRSurvedActivity"
             android:exported="false" />
         <activity
-            android:name=".sustain.gmrs.GMRSurveyCompletedActivity"
+            android:name=".sustain.profiling.GMRSurveyCompletedActivity"
             android:exported="false" />
         <activity
-            android:name=".sustain.gmrs.GetGMRFarmerThumbprintActivity"
+            android:name=".sustain.profiling.GetGMRFarmerThumbprintActivity"
             android:exported="false" />
         <activity
-            android:name=".sustain.gmrs.GetGMRFarmerPhotoActivity"
+            android:name=".sustain.profiling.GetGMRFarmerPhotoActivity"
             android:exported="false" />
         <activity
-            android:name=".sustain.gmrs.GMRProfiledFarmersListActivity"
+            android:name=".sustain.profiling.GMRProfiledFarmersListActivity"
             android:exported="false" />
         <activity
             android:name=".comdev.obs.SurveyedObservationActivity"
@@ -165,10 +241,10 @@
             android:name=".comdev.hh.SurveyedHouseHoldActivity"
             android:exported="false" />
         <activity
-            android:name=".sustain.gmrs.GetGMRFarmerIdActivity"
+            android:name=".sustain.profiling.GetGMRFarmerIdActivity"
             android:exported="false" />
         <activity
-            android:name=".sustain.gmrs.GetGMRLocationActivity"
+            android:name=".sustain.profiling.GetGMRLocationActivity"
             android:exported="false" />
         <activity
             android:name=".comdev.obs.GetObservationPhotoActivity"
@@ -183,7 +259,7 @@
             android:name=".comdev.hh.GetHhLocationActivity"
             android:exported="false" />
         <activity
-            android:name=".sustain.gmrs.GMRProfilingWebActivity"
+            android:name=".sustain.profiling.GMRProfilingWebActivity"
             android:exported="false" />
         <activity
             android:name=".farmerlist.FarmerDetailsActivity"
@@ -274,33 +350,6 @@
             android:exported="false" />
         <activity
             android:name=".sustain.SusCertDashboard"
-            android:exported="false" />
-        <activity
-            android:name=".sustain.fiis.ProfileExistingFarmerThreeFIIS"
-            android:exported="false" />
-        <activity
-            android:name=".sustain.fiis.ProfileExistingFarmerTwoFIIS"
-            android:exported="false" />
-        <activity
-            android:name=".sustain.fiis.UpdateFIIS"
-            android:exported="false" />
-        <activity
-            android:name=".sustain.fiis.RegisteredFarmerListMainActivityFIIS"
-            android:exported="false" />
-        <activity
-            android:name=".sustain.fiis.RecordDetailActivityFIIS"
-            android:exported="false" />
-        <activity
-            android:name=".sustain.fiis.ProfileExistingFarmerOneFIIS"
-            android:exported="false" />
-        <activity
-            android:name=".sustain.fiis.ListFIISFarmersActivity"
-            android:exported="false" />
-        <activity
-            android:name=".login.RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".login.ForgetPassActivity"
             android:exported="false" />
         <activity
             android:name=".DashboardActivity"

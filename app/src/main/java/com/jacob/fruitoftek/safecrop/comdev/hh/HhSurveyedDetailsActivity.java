@@ -127,7 +127,7 @@ public class HhSurveyedDetailsActivity extends AppCompatActivity {
                         "document.getElementById('on_create').textContent = '%s';" +
                         "document.getElementById('on_update').textContent = '%s';" +
                         "document.getElementById('user_fname').textContent = '%s';" +
-                        "document.getElementById('user_oname').textContent = '%s';" +
+                        "document.getElementById('user_lname').textContent = '%s';" +
                         "document.getElementById('user_email').textContent = '%s';" +
                         "document.getElementById('signature').src = '%s';",
                 sanitize(hhModel.getHh_name()),
@@ -169,7 +169,7 @@ public class HhSurveyedDetailsActivity extends AppCompatActivity {
                 sanitize(hhModel.getOnCreate()),
                 sanitize(hhModel.getOnUpdate()),
                 sanitize(hhModel.getUserFname()),
-                sanitize(hhModel.getUserOname()),
+                sanitize(hhModel.getUserLname()),
                 sanitize(hhModel.getUserEmail()),
                 sanitize(signatureUri));
 

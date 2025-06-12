@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.jacob.fruitoftek.safecrop.R;
-import com.jacob.fruitoftek.safecrop.sustain.gmrs.GMRDbHelper;
+import com.jacob.fruitoftek.safecrop.sustain.profiling.GMRDbHelper;
 
 public class SusCertLocalBottomSheet extends BottomSheetDialogFragment {
 

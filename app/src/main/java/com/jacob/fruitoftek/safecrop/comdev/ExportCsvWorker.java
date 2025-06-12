@@ -71,7 +71,7 @@ public class ExportCsvWorker extends Worker {
                         "Commquestion49,Commquestion50,Commquestion51,Commquestion52,Commquestion53,Commquestion54," +
                         "Commquestion56,Commquestion57,Commquestion58,Commquestion59,Commquestion60,Commquestion61," +
                         "Commquestion62,Commquestion63,Commquestion64,Commquestion65,Commquestion66,Commquestion67," +
-                        "Location,Photo,First Name,Other Name,Email,Created,Updated,Signature\n");
+                        "Location,Photo,First Name,Last Name,Email,Created,Updated,Signature\n");
 
                 for (ComModel com : comList) {
                     String photoUri = com.getFarmer_photo() != null ?
@@ -145,7 +145,7 @@ public class ExportCsvWorker extends Worker {
                             .append(escapeCSV(com.getCom_location())).append(',')
                             .append(escapeCSV(photoUri)).append(',')
                             .append(escapeCSV(com.getUserFname())).append(',')
-                            .append(escapeCSV(com.getUserOname())).append(',')
+                            .append(escapeCSV(com.getUserLname())).append(',')
                             .append(escapeCSV(com.getUserEmail())).append(',')
                             .append(escapeCSV(com.getOnCreate())).append(',')
                             .append(escapeCSV(com.getOnUpdate())).append(',')
@@ -173,7 +173,7 @@ public class ExportCsvWorker extends Worker {
                         "Schquestion19,Schquestion20,Schquestion21,Schquestion22,Schquestion23,Schquestion24," +
                         "Schquestion25,Schquestion26,Schquestion27,Schquestion28,Schquestion29,Schquestion30," +
                         "Schquestion31,Schquestion32,Schquestion33,Schquestion34,Location,Photo," +
-                        "First Name,Other Name,Email,Created,Updated,Signature\n");
+                        "First Name,Last Name,Email,Created,Updated,Signature\n");
 
                 for (SchoolModel school : schoolList) {
                     writer.append(escapeCSV(school.getSch_name())).append(',')
@@ -214,7 +214,7 @@ public class ExportCsvWorker extends Worker {
                             .append(escapeCSV(school.getFarmer_photo() != null ?
                                     school.getFarmer_photo().toString() : "")).append(',')
                             .append(escapeCSV(school.getUserFname())).append(',')
-                            .append(escapeCSV(school.getUserOname())).append(',')
+                            .append(escapeCSV(school.getUserLname())).append(',')
                             .append(escapeCSV(school.getUserEmail())).append(',')
                             .append(escapeCSV(school.getOnCreate())).append(',')
                             .append(escapeCSV(school.getOnUpdate())).append(',')
@@ -244,7 +244,7 @@ public class ExportCsvWorker extends Worker {
                         "Hhquestion19,Hhquestion20,Hhquestion21,Hhquestion22,Hhquestion23,Hhquestion24," +
                         "Hhquestion25,Hhquestion26,Hhquestion27,Hhquestion28,Hhquestion29,Hhquestion30," +
                         "Hhquestion31,Hhquestion32,Hhquestion36,Hhquestion37,Location,Photo," +
-                        "First Name,Other Name,Email,Created,Updated,Signature\n");
+                        "First Name,Last Name,Email,Created,Updated,Signature\n");
 
                 for (HhModel hh : hhList) {
                     writer.append(escapeCSV(hh.getHh_name())).append(',')
@@ -283,7 +283,7 @@ public class ExportCsvWorker extends Worker {
                             .append(escapeCSV(hh.getHhquestion37())).append(',')
                             .append(escapeCSV(hh.getHh_location())).append(',')
                             .append(escapeCSV(hh.getUserFname())).append(',')
-                            .append(escapeCSV(hh.getUserOname())).append(',')
+                            .append(escapeCSV(hh.getUserLname())).append(',')
                             .append(escapeCSV(hh.getUserEmail())).append(',')
                             .append(escapeCSV(hh.getOnCreate())).append(',')
                             .append(escapeCSV(hh.getOnUpdate())).append(',')
@@ -313,7 +313,7 @@ public class ExportCsvWorker extends Worker {
                         "Obsquestion9,Obsquestion10,Obsquestion11,Obsquestion12,Obsquestion13," +
                         "Obsquestion14,Obsquestion15,Obsquestion16,Obsquestion17,Obsquestion18," +
                         "Obsquestion19,Obsquestion20,Obsquestion21,Location,Photo," +
-                        "First Name,Other Name,Email,Created,Updated,Signature\n");
+                        "First Name,Last Name,Email,Created,Updated,Signature\n");
 
                 for (ObsModel obs : obsList) {
                     writer.append(escapeCSV(obs.getObs_name())).append(',')
@@ -337,7 +337,7 @@ public class ExportCsvWorker extends Worker {
                             .append(escapeCSV(obs.getObsquestion21())).append(',')
                             .append(escapeCSV(obs.getObs_location())).append(',')
                             .append(escapeCSV(obs.getUserFname())).append(',')
-                            .append(escapeCSV(obs.getUserOname())).append(',')
+                            .append(escapeCSV(obs.getUserLname())).append(',')
                             .append(escapeCSV(obs.getUserEmail())).append(',')
                             .append(escapeCSV(obs.getOnCreate())).append(',')
                             .append(escapeCSV(obs.getOnUpdate())).append(',')
@@ -383,7 +383,7 @@ public class ExportCsvWorker extends Worker {
                         "Child9question11,Child9question12,Child9question13,Child9question14,Child9question15,Child9question16,Child9question17,Child9question18,Child9question19," +
                         "Child10question1,Child10question2,Child10question3,Child10question4,Child10question5,Child10question6,Child10question7,Child10question8,Child10question9,Child10question10," +
                         "Child10question11,Child10question12,Child10question13,Child10question14,Child10question15,Child10question16,Child10question17,Child10question18,Child10question19," +
-                        "Childquestion5,Location,First Name,Other Name,Email,Created,Updated,Signature\n");
+                        "Childquestion5,Location,First Name,Last Name,Email,Created,Updated,Signature\n");
 
                 for (ChildModel child : childList) {
                     writer.append(escapeCSV(child.getFarmerId())).append(',')
@@ -593,7 +593,7 @@ public class ExportCsvWorker extends Worker {
                             .append(escapeCSV(child.getChildquestion5())).append(',')
                             .append(escapeCSV(child.getChildLocation())).append(',')
                             .append(escapeCSV(child.getUserFname())).append(',')
-                            .append(escapeCSV(child.getUserOname())).append(',')
+                            .append(escapeCSV(child.getUserLname())).append(',')
                             .append(escapeCSV(child.getUserEmail())).append(',')
                             .append(escapeCSV(child.getOnCreate())).append(',')
                             .append(escapeCSV(child.getOnUpdate())).append(',')

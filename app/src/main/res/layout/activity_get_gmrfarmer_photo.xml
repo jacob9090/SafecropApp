@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:gravity="center"
-    tools:context=".sustain.gmrs.GetGMRFarmerPhotoActivity">
+    tools:context=".sustain.profiling.GetGMRFarmerPhotoActivity">
 
     <ImageView
         android:id="@+id/gmrFarmerImageView"

@@ -26,11 +26,11 @@ import java.util.concurrent.TimeUnit;
 public class SyncDataWorker extends Worker {
 
     private static final int MAX_RETRIES = 3;
-    private static final String COMSERVER_URL = "https://fruitoftek.com/fedco/clmrs/aaa_com.php";
-    private static final String SCHOOLSERVER_URL = "https://fruitoftek.com/fedco/clmrs/aaa_school.php";
-    private static final String HHSERVER_URL = "https://fruitoftek.com/fedco/clmrs/aaa_hh.php";
-    private static final String OBSSERVER_URL = "https://fruitoftek.com/fedco/clmrs/aaa_obs.php";
-    private static final String CHILDSERVER_URL = "https://fruitoftek.com/fedco/clmrs/aaa_child.php";
+    private static final String COMSERVER_URL = "https://app.safecropgh.org/clmrs/auto_com.php";
+    private static final String SCHOOLSERVER_URL = "https://app.safecropgh.org/clmrs/auto_school.php";
+    private static final String HHSERVER_URL = "https://app.safecropgh.org/clmrs/auto_hh.php";
+    private static final String OBSSERVER_URL = "https://app.safecropgh.org/clmrs/auto_obs.php";
+    private static final String CHILDSERVER_URL = "https://app.safecropgh.org/clmrs/auto_child.php";
 
     private final ComDbHelper comDbHelper;
     private final SchoolDbHelper schoolDbHelper;
@@ -63,7 +63,7 @@ public class SyncDataWorker extends Worker {
         Cursor cursor = null;
         try {
             db = comDbHelper.getReadableDatabase();
-            cursor = db.rawQuery("SELECT commquestion1, commquestion2, commquestion3, commquestion4, commquestion5, commquestion6, commquestion7, commquestion8, commquestion9, commquestion10, commquestion11, commquestion12, commquestion13, commquestion14, commquestion15, commquestion16, commquestion17, commquestion18, commquestion19, commquestion20, commquestion21, commquestion22, commquestion23, commquestion24, commquestion25, commquestion26, commquestion27, commquestion28, commquestion29, commquestion30, commquestion31, commquestion32, commquestion33, commquestion34, commquestion35, commquestion36, commquestion37, commquestion38, commquestion39, commquestion40, commquestion41, commquestion42, commquestion43, commquestion44, commquestion45, commquestion46, commquestion47, commquestion48, commquestion49, commquestion50, commquestion51, commquestion52, commquestion53, commquestion54, commquestion56, commquestion57, commquestion58, commquestion59, commquestion60, commquestion61, commquestion62, commquestion63, commquestion64, commquestion65, commquestion66, commquestion67, com_location, user_fname, user_oname, user_email, on_create, on_update FROM ComSurveyTbl", null);
+            cursor = db.rawQuery("SELECT commquestion1, commquestion2, commquestion3, commquestion4, commquestion5, commquestion6, commquestion7, commquestion8, commquestion9, commquestion10, commquestion11, commquestion12, commquestion13, commquestion14, commquestion15, commquestion16, commquestion17, commquestion18, commquestion19, commquestion20, commquestion21, commquestion22, commquestion23, commquestion24, commquestion25, commquestion26, commquestion27, commquestion28, commquestion29, commquestion30, commquestion31, commquestion32, commquestion33, commquestion34, commquestion35, commquestion36, commquestion37, commquestion38, commquestion39, commquestion40, commquestion41, commquestion42, commquestion43, commquestion44, commquestion45, commquestion46, commquestion47, commquestion48, commquestion49, commquestion50, commquestion51, commquestion52, commquestion53, commquestion54, commquestion56, commquestion57, commquestion58, commquestion59, commquestion60, commquestion61, commquestion62, commquestion63, commquestion64, commquestion65, commquestion66, commquestion67, com_location, user_fname, user_lname, user_email, on_create, on_update FROM ComSurveyTbl", null);
 
             if (cursor == null || !cursor.moveToFirst()) {
                 Log.i("SyncWorker", "No community data to sync");
@@ -146,7 +146,7 @@ public class SyncDataWorker extends Worker {
                     jsonObject.put("commquestion67", getString(cursor, "commquestion67"));
                     jsonObject.put("com_location", getString(cursor, "com_location"));
                     jsonObject.put("user_fname", getString(cursor, "user_fname"));
-                    jsonObject.put("user_oname", getString(cursor, "user_oname"));
+                    jsonObject.put("user_lname", getString(cursor, "user_lname"));
                     jsonObject.put("user_email", getString(cursor, "user_email"));
                     jsonObject.put("on_create", getString(cursor, "on_create"));
                     jsonObject.put("on_update", getString(cursor, "on_update"));
@@ -188,7 +188,7 @@ public class SyncDataWorker extends Worker {
         Cursor cursor = null;
         try {
             db = schoolDbHelper.getReadableDatabase();
-            cursor = db.rawQuery("SELECT school_name, school_district, school_community, schquestion4, schquestion5, schquestion6, schquestion7, schquestion8, schquestion9, schquestion10, schquestion11, schquestion12, schquestion13, schquestion14, schquestion15, schquestion16, schquestion17, schquestion18, schquestion19, schquestion20, schquestion21, schquestion22, schquestion23, schquestion24, schquestion25, schquestion26, schquestion27, schquestion28, schquestion29, schquestion30, schquestion31, schquestion32, schquestion33, schquestion34, school_location, user_fname, user_oname, user_email, on_create, on_update FROM SchoolSurveyTbl", null);
+            cursor = db.rawQuery("SELECT school_name, school_district, school_community, schquestion4, schquestion5, schquestion6, schquestion7, schquestion8, schquestion9, schquestion10, schquestion11, schquestion12, schquestion13, schquestion14, schquestion15, schquestion16, schquestion17, schquestion18, schquestion19, schquestion20, schquestion21, schquestion22, schquestion23, schquestion24, schquestion25, schquestion26, schquestion27, schquestion28, schquestion29, schquestion30, schquestion31, schquestion32, schquestion33, schquestion34, school_location, user_fname, user_lname, user_email, on_create, on_update FROM SchoolSurveyTbl", null);
 
             if (cursor == null || !cursor.moveToFirst()) {
                 Log.i("SyncWorker", "No school data to sync");
@@ -239,7 +239,7 @@ public class SyncDataWorker extends Worker {
                     jsonObject.put("schquestion34", getString(cursor, "schquestion34"));
                     jsonObject.put("school_location", getString(cursor, "school_location"));
                     jsonObject.put("user_fname", getString(cursor, "user_fname"));
-                    jsonObject.put("user_oname", getString(cursor, "user_oname"));
+                    jsonObject.put("user_lname", getString(cursor, "user_lname"));
                     jsonObject.put("user_email", getString(cursor, "user_email"));
                     jsonObject.put("on_create", getString(cursor, "on_create"));
                     jsonObject.put("on_update", getString(cursor, "on_update"));
@@ -280,7 +280,7 @@ public class SyncDataWorker extends Worker {
         Cursor cursor = null;
         try {
             db = hhDbHelper.getReadableDatabase();
-            cursor = db.rawQuery("SELECT hh_name, hh_district, hh_community, hhquestion4, hhquestion5, hhquestion6, hhquestion7, hhquestion8, hhquestion9, hhquestion10, hhquestion11, hhquestion12, hhquestion13, hhquestion14, hhquestion15, hhquestion16, hhquestion17, hhquestion18, hhquestion19, hhquestion20, hhquestion21, hhquestion22, hhquestion23, hhquestion24, hhquestion25, hhquestion26, hhquestion27, hhquestion28, hhquestion29, hhquestion30, hhquestion31, hhquestion32, hhquestion36, hhquestion37, hh_location, user_fname, user_oname, user_email, on_create, on_update FROM HouseholdSurveyTbl", null);
+            cursor = db.rawQuery("SELECT hh_name, hh_district, hh_community, hhquestion4, hhquestion5, hhquestion6, hhquestion7, hhquestion8, hhquestion9, hhquestion10, hhquestion11, hhquestion12, hhquestion13, hhquestion14, hhquestion15, hhquestion16, hhquestion17, hhquestion18, hhquestion19, hhquestion20, hhquestion21, hhquestion22, hhquestion23, hhquestion24, hhquestion25, hhquestion26, hhquestion27, hhquestion28, hhquestion29, hhquestion30, hhquestion31, hhquestion32, hhquestion36, hhquestion37, hh_location, user_fname, user_lname, user_email, on_create, on_update FROM HouseholdSurveyTbl", null);
 
             if (cursor == null || !cursor.moveToFirst()) {
                 Log.i("SyncWorker", "No household data to sync");
@@ -331,7 +331,7 @@ public class SyncDataWorker extends Worker {
                     jsonObject.put("hhquestion37", getString(cursor, "hhquestion37"));
                     jsonObject.put("hh_location", getString(cursor, "hh_location"));
                     jsonObject.put("user_fname", getString(cursor, "user_fname"));
-                    jsonObject.put("user_oname", getString(cursor, "user_oname"));
+                    jsonObject.put("user_lname", getString(cursor, "user_lname"));
                     jsonObject.put("user_email", getString(cursor, "user_email"));
                     jsonObject.put("on_create", getString(cursor, "on_create"));
                     jsonObject.put("on_update", getString(cursor, "on_update"));
@@ -372,7 +372,7 @@ public class SyncDataWorker extends Worker {
         Cursor cursor = null;
         try {
             db = obsDbHelper.getReadableDatabase();
-            cursor = db.rawQuery("SELECT obs_name, obs_district, obs_community, obsquestion6, obsquestion7, obsquestion8, obsquestion9, obsquestion10, obsquestion11, obsquestion12, obsquestion13, obsquestion14, obsquestion15, obsquestion16, obsquestion17, obsquestion18, obsquestion19, obsquestion20, obsquestion21, obs_location, user_fname, user_oname, user_email, on_create, on_update FROM ObservationSurveyTbl", null);
+            cursor = db.rawQuery("SELECT obs_name, obs_district, obs_community, obsquestion6, obsquestion7, obsquestion8, obsquestion9, obsquestion10, obsquestion11, obsquestion12, obsquestion13, obsquestion14, obsquestion15, obsquestion16, obsquestion17, obsquestion18, obsquestion19, obsquestion20, obsquestion21, obs_location, user_fname, user_lname, user_email, on_create, on_update FROM ObservationSurveyTbl", null);
 
             if (cursor == null || !cursor.moveToFirst()) {
                 Log.i("SyncWorker", "No observation data to sync");
@@ -408,7 +408,7 @@ public class SyncDataWorker extends Worker {
                     jsonObject.put("obsquestion21", getString(cursor, "obsquestion21"));
                     jsonObject.put("obs_location", getString(cursor, "obs_location"));
                     jsonObject.put("user_fname", getString(cursor, "user_fname"));
-                    jsonObject.put("user_oname", getString(cursor, "user_oname"));
+                    jsonObject.put("user_lname", getString(cursor, "user_lname"));
                     jsonObject.put("user_email", getString(cursor, "user_email"));
                     jsonObject.put("on_create", getString(cursor, "on_create"));
                     jsonObject.put("on_update", getString(cursor, "on_update"));
@@ -448,7 +448,7 @@ public class SyncDataWorker extends Worker {
         Cursor cursor = null;
         try {
             db = chdbHelper.getReadableDatabase();
-            cursor = db.rawQuery("SELECT farmer_id, farmer_district, farmer_village, childquestion4, child1question1, child1question2, child1question3, child1question4, child1question5, child1question6, child1question7, child1question8, child1question9, child1question10, child1question11, child1question12, child1question13, child1question14, child1question15, child1question16, child1question17, child1question18, child1question19, child2question1, child2question2, child2question3, child2question4, child2question5, child2question6, child2question7, child2question8, child2question9, child2question10, child2question11, child2question12, child2question13, child2question14, child2question15, child2question16, child2question17, child2question18, child2question19, child3question1, child3question2, child3question3, child3question4, child3question5, child3question6, child3question7, child3question8, child3question9, child3question10, child3question11, child3question12, child3question13, child3question14, child3question15, child3question16, child3question17, child3question18, child3question19, child4question1, child4question2, child4question3, child4question4, child4question5, child4question6, child4question7, child4question8, child4question9, child4question10, child4question11, child4question12, child4question13, child4question14, child4question15, child4question16, child4question17, child4question18, child4question19, child5question1, child5question2, child5question3, child5question4, child5question5, child5question6, child5question7, child5question8, child5question9, child5question10, child5question11, child5question12, child5question13, child5question14, child5question15, child5question16, child5question17, child5question18, child5question19, child6question1, child6question2, child6question3, child6question4, child6question5, child6question6, child6question7, child6question8, child6question9, child6question10, child6question11, child6question12, child6question13, child6question14, child6question15, child6question16, child6question17, child6question18, child6question19, child7question1, child7question2, child7question3, child7question4, child7question5, child7question6, child7question7, child7question8, child7question9, child7question10, child7question11, child7question12, child7question13, child7question14, child7question15, child7question16, child7question17, child7question18, child7question19, child8question1, child8question2, child8question3, child8question4, child8question5, child8question6, child8question7, child8question8, child8question9, child8question10, child8question11, child8question12, child8question13, child8question14, child8question15, child8question16, child8question17, child8question18, child8question19, child9question1, child9question2, child9question3, child9question4, child9question5, child9question6, child9question7, child9question8, child9question9, child9question10, child9question11, child9question12, child9question13, child9question14, child9question15, child9question16, child9question17, child9question18, child9question19, child10question1, child10question2, child10question3, child10question4, child10question5, child10question6, child10question7, child10question8, child10question9, child10question10, child10question11, child10question12, child10question13, child10question14, child10question15, child10question16, child10question17, child10question18, child10question19, childquestion5, child_location, user_fname, user_oname, user_email, on_create, on_update FROM ChildSurveyTbl", null);
+            cursor = db.rawQuery("SELECT farmer_id, farmer_district, farmer_village, childquestion4, child1question1, child1question2, child1question3, child1question4, child1question5, child1question6, child1question7, child1question8, child1question9, child1question10, child1question11, child1question12, child1question13, child1question14, child1question15, child1question16, child1question17, child1question18, child1question19, child2question1, child2question2, child2question3, child2question4, child2question5, child2question6, child2question7, child2question8, child2question9, child2question10, child2question11, child2question12, child2question13, child2question14, child2question15, child2question16, child2question17, child2question18, child2question19, child3question1, child3question2, child3question3, child3question4, child3question5, child3question6, child3question7, child3question8, child3question9, child3question10, child3question11, child3question12, child3question13, child3question14, child3question15, child3question16, child3question17, child3question18, child3question19, child4question1, child4question2, child4question3, child4question4, child4question5, child4question6, child4question7, child4question8, child4question9, child4question10, child4question11, child4question12, child4question13, child4question14, child4question15, child4question16, child4question17, child4question18, child4question19, child5question1, child5question2, child5question3, child5question4, child5question5, child5question6, child5question7, child5question8, child5question9, child5question10, child5question11, child5question12, child5question13, child5question14, child5question15, child5question16, child5question17, child5question18, child5question19, child6question1, child6question2, child6question3, child6question4, child6question5, child6question6, child6question7, child6question8, child6question9, child6question10, child6question11, child6question12, child6question13, child6question14, child6question15, child6question16, child6question17, child6question18, child6question19, child7question1, child7question2, child7question3, child7question4, child7question5, child7question6, child7question7, child7question8, child7question9, child7question10, child7question11, child7question12, child7question13, child7question14, child7question15, child7question16, child7question17, child7question18, child7question19, child8question1, child8question2, child8question3, child8question4, child8question5, child8question6, child8question7, child8question8, child8question9, child8question10, child8question11, child8question12, child8question13, child8question14, child8question15, child8question16, child8question17, child8question18, child8question19, child9question1, child9question2, child9question3, child9question4, child9question5, child9question6, child9question7, child9question8, child9question9, child9question10, child9question11, child9question12, child9question13, child9question14, child9question15, child9question16, child9question17, child9question18, child9question19, child10question1, child10question2, child10question3, child10question4, child10question5, child10question6, child10question7, child10question8, child10question9, child10question10, child10question11, child10question12, child10question13, child10question14, child10question15, child10question16, child10question17, child10question18, child10question19, childquestion5, child_location, user_fname, user_lname, user_email, on_create, on_update FROM ChildSurveyTbl", null);
 
             if (cursor == null || !cursor.moveToFirst()) {
                 Log.i("SyncWorker", "No child data to sync");
@@ -660,7 +660,7 @@ public class SyncDataWorker extends Worker {
                     jsonObject.put("childquestion5", getString(cursor, "childquestion5"));
                     jsonObject.put("child_location", getString(cursor, "child_location"));
                     jsonObject.put("user_fname", getString(cursor, "user_fname"));
-                    jsonObject.put("user_oname", getString(cursor, "user_oname"));
+                    jsonObject.put("user_lname", getString(cursor, "user_lname"));
                     jsonObject.put("user_email", getString(cursor, "user_email"));
                     jsonObject.put("on_create", getString(cursor, "on_create"));
                     jsonObject.put("on_update", getString(cursor, "on_update"));

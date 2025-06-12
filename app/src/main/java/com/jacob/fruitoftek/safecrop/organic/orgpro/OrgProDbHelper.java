@@ -59,7 +59,7 @@ public class OrgProDbHelper extends SQLiteOpenHelper {
     private static final String COLUMN_FARMER_PHOTO = "farmer_photo";
     private static final String COLUMN_SIGNATURE = "signature";
     private static final String COLUMN_USER_FNAME = "user_fname";
-    private static final String COLUMN_USER_ONAME = "user_oname";
+    private static final String COLUMN_USER_LNAME = "user_lname";
     private static final String COLUMN_ON_CREATE = "on_create";
     private static final String COLUMN_ON_UPDATE = "on_update";
 
@@ -109,7 +109,7 @@ public class OrgProDbHelper extends SQLiteOpenHelper {
                 + COLUMN_FARMER_PHOTO + " TEXT,"
                 + COLUMN_SIGNATURE + " TEXT,"
                 + COLUMN_USER_FNAME + " TEXT,"
-                + COLUMN_USER_ONAME + " TEXT,"
+                + COLUMN_USER_LNAME + " TEXT,"
                 + COLUMN_ON_CREATE + " TEXT,"
                 + COLUMN_ON_UPDATE + " TEXT"
                 + ");";
@@ -131,7 +131,7 @@ public class OrgProDbHelper extends SQLiteOpenHelper {
                                 String orgquestion24, String orgquestion25, String orgquestion26, String orgquestion27,
                                 String orgquestion28, String orgquestion29, String orgquestion30, String orgquestion31,
                                 String org_location, String farmer_photo, String signatureBase64,
-                                String userFname, String userOname, String onCreate, String onUpdate) {
+                                String userFname, String userLname, String onCreate, String onUpdate) {
         String signaturePath = null;
         try {
             signaturePath = saveSignatureImage(signatureBase64);
@@ -176,7 +176,7 @@ public class OrgProDbHelper extends SQLiteOpenHelper {
         values.put(COLUMN_FARMER_PHOTO, farmer_photo);
         values.put(COLUMN_SIGNATURE, signaturePath);
         values.put(COLUMN_USER_FNAME, userFname);
-        values.put(COLUMN_USER_ONAME, userOname);
+        values.put(COLUMN_USER_LNAME, userLname);
         values.put(COLUMN_ON_CREATE, onCreate);
         values.put(COLUMN_ON_UPDATE, onUpdate);
 
@@ -322,7 +322,7 @@ public class OrgProDbHelper extends SQLiteOpenHelper {
                 String farmer_photo = cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo"));
                 String signature = cursor.getString(cursor.getColumnIndexOrThrow("signature"));
                 String userFname = cursor.getString(cursor.getColumnIndexOrThrow("user_fname"));
-                String userOname = cursor.getString(cursor.getColumnIndexOrThrow("user_oname"));
+                String userLname = cursor.getString(cursor.getColumnIndexOrThrow("user_lname"));
                 String onCreate = cursor.getString(cursor.getColumnIndexOrThrow("on_create"));
                 String onUpdate = cursor.getString(cursor.getColumnIndexOrThrow("on_update"));
 
@@ -333,7 +333,7 @@ public class OrgProDbHelper extends SQLiteOpenHelper {
                         orgquestion21, orgquestion22, orgquestion23, orgquestion24, orgquestion25, orgquestion26, orgquestion27,
                         orgquestion28, orgquestion29, orgquestion30, orgquestion31, org_location,
                         farmer_photo != null ? Uri.parse(farmer_photo) : null,
-                        signature, userFname, userOname, onCreate, onUpdate
+                        signature, userFname, userLname, onCreate, onUpdate
                 );
 
                 surveyList.add(model);
@@ -344,7 +344,7 @@ public class OrgProDbHelper extends SQLiteOpenHelper {
         return surveyList;
     }
 
-    public OrgProModel getSurveyDetailsByOrgProName(String orgquestion7) {
+    public OrgProModel getSurveyDetailsByOrgPrlName(String orgquestion7) {
         SQLiteDatabase db = this.getReadableDatabase();
         OrgProModel orgproModel = null;
 
@@ -397,7 +397,7 @@ public class OrgProDbHelper extends SQLiteOpenHelper {
                     : null;
             String signature = cursor.getString(cursor.getColumnIndexOrThrow("signature"));
             String userFname = cursor.getString(cursor.getColumnIndexOrThrow("user_fname"));
-            String userOname = cursor.getString(cursor.getColumnIndexOrThrow("user_oname"));
+            String userLname = cursor.getString(cursor.getColumnIndexOrThrow("user_lname"));
             String on_create = cursor.getString(cursor.getColumnIndexOrThrow("on_create"));
             String on_update = cursor.getString(cursor.getColumnIndexOrThrow("on_update"));
 
@@ -405,7 +405,7 @@ public class OrgProDbHelper extends SQLiteOpenHelper {
                     orgquestion6, orgquestion7, orgquestion8, orgquestion9, orgquestion10, orgquestion11, orgquestion12, orgquestion13,
                     orgquestion14, orgquestion15, orgquestion16, orgquestion17, orgquestion19, orgquestion18, orgquestion20, orgquestion21,
                     orgquestion22, orgquestion23, orgquestion24, orgquestion25, orgquestion26, orgquestion27, orgquestion28,
-                    orgquestion29, orgquestion30, orgquestion31, org_location, farmer_photo, signature, userFname, userOname,
+                    orgquestion29, orgquestion30, orgquestion31, org_location, farmer_photo, signature, userFname, userLname,
                     on_create, on_update);
             cursor.close();
         }

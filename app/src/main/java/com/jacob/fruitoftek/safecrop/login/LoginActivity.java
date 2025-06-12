@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Window;
 import android.view.WindowManager;
@@ -119,27 +120,40 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             dismissProgressDialog();
+
+            if (result == null || result.trim().isEmpty()) {
+                Toast.makeText(LoginActivity.this,
+                        "Login failed: No response from server", Toast.LENGTH_LONG).show();
+                return;
+            }
+
             try {
                 JSONObject response = new JSONObject(result);
-                if(response.getString("status").equals("success")) {
+
+                if (response.optString("status").equalsIgnoreCase("success")) {
                     JSONObject userData = response.getJSONObject("user");
                     preferenceHelper.saveUserData(userData);
 
-                    // Save token if needed
-                    String token = response.getString("token");
-                    // Store token in preferences or wherever needed
+                    // Optional: store token
+                    String token = response.optString("token");
 
                     startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
                     finish();
+
                 } else {
                     Toast.makeText(LoginActivity.this,
-                            response.getString("message"), Toast.LENGTH_SHORT).show();
+                            response.optString("message", "Login failed"),
+                            Toast.LENGTH_SHORT).show();
                 }
+
             } catch (JSONException e) {
+                Log.e("LoginError", "Raw: " + result);
                 Toast.makeText(LoginActivity.this,
-                        "Login failed: Invalid response format", Toast.LENGTH_SHORT).show();
+                        "Login failed: Invalid server response",
+                        Toast.LENGTH_LONG).show();
             }
         }
+
     }
 
     private void showProgressDialog() {

@@ -141,7 +141,7 @@ public class SyncComInfoActivity extends AppCompatActivity {
         runOnUiThread(() -> syncComInfoProgressBar.setVisibility(View.VISIBLE));
         new Thread(() -> {
             try {
-                String urlString = "https://fruitoftek.com/fedco/clmrs/sync_com_info.php?userEmail=" +
+                String urlString = "https://app.safecropgh.org/clmrs/sync_com_info.php?userEmail=" +
                         URLEncoder.encode(userEmail, "UTF-8") +
                         "&startDate=" + URLEncoder.encode(startDate, "UTF-8") +
                         "&endDate=" + URLEncoder.encode(endDate, "UTF-8");
@@ -240,7 +240,7 @@ public class SyncComInfoActivity extends AppCompatActivity {
     private void fetchSurveyDataForChart(String userEmail, String filterType) {
         new Thread(() -> {
             try {
-                String urlString = "https://fruitoftek.com/fedco/clmrs/sync_com_chart.php?userEmail=" +
+                String urlString = "https://app.safecropgh.org/clmrs/sync_com_chart.php?userEmail=" +
                         URLEncoder.encode(userEmail, "UTF-8") +
                         "&filterType=" + URLEncoder.encode(filterType, "UTF-8"); //Pass filter type
 

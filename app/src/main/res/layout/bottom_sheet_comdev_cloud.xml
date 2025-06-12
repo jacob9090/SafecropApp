@@ -240,6 +240,116 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cdbsCloudBackupChTv" />
 
+
+
+
+        <TextView
+            android:id="@+id/hrddbsCloudBackupCRATv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="@string/community_risk_assessment"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:drawablePadding="10dp"
+            app:drawableLeftCompat="@drawable/cloud_sync_brown"
+            app:layout_constraintStart_toStartOf="@id/ibsDivider5"
+            app:layout_constraintTop_toBottomOf="@id/ibsDivider5" />
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginEnd="30dp"
+            android:contentDescription="@string/forward_arrow_outline"
+            android:src="@drawable/ic_next_page"
+            app:layout_constraintBottom_toBottomOf="@id/hrddbsCloudBackupCRATv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/hrddbsCloudBackupCRATv" />
+
+        <View
+            android:id="@+id/ibsDivider6"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="24dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hrddbsCloudBackupCRATv" />
+
+
+        <TextView
+            android:id="@+id/hrddbsCloudBackupCFLATv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="@string/child_forced_labour_assessment"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:drawablePadding="10dp"
+            app:drawableLeftCompat="@drawable/cloud_sync_brown"
+            app:layout_constraintStart_toStartOf="@id/ibsDivider6"
+            app:layout_constraintTop_toBottomOf="@id/ibsDivider6" />
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginEnd="30dp"
+            android:contentDescription="@string/forward_arrow_outline"
+            android:src="@drawable/ic_next_page"
+            app:layout_constraintBottom_toBottomOf="@id/hrddbsCloudBackupCFLATv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/hrddbsCloudBackupCFLATv" />
+
+        <View
+            android:id="@+id/ibsDivider7"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="24dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hrddbsCloudBackupCFLATv" />
+
+
+        <TextView
+            android:id="@+id/hrddbsCloudBackupGRATv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="@string/gender_risk_assessment"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:drawablePadding="10dp"
+            app:drawableLeftCompat="@drawable/cloud_sync_brown"
+            app:layout_constraintStart_toStartOf="@id/ibsDivider7"
+            app:layout_constraintTop_toBottomOf="@id/ibsDivider7" />
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginEnd="30dp"
+            android:contentDescription="@string/forward_arrow_outline"
+            android:src="@drawable/ic_next_page"
+            app:layout_constraintBottom_toBottomOf="@id/hrddbsCloudBackupGRATv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/hrddbsCloudBackupGRATv" />
+
+        <View
+            android:id="@+id/ibsDivider8"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="24dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hrddbsCloudBackupGRATv" />
+
       </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>

@@ -107,7 +107,7 @@ public class OrgCloudBottomSheet extends BottomSheetDialogFragment {
 //                        multipartBuilder.addFormDataPart("schquestion34[]", school.getSchquestion34());
 //                        multipartBuilder.addFormDataPart("school_location[]", school.getSch_location());
 //                        multipartBuilder.addFormDataPart("user_fname[]", school.getUserFname());
-//                        multipartBuilder.addFormDataPart("user_oname[]", school.getUserOname());
+//                        multipartBuilder.addFormDataPart("user_lname[]", school.getUserLname());
 //                        multipartBuilder.addFormDataPart("on_create[]", school.getOnCreate());
 //                        multipartBuilder.addFormDataPart("on_update[]", school.getOnUpdate());
 //
@@ -145,7 +145,7 @@ public class OrgCloudBottomSheet extends BottomSheetDialogFragment {
 //                    // Build and execute the request
 //                    RequestBody requestBody = multipartBuilder.build();
 //                    Request request = new Request.Builder()
-//                            .url("https://fruitoftek.com/fedco/sync/clmrs/asankragwa_agona_amenfi_school.php")
+//                            .url("https://app.safecropgh.org/sync/clmrs/asankragwa_agona_amenfi_school.php")
 //                            .post(requestBody)
 //                            .build();
 //

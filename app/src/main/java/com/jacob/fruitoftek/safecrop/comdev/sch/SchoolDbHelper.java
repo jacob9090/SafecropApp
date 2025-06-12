@@ -62,7 +62,7 @@ public class SchoolDbHelper extends SQLiteOpenHelper {
     private static final String COLUMN_FARMER_PHOTO = "farmer_photo";
     private static final String COLUMN_SIGNATURE = "signature";
     private static final String COLUMN_USER_FNAME = "user_fname";
-    private static final String COLUMN_USER_ONAME = "user_oname";
+    private static final String COLUMN_USER_LNAME = "user_lname";
     private static final String COLUMN_USER_EMAIL = "user_email";
     private static final String COLUMN_ON_CREATE = "on_create";
     private static final String COLUMN_ON_UPDATE = "on_update";
@@ -116,7 +116,7 @@ public class SchoolDbHelper extends SQLiteOpenHelper {
                 + COLUMN_FARMER_PHOTO + " TEXT,"
                 + COLUMN_SIGNATURE + " TEXT,"
                 + COLUMN_USER_FNAME + " TEXT,"
-                + COLUMN_USER_ONAME + " TEXT,"
+                + COLUMN_USER_LNAME + " TEXT,"
                 + COLUMN_USER_EMAIL + " TEXT,"
                 + COLUMN_ON_CREATE + " TEXT,"
                 + COLUMN_ON_UPDATE + " TEXT"
@@ -147,7 +147,7 @@ public class SchoolDbHelper extends SQLiteOpenHelper {
                                 String schquestion28, String schquestion29, String schquestion30, String schquestion31,
                                 String schquestion32, String schquestion33, String schquestion34, String sch_location,
                                 String farmer_photo, String signatureBase64,
-                                String userFname, String userOname, String userEmail, String onCreate, String onUpdate) {
+                                String userFname, String userLname, String userEmail, String onCreate, String onUpdate) {
         String signaturePath = null;
         try {
             signaturePath = saveSignatureImage(signatureBase64);
@@ -195,7 +195,7 @@ public class SchoolDbHelper extends SQLiteOpenHelper {
         values.put(COLUMN_FARMER_PHOTO, farmer_photo);
         values.put(COLUMN_SIGNATURE, signaturePath);
         values.put(COLUMN_USER_FNAME, userFname);
-        values.put(COLUMN_USER_ONAME, userOname);
+        values.put(COLUMN_USER_LNAME, userLname);
         values.put(COLUMN_USER_EMAIL, userEmail);
         values.put(COLUMN_ON_CREATE, onCreate);
         values.put(COLUMN_ON_UPDATE, onUpdate);
@@ -309,7 +309,7 @@ public class SchoolDbHelper extends SQLiteOpenHelper {
                 String farmer_photo = cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo"));
                 String signature = cursor.getString(cursor.getColumnIndexOrThrow("signature"));
                 String userFname = cursor.getString(cursor.getColumnIndexOrThrow("user_fname"));
-                String userOname = cursor.getString(cursor.getColumnIndexOrThrow("user_oname"));
+                String userLname = cursor.getString(cursor.getColumnIndexOrThrow("user_lname"));
                 String userEmail = cursor.getString(cursor.getColumnIndexOrThrow("user_email"));
                 String onCreate = cursor.getString(cursor.getColumnIndexOrThrow("on_create"));
                 String onUpdate = cursor.getString(cursor.getColumnIndexOrThrow("on_update"));
@@ -323,7 +323,7 @@ public class SchoolDbHelper extends SQLiteOpenHelper {
                         schquestion28, schquestion29, schquestion30, schquestion31, schquestion32, schquestion33,
                         schquestion34, school_location,
                         farmer_photo != null ? Uri.parse(farmer_photo) : null,
-                        signature, userFname, userOname, userEmail, onCreate, onUpdate
+                        signature, userFname, userLname, userEmail, onCreate, onUpdate
                 );
 
                 surveyList.add(model);
@@ -389,7 +389,7 @@ public class SchoolDbHelper extends SQLiteOpenHelper {
                     : null;
             String signature = cursor.getString(cursor.getColumnIndexOrThrow("signature"));
             String userFname = cursor.getString(cursor.getColumnIndexOrThrow("user_fname"));
-            String userOname = cursor.getString(cursor.getColumnIndexOrThrow("user_oname"));
+            String userLname = cursor.getString(cursor.getColumnIndexOrThrow("user_lname"));
             String userEmail = cursor.getString(cursor.getColumnIndexOrThrow("user_email"));
             String on_create = cursor.getString(cursor.getColumnIndexOrThrow("on_create"));
             String on_update = cursor.getString(cursor.getColumnIndexOrThrow("on_update"));
@@ -400,7 +400,7 @@ public class SchoolDbHelper extends SQLiteOpenHelper {
                     schquestion16, schquestion17, schquestion18, schquestion19, schquestion20, schquestion21,
                     schquestion22, schquestion23, schquestion24, schquestion25, schquestion26, schquestion27,
                     schquestion28, schquestion29, schquestion30, schquestion31, schquestion32, schquestion33,
-                    schquestion34, school_location, farmer_photo, signature, userFname, userOname, userEmail,
+                    schquestion34, school_location, farmer_photo, signature, userFname, userLname, userEmail,
                     on_create, on_update);
             cursor.close();
         }

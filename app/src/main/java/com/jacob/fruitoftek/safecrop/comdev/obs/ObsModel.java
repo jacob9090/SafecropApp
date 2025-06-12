@@ -30,7 +30,7 @@ public class ObsModel implements Parcelable {
     private Uri farmer_photo;
     private String signature;
     private String userFname;
-    private String userOname;
+    private String userLname;
     private String userEmail;
     private String onCreate;
     private String onUpdate;
@@ -39,7 +39,7 @@ public class ObsModel implements Parcelable {
                     String obsquestion6, String obsquestion7, String obsquestion8, String obsquestion9, String obsquestion10,
                     String obsquestion11, String obsquestion12, String obsquestion13, String obsquestion14, String obsquestion15,
                     String obsquestion16, String obsquestion17, String obsquestion18, String obsquestion19, String obsquestion20,
-                    String obsquestion21, String obs_location, Uri farmer_photo, String signature, String userFname, String userOname,
+                    String obsquestion21, String obs_location, Uri farmer_photo, String signature, String userFname, String userLname,
                     String userEmail, String onCreate, String onUpdate) {
         this.id = id;
         this.obs_name = obs_name;
@@ -65,7 +65,7 @@ public class ObsModel implements Parcelable {
         this.farmer_photo = farmer_photo;
         this.signature = signature;
         this.userFname = userFname;
-        this.userOname = userOname;
+        this.userLname = userLname;
         this.userEmail = userEmail;
         this.onCreate = onCreate;
         this.onUpdate = onUpdate;
@@ -96,7 +96,7 @@ public class ObsModel implements Parcelable {
         farmer_photo = in.readParcelable(Uri.class.getClassLoader());
         signature = in.readString();
         userFname = in.readString();
-        userOname = in.readString();
+        userLname = in.readString();
         userEmail = in.readString();
         onCreate = in.readString();
         onUpdate = in.readString();
@@ -128,7 +128,7 @@ public class ObsModel implements Parcelable {
         dest.writeParcelable(farmer_photo, flags);
         dest.writeString(signature);
         dest.writeString(userFname);
-        dest.writeString(userOname);
+        dest.writeString(userLname);
         dest.writeString(userEmail);
         dest.writeString(onCreate);
         dest.writeString(onUpdate);
@@ -167,7 +167,7 @@ public class ObsModel implements Parcelable {
     public String getSignature() { return signature; }
     public Uri getFarmer_photo() {return farmer_photo;}
     public String getUserFname() {return userFname;}
-    public String getUserOname() {return userOname;}
+    public String getUserLname() {return userLname;}
     public String getUserEmail() {return userEmail;}
     public String getOnCreate() {return onCreate;}
     public String getOnUpdate() {return onUpdate;}
@@ -243,7 +243,7 @@ public class ObsModel implements Parcelable {
     public void setSignature(String signature) { this.signature = signature; }
     public void setFarmer_photo(Uri farmer_photo) {this.farmer_photo = farmer_photo;}
     public void setUserFname(String userFname) {this.userFname = userFname;}
-    public void setUserOname(String userOname) {this.userOname = userOname;}
+    public void setUserLname(String userLname) {this.userLname = userLname;}
     public void setUserEmail(String userEmail) {this.userEmail = userEmail;}
     public void setOnCreate(String onCreate) {this.onCreate = onCreate;}
     public void setOnUpdate(String onUpdate) {this.onUpdate = onUpdate;}

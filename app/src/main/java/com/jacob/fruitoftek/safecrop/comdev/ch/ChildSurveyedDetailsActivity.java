@@ -683,7 +683,7 @@ public class ChildSurveyedDetailsActivity extends AppCompatActivity {
                 "setValueOrDefault('childLocation', " + JSONObject.quote(childModel.getChildLocation()) + ");" +
 
                 "setValueOrDefault('UserFname', " + JSONObject.quote(childModel.getUserFname()) + ");" +
-                "setValueOrDefault('UserOname', " + JSONObject.quote(childModel.getUserOname()) + ");" +
+                "setValueOrDefault('UserLname', " + JSONObject.quote(childModel.getUserLname()) + ");" +
                 "setValueOrDefault('UserEmail', " + JSONObject.quote(childModel.getUserEmail()) + ");" +
 
                 "setValueOrDefault('onCreate', " + JSONObject.quote(childModel.getOnCreate()) + ");";

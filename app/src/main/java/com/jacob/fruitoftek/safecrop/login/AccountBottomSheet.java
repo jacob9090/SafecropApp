@@ -35,21 +35,21 @@ public class AccountBottomSheet extends BottomSheetDialogFragment {
         // Use a map to store references to frequently accessed views
         Map<Integer, View> viewMap = new HashMap<>();
         viewMap.put(R.id.userNameTV, view.findViewById(R.id.userNameTV));
-        viewMap.put(R.id.userONameTV, view.findViewById(R.id.userONameTV));
+        viewMap.put(R.id.userLNameTV, view.findViewById(R.id.userLNameTV));
         viewMap.put(R.id.userDistrictTV, view.findViewById(R.id.userDistrictTV));
         viewMap.put(R.id.userPhoneTV, view.findViewById(R.id.userPhoneTV));
         viewMap.put(R.id.userEmailTV, view.findViewById(R.id.userEmailTV));
 
         // Retrieve user data from PreferenceHelper once
         String firstName = preferenceHelper.getFirstName();
-        String otherName = preferenceHelper.getLastName();
+        String lastName = preferenceHelper.getLastName();
         String phone = preferenceHelper.getPhone();
         String district = preferenceHelper.getDistrict();
         String email = preferenceHelper.getEmail();
 
         // Set the text for TextViews using the stored data
         TextView tvUserName = (TextView) viewMap.get(R.id.userNameTV);
-        TextView tvUserName2 = (TextView) viewMap.get(R.id.userONameTV);
+        TextView tvUserName2 = (TextView) viewMap.get(R.id.userLNameTV);
         TextView tvUserPhone = (TextView) viewMap.get(R.id.userPhoneTV);
         TextView tvUserDistrict = (TextView) viewMap.get(R.id.userDistrictTV);
         TextView tvUserEmail = (TextView) viewMap.get(R.id.userEmailTV);
@@ -61,9 +61,9 @@ public class AccountBottomSheet extends BottomSheetDialogFragment {
         }
 
         if (tvUserName2 != null) {
-            tvUserName2.setText(otherName);
+            tvUserName2.setText(lastName);
         } else {
-            Log.e("AccountBottomSheet", "Other name(s) is null");
+            Log.e("AccountBottomSheet", "Last name is null");
         }
 
         if (tvUserPhone != null) {

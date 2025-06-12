@@ -222,7 +222,7 @@ public class ChildSurveyDBHelper extends SQLiteOpenHelper {
     private static final String COLUMN_CHILD_LOCATION = "child_location";
     private static final String COLUMN_SIGNATURE = "signature";
     private static final String COLUMN_USER_FNAME = "user_fname";
-    private static final String COLUMN_USER_ONAME = "user_oname";
+    private static final String COLUMN_USER_LNAME = "user_lname";
     private static final String COLUMN_USER_EMAIL = "user_email";
     private static final String COLUMN_ON_CREATE = "on_create";
     private static final String COLUMN_ON_UPDATE = "on_update";
@@ -436,7 +436,7 @@ public class ChildSurveyDBHelper extends SQLiteOpenHelper {
                 + COLUMN_CHILD_LOCATION + " TEXT,"
                 + COLUMN_SIGNATURE + " TEXT,"
                 + COLUMN_USER_FNAME + " TEXT,"
-                + COLUMN_USER_ONAME + " TEXT,"
+                + COLUMN_USER_LNAME + " TEXT,"
                 + COLUMN_USER_EMAIL + " TEXT,"
                 + COLUMN_ON_CREATE + " TEXT,"
                 + COLUMN_ON_UPDATE + " TEXT"
@@ -507,7 +507,7 @@ public class ChildSurveyDBHelper extends SQLiteOpenHelper {
                                  String child10question9, String child10question10, String child10question11, String child10question12,
                                  String child10question13, String child10question14, String child10question15, String child10question16,
                                  String child10question17, String child10question18, String child10question19, String childquestion5,
-                                 String childLocation, String signatureBase64, String userFname, String userOname, String userEmail,
+                                 String childLocation, String signatureBase64, String userFname, String userLname, String userEmail,
                                  String onCreate, String onUpdate) {
         String signaturePath = null;
         try {
@@ -716,7 +716,7 @@ public class ChildSurveyDBHelper extends SQLiteOpenHelper {
         values.put(COLUMN_CHILD_LOCATION, childLocation);
         values.put(COLUMN_SIGNATURE, signaturePath);
         values.put(COLUMN_USER_FNAME, userFname);
-        values.put(COLUMN_USER_ONAME, userOname);
+        values.put(COLUMN_USER_LNAME, userLname);
         values.put(COLUMN_USER_EMAIL, userEmail);
         values.put(COLUMN_ON_CREATE, onCreate);
         values.put(COLUMN_ON_UPDATE, onUpdate);
@@ -1222,7 +1222,7 @@ public class ChildSurveyDBHelper extends SQLiteOpenHelper {
                 String childLocation = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CHILD_LOCATION));
                 String signature = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_SIGNATURE));
                 String userFname = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_USER_FNAME));
-                String userOname = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_USER_ONAME));
+                String userLname = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_USER_LNAME));
                 String userEmail = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_USER_EMAIL));
                 String onCreate = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_ON_CREATE));
                 String onUpdate = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_ON_UPDATE));
@@ -1266,7 +1266,7 @@ public class ChildSurveyDBHelper extends SQLiteOpenHelper {
                         child10question4, child10question5, child10question6, child10question7, child10question8,
                         child10question9, child10question10, child10question11, child10question12, child10question13,
                         child10question14, child10question15, child10question16, child10question17, child10question18, child10question19,
-                        childquestion5, childLocation, signature, userFname, userOname, userEmail, onCreate, onUpdate);
+                        childquestion5, childLocation, signature, userFname, userLname, userEmail, onCreate, onUpdate);
                 childList.add(child);
             } while (cursor.moveToNext());
         }

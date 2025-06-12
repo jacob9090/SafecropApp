@@ -7,11 +7,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class PreferenceHelper {
-    private SharedPreferences sharedPrefs;
 
-    // Preference keys
+    private final SharedPreferences sharedPrefs;
+
+    private static final String PREF_NAME = "AppPrefs";
+
+    // Keys
     private static final String KEY_FIRST_NAME = "first_name";
     private static final String KEY_LAST_NAME = "last_name";
+    public static final String KEY_GENDER = "gender";
     private static final String KEY_ROLE = "role";
     private static final String KEY_SURVEY_ACCESS = "survey_access";
     private static final String KEY_PHONE = "user_phone";
@@ -22,139 +26,147 @@ public class PreferenceHelper {
     private static final String KEY_IS_LOGGED_IN = "is_logged_in";
 
     public PreferenceHelper(Context context) {
-        sharedPrefs = context.getSharedPreferences("AppPrefs", Context.MODE_PRIVATE);
+        sharedPrefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
     }
 
     public void saveUserData(JSONObject user) throws JSONException {
         SharedPreferences.Editor editor = sharedPrefs.edit();
-        editor.putString(KEY_FIRST_NAME, user.getString("first_name"));
-        editor.putString(KEY_LAST_NAME, user.getString("last_name"));
-        editor.putString(KEY_ROLE, user.getString("role"));
-        editor.putString(KEY_SURVEY_ACCESS, user.getString("survey_access"));
-        editor.putString(KEY_PHONE, user.getString("user_phone"));
-        editor.putString(KEY_DISTRICT, user.getString("user_district"));
-        editor.putString(KEY_COMMUNITY, user.getString("user_community"));
-        editor.putString(KEY_COOPERATIVE, user.getString("user_cooperative"));
-        editor.putString(KEY_EMAIL, user.getString("email"));
+        editor.putString(KEY_FIRST_NAME, user.optString(KEY_FIRST_NAME, ""));
+        editor.putString(KEY_LAST_NAME, user.optString(KEY_LAST_NAME, ""));
+        editor.putString(KEY_GENDER, user.optString(KEY_GENDER, ""));
+        editor.putString(KEY_ROLE, user.optString(KEY_ROLE, ""));
+        editor.putString(KEY_SURVEY_ACCESS, user.optString(KEY_SURVEY_ACCESS, ""));
+        editor.putString(KEY_PHONE, user.optString(KEY_PHONE, ""));
+        editor.putString(KEY_DISTRICT, user.optString(KEY_DISTRICT, ""));
+        editor.putString(KEY_COMMUNITY, user.optString(KEY_COMMUNITY, ""));
+        editor.putString(KEY_COOPERATIVE, user.optString(KEY_COOPERATIVE, ""));
+        editor.putString(KEY_EMAIL, user.optString(KEY_EMAIL, ""));
         editor.putBoolean(KEY_IS_LOGGED_IN, true);
         editor.apply();
     }
 
-    public void clearUserData() {
-        SharedPreferences.Editor editor = sharedPrefs.edit();
-        editor.clear();
-        editor.apply();
-    }
+    // Save user JSON data
+//    public void saveUserData(JSONObject user) throws JSONException {
+//        SharedPreferences.Editor editor = sharedPrefs.edit();
+//        editor.putString(KEY_FIRST_NAME, user.getString(KEY_FIRST_NAME));
+//        editor.putString(KEY_LAST_NAME, user.getString(KEY_LAST_NAME));
+//        editor.putString(KEY_GENDER, user.getString(KEY_GENDER));
+//        editor.putString(KEY_ROLE, user.getString(KEY_ROLE));
+//        editor.putString(KEY_SURVEY_ACCESS, user.getString(KEY_SURVEY_ACCESS));
+//        editor.putString(KEY_PHONE, user.getString(KEY_PHONE));
+//        editor.putString(KEY_DISTRICT, user.getString(KEY_DISTRICT));
+//        editor.putString(KEY_COMMUNITY, user.getString(KEY_COMMUNITY));
+//        editor.putString(KEY_COOPERATIVE, user.getString(KEY_COOPERATIVE));
+//        editor.putString(KEY_EMAIL, user.getString(KEY_EMAIL));
+//        editor.putBoolean(KEY_IS_LOGGED_IN, true);
+//        editor.apply();
+//    }
 
-    public void logout() {
-        SharedPreferences.Editor editor = sharedPrefs.edit();
-        editor.putBoolean(KEY_IS_LOGGED_IN, false);
-        editor.apply();
-    }
-
-    // Set login status
-    public void putIsLogin(boolean loginorout) {
-        SharedPreferences.Editor edit = sharedPrefs.edit();
-        edit.putBoolean(KEY_IS_LOGGED_IN, loginorout);
-        edit.apply();
-    }
-
-    // Get login status
-    public boolean getIsLogin() {
-        return sharedPrefs.getBoolean(KEY_IS_LOGGED_IN, false);
-    }
-
-    // Clear all stored user information
-    public void clearUserInfo() {
-        SharedPreferences.Editor edit = sharedPrefs.edit();
-        edit.remove(KEY_FIRST_NAME);
-        edit.remove(KEY_LAST_NAME);
-        edit.remove(KEY_ROLE);
-        edit.remove(KEY_SURVEY_ACCESS);
-        edit.remove(KEY_PHONE);
-        edit.remove(KEY_DISTRICT);
-        edit.remove(KEY_COMMUNITY);
-        edit.remove(KEY_COOPERATIVE);
-        edit.remove(KEY_EMAIL);
-        edit.apply(); // Use apply instead of commit for asynchronous saving
-    }
-
-    // Optional: Clear entire session including login status
-    public void clearSession() {
-        SharedPreferences.Editor edit = sharedPrefs.edit();
-        edit.clear();  // Clears all data in shared preferences
-        edit.apply();
-    }
-
+    // Individual Setters
     public void putFirstName(String fname) {
-        SharedPreferences.Editor edit = sharedPrefs.edit();
-        edit.putString(KEY_FIRST_NAME, fname);
-        edit.apply();
+        sharedPrefs.edit().putString(KEY_FIRST_NAME, fname).apply();
     }
 
-    public void putLastName(String fname) {
-        SharedPreferences.Editor edit = sharedPrefs.edit();
-        edit.putString(KEY_FIRST_NAME, fname);
-        edit.apply();
+    public void putLastName(String lname) {
+        sharedPrefs.edit().putString(KEY_LAST_NAME, lname).apply();
+    }
+
+    public void putGender(String gender) {
+        sharedPrefs.edit().putString(KEY_GENDER, gender).apply();
     }
 
     public void putRole(String role) {
-        SharedPreferences.Editor edit = sharedPrefs.edit();
-        edit.putString(KEY_ROLE, role);
-        edit.apply();
+        sharedPrefs.edit().putString(KEY_ROLE, role).apply();
     }
 
-    public void putSurveyAccess(String survey_access) {
-        SharedPreferences.Editor edit = sharedPrefs.edit();
-        edit.putString(KEY_SURVEY_ACCESS, survey_access);
-        edit.apply();
+    public void putSurveyAccess(String surveyAccess) {
+        sharedPrefs.edit().putString(KEY_SURVEY_ACCESS, surveyAccess).apply();
     }
 
-    public void putPhone(String user_phone) {
-        SharedPreferences.Editor edit = sharedPrefs.edit();
-        edit.putString(KEY_PHONE, user_phone);
-        edit.apply();
+    public void putPhone(String phone) {
+        sharedPrefs.edit().putString(KEY_PHONE, phone).apply();
     }
 
-    public void putDistrict(String user_district) {
-        SharedPreferences.Editor edit = sharedPrefs.edit();
-        edit.putString(KEY_DISTRICT, user_district);
-        edit.apply();
+    public void putDistrict(String district) {
+        sharedPrefs.edit().putString(KEY_DISTRICT, district).apply();
     }
 
-    public void putCommunity(String user_community) {
-        SharedPreferences.Editor edit = sharedPrefs.edit();
-        edit.putString(KEY_COMMUNITY, user_community);
-        edit.apply();
+    public void putCommunity(String community) {
+        sharedPrefs.edit().putString(KEY_COMMUNITY, community).apply();
     }
 
-    public void putCooperative(String user_cooperative) {
-        SharedPreferences.Editor edit = sharedPrefs.edit();
-        edit.putString(KEY_COOPERATIVE, user_cooperative);
-        edit.apply();
+    public void putCooperative(String cooperative) {
+        sharedPrefs.edit().putString(KEY_COOPERATIVE, cooperative).apply();
     }
 
     public void putEmail(String email) {
-        SharedPreferences.Editor edit = sharedPrefs.edit();
-        edit.putString(KEY_EMAIL, email);
-        edit.apply();
+        sharedPrefs.edit().putString(KEY_EMAIL, email).apply();
     }
 
-    public void putIsLogin(String is_logged_in) {
-        SharedPreferences.Editor edit = sharedPrefs.edit();
-        edit.putString(KEY_IS_LOGGED_IN, is_logged_in);
-        edit.apply();
+    public void putIsLogin(boolean loggedIn) {
+        sharedPrefs.edit().putBoolean(KEY_IS_LOGGED_IN, loggedIn).apply();
     }
 
-    // Getters
-    public String getFirstName() { return sharedPrefs.getString(KEY_FIRST_NAME, ""); }
+    // Individual Getters
+    public String getFirstName() {
+        return sharedPrefs.getString(KEY_FIRST_NAME, "");
+    }
+
     public String getLastName() { return sharedPrefs.getString(KEY_LAST_NAME, ""); }
-    public String getRole() { return sharedPrefs.getString(KEY_ROLE, ""); }
-    public String getSurveyAccess() { return sharedPrefs.getString(KEY_SURVEY_ACCESS, ""); }
-    public String getPhone() { return sharedPrefs.getString(KEY_PHONE, ""); }
-    public String getDistrict() { return sharedPrefs.getString(KEY_DISTRICT, ""); }
-    public String getCommunity() { return sharedPrefs.getString(KEY_COMMUNITY, ""); }
-    public String getCooperative() { return sharedPrefs.getString(KEY_COOPERATIVE, ""); }
-    public String getEmail() { return sharedPrefs.getString(KEY_EMAIL, ""); }
-    public boolean isLoggedIn() { return sharedPrefs.getBoolean(KEY_IS_LOGGED_IN, false); }
+
+    public String getGender() { return sharedPrefs.getString(KEY_GENDER, ""); }
+
+    public String getRole() {
+        return sharedPrefs.getString(KEY_ROLE, "");
+    }
+
+    public String getSurveyAccess() {
+        return sharedPrefs.getString(KEY_SURVEY_ACCESS, "");
+    }
+
+    public String getPhone() {
+        return sharedPrefs.getString(KEY_PHONE, "");
+    }
+
+    public String getDistrict() {
+        return sharedPrefs.getString(KEY_DISTRICT, "");
+    }
+
+    public String getCommunity() {
+        return sharedPrefs.getString(KEY_COMMUNITY, "");
+    }
+
+    public String getCooperative() {
+        return sharedPrefs.getString(KEY_COOPERATIVE, "");
+    }
+
+    public String getEmail() {
+        return sharedPrefs.getString(KEY_EMAIL, "");
+    }
+
+    public boolean isLoggedIn() {
+        return sharedPrefs.getBoolean(KEY_IS_LOGGED_IN, false);
+    }
+
+    // Clear user info but keep session flag if needed
+    public void clearUserInfo() {
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+        editor.remove(KEY_FIRST_NAME);
+        editor.remove(KEY_LAST_NAME);
+        editor.remove(KEY_GENDER);
+        editor.remove(KEY_ROLE);
+        editor.remove(KEY_SURVEY_ACCESS);
+        editor.remove(KEY_PHONE);
+        editor.remove(KEY_DISTRICT);
+        editor.remove(KEY_COMMUNITY);
+        editor.remove(KEY_COOPERATIVE);
+        editor.remove(KEY_EMAIL);
+        editor.apply();
+    }
+
+    // Full logout, clears everything
+    public void clearSession() {
+        sharedPrefs.edit().clear().apply();
+    }
 }
+

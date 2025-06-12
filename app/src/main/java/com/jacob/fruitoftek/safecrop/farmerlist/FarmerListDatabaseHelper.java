@@ -15,7 +15,6 @@ public class FarmerListDatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "myfarmers";
     private static final String COL_FID = "fid";
     private static final String COL_NAME = "name";
-    private static final String COL_SURNAME = "surname";
     private static final String COL_PHONE = "phone";
     private static final String COL_DISTRICT = "district";
     private static final String COL_VILLAGE = "village";
@@ -30,7 +29,6 @@ public class FarmerListDatabaseHelper extends SQLiteOpenHelper {
         String createTable = "CREATE TABLE " + TABLE_NAME + " ("
                 + COL_FID + " TEXT, "
                 + COL_NAME + " TEXT, "
-                + COL_SURNAME + " TEXT, "
                 + COL_PHONE + " TEXT, "
                 + COL_DISTRICT + " TEXT, "
                 + COL_VILLAGE + " TEXT, "
@@ -71,7 +69,6 @@ public class FarmerListDatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COL_FID, farmer.getFid());
         values.put(COL_NAME, farmer.getName());
-        values.put(COL_SURNAME, farmer.getSurname());
         values.put(COL_PHONE, farmer.getPhone());
         values.put(COL_DISTRICT, farmer.getDistrict());
         values.put(COL_VILLAGE, farmer.getVillage());
@@ -121,7 +118,6 @@ public class FarmerListDatabaseHelper extends SQLiteOpenHelper {
                 farmers.add(new FarmerListModal(
                         cursor.getString(cursor.getColumnIndexOrThrow(COL_FID)),
                         cursor.getString(cursor.getColumnIndexOrThrow(COL_NAME)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(COL_SURNAME)),
                         cursor.getString(cursor.getColumnIndexOrThrow(COL_PHONE)),
                         cursor.getString(cursor.getColumnIndexOrThrow(COL_DISTRICT)),
                         cursor.getString(cursor.getColumnIndexOrThrow(COL_VILLAGE)),

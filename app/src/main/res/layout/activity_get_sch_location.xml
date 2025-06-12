@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context=".comdev.sch.GetSchLocationActivity">
 
-    <!-- OpenStreetMap View - Takes up most of the screen -->
+    <!-- OpenStreetMap Map -->
     <org.osmdroid.views.MapView
         android:id="@+id/schMapView"
         android:layout_width="match_parent"

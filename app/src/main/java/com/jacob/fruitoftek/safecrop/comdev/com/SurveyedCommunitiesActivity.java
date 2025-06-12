@@ -204,7 +204,7 @@ public class SurveyedCommunitiesActivity extends AppCompatActivity {
                         : null;
                 String signature = cursor.getString(cursor.getColumnIndexOrThrow("signature"));
                 String user_fname = cursor.getString(cursor.getColumnIndexOrThrow("user_fname"));
-                String user_oname = cursor.getString(cursor.getColumnIndexOrThrow("user_oname"));
+                String user_lname = cursor.getString(cursor.getColumnIndexOrThrow("user_lname"));
                 String user_email = cursor.getString(cursor.getColumnIndexOrThrow("user_email"));
                 String onCreate = cursor.getString(cursor.getColumnIndexOrThrow("on_create"));
                 String onUpdate = cursor.getString(cursor.getColumnIndexOrThrow("on_update"));
@@ -220,7 +220,7 @@ public class SurveyedCommunitiesActivity extends AppCompatActivity {
                         commquestion49, commquestion50, commquestion51, commquestion52, commquestion53, commquestion54,
                         commquestion56, commquestion57, commquestion58, commquestion59, commquestion60, commquestion61,
                         commquestion62, commquestion63, commquestion64, commquestion65, commquestion66, commquestion67,
-                        com_location, farmer_photo, signature, user_fname, user_oname, user_email, onCreate, onUpdate));
+                        com_location, farmer_photo, signature, user_fname, user_lname, user_email, onCreate, onUpdate));
             } while (cursor.moveToNext());
             cursor.close();
         }

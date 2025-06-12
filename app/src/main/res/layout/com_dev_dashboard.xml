@@ -92,6 +92,19 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
 
+            <TextView
+                android:id="@+id/susCertTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:text="@string/clmrs_menu"
+                android:textColor="#999999"
+                android:fontFamily="sans-serif-medium"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/comSurveyCV"/>
+
         </LinearLayout>
 
 
@@ -113,19 +126,6 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/susCertTxt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:gravity="center"
-                    android:textSize="12sp"
-                    android:text="@string/community_development_surveys"
-                    android:textColor="#999999"
-                    android:fontFamily="sans-serif-medium"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/comSurveyCV"/>
-
                 <androidx.cardview.widget.CardView
                     android:id="@+id/comSurveyCV"
                     android:layout_width="0dp"
@@ -134,7 +134,7 @@
                     app:cardCornerRadius="6dp"
                     app:cardElevation="2dp"
                     app:cardUseCompatPadding="true"
-                    app:layout_constraintTop_toBottomOf="@+id/susCertTxt"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent">
 
@@ -439,11 +439,6 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-
-
-
-
-
                 <androidx.cardview.widget.CardView
                     android:id="@+id/childSurveyCV"
                     android:layout_width="0dp"
@@ -522,8 +517,243 @@
                 </androidx.cardview.widget.CardView>
 
 
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/comRiskAssesCV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    app:cardCornerRadius="6dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintTop_toBottomOf="@+id/childSurveyCV"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
+
+                        <RelativeLayout
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="1dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/shape_default"
+                                app:tint="#E6E6E6"/>
+                            <ImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/ico_image_search"
+                                app:tint="#999999" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="0dp"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/community_risk_assessment"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                                android:textColor="@color/brown" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/start_new_assessment"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                                android:textColor="#999999"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="end"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                app:tint="#999999"
+                                android:src="@drawable/ic_next_page"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/chForceLaborRiskAssesCV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="6dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintTop_toBottomOf="@+id/comRiskAssesCV"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
+
+                        <RelativeLayout
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="1dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/shape_default"
+                                app:tint="#E6E6E6"/>
+                            <ImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/ico_image_search"
+                                app:tint="#999999" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="0dp"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/child_forced_labour_assessment"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                                android:textColor="@color/brown" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/start_new_assessment"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                                android:textColor="#999999" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="end"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                app:tint="#999999"
+                                android:src="@drawable/ic_next_page"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/genderRiskAssesCV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="6dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintTop_toBottomOf="@+id/chForceLaborRiskAssesCV"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
+
+                        <RelativeLayout
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="1dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/shape_default"
+                                app:tint="#E6E6E6"/>
+
+                            <ImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/ico_image_search"
+                                app:tint="#999999" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="0dp"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/gender_risk_assessment"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                                android:textColor="@color/brown" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/start_new_assessment"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                                android:textColor="#999999" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="end"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                app:tint="#999999"
+                                android:src="@drawable/ic_next_page"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
 <!--                <androidx.cardview.widget.CardView-->
-<!--                    android:id="@+id/comDevReportCV"-->
+<!--                    android:id="@+id/comDevTrainingCV"-->
 <!--                    android:layout_width="0dp"-->
 <!--                    android:layout_height="wrap_content"-->
 <!--                    app:cardCornerRadius="6dp"-->
@@ -571,14 +801,14 @@
 <!--                            <TextView-->
 <!--                                android:layout_width="wrap_content"-->
 <!--                                android:layout_height="wrap_content"-->
-<!--                                android:text="Com. Dev. Report"-->
+<!--                                android:text="@string/com_dev_training"-->
 <!--                                android:textAppearance="@style/TextAppearance.AppCompat.Body2"-->
 <!--                                android:textColor="@color/brown" />-->
 
 <!--                            <TextView-->
 <!--                                android:layout_width="wrap_content"-->
 <!--                                android:layout_height="wrap_content"-->
-<!--                                android:text="Add a new community development report"-->
+<!--                                android:text="@string/start_a_new_training"-->
 <!--                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"-->
 <!--                                android:textColor="#999999" />-->
 <!--                        </LinearLayout>-->
@@ -591,10 +821,10 @@
 <!--                            android:orientation="vertical">-->
 
 <!--                            <ImageView-->
-<!--                                android:layout_width="20dp"-->
-<!--                                android:layout_height="25dp"-->
+<!--                                android:layout_width="30dp"-->
+<!--                                android:layout_height="30dp"-->
 <!--                                app:tint="#999999"-->
-<!--                                android:src="@drawable/arrow_forward_ios_brown"/>-->
+<!--                                android:src="@drawable/ic_next_page"/>-->
 <!--                        </LinearLayout>-->
 <!--                    </LinearLayout>-->
 <!--                </androidx.cardview.widget.CardView>-->

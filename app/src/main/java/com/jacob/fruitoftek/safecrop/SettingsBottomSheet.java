@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.jacob.fruitoftek.safecrop.farmerlist.FarmerListActivity;
-import com.jacob.fruitoftek.safecrop.traintopic.TrainingListActivity;
+import com.jacob.fruitoftek.safecrop.sustain.traintopic.TrainingListActivity;
 
 public class SettingsBottomSheet extends BottomSheetDialogFragment {
 

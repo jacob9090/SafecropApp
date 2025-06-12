@@ -26,7 +26,7 @@
             <TextView
                 android:id="@+id/topicTv"
                 android:textStyle="bold"
-                android:textColor="#000"
+                android:textColor="#454545"
                 android:textSize="17sp"
                 android:text="@string/training_topic"
                 android:layout_width="match_parent"

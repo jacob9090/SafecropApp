@@ -157,7 +157,7 @@ public class CommunitySurveyedDetailsActivity extends AppCompatActivity {
                         "document.getElementById('on_create').textContent = '%s';" +
                         "document.getElementById('on_update').textContent = '%s';" +
                         "document.getElementById('user_fname').textContent = '%s';" +
-                        "document.getElementById('user_oname').textContent = '%s';" +
+                        "document.getElementById('user_lname').textContent = '%s';" +
                         "document.getElementById('user_email').textContent = '%s';" +
                         "document.getElementById('signature').src = '%s';",
                 sanitize(comModel.getCommquestion1()),
@@ -231,7 +231,7 @@ public class CommunitySurveyedDetailsActivity extends AppCompatActivity {
                 sanitize(comModel.getOnCreate()),
                 sanitize(comModel.getOnUpdate()),
                 sanitize(comModel.getUserFname()),
-                sanitize(comModel.getUserOname()),
+                sanitize(comModel.getUserLname()),
                 sanitize(comModel.getUserEmail()),
                 sanitize(signatureUri));
 

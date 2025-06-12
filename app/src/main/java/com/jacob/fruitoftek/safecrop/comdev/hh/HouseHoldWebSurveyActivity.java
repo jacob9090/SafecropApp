@@ -145,7 +145,7 @@ public class HouseHoldWebSurveyActivity extends AppCompatActivity {
                              String farmer_photo, String signature) {
 
             String userFname = preferenceHelper.getFirstName();
-            String userOname = preferenceHelper.getLastName();
+            String userLname = preferenceHelper.getLastName();
             String userEmail = preferenceHelper.getEmail();
             String onCreate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
             String onUpdate = onCreate;
@@ -159,11 +159,11 @@ public class HouseHoldWebSurveyActivity extends AppCompatActivity {
                     hhquestion18, hhquestion19, hhquestion20, hhquestion21, hhquestion22, hhquestion23, hhquestion24,
                     hhquestion25, hhquestion26, hhquestion27, hhquestion28, hhquestion29, hhquestion30, hhquestion31,
                     hhquestion32, hhquestion36, hhquestion37, hh_location, farmer_photo, signature, userFname,
-                    userOname, userEmail, onCreate, onUpdate);
+                    userLname, userEmail, onCreate, onUpdate);
 
             Log.d("HouseHoldWebSurveyActivity", "InsertSurveyData called with:");
             Log.d("HouseHoldWebSurveyActivity", "hh_name: " + hh_name);
-            Log.d("HouseHoldWebSurveyActivity", "user_oname: " + hh_district);
+            Log.d("HouseHoldWebSurveyActivity", "user_lname: " + hh_district);
             Log.d("HouseHoldWebSurveyActivity", "hh_community: " + hh_community);
             Log.d("HouseHoldWebSurveyActivity", "hhquestion4: " + hhquestion4);
             Log.d("HouseHoldWebSurveyActivity", "hh_location: " + hh_location);

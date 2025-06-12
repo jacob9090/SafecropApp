@@ -2,8 +2,11 @@ package com.jacob.fruitoftek.safecrop;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
@@ -24,10 +27,10 @@ import androidx.work.WorkManager;
 import com.jacob.fruitoftek.safecrop.comdev.ComDevDashboard;
 import com.jacob.fruitoftek.safecrop.comdev.ExportCsvWorker;
 import com.jacob.fruitoftek.safecrop.comdev.SyncDataWorker;
-import com.jacob.fruitoftek.safecrop.farmertrain.TrainingDashboard;
-import com.jacob.fruitoftek.safecrop.hrdd.HrddDashboard;
+import com.jacob.fruitoftek.safecrop.facerecognition.AddFaceActivity;
 import com.jacob.fruitoftek.safecrop.login.AccountBottomSheet;
 import com.jacob.fruitoftek.safecrop.login.utils.PreferenceHelper;
+import com.jacob.fruitoftek.safecrop.sustain.SusCertDashboard;
 
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
@@ -90,17 +93,71 @@ public class DashboardActivity extends AppCompatActivity {
             settingsBottomSheet.show(getSupportFragmentManager(), "settingsBottomSheet");
         });
 
+        // CardView access surveyAccess
+        TextView surveyAccess = findViewById(R.id.dashboardMenu);
+        CardView certSusCv = findViewById(R.id.certSusCv);
         CardView comDevCv = findViewById(R.id.comDevCv);
-        comDevCv.setOnClickListener(view -> startActivity(new Intent(DashboardActivity.this, ComDevDashboard.class)));
+        CardView environmentalCV = findViewById(R.id.environmentalCV);
+        CardView orgProCV = findViewById(R.id.orgProCV);
 
-        CardView trainCV = findViewById(R.id.trainingCV);
-        trainCV.setOnClickListener(view -> startActivity(new Intent(DashboardActivity.this, TrainingDashboard.class)));
+        certSusCv.setVisibility(View.GONE);
+        comDevCv.setVisibility(View.GONE);
+        environmentalCV.setVisibility(View.GONE);
+        orgProCV.setVisibility(View.GONE);
 
-        CardView hrddCV = findViewById(R.id.hrddCV);
-        hrddCV.setOnClickListener(view -> startActivity(new Intent(DashboardActivity.this, HrddDashboard.class)));
+
+        String access = preferenceHelper.getSurveyAccess();
+        if (access != null && !access.trim().isEmpty()) {
+            access = access.trim();
+            Log.d("SurveyAccess", "access = " + access);
+
+            if (access.contains(",")) {
+                String[] accessList = access.split(",");
+                for (String a : accessList) {
+                    showCardByAccess(a.trim());
+                }
+            } else {
+                showCardByAccess(access);
+            }
+        } else {
+            surveyAccess.setText("No survey access granted");
+            Toast.makeText(this, "No survey access granted", Toast.LENGTH_SHORT).show();
+        }
+
+        // Card click actions
+        certSusCv.setOnClickListener(v -> startActivity(new Intent(this, SusCertDashboard.class)));
+        comDevCv.setOnClickListener(v -> startActivity(new Intent(this, ComDevDashboard.class)));
+//        environmentalCV.setOnClickListener(v -> startActivity(new Intent(this, EnvironmentalDashboard.class)));
+//        orgProCV.setOnClickListener(v -> startActivity(new Intent(this, OrgProDashboard.class)));
+
 
         scheduleDailyExport();
         scheduleDailySync();
+    }
+
+    private void showCardByAccess(String access) {
+        switch (access) {
+            case "Sustainability":
+                findViewById(R.id.certSusCv).setVisibility(View.VISIBLE);
+                break;
+            case "CLMRS":
+                findViewById(R.id.comDevCv).setVisibility(View.VISIBLE);
+                break;
+            case "Environmental":
+                findViewById(R.id.environmentalCV).setVisibility(View.VISIBLE);
+                break;
+            case "Organic":
+                findViewById(R.id.orgProCV).setVisibility(View.VISIBLE);
+                break;
+            case "All":
+                findViewById(R.id.certSusCv).setVisibility(View.VISIBLE);
+                findViewById(R.id.comDevCv).setVisibility(View.VISIBLE);
+                findViewById(R.id.environmentalCV).setVisibility(View.VISIBLE);
+                findViewById(R.id.orgProCV).setVisibility(View.VISIBLE);
+                break;
+            default:
+                Log.w("SurveyAccess", "Unknown card: " + access);
+        }
     }
 
     private void scheduleDailySync() {

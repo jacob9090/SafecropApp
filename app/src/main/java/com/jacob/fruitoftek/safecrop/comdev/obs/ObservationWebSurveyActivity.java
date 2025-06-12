@@ -140,7 +140,7 @@ public class ObservationWebSurveyActivity extends AppCompatActivity {
                               String obsquestion18, String obsquestion19, String obsquestion20, String obsquestion21,
                               String obs_location, String farmer_photo, String signature) {
             String userFname = preferenceHelper.getFirstName();
-            String userOname = preferenceHelper.getLastName();
+            String userLname = preferenceHelper.getLastName();
             String userEmail = preferenceHelper.getEmail();
             String onCreate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
             String onUpdate = onCreate;
@@ -152,11 +152,11 @@ public class ObservationWebSurveyActivity extends AppCompatActivity {
                     obsquestion6, obsquestion7, obsquestion8, obsquestion9, obsquestion10, obsquestion11, obsquestion12,
                     obsquestion13, obsquestion14, obsquestion15, obsquestion16, obsquestion17, obsquestion18,
                     obsquestion19, obsquestion20, obsquestion21, obs_location,
-                    farmer_photo, signature, userFname, userOname, userEmail, onCreate, onUpdate);
+                    farmer_photo, signature, userFname, userLname, userEmail, onCreate, onUpdate);
 
             Log.d("ObservationWebSurveyActivity", "InsertSurveyData called with:");
             Log.d("ObservationWebSurveyActivity", "obs_name: " + obs_name);
-            Log.d("ObservationWebSurveyActivity", "user_oname: " + obs_district);
+            Log.d("ObservationWebSurveyActivity", "user_lname: " + obs_district);
             Log.d("ObservationWebSurveyActivity", "obs_community: " + obs_community);
             Log.d("ObservationWebSurveyActivity", "obs_location: " + obs_location);
             Log.d("ObservationWebSurveyActivity", "farmer_photo: " + farmer_photo);

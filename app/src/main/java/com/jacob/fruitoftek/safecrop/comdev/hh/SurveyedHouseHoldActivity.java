@@ -168,7 +168,7 @@ public class SurveyedHouseHoldActivity extends AppCompatActivity {
                         : null;
                 String signature = cursor.getString(cursor.getColumnIndexOrThrow("signature"));
                 String user_fname = cursor.getString(cursor.getColumnIndexOrThrow("user_fname"));
-                String user_oname = cursor.getString(cursor.getColumnIndexOrThrow("user_oname"));
+                String user_lname = cursor.getString(cursor.getColumnIndexOrThrow("user_lname"));
                 String user_email = cursor.getString(cursor.getColumnIndexOrThrow("user_email"));
                 String onCreate = cursor.getString(cursor.getColumnIndexOrThrow("on_create"));
                 String onUpdate = cursor.getString(cursor.getColumnIndexOrThrow("on_update"));
@@ -179,7 +179,7 @@ public class SurveyedHouseHoldActivity extends AppCompatActivity {
                         hhquestion17, hhquestion18, hhquestion19, hhquestion20, hhquestion21, hhquestion22,
                         hhquestion23, hhquestion24, hhquestion25, hhquestion26, hhquestion27, hhquestion28,
                         hhquestion29, hhquestion30, hhquestion31, hhquestion32, hhquestion36, hhquestion37,
-                        hh_location, farmer_photo, signature, user_fname, user_oname, user_email,
+                        hh_location, farmer_photo, signature, user_fname, user_lname, user_email,
                         onCreate, onUpdate));
             } while (cursor.moveToNext());
             cursor.close();

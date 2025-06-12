@@ -202,7 +202,7 @@ public class ChildModel implements Serializable {
     private String childLocation;
     private String signature;
     private String userFname;
-    private String userOname;
+    private String userLname;
     private String userEmail;
     private String onCreate;
     private String onUpdate;
@@ -257,7 +257,7 @@ public class ChildModel implements Serializable {
                       String child10question9, String child10question10, String child10question11, String child10question12,
                       String child10question13, String child10question14, String child10question15, String child10question16, String child10question17,
                       String child10question18, String child10question19, String childquestion5, String childLocation,
-                      String signature, String userFname, String userOname, String userEmail, String onCreate, String onUpdate) {
+                      String signature, String userFname, String userLname, String userEmail, String onCreate, String onUpdate) {
         this.farmerId = farmerId;
         this.farmerDistrict = farmerDistrict;
         this.farmerVillage = farmerVillage;
@@ -456,7 +456,7 @@ public class ChildModel implements Serializable {
         this.childLocation = childLocation;
         this.signature = signature;
         this.userFname = userFname;
-        this.userOname = userOname;
+        this.userLname = userLname;
         this.userEmail = userEmail;
         this.onCreate = onCreate;
         this.onUpdate = onUpdate;
@@ -1237,7 +1237,7 @@ public class ChildModel implements Serializable {
     public String getChildLocation() { return childLocation; }
     public String getSignature() { return signature; }
     public String getUserFname() { return userFname; }
-    public String getUserOname() { return userOname; }
+    public String getUserLname() { return userLname; }
     public String getUserEmail() { return userEmail; }
     public String getOnCreate() { return onCreate; }
     public String getOnUpdate() { return onUpdate; }
@@ -2035,8 +2035,8 @@ public class ChildModel implements Serializable {
         this.userFname = userFname;
     }
 
-    public void setUserOname(String userOname) {
-        this.userOname = userOname;
+    public void setUserLname(String userLname) {
+        this.userLname = userLname;
     }
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;

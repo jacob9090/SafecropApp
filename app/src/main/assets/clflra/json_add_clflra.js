@@ -85,6 +85,5 @@ const json = {
         }
       ]
     }
-  ],
-  "headerView": "advanced"
+  ]
 }

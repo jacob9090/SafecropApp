@@ -106,7 +106,7 @@
 <!--        <TextView android:id="@+id/farmerVillage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Village"/>-->
 <!--        <TextView android:id="@+id/childLocation" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Geo-Location"/>-->
 <!--        <TextView android:id="@+id/userFname" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="First Name"/>-->
-<!--        <TextView android:id="@+id/userOname" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Other Name"/>-->
+<!--        <TextView android:id="@+id/userLname" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Other Name"/>-->
 
 <!--        <TextView android:id="@+id/oncreate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="First Name"/>-->
 <!--        <TextView android:id="@+id/onupdate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Other Name"/>-->

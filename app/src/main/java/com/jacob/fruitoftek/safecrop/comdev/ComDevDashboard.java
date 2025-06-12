@@ -21,7 +21,10 @@ import com.jacob.fruitoftek.safecrop.R;
 import com.jacob.fruitoftek.safecrop.SettingsBottomSheet;
 import com.jacob.fruitoftek.safecrop.comdev.ch.ChildWebListFarmersActivity;
 import com.jacob.fruitoftek.safecrop.comdev.com.CommunityWebSurveyActivity;
+import com.jacob.fruitoftek.safecrop.comdev.cra.CommunityRiskAssceActivity;
+import com.jacob.fruitoftek.safecrop.comdev.gra.GraActivity;
 import com.jacob.fruitoftek.safecrop.comdev.hh.HouseHoldWebListFarmersActivity;
+import com.jacob.fruitoftek.safecrop.comdev.lra.ChildForceLaborRiskAssceActivity;
 import com.jacob.fruitoftek.safecrop.comdev.obs.ObservationWebListFarmersActivity;
 import com.jacob.fruitoftek.safecrop.comdev.sch.SchoolWebSurveyActivity;
 import com.jacob.fruitoftek.safecrop.login.AccountBottomSheet;
@@ -92,6 +95,9 @@ public class ComDevDashboard extends AppCompatActivity {
         CardView houseHoldCV = findViewById(R.id.householdCV);
         CardView obsHoldCV = findViewById(R.id.obsHoldCV);
         CardView childSurveyCV = findViewById(R.id.childSurveyCV);
+        CardView comRiskAssesCV = findViewById(R.id.comRiskAssesCV);
+        CardView chForceLaborRiskAssesCV = findViewById(R.id.chForceLaborRiskAssesCV);
+        CardView genderRiskAssesCV = findViewById(R.id.genderRiskAssesCV);
 
         TextView cloudBackupTv = findViewById(R.id.cloudBackupTv);
         TextView localBackupTv = findViewById(R.id.localBackupTv);
@@ -111,6 +117,9 @@ public class ComDevDashboard extends AppCompatActivity {
         houseHoldCV.setOnClickListener(view -> startActivity(new Intent(ComDevDashboard.this, HouseHoldWebListFarmersActivity.class)));
         obsHoldCV.setOnClickListener(view -> startActivity(new Intent(ComDevDashboard.this, ObservationWebListFarmersActivity.class)));
         childSurveyCV.setOnClickListener(view -> startActivity(new Intent(ComDevDashboard.this, ChildWebListFarmersActivity.class)));
+        comRiskAssesCV.setOnClickListener(view -> startActivity(new Intent(ComDevDashboard.this, CommunityRiskAssceActivity.class)));
+        chForceLaborRiskAssesCV.setOnClickListener(view -> startActivity(new Intent(ComDevDashboard.this, ChildForceLaborRiskAssceActivity.class)));
+        genderRiskAssesCV.setOnClickListener(view -> startActivity(new Intent(ComDevDashboard.this, GraActivity.class)));
 
         comDevBackupFb.setOnClickListener(view -> {
             if (!isAllFabsVisible) {

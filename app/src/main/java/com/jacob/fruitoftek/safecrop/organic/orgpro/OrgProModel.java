@@ -42,7 +42,7 @@ public class OrgProModel implements Parcelable {
     private Uri farmer_photo;
     private String signature;
     private String userFname;
-    private String userOname;
+    private String userLname;
     private String onCreate;
     private String onUpdate;
 
@@ -55,7 +55,7 @@ public class OrgProModel implements Parcelable {
                        String orgquestion24, String orgquestion25, String orgquestion26, String orgquestion27,
                        String orgquestion28, String orgquestion29, String orgquestion30, String orgquestion31,
                        String org_location, Uri farmer_photo, String signature, String userFname,
-                       String userOname, String onCreate, String onUpdate) {
+                       String userLname, String onCreate, String onUpdate) {
         this.id = id;
         this.orgquestion1 = orgquestion1;
         this.orgquestion2 = orgquestion2;
@@ -92,7 +92,7 @@ public class OrgProModel implements Parcelable {
         this.farmer_photo = farmer_photo;
         this.signature = signature;
         this.userFname = userFname;
-        this.userOname = userOname;
+        this.userLname = userLname;
         this.onCreate = onCreate;
         this.onUpdate = onUpdate;
     }
@@ -134,7 +134,7 @@ public class OrgProModel implements Parcelable {
         farmer_photo = in.readParcelable(Uri.class.getClassLoader());
         signature = in.readString();
         userFname = in.readString();
-        userOname = in.readString();
+        userLname = in.readString();
         onCreate = in.readString();
         onUpdate = in.readString();
     }
@@ -177,7 +177,7 @@ public class OrgProModel implements Parcelable {
         dest.writeParcelable(farmer_photo, flags);
         dest.writeString(signature);
         dest.writeString(userFname);
-        dest.writeString(userOname);
+        dest.writeString(userLname);
         dest.writeString(onCreate);
         dest.writeString(onUpdate);
     }
@@ -340,14 +340,14 @@ public class OrgProModel implements Parcelable {
     public String getSignature() { return signature; }
     public Uri getFarmer_photo() {return farmer_photo;}
     public String getUserFname() {return userFname;}
-    public String getUserOname() {return userOname;}
+    public String getUserLname() {return userLname;}
     public String getOnCreate() {return onCreate;}
     public String getOnUpdate() {return onUpdate;}
 
     public void setSignature(String signature) { this.signature = signature; }
     public void setFarmer_photo(Uri farmer_photo) {this.farmer_photo = farmer_photo;}
     public void setUserFname(String userFname) {this.userFname = userFname;}
-    public void setUserOname(String userOname) {this.userOname = userOname;}
+    public void setUserLname(String userLname) {this.userLname = userLname;}
     public void setOnCreate(String onCreate) {this.onCreate = onCreate;}
     public void setOnUpdate(String onUpdate) {this.onUpdate = onUpdate;}
 
