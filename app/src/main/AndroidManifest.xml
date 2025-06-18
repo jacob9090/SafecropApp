@@ -39,6 +39,33 @@
         android:theme="@style/Theme.FEDCOINTERNALINSPECTION"
         tools:targetApi="31">
         <activity
+            android:name=".sustain.inspection.InspectionListFarmersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.inspection.InspectionInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.inspection.UpdateInspectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.inspection.InspectionDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.inspection.InspectionDoneActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.inspection.GetInspectionLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.inspection.GetInspectionPhotoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.inspection.InspectionCompletedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.inspection.InspectionActivity"
+            android:exported="false" />
+        <activity
             android:name=".sustain.pentry.GetPEPhotoActivity"
             android:exported="false" />
         <activity

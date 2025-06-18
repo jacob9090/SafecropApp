@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".sustain.inspection.InspectionCompletedActivity">
+
+    <ImageView
+        android:id="@+id/imageView31"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/check_circle_outline_green"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/check_circle_outline_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Survey Completed Successfully"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="@id/imageView31"
+        app:layout_constraintEnd_toEndOf="@id/imageView31"
+        app:layout_constraintTop_toBottomOf="@id/imageView31"/>
+
+    <LinearLayout
+        android:id="@+id/llayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView44">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/newSurvey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_end_btn_green_background"
+            style="@style/loginButton"
+            android:text="Start a new survey"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/goHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_end_btn_brown_background"
+            style="@style/loginButton"
+            android:text="Go back to dashboard"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

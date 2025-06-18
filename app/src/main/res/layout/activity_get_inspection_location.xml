@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".sustain.inspection.GetInspectionLocationActivity">
+    
+    <!-- OpenStreetMap View - Takes up most of the screen -->
+    <org.osmdroid.views.MapView
+        android:id="@+id/inspectionMapView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="5dp" />
+
+    <!-- OpenStreetMap Attribution -->
+    <TextView
+        android:id="@+id/inspectionOsmCreditTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/openstreetmap_contributors_data_available_under_the_open_database_license_odbl"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:textColor="@android:color/darker_gray"
+        android:padding="5dp" />
+
+    <!-- TextView for Latitude & Longitude -->
+    <TextView
+        android:id="@+id/inspectionLocationTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/_0_000_0_000"
+        android:textSize="15sp"
+        android:gravity="center" />
+
+    <!-- Progress Bar (Loading Indicator) -->
+    <ProgressBar
+        android:id="@+id/inspectionLoadingIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center" />
+
+    <!-- Horizontal Layout for Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <!-- Button to Capture Location (Left) -->
+        <Button
+            android:id="@+id/inspectionCaptureSchLocationButton"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+            android:text="@string/get_location" />
+
+        <!-- Button to Confirm & Pass Location (Right) -->
+        <Button
+            android:id="@+id/inspectionOkButton"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:layout_marginStart="5dp"
+            android:text="@string/done" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -21,6 +21,8 @@ import com.jacob.fruitoftek.safecrop.R;
 import com.jacob.fruitoftek.safecrop.SettingsBottomSheet;
 import com.jacob.fruitoftek.safecrop.login.AccountBottomSheet;
 import com.jacob.fruitoftek.safecrop.login.utils.PreferenceHelper;
+import com.jacob.fruitoftek.safecrop.sustain.inspection.InspectionActivity;
+import com.jacob.fruitoftek.safecrop.sustain.inspection.InspectionListFarmersActivity;
 import com.jacob.fruitoftek.safecrop.sustain.pentry.PEActivity;
 import com.jacob.fruitoftek.safecrop.sustain.profiling.GMRDbHelper;
 import com.jacob.fruitoftek.safecrop.sustain.profiling.GMRProfiledFarmersListActivity;
@@ -109,7 +111,7 @@ public class SusCertDashboard extends AppCompatActivity {
         isAllFabsVisible = false;
 
 //        profilingCv.setOnClickListener(view -> startActivity(new Intent(SusCertDashboard.this, GMRProfilingWebActivity.class)));
-//        inspectionCv.setOnClickListener(view -> startActivity(new Intent(SusCertDashboard.this, GMRProfiledFarmersListActivity.class)));
+        inspectionCv.setOnClickListener(view -> startActivity(new Intent(SusCertDashboard.this, InspectionListFarmersActivity.class)));
 //        trainingCV.setOnClickListener(v -> startActivity(new Intent(SusCertDashboard.this, TrainingAttendance.class)));
         proEnteryCv.setOnClickListener(v -> startActivity(new Intent(SusCertDashboard.this, PEActivity.class)));
 

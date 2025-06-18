@@ -22,6 +22,8 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.jacob.fruitoftek.safecrop.R;
+import com.jacob.fruitoftek.safecrop.sustain.inspection.InspectionDbHelper;
+import com.jacob.fruitoftek.safecrop.sustain.inspection.InspectionModel;
 import com.jacob.fruitoftek.safecrop.sustain.pentry.PeDbHelper;
 import com.jacob.fruitoftek.safecrop.sustain.profiling.GMRDbHelper;
 import com.jacob.fruitoftek.safecrop.sustain.profiling.GMRModel;
@@ -30,11 +32,16 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
+import javax.inject.Inject;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -45,206 +52,287 @@ import okhttp3.Response;
 
 public class SusCertCloudBottomSheet extends BottomSheetDialogFragment {
 
-    public PeDbHelper pedbHelper;
-
+    public InspectionDbHelper inspectionDbHelper;
     private ProgressDialog progressDialog;
+    private boolean isSyncing = false;
 
-    private static final int MAX_RETRIES = 3;
+    private static final String SERVER_URL = "https://app.safecropgh.org/sus_cert/safecrop_inspection.php";
     private static final int BATCH_SIZE = 10;
-    private static final String PESERVER_URL = "https://app.safecropgh.org/sus_cert/safecrop_prentry.php";
+    private static final int MAX_RETRIES = 3;
+    private static final int RETRY_DELAY_MS = 2000;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable
     ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.bottom_sheet_sus_cert_cloud, container, false);
 
-        ImageView closeCloudBackupBtn = view.findViewById(R.id.susCetLocalCloseBackupBtn);
-        closeCloudBackupBtn.setOnClickListener(v -> dismiss());
-
-        pedbHelper = new PeDbHelper(getActivity());
-
-        TextView scbsCloudBackupPeTv = view.findViewById(R.id.scbsCloudBackupPeTv);
-        scbsCloudBackupPeTv.setOnClickListener(v -> sendPEDataToServer());
+        inspectionDbHelper = new InspectionDbHelper(getActivity());
 
         progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Syncing data...");
+        progressDialog.setMessage("Preparing sync...");
         progressDialog.setCancelable(false);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+
+        TextView scbsCloudBackupInspectionTv = view.findViewById(R.id.scbsCloudBackupInspectionTv);
+        scbsCloudBackupInspectionTv.setOnClickListener(v -> {
+            if (isSyncing) {
+                Toast.makeText(getActivity(), "Sync already in progress", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            startSyncProcess();
+        });
 
         return view;
     }
 
-    public void sendPEDataToServer() {
+    private void startSyncProcess() {
         if (!isNetworkConnected()) {
             showToast("No internet connection");
             return;
         }
 
-        showProgress();
-        ExecutorService executor = Executors.newSingleThreadExecutor();
-        executor.execute(() -> {
-            boolean syncSuccess = true;
+        progressDialog.show();
+        isSyncing = true;
 
-            try (SQLiteDatabase db = pedbHelper.getReadableDatabase(); Cursor cursor = db.rawQuery("SELECT * FROM PEntryTbl", null)) {
-                if (cursor.getCount() == 0) {
-                    showToast("No data to sync");
-                    return;
-                }
+        syncInspectionsToServer(requireContext(), SERVER_URL, new SyncCallback() {
+            @Override
+            public void onBatchSynced(int batchNum, int totalBatches, int successCount) {
+                requireActivity().runOnUiThread(() -> {
+                    progressDialog.setMessage(String.format("Syncing batch %d of %d", batchNum, totalBatches));
+                    progressDialog.setProgress((batchNum * 100) / totalBatches);
+                });
+            }
 
-                OkHttpClient client = new OkHttpClient();
-                JSONArray batchArray = new JSONArray();
-                int recordCount = 0;
-                int totalBatches = (int) Math.ceil((double) cursor.getCount() / BATCH_SIZE);
-                int currentBatch = 1;
+            @Override
+            public void onBatchFailed(int batchNum, String errorMessage) {
+                requireActivity().runOnUiThread(() -> {
+                    progressDialog.setMessage(String.format("Failed batch %d: %s", batchNum, errorMessage));
+                    showToast("Batch " + batchNum + " failed: " + errorMessage);
+                });
+            }
 
-                while (cursor.moveToNext()) {
-                    JSONObject jsonObject = new JSONObject();
-                    jsonObject.put("pequestion1", cursor.getString(cursor.getColumnIndexOrThrow("pequestion1")));
-                    jsonObject.put("pequestion2", cursor.getString(cursor.getColumnIndexOrThrow("pequestion2")));
-                    jsonObject.put("pequestion3", cursor.getString(cursor.getColumnIndexOrThrow("pequestion3")));
-                    jsonObject.put("pequestion4", cursor.getString(cursor.getColumnIndexOrThrow("pequestion4")));
-                    jsonObject.put("pequestion5", cursor.getString(cursor.getColumnIndexOrThrow("pequestion5")));
-                    jsonObject.put("pequestion6", cursor.getString(cursor.getColumnIndexOrThrow("pequestion6")));
-                    jsonObject.put("pequestion7", cursor.getString(cursor.getColumnIndexOrThrow("pequestion7")));
-                    jsonObject.put("pequestion8", cursor.getString(cursor.getColumnIndexOrThrow("pequestion8")));
-                    jsonObject.put("pequestion9", cursor.getString(cursor.getColumnIndexOrThrow("pequestion9")));
-                    jsonObject.put("pequestion10", cursor.getString(cursor.getColumnIndexOrThrow("pequestion10")));
-                    jsonObject.put("pequestion11", cursor.getString(cursor.getColumnIndexOrThrow("pequestion11")));
-                    jsonObject.put("pequestion12", cursor.getString(cursor.getColumnIndexOrThrow("pequestion12")));
-                    jsonObject.put("pequestion13", cursor.getString(cursor.getColumnIndexOrThrow("pequestion13")));
-                    jsonObject.put("pequestion14", cursor.getString(cursor.getColumnIndexOrThrow("pequestion14")));
-                    jsonObject.put("user_fname", cursor.getString(cursor.getColumnIndexOrThrow("user_fname")));
-                    jsonObject.put("user_lname", cursor.getString(cursor.getColumnIndexOrThrow("user_lname")));
-                    jsonObject.put("user_email", cursor.getString(cursor.getColumnIndexOrThrow("user_email")));
-                    jsonObject.put("on_create", cursor.getString(cursor.getColumnIndexOrThrow("on_create")));
-                    jsonObject.put("on_update", cursor.getString(cursor.getColumnIndexOrThrow("on_update")));
-
-                    batchArray.put(jsonObject);
-                    recordCount++;
-
-                    if (recordCount % BATCH_SIZE == 0) {
-                        updateProgress(currentBatch, totalBatches);
-                        if (!sendPeBatch(batchArray, client)) {
-                            syncSuccess = false;
-                        }
-                        batchArray = new JSONArray();
-                        currentBatch++;
+            @Override
+            public void onSyncComplete(int totalSynced, int totalFailed) {
+                requireActivity().runOnUiThread(() -> {
+                    progressDialog.dismiss();
+                    isSyncing = false;
+                    String message;
+                    if (totalFailed == 0) {
+                        message = "Sync complete! " + totalSynced + " records synced";
+                    } else {
+                        message = String.format("Sync completed with %d successes and %d failures",
+                                totalSynced, totalFailed);
                     }
-                }
-
-                if (batchArray.length() > 0) {
-                    updateProgress(currentBatch, totalBatches);
-                    if (!sendPeBatch(batchArray, client)) {
-                        syncSuccess = false;
-                    }
-                }
-            } catch (Exception e) {
-                Log.e("Sync", "Error processing batches", e);
-                syncSuccess = false;
-            } finally {
-                handleCompletion(syncSuccess);
-                executor.shutdown();
+                    showToast(message);
+                });
             }
         });
     }
-    
-    // Common helper methods
-    private boolean sendPeBatch(JSONArray batchData, OkHttpClient client) {
-        return sendBatch(batchData, client, PESERVER_URL, "producer_entry");
-    }
 
-    private boolean sendBatch(JSONArray batchData, OkHttpClient client, String url, String type) {
-        try {
-            RequestBody requestBody = RequestBody.create(
-                    batchData.toString(),
-                    MediaType.parse("application/json; charset=utf-8")
-            );
+    public void syncInspectionsToServer(Context context, String serverUrl, SyncCallback callback) {
+        new Thread(() -> {
+            List<InspectionModel> unsyncedInspections = inspectionDbHelper.getUnsyncedInspections();
+            if (unsyncedInspections.isEmpty()) {
+                requireActivity().runOnUiThread(() -> {
+                    progressDialog.dismiss();
+                    showToast("No unsynced inspections found");
+                });
+                callback.onSyncComplete(0, 0);
+                return;
+            }
 
-            Request request = new Request.Builder()
-                    .url(url)
-                    .post(requestBody)
+            int totalBatches = (unsyncedInspections.size() + BATCH_SIZE - 1) / BATCH_SIZE;
+            OkHttpClient client = new OkHttpClient.Builder()
+                    .connectTimeout(30, TimeUnit.SECONDS)
+                    .writeTimeout(30, TimeUnit.SECONDS)
+                    .readTimeout(30, TimeUnit.SECONDS)
                     .build();
 
-            return sendRequestWithRetry(request, client);
-        } catch (Exception e) {
-            Log.e("Sync", "Error sending " + type + " batch", e);
-            return false;
-        }
-    }
+            int totalSynced = 0;
+            int totalFailed = 0;
 
-    private boolean sendRequestWithRetry(Request request, OkHttpClient client) {
-        int attempts = 0;
-        while (attempts < MAX_RETRIES) {
-            try {
-                Response response = client.newCall(request).execute();
-                String responseBody = response.body().string();
-                Log.d("Sync", "Raw server response: " + responseBody); // Log raw response
+            for (int i = 0; i < unsyncedInspections.size(); i += BATCH_SIZE) {
+                int end = Math.min(i + BATCH_SIZE, unsyncedInspections.size());
+                List<InspectionModel> batch = unsyncedInspections.subList(i, end);
+                int batchNum = (i / BATCH_SIZE) + 1;
+                String batchError = null;
 
-                JSONObject jsonResponse = new JSONObject(responseBody);
-                Log.d("Sync", "Server response: " + jsonResponse.toString());
+                // Prepare multipart request
+                MultipartBody.Builder multipartBuilder = new MultipartBody.Builder()
+                        .setType(MultipartBody.FORM);
+                JSONArray batchArray = new JSONArray();
 
-                if (response.isSuccessful()) {
-                    String status = jsonResponse.getString("status");
-                    if (status.equals("success") || status.equals("partial")) {
-                        int failed = jsonResponse.optInt("failed", 0);
-                        if (failed > 0) {
-                            Log.w("Sync", "Partial success: " + failed + " failures");
+                try {
+                    for (InspectionModel inspection : batch) {
+                        JSONObject obj = new JSONObject();
+                        obj.put("farmer_id", inspection.getFarmer_id());
+                        obj.put("farmer_name", inspection.getFarmer_name());
+                        obj.put("district", inspection.getDistrict());
+                        obj.put("community", inspection.getCommunity());
+                        obj.put("inspection_question1", inspection.getInspection_question1());
+                        obj.put("inspection_question2", inspection.getInspection_question2());
+                        obj.put("inspection_question3", inspection.getInspection_question3());
+                        obj.put("inspection_question4", inspection.getInspection_question4());
+                        obj.put("inspection_question5", inspection.getInspection_question5());
+                        obj.put("inspection_location", inspection.getInspection_location());
+                        obj.put("is_sync", inspection.getIs_sync());
+                        obj.put("is_draft", inspection.getIs_draft());
+                        obj.put("user_fname", inspection.getUserFname());
+                        obj.put("user_lname", inspection.getUserLname());
+                        obj.put("user_email", inspection.getUserEmail());
+                        obj.put("on_create", inspection.getOnCreate());
+                        obj.put("on_update", inspection.getOnUpdate());
+
+                        // Handle files
+                        obj.put("signature_filename",
+                                inspection.getSignature() != null ?
+                                        inspection.getFarmer_id() + "_signature.png" :
+                                        JSONObject.NULL);
+
+                        obj.put("farmer_photo_filename",
+                                inspection.getFarmer_photo() != null ?
+                                        inspection.getFarmer_id() + "_photo.jpg" :
+                                        JSONObject.NULL);
+
+                        batchArray.put(obj);
+
+                        // Add signature file if exists
+                        if (inspection.getSignature() != null) {
+                            File signatureFile = new File(inspection.getSignature());
+                            if (signatureFile.exists()) {
+                                multipartBuilder.addFormDataPart(
+                                        "signature_files[]",
+                                        inspection.getFarmer_id() + "_signature.png",
+                                        RequestBody.create(signatureFile, MediaType.parse("image/png"))
+                                );
+                            }
                         }
-                        return true;
+
+                        // Add farmer photo if exists
+                        if (inspection.getFarmer_photo() != null) {
+                            try (InputStream inputStream = context.getContentResolver()
+                                    .openInputStream(inspection.getFarmer_photo())) {
+                                if (inputStream != null) {
+                                    byte[] fileBytes = readBytesFromStream(inputStream);
+                                    multipartBuilder.addFormDataPart(
+                                            "farmer_photo_files[]",
+                                            inspection.getFarmer_id() + "_photo.jpg",
+                                            RequestBody.create(fileBytes, MediaType.parse("image/jpeg"))
+                                    );
+                                }
+                            } catch (Exception e) {
+                                Log.e("Sync", "Error reading photo: " + e.getMessage());
+                            }
+                        }
                     }
+
+                    multipartBuilder.addFormDataPart("batch", batchArray.toString());
+                    RequestBody requestBody = multipartBuilder.build();
+                    Request request = new Request.Builder()
+                            .url(serverUrl)
+                            .post(requestBody)
+                            .build();
+
+                    boolean batchSuccess = false;
+                    int retryCount = 0;
+
+                    while (!batchSuccess && retryCount < MAX_RETRIES) {
+                        try (Response response = client.newCall(request).execute()) {
+                            if (response.isSuccessful()) {
+                                String responseBody = response.body().string();
+                                JSONObject jsonResponse = new JSONObject(responseBody);
+
+                                if (jsonResponse.getString("status").equals("success") ||
+                                        jsonResponse.getString("status").equals("partial")) {
+
+                                    // Mark successful records as synced
+                                    int syncedInBatch = jsonResponse.getInt("synced");
+                                    inspectionDbHelper.markBatchAsSynced(batch);
+                                    totalSynced += syncedInBatch;
+                                    totalFailed += (batch.size() - syncedInBatch);
+                                    batchSuccess = true;
+                                    callback.onBatchSynced(batchNum, totalBatches, syncedInBatch);
+                                } else {
+                                    batchError = "Server rejected batch";
+                                    retryCount++;
+                                    if (retryCount < MAX_RETRIES) {
+                                        Thread.sleep(RETRY_DELAY_MS);
+                                    }
+                                }
+                            } else {
+                                batchError = "HTTP " + response.code() + ": " + response.message();
+                                retryCount++;
+                                if (retryCount < MAX_RETRIES) {
+                                    Thread.sleep(RETRY_DELAY_MS);
+                                }
+                            }
+                        } catch (Exception e) {
+                            batchError = e.getMessage();
+                            retryCount++;
+                            if (retryCount < MAX_RETRIES) {
+                                Thread.sleep(RETRY_DELAY_MS);
+                            }
+                        }
+                    }
+
+                    if (!batchSuccess) {
+                        totalFailed += batch.size();
+                        callback.onBatchFailed(batchNum, batchError != null ? batchError : "Unknown error");
+                    }
+
+                } catch (Exception e) {
+                    totalFailed += batch.size();
+                    callback.onBatchFailed(batchNum, e.getMessage());
                 }
-                Log.e("Sync", "Server error: " + jsonResponse.toString());
-            } catch (Exception e) {
-                Log.e("Sync", "Network error: " + e.getMessage());
             }
 
-            attempts++;
-            try { Thread.sleep(2000); } catch (InterruptedException ignored) {}
+            callback.onSyncComplete(totalSynced, totalFailed);
+        }).start();
+    }
+
+    private byte[] readBytesFromStream(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024];
+        int bytesRead;
+        while ((bytesRead = inputStream.read(buffer)) != -1) {
+            byteBuffer.write(buffer, 0, bytesRead);
         }
-        return false;
-    }
-
-    // UI Helpers
-    private void showProgress() {
-        getActivity().runOnUiThread(() -> {
-            progressDialog.setMessage("Syncing data...");
-            progressDialog.show();
-        });
-    }
-
-    private void updateProgress(int currentBatch, int totalBatches) {
-        getActivity().runOnUiThread(() ->
-                progressDialog.setMessage("Syncing batch " + currentBatch + "/" + totalBatches)
-        );
-    }
-
-    private void handleCompletion(boolean success) {
-        getActivity().runOnUiThread(() -> {
-            progressDialog.dismiss();
-            Toast.makeText(getActivity(),
-                    success ? "Sync completed successfully!" : "Partial sync (some batches failed)",
-                    Toast.LENGTH_SHORT
-            ).show();
-        });
+        return byteBuffer.toByteArray();
     }
 
     private void showToast(String message) {
-        getActivity().runOnUiThread(() ->
-                Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show()
+        requireActivity().runOnUiThread(() ->
+                Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show()
         );
     }
 
     private boolean isNetworkConnected() {
-        ConnectivityManager cm = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (cm == null) return false;
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            NetworkCapabilities caps = cm.getNetworkCapabilities(cm.getActiveNetwork());
-            return caps != null && (caps.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
-                    caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
-                    caps.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET));
-        } else {
-            NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-            return activeNetwork != null && activeNetwork.isConnected();
+        ConnectivityManager cm = (ConnectivityManager) requireActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm != null) {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                NetworkCapabilities caps = cm.getNetworkCapabilities(cm.getActiveNetwork());
+                return caps != null && (caps.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+                        || caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
+                        || caps.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET));
+            } else {
+                NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+                return activeNetwork != null && activeNetwork.isConnected();
+            }
         }
+        return false;
+    }
+
+    public interface SyncCallback {
+        void onBatchSynced(int batchNum, int totalBatches, int successCount);
+        void onBatchFailed(int batchNum, String errorMessage);
+        void onSyncComplete(int totalSynced, int totalFailed);
+    }
+
+    @Override
+    public void onDestroy() {
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
+        super.onDestroy();
     }
 }

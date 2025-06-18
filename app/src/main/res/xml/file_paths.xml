@@ -10,6 +10,10 @@
     <files-path name="tp_photos" path="TpPhoto/" />
     <files-path name="gmrsign_photos" path="GMRSignPhoto/" />
 
+    <files-path name="inspection_photos" path="InspectionPhoto/" />
+    <files-path name="inspectionsign_photos" path="InspectionSignPhoto/" />
+    <external-files-path name="external_inspectionphoto" path="Pictures/InspectionPhoto/" />
+
     <files-path name="com_photos" path="ComPhoto/" />
     <files-path name="comsign_photos" path="ComSignPhoto/" />
     <external-files-path name="external_comphoto" path="Pictures/ComPhoto/" />
@@ -21,20 +25,16 @@
     <!-- External storage path in the Pictures directory -->
     <external-files-path name="external_schphoto" path="Pictures/SchPhoto/" />
 
-
     <files-path name="hh_photos" path="HhPhoto/" />
     <files-path name="hhsign_photos" path="HhSignPhoto/" />
     <external-files-path name="external_hhphoto" path="Pictures/HhPhoto/" />
-
 
     <files-path name="obs_photos" path="ObsPhoto/" />
     <files-path name="obssign_photos" path="ObsSignPhoto/" />
     <external-files-path name="external_obsphoto" path="Pictures/ObsPhoto/" />
 
-
     <files-path name="signature_path" path="Signature/" />
     <external-files-path name="signature_path" path="Signature/" />
-
 
     <files-path name="internal_files" path="child-signature/" />
 

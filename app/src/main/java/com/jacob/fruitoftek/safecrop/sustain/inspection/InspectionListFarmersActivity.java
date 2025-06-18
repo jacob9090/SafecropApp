@@ -1,15 +1,13 @@
-package com.jacob.fruitoftek.safecrop.comdev.obs;
+package com.jacob.fruitoftek.safecrop.sustain.inspection;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -29,7 +27,11 @@ import com.jacob.fruitoftek.safecrop.farmerlist.FarmerListModal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ObservationWebListFarmersActivity extends AppCompatActivity {
+import androidx.annotation.NonNull;
+
+import android.widget.SearchView;
+
+public class InspectionListFarmersActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private FarmerListAdapter farmerAdapter;
@@ -40,8 +42,9 @@ public class ObservationWebListFarmersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_observation_web_list_farmers);
+        setContentView(R.layout.activity_inspection_list_farmers);
 
+        // Set the status bar appearance
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_brown));
 
@@ -54,7 +57,6 @@ public class ObservationWebListFarmersActivity extends AppCompatActivity {
         setupActionBar();
 
         initializeUI();
-
     }
 
     @Override
@@ -86,16 +88,17 @@ public class ObservationWebListFarmersActivity extends AppCompatActivity {
     }
 
     private void initializeUI() {
-        recyclerView = findViewById(R.id.obsRecyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
         totalFarmersLoaded = findViewById(R.id.totalFarmersLoaded);
         emptyState = findViewById(R.id.emptyState);
 
         // Initialize adapter FIRST
         farmerAdapter = new FarmerListAdapter(new ArrayList<>(), farmer -> {
-            Intent intent = new Intent(this, ObservationWebSurveyActivity.class);
-            intent.putExtra("obs_name", farmer.getFid());
-            intent.putExtra("obs_district", farmer.getDistrict());
-            intent.putExtra("obs_community", farmer.getVillage());
+            Intent intent = new Intent(this, InspectionActivity.class);
+            intent.putExtra("farmer_id", farmer.getFid());
+            intent.putExtra("farmer_name", farmer.getName());
+            intent.putExtra("district", farmer.getDistrict());
+            intent.putExtra("community", farmer.getVillage());
             startActivity(intent);
         });
 
@@ -125,26 +128,6 @@ public class ObservationWebListFarmersActivity extends AppCompatActivity {
         emptyState.setVisibility(View.GONE);
         totalFarmersLoaded.setText(String.valueOf(FarmerListActivity.farmerList.size()));
     }
-
-//    private void initializeUI() {
-//        recyclerView = findViewById(R.id.obsRecyclerView);
-//        if (recyclerView != null) {
-//            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//            farmerAdapter = new FarmerListAdapter(new ArrayList<>(), farmer -> {
-//                // Navigate to EditFarmerActivity with farmer details
-//                Intent intent = new Intent(ObservationWebListFarmersActivity.this, ObservationWebSurveyActivity.class);
-//                intent.putExtra("obs_id", farmer.getFid());
-//                intent.putExtra("obs_district", farmer.getDistrict());
-//                intent.putExtra("obs_village", farmer.getVillage());
-//                startActivity(intent);
-//            });
-//            recyclerView.setAdapter(farmerAdapter);
-//        } else {
-//            throw new NullPointerException("RecyclerView is null. Ensure it is defined in the layout file.");
-//        }
-//
-//        emptyState = findViewById(R.id.emptyState);
-//    }
 
     private void setupActionBar() {
         ActionBar actionBar = getSupportActionBar();

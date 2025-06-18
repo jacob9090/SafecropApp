@@ -26,6 +26,9 @@ import com.jacob.fruitoftek.safecrop.comdev.cra.SurveyedCraActivity;
 import com.jacob.fruitoftek.safecrop.comdev.cra.SyncCraInfoActivity;
 import com.jacob.fruitoftek.safecrop.comdev.gra.SurveyedGraActivity;
 import com.jacob.fruitoftek.safecrop.comdev.gra.SyncGraInfoActivity;
+import com.jacob.fruitoftek.safecrop.sustain.inspection.InspectionActivity;
+import com.jacob.fruitoftek.safecrop.sustain.inspection.InspectionDoneActivity;
+import com.jacob.fruitoftek.safecrop.sustain.inspection.InspectionInfoActivity;
 import com.jacob.fruitoftek.safecrop.sustain.pentry.PEActivity;
 import com.jacob.fruitoftek.safecrop.sustain.pentry.PEDoneActivity;
 import com.jacob.fruitoftek.safecrop.sustain.pentry.PEInfoActivity;
@@ -45,8 +48,10 @@ public class InfoBottomSheet extends BottomSheetDialogFragment {
 
 //        TextView profilingTv = view.findViewById(R.id.ibsFarmerProfilingTv);
 //        profilingTv.setOnClickListener(v -> { startActivity(new Intent(getActivity(), GMRProfiledFarmersListActivity.class));});
-//        TextView viewInspectionTv = view.findViewById(R.id.ibsInspectionSurveyTv);
-//        viewInspectionTv.setOnClickListener(v -> { startActivity(new Intent(getActivity(), InspectedFarmersWebActivity.class));});
+        TextView inspectionSurveyTv = view.findViewById(R.id.ibsInspectionSurveyTv);
+        ImageView inspectionSurveyIV = view.findViewById(R.id.ibsInspectionSurveyIV);
+        inspectionSurveyTv.setOnClickListener(v -> { startActivity(new Intent(getActivity(), InspectionDoneActivity.class));});
+        inspectionSurveyIV.setOnClickListener(v -> { startActivity(new Intent(getActivity(), InspectionInfoActivity.class));});
 
         TextView profilingTv = view.findViewById(R.id.ibsFarmerProfilingTv);
         ImageView ibsprofilingIV = view.findViewById(R.id.ibsFarmerProfilingIV);

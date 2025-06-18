@@ -6,7 +6,7 @@ import android.os.Parcelable;
 
 public class HhModel implements Parcelable {
 
-    private int id; // Add id field
+    private int id;
     private String hh_name;
     private String hh_district;
     private String hh_community;
