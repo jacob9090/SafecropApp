@@ -61,6 +61,69 @@ function saveInspection(isDraft) {
         data.inspection_question3 || "",
         data.inspection_question4 || "",
         data.inspection_question5 || "",
+        data.inspection_question6 || "",
+        data.inspection_question7 || "",
+        data.inspection_question8 || "",
+        data.inspection_question9 || "",
+        data.inspection_question10 || "",
+        data.inspection_question11 || "",
+        data.inspection_question12 || "",
+        data.inspection_question13 || "",
+        data.inspection_question14 || "",
+        data.inspection_question15 || "",
+        data.inspection_question16 || "",
+        data.inspection_question17 || "",
+        data.inspection_question18 || "",
+        data.inspection_question19 || "",
+        data.inspection_question20 || "",
+        data.inspection_question21 || "",
+        data.inspection_question22 || "",
+        data.inspection_question23 || "",
+        data.inspection_question24 || "",
+        data.inspection_question25 || "",
+        data.inspection_question26 || "",
+        data.inspection_question27 || "",
+        data.inspection_question28 || "",
+        data.inspection_question29 || "",
+        data.inspection_question30 || "",
+        data.inspection_question31 || "",
+        data.inspection_question32 || "",
+        data.inspection_question33 || "",
+        data.inspection_question34 || "",
+        data.inspection_question35 || "",
+        data.inspection_question36 || "",
+        data.inspection_question37 || "",
+        data.inspection_question38 || "",
+        data.inspection_question39 || "",
+        data.inspection_question40 || "",
+        data.inspection_question41 || "",
+        data.inspection_question42 || "",
+        data.inspection_question43 || "",
+        data.inspection_question44 || "",
+        data.inspection_question45 || "",
+        data.inspection_question46 || "",
+        data.inspection_question47 || "",
+        data.inspection_question48 || "",
+        data.inspection_question49 || "",
+        data.inspection_question50 || "",
+        data.inspection_question51 || "",
+        data.inspection_question52 || "",
+        data.inspection_question53 || "",
+        data.inspection_question54 || "",
+        data.inspection_question55 || "",
+        data.inspection_question56 || "",
+        data.inspection_question57 || "",
+        data.inspection_question58 || "",
+        data.inspection_question59 || "",
+        data.inspection_question60 || "",
+        data.inspection_question61 || "",
+        data.inspection_question62 || "",
+        data.inspection_question63 || "",
+        data.inspection_question64 || "",
+        data.inspection_question65 || "",
+        data.inspection_question66 || "",
+        data.inspection_question67 || "",
+        data.inspection_question68 || "",
         data.inspection_location || "",
         data.farmer_photo || "",
         data.signature ? data.signature : null,
@@ -77,151 +140,3 @@ function saveInspection(isDraft) {
 survey.onComplete.add(function (survey, options) {
     saveInspection(false);
 });
-
-//function saveInspection(isDraft) {
-//    const data = survey.data;
-//    const is_sync = "0";
-//    Android.insertInspection(
-//        data.farmer_id || "",
-//        data.farmer_name || "",
-//        data.district || "",
-//        data.community || "",
-//        data.inspection_question1 || "",
-//        data.inspection_question2 || "",
-//        data.inspection_question3 || "",
-//        data.inspection_question4 || "",
-//        data.inspection_question5 || "",
-//        data.inspection_location || "",
-//        data.farmer_photo || "",
-//        data.signature ? data.signature : null,
-//        is_sync,
-//        isDraft ? "1" : "0"
-//    );
-//    Android.completeSurvey();
-//}
-
-
-
-
-//function saveInspection(isDraft) {
-//    const data = survey.data;
-//    const is_sync = "0";
-//    Android.insertInspection(
-//        data.farmer_id || "",
-//        data.farmer_name || "",
-//        data.district || "",
-//        data.community || "",
-//        data.inspection_question1 || "",
-//        data.inspection_question2 || "",
-//        data.inspection_question3 || "",
-//        data.inspection_question4 || "",
-//        data.inspection_question5 || "",
-//        data.inspection_location || "",
-//        data.farmer_photo || "",
-//        data.signature ? data.signature : null,
-//        is_sync,
-//        isDraft ? "1" : "0"
-//    );
-//    Android.completeSurvey();
-//}
-//
-//// When user taps "Save as Draft"
-//saveInspection(true);
-//
-//// When user taps "Save Inspection"
-//saveInspection(false);
-
-
-//survey.onComplete.add(function (survey, options) {
-//    const data = survey.data;
-//
-//    // is_sync to "0" for local inserts
-//    const is_sync = "0";
-//
-//    Android.insertInspection(
-//        data.farmer_id || "",
-//        data.farmer_name || "",
-//        data.district || "",
-//        data.community || "",
-//        data.inspection_question1 || "",
-//        data.inspection_question2 || "",
-//        data.inspection_question3 || "",
-//        data.inspection_question4 || "",
-//        data.inspection_question5 || "",
-//        data.inspection_location || "",
-//        data.farmer_photo || "",
-//        data.signature || "",
-//        is_sync
-//    );
-//    Android.completeSurvey();
-//});
-
-
-
-
-//const survey = new Survey.Model(json);
-//
-//survey.completeText = "Save Inspection";
-//survey.showCompletedPage = false;
-//
-//function handleGetLocation() {
-//    Android.openLocationActivity();
-//}
-//
-//function updateInspectionLocation(location) {
-//    survey.data.inspection_location = location;
-//    survey.setValue('inspection_location', location);
-//}
-//
-//function handleGetFarmerPhoto() {
-//    Android.openFarmerPhotoActivity();
-//}
-//
-//function updateFarmerPhoto(photoFarmerUri) {
-//    const photoFarmerImg = document.getElementById('FarmerPhotoDisplay');
-//    if (photoFarmerImg) {
-//        photoFarmerImg.src = photoFarmerUri;
-//    }
-//}
-//
-//function populateSurveyFields(farmer_id, farmer_name, district, community) {
-//    survey.setValue('farmer_id', farmer_id);
-//    survey.setValue('farmer_name', farmer_name);
-//    survey.setValue('district', district);
-//    survey.setValue('community', community);
-//}
-//
-//function notifyAndroidPageLoaded() {
-//    if (window.Android) {
-//        Android.notifyPageLoaded();
-//    }
-//}
-//
-//document.addEventListener("DOMContentLoaded", function () {
-//    $("#surveyElement").Survey({ model: survey });
-//    notifyAndroidPageLoaded();
-//});
-//
-//function sanitizeInput(value) {
-//    if (Array.isArray(value)) {
-//        return value.join(",");
-//    }
-//    return value || "";
-//}
-//
-//survey.onComplete.add(function (survey, options) {
-//    const surveyData = survey.data;
-//    let {
-//        farmer_id, farmer_name, district, community,
-//        inspection_question1, inspection_question2, inspection_question3, inspection_question4,
-//        inspection_question5, inspection_location, farmer_photo, signature, is_sync
-//    } = surveyData;
-//
-//    Android.insertInspection(
-//        farmer_id || "", farmer_name || "", district || "", community || "", inspection_question1 || "",
-//        inspection_question2 || "", inspection_question3 || "", inspection_question4 || "",
-//        inspection_question5 || "", inspection_location || "", farmer_photo || "",
-//        signature || "", is_sync || ""
-//    );
-//    Android.completeSurvey();
-//});

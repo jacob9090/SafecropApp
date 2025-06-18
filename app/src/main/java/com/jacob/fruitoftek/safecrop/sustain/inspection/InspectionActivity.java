@@ -181,7 +181,29 @@ public class InspectionActivity extends AppCompatActivity {
         @JavascriptInterface
         public void insertOrUpdateInspection(String farmer_id, String farmer_name, String district, String community,
                                      String inspection_question1, String inspection_question2, String inspection_question3,
-                                     String inspection_question4, String inspection_question5, String inspection_location,
+                                     String inspection_question4, String inspection_question5,
+                                     String inspection_question6, String inspection_question7, String inspection_question8,
+                                     String inspection_question9, String inspection_question10, String inspection_question11,
+                                     String inspection_question12, String inspection_question13, String inspection_question14,
+                                     String inspection_question15, String inspection_question16, String inspection_question17,
+                                     String inspection_question18, String inspection_question19, String inspection_question20,
+                                     String inspection_question21, String inspection_question22, String inspection_question23,
+                                     String inspection_question24, String inspection_question25, String inspection_question26,
+                                     String inspection_question27, String inspection_question28, String inspection_question29,
+                                     String inspection_question30, String inspection_question31, String inspection_question32,
+                                     String inspection_question33, String inspection_question34, String inspection_question35,
+                                     String inspection_question36, String inspection_question37, String inspection_question38,
+                                     String inspection_question39, String inspection_question40, String inspection_question41,
+                                     String inspection_question42, String inspection_question43, String inspection_question44,
+                                     String inspection_question45, String inspection_question46, String inspection_question47,
+                                     String inspection_question48, String inspection_question49, String inspection_question50,
+                                     String inspection_question51, String inspection_question52, String inspection_question53,
+                                     String inspection_question54, String inspection_question55, String inspection_question56,
+                                     String inspection_question57, String inspection_question58, String inspection_question59,
+                                     String inspection_question60, String inspection_question61, String inspection_question62,
+                                     String inspection_question63, String inspection_question64, String inspection_question65,
+                                     String inspection_question66, String inspection_question67, String inspection_question68,
+                                     String inspection_location,
                                      String farmer_photo, String signature, String is_sync, String is_draft) {
 
             farmer_id = isNull(farmer_id);
@@ -193,6 +215,69 @@ public class InspectionActivity extends AppCompatActivity {
             inspection_question3 = isNull(inspection_question3);
             inspection_question4 = isNull(inspection_question4);
             inspection_question5 = isNull(inspection_question5);
+            inspection_question6 = isNull(inspection_question6);
+            inspection_question7 = isNull(inspection_question7);
+            inspection_question8 = isNull(inspection_question8);
+            inspection_question9 = isNull(inspection_question9);
+            inspection_question10 = isNull(inspection_question10);
+            inspection_question11 = isNull(inspection_question11);
+            inspection_question12 = isNull(inspection_question12);
+            inspection_question13 = isNull(inspection_question13);
+            inspection_question14 = isNull(inspection_question14);
+            inspection_question15 = isNull(inspection_question15);
+            inspection_question16 = isNull(inspection_question16);
+            inspection_question17 = isNull(inspection_question17);
+            inspection_question18 = isNull(inspection_question18);
+            inspection_question19 = isNull(inspection_question19);
+            inspection_question20 = isNull(inspection_question20);
+            inspection_question21 = isNull(inspection_question21);
+            inspection_question22 = isNull(inspection_question22);
+            inspection_question23 = isNull(inspection_question23);
+            inspection_question24 = isNull(inspection_question24);
+            inspection_question25 = isNull(inspection_question25);
+            inspection_question26 = isNull(inspection_question26);
+            inspection_question27 = isNull(inspection_question27);
+            inspection_question28 = isNull(inspection_question28);
+            inspection_question29 = isNull(inspection_question29);
+            inspection_question30 = isNull(inspection_question30);
+            inspection_question31 = isNull(inspection_question31);
+            inspection_question32 = isNull(inspection_question32);
+            inspection_question33 = isNull(inspection_question33);
+            inspection_question34 = isNull(inspection_question34);
+            inspection_question35 = isNull(inspection_question35);
+            inspection_question36 = isNull(inspection_question36);
+            inspection_question37 = isNull(inspection_question37);
+            inspection_question38 = isNull(inspection_question38);
+            inspection_question39 = isNull(inspection_question39);
+            inspection_question40 = isNull(inspection_question40);
+            inspection_question41 = isNull(inspection_question41);
+            inspection_question42 = isNull(inspection_question42);
+            inspection_question43 = isNull(inspection_question43);
+            inspection_question44 = isNull(inspection_question44);
+            inspection_question45 = isNull(inspection_question45);
+            inspection_question46 = isNull(inspection_question46);
+            inspection_question47 = isNull(inspection_question47);
+            inspection_question48 = isNull(inspection_question48);
+            inspection_question49 = isNull(inspection_question49);
+            inspection_question50 = isNull(inspection_question50);
+            inspection_question51 = isNull(inspection_question51);
+            inspection_question52 = isNull(inspection_question52);
+            inspection_question53 = isNull(inspection_question53);
+            inspection_question54 = isNull(inspection_question54);
+            inspection_question55 = isNull(inspection_question55);
+            inspection_question56 = isNull(inspection_question56);
+            inspection_question57 = isNull(inspection_question57);
+            inspection_question58 = isNull(inspection_question58);
+            inspection_question59 = isNull(inspection_question59);
+            inspection_question60 = isNull(inspection_question60);
+            inspection_question61 = isNull(inspection_question61);
+            inspection_question62 = isNull(inspection_question62);
+            inspection_question63 = isNull(inspection_question63);
+            inspection_question64 = isNull(inspection_question64);
+            inspection_question65 = isNull(inspection_question65);
+            inspection_question66 = isNull(inspection_question66);
+            inspection_question67 = isNull(inspection_question67);
+            inspection_question68 = isNull(inspection_question68);
             inspection_location = isNull(inspection_location);
             farmer_photo = isNull(farmer_photo);
             signature = isNull(signature);
@@ -209,7 +294,70 @@ public class InspectionActivity extends AppCompatActivity {
                         TextUtils.isEmpty(inspection_question2) ||
                         TextUtils.isEmpty(inspection_question3) ||
                         TextUtils.isEmpty(inspection_question4) ||
-                        TextUtils.isEmpty(inspection_question5)) {
+                        TextUtils.isEmpty(inspection_question5) ||
+                        TextUtils.isEmpty(inspection_question6) ||
+                        TextUtils.isEmpty(inspection_question7) ||
+                        TextUtils.isEmpty(inspection_question8) ||
+                        TextUtils.isEmpty(inspection_question9) ||
+                        TextUtils.isEmpty(inspection_question10) ||
+                        TextUtils.isEmpty(inspection_question11) ||
+                        TextUtils.isEmpty(inspection_question12) ||
+                        TextUtils.isEmpty(inspection_question13) ||
+                        TextUtils.isEmpty(inspection_question14) ||
+                        TextUtils.isEmpty(inspection_question15) ||
+                        TextUtils.isEmpty(inspection_question16) ||
+                        TextUtils.isEmpty(inspection_question17) ||
+                        TextUtils.isEmpty(inspection_question18) ||
+                        TextUtils.isEmpty(inspection_question19) ||
+                        TextUtils.isEmpty(inspection_question20) ||
+                        TextUtils.isEmpty(inspection_question21) ||
+                        TextUtils.isEmpty(inspection_question22) ||
+                        TextUtils.isEmpty(inspection_question23) ||
+                        TextUtils.isEmpty(inspection_question24) ||
+                        TextUtils.isEmpty(inspection_question25) ||
+                        TextUtils.isEmpty(inspection_question26) ||
+                        TextUtils.isEmpty(inspection_question27) ||
+                        TextUtils.isEmpty(inspection_question28) ||
+                        TextUtils.isEmpty(inspection_question29) ||
+                        TextUtils.isEmpty(inspection_question30) ||
+                        TextUtils.isEmpty(inspection_question31) ||
+                        TextUtils.isEmpty(inspection_question32) ||
+                        TextUtils.isEmpty(inspection_question33) ||
+                        TextUtils.isEmpty(inspection_question34) ||
+                        TextUtils.isEmpty(inspection_question35) ||
+                        TextUtils.isEmpty(inspection_question36) ||
+                        TextUtils.isEmpty(inspection_question37) ||
+                        TextUtils.isEmpty(inspection_question38) ||
+                        TextUtils.isEmpty(inspection_question39) ||
+                        TextUtils.isEmpty(inspection_question40) ||
+                        TextUtils.isEmpty(inspection_question41) ||
+                        TextUtils.isEmpty(inspection_question42) ||
+                        TextUtils.isEmpty(inspection_question43) ||
+                        TextUtils.isEmpty(inspection_question44) ||
+                        TextUtils.isEmpty(inspection_question45) ||
+                        TextUtils.isEmpty(inspection_question46) ||
+                        TextUtils.isEmpty(inspection_question47) ||
+                        TextUtils.isEmpty(inspection_question48) ||
+                        TextUtils.isEmpty(inspection_question49) ||
+                        TextUtils.isEmpty(inspection_question50) ||
+                        TextUtils.isEmpty(inspection_question51) ||
+                        TextUtils.isEmpty(inspection_question52) ||
+                        TextUtils.isEmpty(inspection_question53) ||
+                        TextUtils.isEmpty(inspection_question54) ||
+                        TextUtils.isEmpty(inspection_question55) ||
+                        TextUtils.isEmpty(inspection_question56) ||
+                        TextUtils.isEmpty(inspection_question57) ||
+                        TextUtils.isEmpty(inspection_question58) ||
+                        TextUtils.isEmpty(inspection_question59) ||
+                        TextUtils.isEmpty(inspection_question60) ||
+                        TextUtils.isEmpty(inspection_question61) ||
+                        TextUtils.isEmpty(inspection_question62) ||
+                        TextUtils.isEmpty(inspection_question63) ||
+                        TextUtils.isEmpty(inspection_question64) ||
+                        TextUtils.isEmpty(inspection_question65) ||
+                        TextUtils.isEmpty(inspection_question66) ||
+                        TextUtils.isEmpty(inspection_question67) ||
+                        TextUtils.isEmpty(inspection_question68)) {
 
                     runOnUiThread(() ->
                             Toast.makeText(context, "All required fields must be filled!", Toast.LENGTH_LONG).show()
@@ -233,7 +381,24 @@ public class InspectionActivity extends AppCompatActivity {
             boolean success = dbHelper.insertOrUpdateInspection(
                     farmer_id, farmer_name, district, community,
                     inspection_question1, inspection_question2, inspection_question3, inspection_question4,
-                    inspection_question5, inspection_location, farmer_photo, signature, is_sync, is_draft,
+                    inspection_question5,
+                    inspection_question6, inspection_question7, inspection_question8, inspection_question9,
+                    inspection_question10, inspection_question11, inspection_question12, inspection_question13,
+                    inspection_question14, inspection_question15, inspection_question16, inspection_question17,
+                    inspection_question18, inspection_question19, inspection_question20,
+                    inspection_question21, inspection_question22, inspection_question23, inspection_question24,
+                    inspection_question25, inspection_question26, inspection_question27, inspection_question28,
+                    inspection_question29, inspection_question30, inspection_question31, inspection_question32,
+                    inspection_question33, inspection_question34, inspection_question35, inspection_question36,
+                    inspection_question37, inspection_question38, inspection_question39, inspection_question40,
+                    inspection_question41, inspection_question42, inspection_question43, inspection_question44,
+                    inspection_question45, inspection_question46, inspection_question47, inspection_question48,
+                    inspection_question49, inspection_question50, inspection_question51, inspection_question52,
+                    inspection_question53, inspection_question54, inspection_question55, inspection_question56,
+                    inspection_question57, inspection_question58, inspection_question59, inspection_question60,
+                    inspection_question61, inspection_question62, inspection_question63, inspection_question64,
+                    inspection_question65, inspection_question66, inspection_question67, inspection_question68,
+                    inspection_location, farmer_photo, signature, is_sync, is_draft,
                     userFname, userLname, userEmail, onCreate, onUpdate
             );
 

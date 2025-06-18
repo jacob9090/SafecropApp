@@ -129,8 +129,30 @@ public class UpdateInspectionActivity extends AppCompatActivity {
         @JavascriptInterface
         public void updateInspection(String farmer_id, String farmer_name, String district, String community,
                                      String inspection_question1, String inspection_question2, String inspection_question3,
-                                     String inspection_question4, String inspection_question5, String inspection_location,
-                                     String farmer_photo, String signature, String is_sync, String is_draft) {
+                                     String inspection_question4, String inspection_question5,
+                                     String inspection_question6, String inspection_question7, String inspection_question8,
+                                     String inspection_question9, String inspection_question10, String inspection_question11,
+                                     String inspection_question12, String inspection_question13, String inspection_question14,
+                                     String inspection_question15, String inspection_question16, String inspection_question17,
+                                     String inspection_question18, String inspection_question19, String inspection_question20,
+                                     String inspection_question21, String inspection_question22, String inspection_question23,
+                                     String inspection_question24, String inspection_question25, String inspection_question26,
+                                     String inspection_question27, String inspection_question28, String inspection_question29,
+                                     String inspection_question30, String inspection_question31, String inspection_question32,
+                                     String inspection_question33, String inspection_question34, String inspection_question35,
+                                     String inspection_question36, String inspection_question37, String inspection_question38,
+                                     String inspection_question39, String inspection_question40, String inspection_question41,
+                                     String inspection_question42, String inspection_question43, String inspection_question44,
+                                     String inspection_question45, String inspection_question46, String inspection_question47,
+                                     String inspection_question48, String inspection_question49, String inspection_question50,
+                                     String inspection_question51, String inspection_question52, String inspection_question53,
+                                     String inspection_question54, String inspection_question55, String inspection_question56,
+                                     String inspection_question57, String inspection_question58, String inspection_question59,
+                                     String inspection_question60, String inspection_question61, String inspection_question62,
+                                     String inspection_question63, String inspection_question64, String inspection_question65,
+                                     String inspection_question66, String inspection_question67, String inspection_question68,
+                                     String inspection_location, String farmer_photo, String signature, String is_sync,
+                                     String is_draft) {
             // Fallback: If JS sends blank, use old values!
             if (farmer_photo == null || farmer_photo.isEmpty()) {
                 farmer_photo = inspectionModel.getFarmer_photo() != null ? inspectionModel.getFarmer_photo().toString() : "";
@@ -148,6 +170,69 @@ public class UpdateInspectionActivity extends AppCompatActivity {
             inspectionModel.setInspection_question3(inspection_question3);
             inspectionModel.setInspection_question4(inspection_question4);
             inspectionModel.setInspection_question5(inspection_question5);
+            inspectionModel.setInspection_question6(inspection_question6);
+            inspectionModel.setInspection_question7(inspection_question7);
+            inspectionModel.setInspection_question8(inspection_question8);
+            inspectionModel.setInspection_question9(inspection_question9);
+            inspectionModel.setInspection_question10(inspection_question10);
+            inspectionModel.setInspection_question11(inspection_question11);
+            inspectionModel.setInspection_question12(inspection_question12);
+            inspectionModel.setInspection_question13(inspection_question13);
+            inspectionModel.setInspection_question14(inspection_question14);
+            inspectionModel.setInspection_question15(inspection_question15);
+            inspectionModel.setInspection_question16(inspection_question16);
+            inspectionModel.setInspection_question17(inspection_question17);
+            inspectionModel.setInspection_question18(inspection_question18);
+            inspectionModel.setInspection_question19(inspection_question19);
+            inspectionModel.setInspection_question20(inspection_question20);
+            inspectionModel.setInspection_question21(inspection_question21);
+            inspectionModel.setInspection_question22(inspection_question22);
+            inspectionModel.setInspection_question23(inspection_question23);
+            inspectionModel.setInspection_question24(inspection_question24);
+            inspectionModel.setInspection_question25(inspection_question25);
+            inspectionModel.setInspection_question26(inspection_question26);
+            inspectionModel.setInspection_question27(inspection_question27);
+            inspectionModel.setInspection_question28(inspection_question28);
+            inspectionModel.setInspection_question29(inspection_question29);
+            inspectionModel.setInspection_question30(inspection_question30);
+            inspectionModel.setInspection_question31(inspection_question31);
+            inspectionModel.setInspection_question32(inspection_question32);
+            inspectionModel.setInspection_question33(inspection_question33);
+            inspectionModel.setInspection_question34(inspection_question34);
+            inspectionModel.setInspection_question35(inspection_question35);
+            inspectionModel.setInspection_question36(inspection_question36);
+            inspectionModel.setInspection_question37(inspection_question37);
+            inspectionModel.setInspection_question38(inspection_question38);
+            inspectionModel.setInspection_question39(inspection_question39);
+            inspectionModel.setInspection_question40(inspection_question40);
+            inspectionModel.setInspection_question41(inspection_question41);
+            inspectionModel.setInspection_question42(inspection_question42);
+            inspectionModel.setInspection_question43(inspection_question43);
+            inspectionModel.setInspection_question44(inspection_question44);
+            inspectionModel.setInspection_question45(inspection_question45);
+            inspectionModel.setInspection_question46(inspection_question46);
+            inspectionModel.setInspection_question47(inspection_question47);
+            inspectionModel.setInspection_question48(inspection_question48);
+            inspectionModel.setInspection_question49(inspection_question49);
+            inspectionModel.setInspection_question50(inspection_question50);
+            inspectionModel.setInspection_question51(inspection_question51);
+            inspectionModel.setInspection_question52(inspection_question52);
+            inspectionModel.setInspection_question53(inspection_question53);
+            inspectionModel.setInspection_question54(inspection_question54);
+            inspectionModel.setInspection_question55(inspection_question55);
+            inspectionModel.setInspection_question56(inspection_question56);
+            inspectionModel.setInspection_question57(inspection_question57);
+            inspectionModel.setInspection_question58(inspection_question58);
+            inspectionModel.setInspection_question59(inspection_question59);
+            inspectionModel.setInspection_question60(inspection_question60);
+            inspectionModel.setInspection_question61(inspection_question61);
+            inspectionModel.setInspection_question62(inspection_question62);
+            inspectionModel.setInspection_question63(inspection_question63);
+            inspectionModel.setInspection_question64(inspection_question64);
+            inspectionModel.setInspection_question65(inspection_question65);
+            inspectionModel.setInspection_question66(inspection_question66);
+            inspectionModel.setInspection_question67(inspection_question67);
+            inspectionModel.setInspection_question68(inspection_question68);
             inspectionModel.setInspection_location(inspection_location);
             inspectionModel.setFarmer_photo(farmer_photo != null && !farmer_photo.isEmpty() ? Uri.parse(farmer_photo) : null);
             inspectionModel.setSignature(signature);
@@ -158,7 +243,23 @@ public class UpdateInspectionActivity extends AppCompatActivity {
                     String.valueOf(inspectionModel.getId()),
                     farmer_id, farmer_name, district, community,
                     inspection_question1, inspection_question2, inspection_question3, inspection_question4,
-                    inspection_question5, inspection_location, farmer_photo, signature, is_sync, is_draft
+                    inspection_question5, inspection_question6, inspection_question7, inspection_question8,
+                    inspection_question9, inspection_question10, inspection_question11, inspection_question12,
+                    inspection_question13, inspection_question14, inspection_question15, inspection_question16,
+                    inspection_question17, inspection_question18, inspection_question19, inspection_question20,
+                    inspection_question21, inspection_question22, inspection_question23, inspection_question24,
+                    inspection_question25, inspection_question26, inspection_question27, inspection_question28,
+                    inspection_question29, inspection_question30, inspection_question31, inspection_question32,
+                    inspection_question33, inspection_question34, inspection_question35, inspection_question36,
+                    inspection_question37, inspection_question38, inspection_question39, inspection_question40,
+                    inspection_question41, inspection_question42, inspection_question43, inspection_question44,
+                    inspection_question45, inspection_question46, inspection_question47, inspection_question48,
+                    inspection_question49, inspection_question50, inspection_question51, inspection_question52,
+                    inspection_question53, inspection_question54, inspection_question55, inspection_question56,
+                    inspection_question57, inspection_question58, inspection_question59, inspection_question60,
+                    inspection_question61, inspection_question62, inspection_question63, inspection_question64,
+                    inspection_question65, inspection_question66, inspection_question67, inspection_question68,
+                    inspection_location, farmer_photo, signature, is_sync, is_draft
             );
 
             runOnUiThread(() -> {
