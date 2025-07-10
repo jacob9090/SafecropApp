@@ -1,4 +1,4 @@
-package com.jacob.fruitoftek.safecrop.sustain.pentry;
+package com.jacob.fruitoftek.safecrop.sustain.training;
 
 import android.Manifest;
 import android.content.ContentResolver;
@@ -15,20 +15,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
-import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.bumptech.glide.Glide;
 import com.jacob.fruitoftek.safecrop.R;
 
 import java.io.File;
@@ -37,10 +32,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import androidx.appcompat.app.ActionBar;
+
+import com.bumptech.glide.Glide;
+
 import androidx.annotation.NonNull;
 import android.os.Environment;
 
-public class GetPEPhotoActivity extends AppCompatActivity {
+public class GetTrainingPhotoActivity extends AppCompatActivity {
 
     private static final int STORAGE_PERMISSION_CODE = 101;
     private static final int CAMERA_PERMISSION_CODE = 102;
@@ -52,7 +51,7 @@ public class GetPEPhotoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_get_pephoto);
+        setContentView(R.layout.activity_get_training_photo);
 
         // Set the status bar appearance
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_brown));
@@ -65,12 +64,12 @@ public class GetPEPhotoActivity extends AppCompatActivity {
             v.setPadding(left, top, right, bottom);
             return insets;
         });
-
+        
         setupActionBar();
 
-        imageView = findViewById(R.id.peImageView);
-        Button btnCaptureOrSelect = findViewById(R.id.peBtnCaptureOrSelect);
-        Button btnOk = findViewById(R.id.peBtnOk);
+        imageView = findViewById(R.id.trainingImageView);
+        Button btnCaptureOrSelect = findViewById(R.id.trainingBtnCaptureOrSelect);
+        Button btnOk = findViewById(R.id.trainingBtnOk);
 
         // Set listener to capture or select photo
         btnCaptureOrSelect.setOnClickListener(v -> {
@@ -88,16 +87,16 @@ public class GetPEPhotoActivity extends AppCompatActivity {
         // Set listener for saving photo and returning result
         btnOk.setOnClickListener(v -> {
             if (imageUri != null) {
-                // Create "SchPhoto" folder in app directory
-                File storageDir = new File(getApplicationContext().getFilesDir(), "SchPhoto");
+                // Create "TrainingPhoto" folder in app directory
+                File storageDir = new File(getApplicationContext().getFilesDir(), "TrainingPhoto");
                 if (!storageDir.exists()) {
                     storageDir.mkdirs();
                 }
 
                 // Generate unique filename with extension based on imageUri
-                String filename = String.format("schphoto_%s.%s", System.currentTimeMillis(), getExtensionFromUri(imageUri));
+                String filename = String.format("trainingphoto_%s.%s", System.currentTimeMillis(), getExtensionFromUri(imageUri));
 
-                // Create new File object for the image in the "SchPhoto" folder
+                // Create new File object for the image in the "TrainingPhoto" folder
                 File newImageFile = new File(storageDir, filename);
 
                 // Copy image from original Uri to the new File
@@ -105,15 +104,15 @@ public class GetPEPhotoActivity extends AppCompatActivity {
                     copyFile(imageUri, newImageFile);
                     // Using FileProvider to get URI
                     Uri contentUri = FileProvider.getUriForFile(this, getApplicationContext().getPackageName() + ".fileprovider", newImageFile);
-                    Log.d("GetSchPhotoActivity", "Content URI: " + contentUri.toString()); // Log the content URI
+                    Log.d("GetTrainingPhotoActivity", "Content URI: " + contentUri.toString()); // Log the content URI
 
-                    // Pass the contentUri to GetSchPhotoActivity
+                    // Pass the contentUri to GetTrainingPhotoActivity
                     Intent resultIntent = new Intent();
                     resultIntent.putExtra("FarmerPhotoPath", contentUri.toString());
                     setResult(RESULT_OK, resultIntent);
                     finish();
                 } catch (IOException e) {
-                    Log.e("GetSchPhotoActivity", "Error copying image file", e);
+                    Log.e("GetTrainingPhotoActivity", "Error copying image file", e);
                     Toast.makeText(this, "Failed to save photo.", Toast.LENGTH_SHORT).show();
                 }
             } else {
@@ -124,7 +123,6 @@ public class GetPEPhotoActivity extends AppCompatActivity {
         });
     }
 
-    // Show options to capture or select photo
     // Show options to capture or select photo
     private void showImageOptions() {
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -172,19 +170,19 @@ public class GetPEPhotoActivity extends AppCompatActivity {
     private File saveBitmapToFile(@NonNull Bitmap bitmap) {
         try {
             // Get the directory for the app's external pictures directory
-            File picturesDir = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "SchPhoto");
+            File picturesDir = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "TrainingPhoto");
 
             // Create the directory if it does not exist
             if (!picturesDir.exists()) {
                 if (!picturesDir.mkdirs()) {
-                    Log.e("GetSchPhotoActivity", "Failed to create directory: " + picturesDir.getPath());
+                    Log.e("GetTrainingPhotoActivity", "Failed to create directory: " + picturesDir.getPath());
                     Toast.makeText(this, "Failed to create directory.", Toast.LENGTH_SHORT).show();
                     return null;
                 }
             }
 
             // Generate a unique file name with timestamp
-            File imageFile = new File(picturesDir, "schphoto_" + System.currentTimeMillis() + ".jpg");
+            File imageFile = new File(picturesDir, "trainingphoto_" + System.currentTimeMillis() + ".jpg");
 
             // Write the bitmap to the file
             try (FileOutputStream fos = new FileOutputStream(imageFile)) {
@@ -193,7 +191,7 @@ public class GetPEPhotoActivity extends AppCompatActivity {
 
             return imageFile;
         } catch (IOException e) {
-            Log.e("GetSchPhotoActivity", "Error saving bitmap to file", e);
+            Log.e("GetTrainingPhotoActivity", "Error saving bitmap to file", e);
             Toast.makeText(this, "Failed to save image.", Toast.LENGTH_SHORT).show();
             return null;
         }

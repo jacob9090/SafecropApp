@@ -117,11 +117,11 @@ public class TrainingListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         trainingDbHelper = new TrainingListDatabaseHelper(this);
-        trainingAdapter = new TrainingListAdapter(trainingList, training -> {
-            Intent intent = new Intent(TrainingListActivity.this, TrainingDetailsActivity.class);
-            intent.putExtra("training", training);
-            startActivity(intent);
-        });
+//        trainingAdapter = new TrainingListAdapter(trainingList, training -> {
+//            Intent intent = new Intent(TrainingListActivity.this, TrainingDetailsActivity.class);
+//            intent.putExtra("training", training);
+//            startActivity(intent);
+//        });
         recyclerView.setAdapter(trainingAdapter);
 
         loadingIndicator = findViewById(R.id.loadingIndicator);

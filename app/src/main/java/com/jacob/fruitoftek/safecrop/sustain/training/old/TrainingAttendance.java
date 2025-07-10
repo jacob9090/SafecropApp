@@ -1,4 +1,4 @@
-package com.jacob.fruitoftek.safecrop.sustain.training;
+package com.jacob.fruitoftek.safecrop.sustain.training.old;
 
 import android.os.Bundle;
 
@@ -15,7 +15,6 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Bitmap;
@@ -51,7 +50,6 @@ import com.google.mlkit.vision.face.Face;
 import com.google.mlkit.vision.face.FaceDetection;
 import com.google.mlkit.vision.face.FaceDetector;
 import com.google.mlkit.vision.face.FaceDetectorOptions;
-import com.jacob.fruitoftek.safecrop.facerecognition.AddedFaceListActivity;
 import com.jacob.fruitoftek.safecrop.facerecognition.FaceDatabaseHelper;
 import com.jacob.fruitoftek.safecrop.facerecognition.SimilarityClassifier;
 
@@ -198,9 +196,9 @@ public class TrainingAttendance extends AppCompatActivity {
         preview_info = findViewById(R.id.previewInfoTxt);
         camera_switch = findViewById(R.id.cameraSwitchBtn);
         save_attendance = findViewById(R.id.save_attendance);
-        view_uploaded_farmers = findViewById(R.id.view_uploaded_farmers);
+//        view_uploaded_farmers = findViewById(R.id.view_uploaded_farmers);
 
-        view_uploaded_farmers.setOnClickListener(v -> startActivity(new Intent(this, AddedFaceListActivity.class)));
+//        view_uploaded_farmers.setOnClickListener(v -> startActivity(new Intent(this, AddedFaceListActivity.class)));
 
         if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{Manifest.permission.CAMERA}, MY_CAMERA_REQUEST_CODE);

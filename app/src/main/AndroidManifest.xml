@@ -39,6 +39,39 @@
         android:theme="@style/Theme.FEDCOINTERNALINSPECTION"
         tools:targetApi="31">
         <activity
+            android:name=".sustain.training.GetTrainingLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.training.UpdateTrainingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.training.TrainingDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.training.TrainingCompletedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.training.TrainingInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.training.TrainingDoneActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.training.TrainingAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.training.TrainingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.training.GetTrainingPhotoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.training.NewTrainingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sustain.training.old.FaceRecoUIActivity"
+            android:exported="false" />
+        <activity
             android:name=".sustain.inspection.InspectionListFarmersActivity"
             android:exported="false" />
         <activity
@@ -166,7 +199,7 @@
             android:name=".facerecognition.AddedFaceListActivity"
             android:exported="false" />
         <activity
-            android:name=".sustain.training.TrainingAttendance"
+            android:name=".sustain.training.old.TrainingAttendance"
             android:exported="false" />
         <activity
             android:name=".sustain.traintopic.TrainingListActivity"
@@ -175,7 +208,7 @@
             android:name=".sustain.traintopic.TrainingDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".sustain.training.TrainingDashboard"
+            android:name=".sustain.training.old.TrainingDashboard"
             android:exported="false" />
         <activity
             android:name=".comdev.sch.SyncSchoolInfoActivity"

@@ -21,13 +21,13 @@ import com.jacob.fruitoftek.safecrop.R;
 import com.jacob.fruitoftek.safecrop.SettingsBottomSheet;
 import com.jacob.fruitoftek.safecrop.login.AccountBottomSheet;
 import com.jacob.fruitoftek.safecrop.login.utils.PreferenceHelper;
-import com.jacob.fruitoftek.safecrop.sustain.inspection.InspectionActivity;
 import com.jacob.fruitoftek.safecrop.sustain.inspection.InspectionListFarmersActivity;
 import com.jacob.fruitoftek.safecrop.sustain.pentry.PEActivity;
 import com.jacob.fruitoftek.safecrop.sustain.profiling.GMRDbHelper;
-import com.jacob.fruitoftek.safecrop.sustain.profiling.GMRProfiledFarmersListActivity;
 import com.jacob.fruitoftek.safecrop.sustain.profiling.GMRProfilingWebActivity;
-import com.jacob.fruitoftek.safecrop.sustain.training.TrainingAttendance;
+import com.jacob.fruitoftek.safecrop.sustain.training.TrainingActivity;
+import com.jacob.fruitoftek.safecrop.sustain.training.old.FaceRecoUIActivity;
+import com.jacob.fruitoftek.safecrop.sustain.training.old.TrainingAttendance;
 
 import javax.inject.Inject;
 
@@ -110,9 +110,9 @@ public class SusCertDashboard extends AppCompatActivity {
 
         isAllFabsVisible = false;
 
-//        profilingCv.setOnClickListener(view -> startActivity(new Intent(SusCertDashboard.this, GMRProfilingWebActivity.class)));
+        profilingCv.setOnClickListener(view -> startActivity(new Intent(SusCertDashboard.this, GMRProfilingWebActivity.class)));
         inspectionCv.setOnClickListener(view -> startActivity(new Intent(SusCertDashboard.this, InspectionListFarmersActivity.class)));
-//        trainingCV.setOnClickListener(v -> startActivity(new Intent(SusCertDashboard.this, TrainingAttendance.class)));
+        trainingCV.setOnClickListener(v -> startActivity(new Intent(SusCertDashboard.this, TrainingActivity.class)));
         proEnteryCv.setOnClickListener(v -> startActivity(new Intent(SusCertDashboard.this, PEActivity.class)));
 
         susBackupFb.setOnClickListener(view -> {

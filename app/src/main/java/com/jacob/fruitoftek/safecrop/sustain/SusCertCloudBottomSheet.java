@@ -66,6 +66,9 @@ public class SusCertCloudBottomSheet extends BottomSheetDialogFragment {
     ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.bottom_sheet_sus_cert_cloud, container, false);
 
+        ImageView closeCloudBackupBtn = view.findViewById(R.id.susCetLocalCloseBackupBtn);
+        closeCloudBackupBtn.setOnClickListener(v -> dismiss());
+
         inspectionDbHelper = new InspectionDbHelper(getActivity());
 
         progressDialog = new ProgressDialog(getActivity());
