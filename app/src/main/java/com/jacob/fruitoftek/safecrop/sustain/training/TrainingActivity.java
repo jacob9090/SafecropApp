@@ -90,12 +90,23 @@ public class TrainingActivity extends AppCompatActivity {
                 TrainingProgressBar.setVisibility(View.GONE);
                 Intent intent = getIntent();
                 String training_code = intent.getStringExtra("training_code");
-                String js = String.format(
-                        "populateSurveyFields('%s');",
-                        escapeJs(training_code)
-                );
-                TrainingWebView.evaluateJavascript(js, null);
+                if (training_code != null && !training_code.isEmpty()) {
+                    TrainingWebView.evaluateJavascript("settraining_code('" + escapeJs(training_code) + "');", null);
+                } else {
+                    String uniqueCode = generateUniqueCode();
+                    TrainingWebView.evaluateJavascript("settraining_code('" + escapeJs(uniqueCode) + "');", null);
+                }
             }
+//            public void onPageFinished(WebView view, String url) {
+//                TrainingProgressBar.setVisibility(View.GONE);
+//                Intent intent = getIntent();
+//                String training_code = intent.getStringExtra("training_code");
+//                String js = String.format(
+//                        "populateSurveyFields('%s');",
+//                        escapeJs(training_code)
+//                );
+//                TrainingWebView.evaluateJavascript(js, null);
+//            }
             @Override
             public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
                 TrainingProgressBar.setVisibility(View.GONE);
@@ -134,6 +145,12 @@ public class TrainingActivity extends AppCompatActivity {
                     }
                 }
         );
+    }
+
+    private String generateUniqueCode() {
+        String fname = preferenceHelper.getFirstName();
+        long timestamp = System.currentTimeMillis();
+        return fname + "_" + timestamp;
     }
 
     @Override

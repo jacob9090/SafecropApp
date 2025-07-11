@@ -126,8 +126,8 @@ dependencies {
     implementation ("org.osmdroid:osmdroid-android:6.1.20")
 
     //ML Kit (To detect faces)
-    implementation ("com.google.mlkit:face-detection:16.1.5")
-    implementation ("com.google.android.gms:play-services-mlkit-face-detection:17.0.1")
+    implementation ("com.google.mlkit:face-detection:16.1.6")
+    implementation ("com.google.android.gms:play-services-mlkit-face-detection:17.1.0")
 
     //GSON (Conversion of String to Map & Vice-Versa)
     implementation ("com.google.code.gson:gson:2.8.9")

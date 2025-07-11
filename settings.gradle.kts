@@ -20,14 +20,6 @@ dependencyResolutionManagement {
         mavenCentral()
         maven { url = uri("https://jitpack.io") }
     }
-
-//    versionCatalogs {
-//        create("libs") {
-//            version("hilt", "2.47")
-//            library("hilt-android", "com.google.dagger", "hilt-android").versionRef("hilt")
-//            library("hilt-compiler", "com.google.dagger", "hilt-android-compiler").versionRef("hilt")
-//        }
-//    }
 }
 
 rootProject.name = "Safecrop Insight"
