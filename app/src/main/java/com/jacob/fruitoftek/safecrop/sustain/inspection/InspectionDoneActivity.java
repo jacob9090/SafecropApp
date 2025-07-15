@@ -130,10 +130,16 @@ public class InspectionDoneActivity extends AppCompatActivity {
         if (cursor != null && cursor.moveToFirst()) {
             do {
                 int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
-                String farmer_id = cursor.getString(cursor.getColumnIndexOrThrow("farmer_id"));
-                String farmer_name = cursor.getString(cursor.getColumnIndexOrThrow("farmer_name"));
                 String district = cursor.getString(cursor.getColumnIndexOrThrow("district"));
                 String community = cursor.getString(cursor.getColumnIndexOrThrow("community"));
+                String farmer_id = cursor.getString(cursor.getColumnIndexOrThrow("farmer_id"));
+                String farmer_name = cursor.getString(cursor.getColumnIndexOrThrow("farmer_name"));
+                String ghana_card = cursor.getString(cursor.getColumnIndexOrThrow("ghana_card"));
+                String farmer_yob = cursor.getString(cursor.getColumnIndexOrThrow("farmer_yob"));
+                String phone_number = cursor.getString(cursor.getColumnIndexOrThrow("phone_number"));
+                String gender = cursor.getString(cursor.getColumnIndexOrThrow("gender"));
+                String inspection_date = cursor.getString(cursor.getColumnIndexOrThrow("inspection_date"));
+                String inspector_name = cursor.getString(cursor.getColumnIndexOrThrow("inspector_name"));
                 String inspection_question1 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question1"));
                 String inspection_question2 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question2"));
                 String inspection_question3 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question3"));
@@ -197,11 +203,6 @@ public class InspectionDoneActivity extends AppCompatActivity {
                 String inspection_question61 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question61"));
                 String inspection_question62 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question62"));
                 String inspection_question63 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question63"));
-                String inspection_question64 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question64"));
-                String inspection_question65 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question65"));
-                String inspection_question66 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question66"));
-                String inspection_question67 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question67"));
-                String inspection_question68 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question68"));
                 String inspection_location = cursor.getString(cursor.getColumnIndexOrThrow("inspection_location"));
                 Uri farmer_photo = cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo")) != null
                         ? Uri.parse(cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo")))
@@ -215,7 +216,8 @@ public class InspectionDoneActivity extends AppCompatActivity {
                 String onCreate = cursor.getString(cursor.getColumnIndexOrThrow("on_create"));
                 String onUpdate = cursor.getString(cursor.getColumnIndexOrThrow("on_update"));
 
-                list.add(new InspectionModel(id, farmer_id, farmer_name, district, community, inspection_question1,
+                list.add(new InspectionModel(id, district, community, farmer_id, farmer_name, ghana_card,
+                        farmer_yob, phone_number, gender, inspection_date, inspector_name, inspection_question1,
                         inspection_question2, inspection_question3, inspection_question4, inspection_question5,
                         inspection_question6, inspection_question7, inspection_question8, inspection_question9,
                         inspection_question10, inspection_question11, inspection_question12, inspection_question13,
@@ -231,10 +233,8 @@ public class InspectionDoneActivity extends AppCompatActivity {
                         inspection_question50, inspection_question51, inspection_question52, inspection_question53,
                         inspection_question54, inspection_question55, inspection_question56, inspection_question57,
                         inspection_question58, inspection_question59, inspection_question60, inspection_question61,
-                        inspection_question62, inspection_question63, inspection_question64, inspection_question65,
-                        inspection_question66, inspection_question67, inspection_question68,
-                        inspection_location, farmer_photo, signature, is_sync, is_draft, user_fname, user_lname, user_email,
-                        onCreate, onUpdate));
+                        inspection_question62, inspection_question63, inspection_location, farmer_photo,
+                        signature, is_sync, is_draft, user_fname, user_lname, user_email, onCreate, onUpdate));
             } while (cursor.moveToNext());
             cursor.close();
         }

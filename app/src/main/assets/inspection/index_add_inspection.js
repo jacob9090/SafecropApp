@@ -23,11 +23,17 @@ function updateFarmerPhoto(photoFarmerUri) {
 }
 
 // Match keys exactly with Java: (farmer_id, farmer_name, etc)
-function populateSurveyFields(farmer_id, farmer_name, district, community) {
-    survey.setValue('farmer_id', farmer_id);
-    survey.setValue('farmer_name', farmer_name);
+function populateSurveyFields(district, community, farmer_id, farmer_name, ghana_card, farmer_yob, phone_number, gender, inspection_date, inspector_name) {
     survey.setValue('district', district);
     survey.setValue('community', community);
+    survey.setValue('farmer_id', farmer_id);
+    survey.setValue('farmer_name', farmer_name);
+    survey.setValue('ghana_card', ghana_card);
+    survey.setValue('farmer_yob', farmer_yob);
+    survey.setValue('phone_number', phone_number);
+    survey.setValue('gender', gender);
+    survey.setValue('inspection_date', inspection_date);
+    survey.setValue('inspector_name', inspector_name);
 }
 
 function notifyAndroidPageLoaded() {
@@ -52,10 +58,16 @@ function saveInspection(isDraft) {
     const data = survey.data;
     const is_sync = "0";
     Android.insertOrUpdateInspection(
-        data.farmer_id || "",
-        data.farmer_name || "",
         data.district || "",
         data.community || "",
+        data.farmer_id || "",
+        data.farmer_name || "",
+        data.ghana_card || "",
+        data.farmer_yob || "",
+        data.phone_number || "",
+        data.gender || "",
+        data.inspection_date || "",
+        data.inspector_name || "",
         data.inspection_question1 || "",
         data.inspection_question2 || "",
         data.inspection_question3 || "",
@@ -119,11 +131,6 @@ function saveInspection(isDraft) {
         data.inspection_question61 || "",
         data.inspection_question62 || "",
         data.inspection_question63 || "",
-        data.inspection_question64 || "",
-        data.inspection_question65 || "",
-        data.inspection_question66 || "",
-        data.inspection_question67 || "",
-        data.inspection_question68 || "",
         data.inspection_location || "",
         data.farmer_photo || "",
         data.signature ? data.signature : null,

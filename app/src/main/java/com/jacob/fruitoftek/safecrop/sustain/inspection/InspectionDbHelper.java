@@ -24,10 +24,16 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "InspectionTbl";
 
     private static final String COLUMN_ID = "id";
-    private static final String COLUMN_FARMER_ID = "farmer_id";
-    private static final String COLUMN_FARMER_NAME = "farmer_name";
     private static final String COLUMN_DISTRICT = "district";
     private static final String COLUMN_COMMUNITY = "community";
+    private static final String COLUMN_FARMER_ID = "farmer_id";
+    private static final String COLUMN_FARMER_NAME = "farmer_name";
+    private static final String COLUMN_GHANA_CARD = "ghana_card";
+    private static final String COLUMN_FARMER_YOB = "farmer_yob";
+    private static final String COLUMN_PHONE_NUMBER = "phone_number";
+    private static final String COLUMN_GENDER = "gender";
+    private static final String COLUMN_INSPECTION_DATE = "inspection_date";
+    private static final String COLUMN_INSPECTOR_NAME = "inspector_name";
     private static final String COLUMN_INSPECTION_QUESTION1 = "inspection_question1";
     private static final String COLUMN_INSPECTION_QUESTION2 = "inspection_question2";
     private static final String COLUMN_INSPECTION_QUESTION3 = "inspection_question3";
@@ -91,11 +97,6 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
     private static final String COLUMN_INSPECTION_QUESTION61 = "inspection_question61";
     private static final String COLUMN_INSPECTION_QUESTION62 = "inspection_question62";
     private static final String COLUMN_INSPECTION_QUESTION63 = "inspection_question63";
-    private static final String COLUMN_INSPECTION_QUESTION64 = "inspection_question64";
-    private static final String COLUMN_INSPECTION_QUESTION65 = "inspection_question65";
-    private static final String COLUMN_INSPECTION_QUESTION66 = "inspection_question66";
-    private static final String COLUMN_INSPECTION_QUESTION67 = "inspection_question67";
-    private static final String COLUMN_INSPECTION_QUESTION68 = "inspection_question68";
     private static final String COLUMN_INSPECTION_LOCATION = "inspection_location";
     private static final String COLUMN_FARMER_PHOTO = "farmer_photo";
     private static final String COLUMN_SIGNATURE = "signature";
@@ -118,10 +119,16 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " ("
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + COLUMN_FARMER_ID + " TEXT UNIQUE,"
-                + COLUMN_FARMER_NAME + " TEXT,"
                 + COLUMN_DISTRICT + " TEXT,"
                 + COLUMN_COMMUNITY + " TEXT,"
+                + COLUMN_FARMER_ID + " TEXT UNIQUE,"
+                + COLUMN_FARMER_NAME + " TEXT,"
+                + COLUMN_GHANA_CARD + " TEXT,"
+                + COLUMN_FARMER_YOB + " TEXT,"
+                + COLUMN_PHONE_NUMBER + " TEXT,"
+                + COLUMN_GENDER + " TEXT,"
+                + COLUMN_INSPECTION_DATE + " TEXT,"
+                + COLUMN_INSPECTOR_NAME + " TEXT,"
                 + COLUMN_INSPECTION_QUESTION1 + " TEXT,"
                 + COLUMN_INSPECTION_QUESTION2 + " TEXT,"
                 + COLUMN_INSPECTION_QUESTION3 + " TEXT,"
@@ -185,11 +192,6 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
                 + COLUMN_INSPECTION_QUESTION61 + " TEXT,"
                 + COLUMN_INSPECTION_QUESTION62 + " TEXT,"
                 + COLUMN_INSPECTION_QUESTION63 + " TEXT,"
-                + COLUMN_INSPECTION_QUESTION64 + " TEXT,"
-                + COLUMN_INSPECTION_QUESTION65 + " TEXT,"
-                + COLUMN_INSPECTION_QUESTION66 + " TEXT,"
-                + COLUMN_INSPECTION_QUESTION67 + " TEXT,"
-                + COLUMN_INSPECTION_QUESTION68 + " TEXT,"
                 + COLUMN_INSPECTION_LOCATION + " TEXT,"
                 + COLUMN_FARMER_PHOTO + " TEXT,"
                 + COLUMN_SIGNATURE + " TEXT,"
@@ -210,12 +212,13 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertOrUpdateInspection(String farmer_id, String farmer_name, String district, String community,
-                                            String inspection_question1, String inspection_question2, String inspection_question3,
-                                            String inspection_question4, String inspection_question5, String inspection_question6,
-                                            String inspection_question7, String inspection_question8, String inspection_question9,
-                                            String inspection_question10, String inspection_question11, String inspection_question12,
-                                            String inspection_question13, String inspection_question14,
+    public boolean insertOrUpdateInspection(String district, String community, String farmer_id, String farmer_name, String ghana_card,
+                                            String farmer_yob, String phone_number, String gender, String inspection_date,
+                                            String inspector_name, String inspection_question1, String inspection_question2,
+                                            String inspection_question3, String inspection_question4, String inspection_question5,
+                                            String inspection_question6, String inspection_question7, String inspection_question8,
+                                            String inspection_question9, String inspection_question10, String inspection_question11,
+                                            String inspection_question12, String inspection_question13, String inspection_question14,
                                             String inspection_question15, String inspection_question16, String inspection_question17,
                                             String inspection_question18, String inspection_question19, String inspection_question20,
                                             String inspection_question21, String inspection_question22, String inspection_question23,
@@ -232,11 +235,9 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
                                             String inspection_question54, String inspection_question55, String inspection_question56,
                                             String inspection_question57, String inspection_question58, String inspection_question59,
                                             String inspection_question60, String inspection_question61, String inspection_question62,
-                                            String inspection_question63, String inspection_question64, String inspection_question65,
-                                            String inspection_question66, String inspection_question67, String inspection_question68,
-                                            String inspection_location, String farmer_photo, String signatureBase64, String is_sync,
-                                            String is_draft, String userFname, String userLname, String user_email, String onCreate,
-                                            String onUpdate) {
+                                            String inspection_question63, String inspection_location, String farmer_photo,
+                                            String signatureBase64, String is_sync, String is_draft, String userFname, String userLname,
+                                            String user_email, String onCreate, String onUpdate) {
 
         String signaturePath = null;
         if (signatureBase64 != null && signatureBase64.startsWith("data:image")) {
@@ -253,10 +254,16 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_FARMER_ID, farmer_id);
-        values.put(COLUMN_FARMER_NAME, farmer_name);
         values.put(COLUMN_DISTRICT, district);
         values.put(COLUMN_COMMUNITY, community);
+        values.put(COLUMN_FARMER_ID, farmer_id);
+        values.put(COLUMN_FARMER_NAME, farmer_name);
+        values.put(COLUMN_GHANA_CARD, ghana_card);
+        values.put(COLUMN_FARMER_YOB, farmer_yob);
+        values.put(COLUMN_PHONE_NUMBER, phone_number);
+        values.put(COLUMN_GENDER, gender);
+        values.put(COLUMN_INSPECTION_DATE, inspection_date);
+        values.put(COLUMN_INSPECTOR_NAME, inspector_name);
         values.put(COLUMN_INSPECTION_QUESTION1, inspection_question1);
         values.put(COLUMN_INSPECTION_QUESTION2, inspection_question2);
         values.put(COLUMN_INSPECTION_QUESTION3, inspection_question3);
@@ -320,11 +327,6 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
         values.put(COLUMN_INSPECTION_QUESTION61, inspection_question61);
         values.put(COLUMN_INSPECTION_QUESTION62, inspection_question62);
         values.put(COLUMN_INSPECTION_QUESTION63, inspection_question63);
-        values.put(COLUMN_INSPECTION_QUESTION64, inspection_question64);
-        values.put(COLUMN_INSPECTION_QUESTION65, inspection_question65);
-        values.put(COLUMN_INSPECTION_QUESTION66, inspection_question66);
-        values.put(COLUMN_INSPECTION_QUESTION67, inspection_question67);
-        values.put(COLUMN_INSPECTION_QUESTION68, inspection_question68);
         values.put(COLUMN_INSPECTION_LOCATION, inspection_location);
         values.put(COLUMN_FARMER_PHOTO, farmer_photo);
         values.put(COLUMN_SIGNATURE, signaturePath);
@@ -397,38 +399,43 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean updateInspection(String id, String farmer_id, String farmer_name, String district, String community,
-                                    String inspection_question1, String inspection_question2, String inspection_question3,
-                                    String inspection_question4, String inspection_question5,
-                                    String inspection_question6, String inspection_question7, String inspection_question8,
-                                    String inspection_question9, String inspection_question10, String inspection_question11,
-                                    String inspection_question12, String inspection_question13, String inspection_question14,
-                                    String inspection_question15, String inspection_question16, String inspection_question17,
-                                    String inspection_question18, String inspection_question19, String inspection_question20,
-                                    String inspection_question21, String inspection_question22, String inspection_question23,
-                                    String inspection_question24, String inspection_question25, String inspection_question26,
-                                    String inspection_question27, String inspection_question28, String inspection_question29,
-                                    String inspection_question30, String inspection_question31, String inspection_question32,
-                                    String inspection_question33, String inspection_question34, String inspection_question35,
-                                    String inspection_question36, String inspection_question37, String inspection_question38,
-                                    String inspection_question39, String inspection_question40, String inspection_question41,
-                                    String inspection_question42, String inspection_question43, String inspection_question44,
-                                    String inspection_question45, String inspection_question46, String inspection_question47,
-                                    String inspection_question48, String inspection_question49, String inspection_question50,
-                                    String inspection_question51, String inspection_question52, String inspection_question53,
-                                    String inspection_question54, String inspection_question55, String inspection_question56,
-                                    String inspection_question57, String inspection_question58, String inspection_question59,
-                                    String inspection_question60, String inspection_question61, String inspection_question62,
-                                    String inspection_question63, String inspection_question64, String inspection_question65,
-                                    String inspection_question66, String inspection_question67, String inspection_question68,
-                                    String inspection_location,
+    public boolean updateInspection(String id, String district, String community, String farmer_id, String farmer_name,
+                                    String ghana_card, String farmer_yob, String phone_number, String gender,
+                                    String inspection_date, String inspector_name, String inspection_question1,
+                                    String inspection_question2, String inspection_question3, String inspection_question4,
+                                    String inspection_question5, String inspection_question6, String inspection_question7,
+                                    String inspection_question8, String inspection_question9, String inspection_question10,
+                                    String inspection_question11, String inspection_question12, String inspection_question13,
+                                    String inspection_question14, String inspection_question15, String inspection_question16,
+                                    String inspection_question17, String inspection_question18, String inspection_question19,
+                                    String inspection_question20, String inspection_question21, String inspection_question22,
+                                    String inspection_question23, String inspection_question24, String inspection_question25,
+                                    String inspection_question26, String inspection_question27, String inspection_question28,
+                                    String inspection_question29, String inspection_question30, String inspection_question31,
+                                    String inspection_question32, String inspection_question33, String inspection_question34,
+                                    String inspection_question35, String inspection_question36, String inspection_question37,
+                                    String inspection_question38, String inspection_question39, String inspection_question40,
+                                    String inspection_question41, String inspection_question42, String inspection_question43,
+                                    String inspection_question44, String inspection_question45, String inspection_question46,
+                                    String inspection_question47, String inspection_question48, String inspection_question49,
+                                    String inspection_question50, String inspection_question51, String inspection_question52,
+                                    String inspection_question53, String inspection_question54, String inspection_question55,
+                                    String inspection_question56, String inspection_question57, String inspection_question58,
+                                    String inspection_question59, String inspection_question60, String inspection_question61,
+                                    String inspection_question62, String inspection_question63, String inspection_location,
                                     String farmer_photo, String signature, String is_sync, String is_draft) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_FARMER_ID, farmer_id);
-        values.put(COLUMN_FARMER_NAME, farmer_name);
         values.put(COLUMN_DISTRICT, district);
         values.put(COLUMN_COMMUNITY, community);
+        values.put(COLUMN_FARMER_ID, farmer_id);
+        values.put(COLUMN_FARMER_NAME, farmer_name);
+        values.put(COLUMN_GHANA_CARD, ghana_card);
+        values.put(COLUMN_FARMER_YOB, farmer_yob);
+        values.put(COLUMN_PHONE_NUMBER, phone_number);
+        values.put(COLUMN_GENDER, gender);
+        values.put(COLUMN_INSPECTION_DATE, inspection_date);
+        values.put(COLUMN_INSPECTOR_NAME, inspector_name);
         values.put(COLUMN_INSPECTION_QUESTION1, inspection_question1);
         values.put(COLUMN_INSPECTION_QUESTION2, inspection_question2);
         values.put(COLUMN_INSPECTION_QUESTION3, inspection_question3);
@@ -492,11 +499,6 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
         values.put(COLUMN_INSPECTION_QUESTION61, inspection_question61);
         values.put(COLUMN_INSPECTION_QUESTION62, inspection_question62);
         values.put(COLUMN_INSPECTION_QUESTION63, inspection_question63);
-        values.put(COLUMN_INSPECTION_QUESTION64, inspection_question64);
-        values.put(COLUMN_INSPECTION_QUESTION65, inspection_question65);
-        values.put(COLUMN_INSPECTION_QUESTION66, inspection_question66);
-        values.put(COLUMN_INSPECTION_QUESTION67, inspection_question67);
-        values.put(COLUMN_INSPECTION_QUESTION68, inspection_question68);
         values.put(COLUMN_INSPECTION_LOCATION, inspection_location);
         values.put(COLUMN_FARMER_PHOTO, farmer_photo);
         values.put(COLUMN_IS_SYNC, is_sync);
@@ -552,10 +554,16 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
         if (cursor != null && cursor.moveToFirst()) {
             do {
                 int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
-                String farmer_id = cursor.getString(cursor.getColumnIndexOrThrow("farmer_id"));
-                String farmer_name = cursor.getString(cursor.getColumnIndexOrThrow("farmer_name"));
                 String district = cursor.getString(cursor.getColumnIndexOrThrow("district"));
                 String community = cursor.getString(cursor.getColumnIndexOrThrow("community"));
+                String farmer_id = cursor.getString(cursor.getColumnIndexOrThrow("farmer_id"));
+                String farmer_name = cursor.getString(cursor.getColumnIndexOrThrow("farmer_name"));
+                String ghana_card = cursor.getString(cursor.getColumnIndexOrThrow("ghana_card"));
+                String farmer_yob = cursor.getString(cursor.getColumnIndexOrThrow("farmer_yob"));
+                String phone_number = cursor.getString(cursor.getColumnIndexOrThrow("phone_number"));
+                String gender = cursor.getString(cursor.getColumnIndexOrThrow("gender"));
+                String inspection_date = cursor.getString(cursor.getColumnIndexOrThrow("inspection_date"));
+                String inspector_name = cursor.getString(cursor.getColumnIndexOrThrow("inspector_name"));
                 String inspection_question1 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question1"));
                 String inspection_question2 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question2"));
                 String inspection_question3 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question3"));
@@ -619,11 +627,6 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
                 String inspection_question61 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question61"));
                 String inspection_question62 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question62"));
                 String inspection_question63 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question63"));
-                String inspection_question64 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question64"));
-                String inspection_question65 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question65"));
-                String inspection_question66 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question66"));
-                String inspection_question67 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question67"));
-                String inspection_question68 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question68"));
                 String inspection_location = cursor.getString(cursor.getColumnIndexOrThrow("inspection_location"));
                 String farmer_photo = cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo"));
                 String signature = cursor.getString(cursor.getColumnIndexOrThrow("signature"));
@@ -636,7 +639,8 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
                 String onUpdate = cursor.getString(cursor.getColumnIndexOrThrow("on_update"));
 
                 InspectionModel model = new InspectionModel(
-                        id, farmer_id, farmer_name, district, community, inspection_question1,
+                        id, district, community, farmer_id, farmer_name, ghana_card, farmer_yob, phone_number,
+                        gender, inspection_date, inspector_name, inspection_question1,
                         inspection_question2, inspection_question3, inspection_question4, inspection_question5,
                         inspection_question6, inspection_question7, inspection_question8, inspection_question9,
                         inspection_question10, inspection_question11, inspection_question12, inspection_question13,
@@ -652,9 +656,8 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
                         inspection_question50, inspection_question51, inspection_question52, inspection_question53,
                         inspection_question54, inspection_question55, inspection_question56, inspection_question57,
                         inspection_question58, inspection_question59, inspection_question60, inspection_question61,
-                        inspection_question62, inspection_question63, inspection_question64, inspection_question65,
-                        inspection_question66, inspection_question67, inspection_question68,
-                        inspection_location, farmer_photo != null ? Uri.parse(farmer_photo) : null,
+                        inspection_question62, inspection_question63, inspection_location,
+                        farmer_photo != null ? Uri.parse(farmer_photo) : null,
                         signature, is_sync, is_draft, userFname, userLname, user_email, onCreate, onUpdate
                 );
 
@@ -682,9 +685,15 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
 
         if (cursor != null && cursor.moveToFirst()) {
             int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
-            String farmer_name = cursor.getString(cursor.getColumnIndexOrThrow("farmer_name"));
             String district = cursor.getString(cursor.getColumnIndexOrThrow("district"));
             String community = cursor.getString(cursor.getColumnIndexOrThrow("community"));
+            String farmer_name = cursor.getString(cursor.getColumnIndexOrThrow("farmer_name"));
+            String ghana_card = cursor.getString(cursor.getColumnIndexOrThrow("ghana_card"));
+            String farmer_yob = cursor.getString(cursor.getColumnIndexOrThrow("farmer_yob"));
+            String phone_number = cursor.getString(cursor.getColumnIndexOrThrow("phone_number"));
+            String gender = cursor.getString(cursor.getColumnIndexOrThrow("gender"));
+            String inspection_date = cursor.getString(cursor.getColumnIndexOrThrow("inspection_date"));
+            String inspector_name = cursor.getString(cursor.getColumnIndexOrThrow("inspector_name"));
             String inspection_question1 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question1"));
             String inspection_question2 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question2"));
             String inspection_question3 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question3"));
@@ -748,11 +757,6 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
             String inspection_question61 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question61"));
             String inspection_question62 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question62"));
             String inspection_question63 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question63"));
-            String inspection_question64 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question64"));
-            String inspection_question65 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question65"));
-            String inspection_question66 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question66"));
-            String inspection_question67 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question67"));
-            String inspection_question68 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question68"));
             String inspection_location = cursor.getString(cursor.getColumnIndexOrThrow("inspection_location"));
             Uri farmer_photo = cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo")) != null
                     ? Uri.parse(cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo")))
@@ -766,7 +770,8 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
             String on_create = cursor.getString(cursor.getColumnIndexOrThrow("on_create"));
             String on_update = cursor.getString(cursor.getColumnIndexOrThrow("on_update"));
 
-            inspectionModel = new InspectionModel(id, farmer_id, farmer_name, district, community,
+            inspectionModel = new InspectionModel(id, district, community, farmer_id, farmer_name,
+                    ghana_card, farmer_yob, phone_number, gender, inspection_date, inspector_name,
                     inspection_question1, inspection_question2, inspection_question3, inspection_question4,
                     inspection_question5, inspection_question6, inspection_question7, inspection_question8,
                     inspection_question9, inspection_question10, inspection_question11, inspection_question12,
@@ -782,10 +787,9 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
                     inspection_question49, inspection_question50, inspection_question51, inspection_question52,
                     inspection_question53, inspection_question54, inspection_question55, inspection_question56,
                     inspection_question57, inspection_question58, inspection_question59, inspection_question60,
-                    inspection_question61, inspection_question62, inspection_question63, inspection_question64,
-                    inspection_question65, inspection_question66, inspection_question67, inspection_question68,
-                    inspection_location, farmer_photo, signature, is_sync, is_draft,
-                    userFname, userLname, user_email, on_create, on_update);
+                    inspection_question61, inspection_question62, inspection_question63, inspection_location,
+                    farmer_photo, signature, is_sync, is_draft, userFname, userLname, user_email, on_create,
+                    on_update);
             cursor.close();
         }
         return inspectionModel;

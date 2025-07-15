@@ -127,9 +127,11 @@ public class UpdateInspectionActivity extends AppCompatActivity {
         WebAppInterface(Context c) { context = c; }
 
         @JavascriptInterface
-        public void updateInspection(String farmer_id, String farmer_name, String district, String community,
-                                     String inspection_question1, String inspection_question2, String inspection_question3,
-                                     String inspection_question4, String inspection_question5,
+        public void updateInspection(String district, String community, String farmer_id, String farmer_name,
+                                     String ghana_card, String farmer_yob, String phone_number, String gender,
+                                     String inspection_date, String inspector_name, String inspection_question1,
+                                     String inspection_question2, String inspection_question3, String inspection_question4,
+                                     String inspection_question5,
                                      String inspection_question6, String inspection_question7, String inspection_question8,
                                      String inspection_question9, String inspection_question10, String inspection_question11,
                                      String inspection_question12, String inspection_question13, String inspection_question14,
@@ -149,10 +151,8 @@ public class UpdateInspectionActivity extends AppCompatActivity {
                                      String inspection_question54, String inspection_question55, String inspection_question56,
                                      String inspection_question57, String inspection_question58, String inspection_question59,
                                      String inspection_question60, String inspection_question61, String inspection_question62,
-                                     String inspection_question63, String inspection_question64, String inspection_question65,
-                                     String inspection_question66, String inspection_question67, String inspection_question68,
-                                     String inspection_location, String farmer_photo, String signature, String is_sync,
-                                     String is_draft) {
+                                     String inspection_question63, String inspection_location, String farmer_photo,
+                                     String signature, String is_sync, String is_draft) {
             // Fallback: If JS sends blank, use old values!
             if (farmer_photo == null || farmer_photo.isEmpty()) {
                 farmer_photo = inspectionModel.getFarmer_photo() != null ? inspectionModel.getFarmer_photo().toString() : "";
@@ -161,10 +161,16 @@ public class UpdateInspectionActivity extends AppCompatActivity {
                 signature = inspectionModel.getSignature();
             }
 
-            inspectionModel.setFarmer_id(farmer_id);
-            inspectionModel.setFarmer_name(farmer_name);
             inspectionModel.setDistrict(district);
             inspectionModel.setCommunity(community);
+            inspectionModel.setFarmer_id(farmer_id);
+            inspectionModel.setFarmer_name(farmer_name);
+            inspectionModel.setFarmer_name(ghana_card);
+            inspectionModel.setFarmer_yob(farmer_yob);
+            inspectionModel.setPhone_number(phone_number);
+            inspectionModel.setGender(gender);
+            inspectionModel.setInspection_date(inspection_date);
+            inspectionModel.setInspector_name(inspector_name);
             inspectionModel.setInspection_question1(inspection_question1);
             inspectionModel.setInspection_question2(inspection_question2);
             inspectionModel.setInspection_question3(inspection_question3);
@@ -228,11 +234,6 @@ public class UpdateInspectionActivity extends AppCompatActivity {
             inspectionModel.setInspection_question61(inspection_question61);
             inspectionModel.setInspection_question62(inspection_question62);
             inspectionModel.setInspection_question63(inspection_question63);
-            inspectionModel.setInspection_question64(inspection_question64);
-            inspectionModel.setInspection_question65(inspection_question65);
-            inspectionModel.setInspection_question66(inspection_question66);
-            inspectionModel.setInspection_question67(inspection_question67);
-            inspectionModel.setInspection_question68(inspection_question68);
             inspectionModel.setInspection_location(inspection_location);
             inspectionModel.setFarmer_photo(farmer_photo != null && !farmer_photo.isEmpty() ? Uri.parse(farmer_photo) : null);
             inspectionModel.setSignature(signature);
@@ -241,8 +242,9 @@ public class UpdateInspectionActivity extends AppCompatActivity {
 
             boolean success = dbHelper.updateInspection(
                     String.valueOf(inspectionModel.getId()),
-                    farmer_id, farmer_name, district, community,
-                    inspection_question1, inspection_question2, inspection_question3, inspection_question4,
+                    district, community, farmer_id, farmer_name, ghana_card, farmer_yob, phone_number,
+                    gender, inspection_date, inspector_name, inspection_question1, inspection_question2,
+                    inspection_question3, inspection_question4,
                     inspection_question5, inspection_question6, inspection_question7, inspection_question8,
                     inspection_question9, inspection_question10, inspection_question11, inspection_question12,
                     inspection_question13, inspection_question14, inspection_question15, inspection_question16,
@@ -257,9 +259,8 @@ public class UpdateInspectionActivity extends AppCompatActivity {
                     inspection_question49, inspection_question50, inspection_question51, inspection_question52,
                     inspection_question53, inspection_question54, inspection_question55, inspection_question56,
                     inspection_question57, inspection_question58, inspection_question59, inspection_question60,
-                    inspection_question61, inspection_question62, inspection_question63, inspection_question64,
-                    inspection_question65, inspection_question66, inspection_question67, inspection_question68,
-                    inspection_location, farmer_photo, signature, is_sync, is_draft
+                    inspection_question61, inspection_question62, inspection_question63, inspection_location,
+                    farmer_photo, signature, is_sync, is_draft
             );
 
             runOnUiThread(() -> {

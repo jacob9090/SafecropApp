@@ -86,10 +86,16 @@ public class InspectionDetailsActivity extends AppCompatActivity {
         }
 
         String js = String.format("javascript:" +
-                        "document.getElementById('farmer_id').textContent = '%s';" +
-                        "document.getElementById('farmer_name').textContent = '%s';" +
                         "document.getElementById('district').textContent = '%s';" +
                         "document.getElementById('community').textContent = '%s';" +
+                        "document.getElementById('farmer_id').textContent = '%s';" +
+                        "document.getElementById('farmer_name').textContent = '%s';" +
+                        "document.getElementById('ghana_card').textContent = '%s';" +
+                        "document.getElementById('farmer_yob').textContent = '%s';" +
+                        "document.getElementById('phone_number').textContent = '%s';" +
+                        "document.getElementById('gender').textContent = '%s';" +
+                        "document.getElementById('inspection_date').textContent = '%s';" +
+                        "document.getElementById('inspector_name').textContent = '%s';" +
                         "document.getElementById('inspection_question1').textContent = '%s';" +
                         "document.getElementById('inspection_question2').textContent = '%s';" +
                         "document.getElementById('inspection_question3').textContent = '%s';" +
@@ -153,11 +159,6 @@ public class InspectionDetailsActivity extends AppCompatActivity {
                         "document.getElementById('inspection_question61').textContent = '%s';" +
                         "document.getElementById('inspection_question62').textContent = '%s';" +
                         "document.getElementById('inspection_question63').textContent = '%s';" +
-                        "document.getElementById('inspection_question64').textContent = '%s';" +
-                        "document.getElementById('inspection_question65').textContent = '%s';" +
-                        "document.getElementById('inspection_question66').textContent = '%s';" +
-                        "document.getElementById('inspection_question67').textContent = '%s';" +
-                        "document.getElementById('inspection_question68').textContent = '%s';" +
                         "document.getElementById('inspection_location').textContent = '%s';" +
                         "document.getElementById('farmer_photo').src = '%s';" +
                         "document.getElementById('signature').src = '%s';" +
@@ -168,10 +169,16 @@ public class InspectionDetailsActivity extends AppCompatActivity {
                         "document.getElementById('user_fname').textContent = '%s';" +
                         "document.getElementById('user_lname').textContent = '%s';" +
                         "document.getElementById('user_email').textContent = '%s';",
-                sanitize(inspectionModel.getFarmer_id()),
-                sanitize(inspectionModel.getFarmer_name()),
                 sanitize(inspectionModel.getDistrict()),
                 sanitize(inspectionModel.getCommunity()),
+                sanitize(inspectionModel.getFarmer_id()),
+                sanitize(inspectionModel.getFarmer_name()),
+                sanitize(inspectionModel.getGhana_card()),
+                sanitize(inspectionModel.getFarmer_yob()),
+                sanitize(inspectionModel.getPhone_number()),
+                sanitize(inspectionModel.getGender()),
+                sanitize(inspectionModel.getInspection_date()),
+                sanitize(inspectionModel.getInspector_name()),
                 sanitize(inspectionModel.getInspection_question1()),
                 sanitize(inspectionModel.getInspection_question2()),
                 sanitize(inspectionModel.getInspection_question3()),
@@ -235,11 +242,6 @@ public class InspectionDetailsActivity extends AppCompatActivity {
                 sanitize(inspectionModel.getInspection_question61()),
                 sanitize(inspectionModel.getInspection_question62()),
                 sanitize(inspectionModel.getInspection_question63()),
-                sanitize(inspectionModel.getInspection_question64()),
-                sanitize(inspectionModel.getInspection_question65()),
-                sanitize(inspectionModel.getInspection_question66()),
-                sanitize(inspectionModel.getInspection_question67()),
-                sanitize(inspectionModel.getInspection_question68()),
                 sanitize(inspectionModel.getInspection_location()),
                 inspectionModel.getFarmer_photo() != null ? sanitize(inspectionModel.getFarmer_photo().toString()) : "",
                 sanitize(signatureUri),

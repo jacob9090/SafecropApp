@@ -10,10 +10,16 @@ import com.google.gson.annotations.SerializedName;
 public class InspectionModel implements Parcelable {
 
     private int id;
-    private String farmer_id;
-    private String farmer_name;
     private String district;
     private String community;
+    private String farmer_id;
+    private String farmer_name;
+    private String ghana_card;
+    private String farmer_yob;
+    private String phone_number;
+    private String gender;
+    private String inspection_date;
+    private String inspector_name;
     private String inspection_question1;
     private String inspection_question2;
     private String inspection_question3;
@@ -77,11 +83,6 @@ public class InspectionModel implements Parcelable {
     private String inspection_question61;
     private String inspection_question62;
     private String inspection_question63;
-    private String inspection_question64;
-    private String inspection_question65;
-    private String inspection_question66;
-    private String inspection_question67;
-    private String inspection_question68;
     private String inspection_location;
     private Uri farmer_photo;
     private String signature;
@@ -93,38 +94,43 @@ public class InspectionModel implements Parcelable {
     private String onCreate;
     private String onUpdate;
 
-    public InspectionModel(int id, String farmer_id, String farmer_name, String district, String community, 
-                           String inspection_question1, String inspection_question2, String inspection_question3, 
-                           String inspection_question4, String inspection_question5,
-                           String inspection_question6, String inspection_question7, String inspection_question8,
-                           String inspection_question9, String inspection_question10, String inspection_question11,
-                           String inspection_question12, String inspection_question13, String inspection_question14,
-                           String inspection_question15, String inspection_question16, String inspection_question17,
-                           String inspection_question18, String inspection_question19, String inspection_question20,
-                           String inspection_question21, String inspection_question22, String inspection_question23,
-                           String inspection_question24, String inspection_question25, String inspection_question26,
-                           String inspection_question27, String inspection_question28, String inspection_question29,
-                           String inspection_question30, String inspection_question31, String inspection_question32,
-                           String inspection_question33, String inspection_question34, String inspection_question35,
-                           String inspection_question36, String inspection_question37, String inspection_question38,
-                           String inspection_question39, String inspection_question40, String inspection_question41,
-                           String inspection_question42, String inspection_question43, String inspection_question44,
-                           String inspection_question45, String inspection_question46, String inspection_question47,
-                           String inspection_question48, String inspection_question49, String inspection_question50,
-                           String inspection_question51, String inspection_question52, String inspection_question53,
-                           String inspection_question54, String inspection_question55, String inspection_question56,
-                           String inspection_question57, String inspection_question58, String inspection_question59,
-                           String inspection_question60, String inspection_question61, String inspection_question62,
-                           String inspection_question63, String inspection_question64, String inspection_question65,
-                           String inspection_question66, String inspection_question67, String inspection_question68,
-                           String inspection_location,
+    public InspectionModel(int id, String district, String community, String farmer_id, String farmer_name,
+                           String ghana_card, String farmer_yob, String phone_number, String gender,
+                           String inspection_date, String inspector_name, String inspection_question1,
+                           String inspection_question2, String inspection_question3, String inspection_question4,
+                           String inspection_question5, String inspection_question6, String inspection_question7,
+                           String inspection_question8, String inspection_question9, String inspection_question10,
+                           String inspection_question11, String inspection_question12, String inspection_question13,
+                           String inspection_question14, String inspection_question15, String inspection_question16,
+                           String inspection_question17, String inspection_question18, String inspection_question19,
+                           String inspection_question20, String inspection_question21, String inspection_question22,
+                           String inspection_question23, String inspection_question24, String inspection_question25,
+                           String inspection_question26, String inspection_question27, String inspection_question28,
+                           String inspection_question29, String inspection_question30, String inspection_question31,
+                           String inspection_question32, String inspection_question33, String inspection_question34,
+                           String inspection_question35, String inspection_question36, String inspection_question37,
+                           String inspection_question38, String inspection_question39, String inspection_question40,
+                           String inspection_question41, String inspection_question42, String inspection_question43,
+                           String inspection_question44, String inspection_question45, String inspection_question46,
+                           String inspection_question47, String inspection_question48, String inspection_question49,
+                           String inspection_question50, String inspection_question51, String inspection_question52,
+                           String inspection_question53, String inspection_question54, String inspection_question55,
+                           String inspection_question56, String inspection_question57, String inspection_question58,
+                           String inspection_question59, String inspection_question60, String inspection_question61,
+                           String inspection_question62, String inspection_question63, String inspection_location,
                            Uri farmer_photo, String signature, String is_sync, String is_draft, String userFname,
                            String userLname, String userEmail, String onCreate, String onUpdate) {
         this.id = id;
-        this.farmer_id = farmer_id;
-        this.farmer_name = farmer_name;
         this.district = district;
         this.community = community;
+        this.farmer_id = farmer_id;
+        this.farmer_name = farmer_name;
+        this.ghana_card = ghana_card;
+        this.farmer_yob = farmer_yob;
+        this.phone_number = phone_number;
+        this.gender = gender;
+        this.inspection_date = inspection_date;
+        this.inspector_name = inspector_name;
         this.inspection_question1 = inspection_question1;
         this.inspection_question2 = inspection_question2;
         this.inspection_question3 = inspection_question3;
@@ -188,11 +194,6 @@ public class InspectionModel implements Parcelable {
         this.inspection_question61 = inspection_question61;
         this.inspection_question62 = inspection_question62;
         this.inspection_question63 = inspection_question63;
-        this.inspection_question64 = inspection_question64;
-        this.inspection_question65 = inspection_question65;
-        this.inspection_question66 = inspection_question66;
-        this.inspection_question67 = inspection_question67;
-        this.inspection_question68 = inspection_question68;
         this.inspection_location = inspection_location;
         this.farmer_photo = farmer_photo;
         this.signature = signature;
@@ -211,6 +212,12 @@ public class InspectionModel implements Parcelable {
         farmer_name = in.readString();
         district = in.readString();
         community = in.readString();
+        ghana_card = in.readString();
+        farmer_yob = in.readString();
+        phone_number = in.readString();
+        gender = in.readString();
+        inspection_date = in.readString();
+        inspector_name = in.readString();
         inspection_question1 = in.readString();
         inspection_question2 = in.readString();
         inspection_question3 = in.readString();
@@ -274,11 +281,6 @@ public class InspectionModel implements Parcelable {
         inspection_question61 = in.readString();
         inspection_question62 = in.readString();
         inspection_question63 = in.readString();
-        inspection_question64 = in.readString();
-        inspection_question65 = in.readString();
-        inspection_question66 = in.readString();
-        inspection_question67 = in.readString();
-        inspection_question68 = in.readString();
         inspection_location = in.readString();
         farmer_photo = in.readParcelable(Uri.class.getClassLoader());
         signature = in.readString();
@@ -294,10 +296,16 @@ public class InspectionModel implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
-        dest.writeString(farmer_id);
-        dest.writeString(farmer_name);
         dest.writeString(district);
         dest.writeString(community);
+        dest.writeString(farmer_id);
+        dest.writeString(farmer_name);
+        dest.writeString(ghana_card);
+        dest.writeString(farmer_yob);
+        dest.writeString(phone_number);
+        dest.writeString(gender);
+        dest.writeString(inspection_date);
+        dest.writeString(inspector_name);
         dest.writeString(inspection_question1);
         dest.writeString(inspection_question2);
         dest.writeString(inspection_question3);
@@ -361,11 +369,6 @@ public class InspectionModel implements Parcelable {
         dest.writeString(inspection_question61);
         dest.writeString(inspection_question62);
         dest.writeString(inspection_question63);
-        dest.writeString(inspection_question64);
-        dest.writeString(inspection_question65);
-        dest.writeString(inspection_question66);
-        dest.writeString(inspection_question67);
-        dest.writeString(inspection_question68);
         dest.writeString(inspection_location);
         dest.writeParcelable(farmer_photo, flags);
         dest.writeString(signature);
@@ -380,10 +383,16 @@ public class InspectionModel implements Parcelable {
 
     public static InspectionModel fromCursor(Cursor cursor) {
         int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
-        String farmer_id = cursor.getString(cursor.getColumnIndexOrThrow("farmer_id"));
-        String farmer_name = cursor.getString(cursor.getColumnIndexOrThrow("farmer_name"));
         String district = cursor.getString(cursor.getColumnIndexOrThrow("district"));
         String community = cursor.getString(cursor.getColumnIndexOrThrow("community"));
+        String farmer_id = cursor.getString(cursor.getColumnIndexOrThrow("farmer_id"));
+        String farmer_name = cursor.getString(cursor.getColumnIndexOrThrow("farmer_name"));
+        String ghana_card = cursor.getString(cursor.getColumnIndexOrThrow("ghana_card"));
+        String farmer_yob = cursor.getString(cursor.getColumnIndexOrThrow("farmer_yob"));
+        String phone_number = cursor.getString(cursor.getColumnIndexOrThrow("phone_number"));
+        String gender = cursor.getString(cursor.getColumnIndexOrThrow("gender"));
+        String inspection_date = cursor.getString(cursor.getColumnIndexOrThrow("inspection_date"));
+        String inspector_name = cursor.getString(cursor.getColumnIndexOrThrow("inspector_name"));
         String inspection_question1 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question1"));
         String inspection_question2 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question2"));
         String inspection_question3 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question3"));
@@ -447,11 +456,6 @@ public class InspectionModel implements Parcelable {
         String inspection_question61 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question61"));
         String inspection_question62 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question62"));
         String inspection_question63 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question63"));
-        String inspection_question64 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question64"));
-        String inspection_question65 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question65"));
-        String inspection_question66 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question66"));
-        String inspection_question67 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question67"));
-        String inspection_question68 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question68"));
         String inspection_location = cursor.getString(cursor.getColumnIndexOrThrow("inspection_location"));
         // Farmer photo as Uri
         String farmer_photo_str = cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo"));
@@ -467,10 +471,16 @@ public class InspectionModel implements Parcelable {
 
         return new InspectionModel(
                 id,
-                farmer_id,
-                farmer_name,
                 district,
                 community,
+                farmer_id,
+                farmer_name,
+                ghana_card,
+                farmer_yob,
+                phone_number,
+                gender,
+                inspection_date,
+                inspector_name,
                 inspection_question1,
                 inspection_question2,
                 inspection_question3,
@@ -534,11 +544,6 @@ public class InspectionModel implements Parcelable {
                 inspection_question61,
                 inspection_question62,
                 inspection_question63,
-                inspection_question64,
-                inspection_question65,
-                inspection_question66,
-                inspection_question67,
-                inspection_question68,
                 inspection_location,
                 farmer_photo,
                 signature,
@@ -577,6 +582,30 @@ public class InspectionModel implements Parcelable {
     // Getters and setters
     public int getId() {
         return id;
+    }
+
+    public String getGhana_card() {
+        return ghana_card;
+    }
+
+    public String getFarmer_yob() {
+        return farmer_yob;
+    }
+
+    public String getPhone_number() {
+        return phone_number;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getInspection_date() {
+        return inspection_date;
+    }
+
+    public String getInspector_name() {
+        return inspector_name;
     }
 
     public String getFarmer_id() { return farmer_id; }
@@ -829,26 +858,6 @@ public class InspectionModel implements Parcelable {
         return inspection_question63;
     }
 
-    public String getInspection_question64() {
-        return inspection_question64;
-    }
-
-    public String getInspection_question65() {
-        return inspection_question65;
-    }
-
-    public String getInspection_question66() {
-        return inspection_question66;
-    }
-
-    public String getInspection_question67() {
-        return inspection_question67;
-    }
-
-    public String getInspection_question68() {
-        return inspection_question68;
-    }
-
     public String getInspection_location() { return inspection_location; }
 
     public Uri getFarmer_photo() { return farmer_photo; }
@@ -875,6 +884,30 @@ public class InspectionModel implements Parcelable {
     public void setInspection_question5(String inspection_question5) { this.inspection_question5 = inspection_question5; }
 
     public void setId(int id) { this.id = id; }
+
+    public void setGhana_card(String ghana_card) {
+        this.ghana_card = ghana_card;
+    }
+
+    public void setFarmer_yob(String farmer_yob) {
+        this.farmer_yob = farmer_yob;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setInspection_date(String inspection_date) {
+        this.inspection_date = inspection_date;
+    }
+
+    public void setInspector_name(String inspector_name) {
+        this.inspector_name = inspector_name;
+    }
 
     public void setFarmer_id(String farmer_id) { this.farmer_id = farmer_id; }
 
@@ -1122,26 +1155,6 @@ public class InspectionModel implements Parcelable {
 
     public void setInspection_question63(String inspection_question63) {
         this.inspection_question63 = inspection_question63;
-    }
-
-    public void setInspection_question64(String inspection_question64) {
-        this.inspection_question64 = inspection_question64;
-    }
-
-    public void setInspection_question65(String inspection_question65) {
-        this.inspection_question65 = inspection_question65;
-    }
-
-    public void setInspection_question66(String inspection_question66) {
-        this.inspection_question66 = inspection_question66;
-    }
-
-    public void setInspection_question67(String inspection_question67) {
-        this.inspection_question67 = inspection_question67;
-    }
-
-    public void setInspection_question68(String inspection_question68) {
-        this.inspection_question68 = inspection_question68;
     }
 
     public void setInspection_location(String inspection_location) { this.inspection_location = inspection_location; }

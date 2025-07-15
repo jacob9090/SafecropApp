@@ -191,8 +191,7 @@ public class TrainingActivity extends AppCompatActivity {
                                            String training_question7, String training_question8, String training_question9,
                                            String training_question10, String training_question11, String training_question12,
                                            String training_question13, String training_question14, String training_question15,
-                                           String training_question16, String training_question17, String training_question18,
-                                           String training_question19, String training_location, String farmer_photo,
+                                           String training_question16, String training_location, String farmer_photo,
                                            String signature, String is_sync, String is_draft) {
 
             Log.d("WebAppInterface", "--- insertOrUpdateTraining CALLED ---");
@@ -220,9 +219,6 @@ public class TrainingActivity extends AppCompatActivity {
             training_question14 = isNull(training_question14);
             training_question15 = isNull(training_question15);
             training_question16 = isNull(training_question16);
-            training_question17 = isNull(training_question17);
-            training_question18 = isNull(training_question18);
-            training_question19 = isNull(training_question19);
             training_location = isNull(training_location);
             farmer_photo = isNull(farmer_photo);
             signature = isNull(signature);
@@ -251,10 +247,7 @@ public class TrainingActivity extends AppCompatActivity {
                         TextUtils.isEmpty(training_question13) ||
                         TextUtils.isEmpty(training_question14) ||
                         TextUtils.isEmpty(training_question15) ||
-                        TextUtils.isEmpty(training_question16) ||
-                        TextUtils.isEmpty(training_question17) ||
-                        TextUtils.isEmpty(training_question18) ||
-                        TextUtils.isEmpty(training_question19)) {
+                        TextUtils.isEmpty(training_question16)) {
 
                     Log.e("WebAppInterface", "Validation FAILED: Required fields are empty for non-draft save.");
                     runOnUiThread(() ->
@@ -286,9 +279,8 @@ public class TrainingActivity extends AppCompatActivity {
                     training_question3, training_question4, training_question5, training_question6,
                     training_question7, training_question8, training_question9, training_question10,
                     training_question11, training_question12, training_question13, training_question14,
-                    training_question15, training_question16, training_question17, training_question18,
-                    training_question19, training_location, farmer_photo, signature, is_sync, is_draft,
-                    userFname, userLname, userEmail, onCreate, onUpdate
+                    training_question15, training_question16, training_location, farmer_photo,
+                    signature, is_sync, is_draft, userFname, userLname, userEmail, onCreate, onUpdate
             );
 
             if (success) {

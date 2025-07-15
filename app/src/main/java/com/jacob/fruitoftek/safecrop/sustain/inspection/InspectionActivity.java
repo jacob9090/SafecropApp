@@ -94,16 +94,28 @@ public class InspectionActivity extends AppCompatActivity {
             public void onPageFinished(WebView view, String url) {
                 InspectionProgressBar.setVisibility(View.GONE);
                 Intent intent = getIntent();
-                String farmer_id = intent.getStringExtra("farmer_id");
-                String farmer_name = intent.getStringExtra("farmer_name");
                 String district = intent.getStringExtra("district");
                 String community = intent.getStringExtra("community");
+                String farmer_id = intent.getStringExtra("farmer_id");
+                String farmer_name = intent.getStringExtra("farmer_name");
+                String ghana_card = intent.getStringExtra("ghana_card");
+                String farmer_yob = intent.getStringExtra("farmer_yob");
+                String phone_number = intent.getStringExtra("phone_number");
+                String gender = intent.getStringExtra("gender");
+                String inspection_date = intent.getStringExtra("inspection_date");
+                String inspector_name = intent.getStringExtra("inspector_name");
                 String js = String.format(
-                        "populateSurveyFields('%s', '%s', '%s', '%s');",
+                        "populateSurveyFields('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');",
                         escapeJs(farmer_id),
                         escapeJs(farmer_name),
                         escapeJs(district),
-                        escapeJs(community)
+                        escapeJs(community),
+                        escapeJs(ghana_card),
+                        escapeJs(farmer_yob),
+                        escapeJs(phone_number),
+                        escapeJs(gender),
+                        escapeJs(inspection_date),
+                        escapeJs(inspector_name)
                 );
                 InspectionWebView.evaluateJavascript(js, null);
             }
@@ -179,37 +191,42 @@ public class InspectionActivity extends AppCompatActivity {
         }
 
         @JavascriptInterface
-        public void insertOrUpdateInspection(String farmer_id, String farmer_name, String district, String community,
-                                     String inspection_question1, String inspection_question2, String inspection_question3,
-                                     String inspection_question4, String inspection_question5,
-                                     String inspection_question6, String inspection_question7, String inspection_question8,
-                                     String inspection_question9, String inspection_question10, String inspection_question11,
-                                     String inspection_question12, String inspection_question13, String inspection_question14,
-                                     String inspection_question15, String inspection_question16, String inspection_question17,
-                                     String inspection_question18, String inspection_question19, String inspection_question20,
-                                     String inspection_question21, String inspection_question22, String inspection_question23,
-                                     String inspection_question24, String inspection_question25, String inspection_question26,
-                                     String inspection_question27, String inspection_question28, String inspection_question29,
-                                     String inspection_question30, String inspection_question31, String inspection_question32,
-                                     String inspection_question33, String inspection_question34, String inspection_question35,
-                                     String inspection_question36, String inspection_question37, String inspection_question38,
-                                     String inspection_question39, String inspection_question40, String inspection_question41,
-                                     String inspection_question42, String inspection_question43, String inspection_question44,
-                                     String inspection_question45, String inspection_question46, String inspection_question47,
-                                     String inspection_question48, String inspection_question49, String inspection_question50,
-                                     String inspection_question51, String inspection_question52, String inspection_question53,
-                                     String inspection_question54, String inspection_question55, String inspection_question56,
-                                     String inspection_question57, String inspection_question58, String inspection_question59,
-                                     String inspection_question60, String inspection_question61, String inspection_question62,
-                                     String inspection_question63, String inspection_question64, String inspection_question65,
-                                     String inspection_question66, String inspection_question67, String inspection_question68,
-                                     String inspection_location,
-                                     String farmer_photo, String signature, String is_sync, String is_draft) {
+        public void insertOrUpdateInspection(String district, String community, String farmer_id, String farmer_name,
+                                             String ghana_card, String farmer_yob, String phone_number, String gender,
+                                             String inspection_date, String inspector_name, String inspection_question1,
+                                             String inspection_question2, String inspection_question3, String inspection_question4,
+                                             String inspection_question5, String inspection_question6, String inspection_question7,
+                                             String inspection_question8, String inspection_question9, String inspection_question10,
+                                             String inspection_question11, String inspection_question12, String inspection_question13,
+                                             String inspection_question14, String inspection_question15, String inspection_question16,
+                                             String inspection_question17, String inspection_question18, String inspection_question19,
+                                             String inspection_question20, String inspection_question21, String inspection_question22,
+                                             String inspection_question23, String inspection_question24, String inspection_question25,
+                                             String inspection_question26, String inspection_question27, String inspection_question28,
+                                             String inspection_question29, String inspection_question30, String inspection_question31,
+                                             String inspection_question32, String inspection_question33, String inspection_question34,
+                                             String inspection_question35, String inspection_question36, String inspection_question37,
+                                             String inspection_question38, String inspection_question39, String inspection_question40,
+                                             String inspection_question41, String inspection_question42, String inspection_question43,
+                                             String inspection_question44, String inspection_question45, String inspection_question46,
+                                             String inspection_question47, String inspection_question48, String inspection_question49,
+                                             String inspection_question50, String inspection_question51, String inspection_question52,
+                                             String inspection_question53, String inspection_question54, String inspection_question55,
+                                             String inspection_question56, String inspection_question57, String inspection_question58,
+                                             String inspection_question59, String inspection_question60, String inspection_question61,
+                                             String inspection_question62, String inspection_question63, String inspection_location,
+                                             String farmer_photo, String signature, String is_sync, String is_draft) {
 
-            farmer_id = isNull(farmer_id);
-            farmer_name = isNull(farmer_name);
             district = isNull(district);
             community = isNull(community);
+            farmer_id = isNull(farmer_id);
+            farmer_name = isNull(farmer_name);
+            ghana_card = isNull(ghana_card);
+            farmer_yob = isNull(farmer_yob);
+            phone_number = isNull(phone_number);
+            gender = isNull(gender);
+            inspection_date = isNull(inspection_date);
+            inspector_name = isNull(inspector_name);
             inspection_question1 = isNull(inspection_question1);
             inspection_question2 = isNull(inspection_question2);
             inspection_question3 = isNull(inspection_question3);
@@ -273,11 +290,6 @@ public class InspectionActivity extends AppCompatActivity {
             inspection_question61 = isNull(inspection_question61);
             inspection_question62 = isNull(inspection_question62);
             inspection_question63 = isNull(inspection_question63);
-            inspection_question64 = isNull(inspection_question64);
-            inspection_question65 = isNull(inspection_question65);
-            inspection_question66 = isNull(inspection_question66);
-            inspection_question67 = isNull(inspection_question67);
-            inspection_question68 = isNull(inspection_question68);
             inspection_location = isNull(inspection_location);
             farmer_photo = isNull(farmer_photo);
             signature = isNull(signature);
@@ -286,10 +298,16 @@ public class InspectionActivity extends AppCompatActivity {
             boolean draftMode = "1".equals(is_draft);
 
             if (!draftMode) {
-                if (TextUtils.isEmpty(farmer_id) ||
-                        TextUtils.isEmpty(farmer_name) ||
-                        TextUtils.isEmpty(district) ||
+                if (TextUtils.isEmpty(district) ||
                         TextUtils.isEmpty(community) ||
+                        TextUtils.isEmpty(farmer_id) ||
+                        TextUtils.isEmpty(farmer_name) ||
+                        TextUtils.isEmpty(ghana_card) ||
+                        TextUtils.isEmpty(farmer_yob) ||
+                        TextUtils.isEmpty(phone_number) ||
+                        TextUtils.isEmpty(gender) ||
+                        TextUtils.isEmpty(inspection_date) ||
+                        TextUtils.isEmpty(inspector_name) ||
                         TextUtils.isEmpty(inspection_question1) ||
                         TextUtils.isEmpty(inspection_question2) ||
                         TextUtils.isEmpty(inspection_question3) ||
@@ -352,12 +370,7 @@ public class InspectionActivity extends AppCompatActivity {
                         TextUtils.isEmpty(inspection_question60) ||
                         TextUtils.isEmpty(inspection_question61) ||
                         TextUtils.isEmpty(inspection_question62) ||
-                        TextUtils.isEmpty(inspection_question63) ||
-                        TextUtils.isEmpty(inspection_question64) ||
-                        TextUtils.isEmpty(inspection_question65) ||
-                        TextUtils.isEmpty(inspection_question66) ||
-                        TextUtils.isEmpty(inspection_question67) ||
-                        TextUtils.isEmpty(inspection_question68)) {
+                        TextUtils.isEmpty(inspection_question63)) {
 
                     runOnUiThread(() ->
                             Toast.makeText(context, "All required fields must be filled!", Toast.LENGTH_LONG).show()
@@ -379,26 +392,24 @@ public class InspectionActivity extends AppCompatActivity {
             if (farmerPhotoUri != null) farmer_photo = farmerPhotoUri.toString();
 
             boolean success = dbHelper.insertOrUpdateInspection(
-                    farmer_id, farmer_name, district, community,
-                    inspection_question1, inspection_question2, inspection_question3, inspection_question4,
-                    inspection_question5,
-                    inspection_question6, inspection_question7, inspection_question8, inspection_question9,
-                    inspection_question10, inspection_question11, inspection_question12, inspection_question13,
-                    inspection_question14, inspection_question15, inspection_question16, inspection_question17,
-                    inspection_question18, inspection_question19, inspection_question20,
-                    inspection_question21, inspection_question22, inspection_question23, inspection_question24,
-                    inspection_question25, inspection_question26, inspection_question27, inspection_question28,
-                    inspection_question29, inspection_question30, inspection_question31, inspection_question32,
-                    inspection_question33, inspection_question34, inspection_question35, inspection_question36,
-                    inspection_question37, inspection_question38, inspection_question39, inspection_question40,
-                    inspection_question41, inspection_question42, inspection_question43, inspection_question44,
-                    inspection_question45, inspection_question46, inspection_question47, inspection_question48,
-                    inspection_question49, inspection_question50, inspection_question51, inspection_question52,
-                    inspection_question53, inspection_question54, inspection_question55, inspection_question56,
-                    inspection_question57, inspection_question58, inspection_question59, inspection_question60,
-                    inspection_question61, inspection_question62, inspection_question63, inspection_question64,
-                    inspection_question65, inspection_question66, inspection_question67, inspection_question68,
-                    inspection_location, farmer_photo, signature, is_sync, is_draft,
+                    district, community, farmer_id, farmer_name, ghana_card, farmer_yob, phone_number,
+                    gender, inspection_date, inspector_name, inspection_question1, inspection_question2,
+                    inspection_question3, inspection_question4, inspection_question5, inspection_question6,
+                    inspection_question7, inspection_question8, inspection_question9, inspection_question10,
+                    inspection_question11, inspection_question12, inspection_question13, inspection_question14,
+                    inspection_question15, inspection_question16, inspection_question17, inspection_question18,
+                    inspection_question19, inspection_question20, inspection_question21, inspection_question22,
+                    inspection_question23, inspection_question24, inspection_question25, inspection_question26,
+                    inspection_question27, inspection_question28, inspection_question29, inspection_question30,
+                    inspection_question31, inspection_question32, inspection_question33, inspection_question34,
+                    inspection_question35, inspection_question36, inspection_question37, inspection_question38,
+                    inspection_question39, inspection_question40, inspection_question41, inspection_question42,
+                    inspection_question43, inspection_question44, inspection_question45, inspection_question46,
+                    inspection_question47, inspection_question48, inspection_question49, inspection_question50,
+                    inspection_question51, inspection_question52, inspection_question53, inspection_question54,
+                    inspection_question55, inspection_question56, inspection_question57, inspection_question58,
+                    inspection_question59, inspection_question60, inspection_question61, inspection_question62,
+                    inspection_question63, inspection_location, farmer_photo, signature, is_sync, is_draft,
                     userFname, userLname, userEmail, onCreate, onUpdate
             );
 

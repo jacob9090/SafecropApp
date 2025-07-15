@@ -169,11 +169,14 @@ public class FarmerListActivity extends AppCompatActivity {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject obj = jsonArray.getJSONObject(i);
                         FarmerListModal farmer = new FarmerListModal(
-                                obj.getString("farm_id"),
-                                obj.getString("name"),
-                                obj.getString("phone_number"),
                                 obj.getString("district"),
                                 obj.getString("village_city"),
+                                obj.getString("farm_id"),
+                                obj.getString("name"),
+                                obj.getString("ghana_card"),
+                                obj.getString("yob"),
+                                obj.getString("phone_number"),
+                                obj.getString("gender"),
                                 obj.getString("photo")
                         );
                         newFarmers.add(farmer);

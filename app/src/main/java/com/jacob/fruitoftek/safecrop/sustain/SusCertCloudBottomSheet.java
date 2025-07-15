@@ -168,10 +168,16 @@ public class SusCertCloudBottomSheet extends BottomSheetDialogFragment {
                 try {
                     for (InspectionModel inspection : batch) {
                         JSONObject obj = new JSONObject();
-                        obj.put("farmer_id", inspection.getFarmer_id());
-                        obj.put("farmer_name", inspection.getFarmer_name());
                         obj.put("district", inspection.getDistrict());
                         obj.put("community", inspection.getCommunity());
+                        obj.put("farmer_id", inspection.getFarmer_id());
+                        obj.put("farmer_name", inspection.getFarmer_name());
+                        obj.put("ghana_card", inspection.getGhana_card());
+                        obj.put("farmer_yob", inspection.getFarmer_yob());
+                        obj.put("phone_number", inspection.getPhone_number());
+                        obj.put("gender", inspection.getGender());
+                        obj.put("inspection_date", inspection.getInspection_date());
+                        obj.put("inspector_name", inspection.getInspector_name());
                         obj.put("inspection_question1", inspection.getInspection_question1());
                         obj.put("inspection_question2", inspection.getInspection_question2());
                         obj.put("inspection_question3", inspection.getInspection_question3());
@@ -235,11 +241,6 @@ public class SusCertCloudBottomSheet extends BottomSheetDialogFragment {
                         obj.put("inspection_question61", inspection.getInspection_question61());
                         obj.put("inspection_question62", inspection.getInspection_question62());
                         obj.put("inspection_question63", inspection.getInspection_question63());
-                        obj.put("inspection_question64", inspection.getInspection_question64());
-                        obj.put("inspection_question65", inspection.getInspection_question65());
-                        obj.put("inspection_question66", inspection.getInspection_question66());
-                        obj.put("inspection_question67", inspection.getInspection_question67());
-                        obj.put("inspection_question68", inspection.getInspection_question68());
                         obj.put("inspection_location", inspection.getInspection_location());
                         obj.put("is_sync", inspection.getIs_sync());
                         obj.put("is_draft", inspection.getIs_draft());

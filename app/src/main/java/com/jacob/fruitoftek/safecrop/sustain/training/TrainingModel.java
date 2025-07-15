@@ -29,9 +29,6 @@ public class TrainingModel implements Parcelable {
     private String training_question14;
     private String training_question15;
     private String training_question16;
-    private String training_question17;
-    private String training_question18;
-    private String training_question19;
     private String training_location;
     private Uri farmer_photo;
     private String signature;
@@ -47,9 +44,9 @@ public class TrainingModel implements Parcelable {
                          String training_question3, String training_question4, String training_question5, String training_question6,
                          String training_question7, String training_question8, String training_question9, String training_question10,
                          String training_question11, String training_question12, String training_question13, String training_question14,
-                         String training_question15, String training_question16, String training_question17, String training_question18,
-                         String training_question19, String training_location, Uri farmer_photo, String signature, String is_sync,
-                         String is_draft, String userFname, String userLname, String userEmail, String onCreate, String onUpdate) {
+                         String training_question15, String training_question16, String training_location, Uri farmer_photo,
+                         String signature, String is_sync, String is_draft, String userFname, String userLname, String userEmail,
+                         String onCreate, String onUpdate) {
         this.id = id;
         this.training_code = training_code;
         this.district = district;
@@ -70,9 +67,6 @@ public class TrainingModel implements Parcelable {
         this.training_question14 = training_question14;
         this.training_question15 = training_question15;
         this.training_question16 = training_question16;
-        this.training_question17 = training_question17;
-        this.training_question18 = training_question18;
-        this.training_question19 = training_question19;
         this.training_location = training_location;
         this.farmer_photo = farmer_photo;
         this.signature = signature;
@@ -106,9 +100,6 @@ public class TrainingModel implements Parcelable {
         training_question14 = in.readString();
         training_question15 = in.readString();
         training_question16 = in.readString();
-        training_question17 = in.readString();
-        training_question18 = in.readString();
-        training_question19 = in.readString();
         training_location = in.readString();
         farmer_photo = in.readParcelable(Uri.class.getClassLoader());
         signature = in.readString();
@@ -143,9 +134,6 @@ public class TrainingModel implements Parcelable {
         dest.writeString(training_question14);
         dest.writeString(training_question15);
         dest.writeString(training_question16);
-        dest.writeString(training_question17);
-        dest.writeString(training_question18);
-        dest.writeString(training_question19);
         dest.writeString(training_location);
         dest.writeParcelable(farmer_photo, flags);
         dest.writeString(signature);
@@ -179,9 +167,6 @@ public class TrainingModel implements Parcelable {
         String training_question14 = cursor.getString(cursor.getColumnIndexOrThrow("training_question14"));
         String training_question15 = cursor.getString(cursor.getColumnIndexOrThrow("training_question15"));
         String training_question16 = cursor.getString(cursor.getColumnIndexOrThrow("training_question16"));
-        String training_question17 = cursor.getString(cursor.getColumnIndexOrThrow("training_question17"));
-        String training_question18 = cursor.getString(cursor.getColumnIndexOrThrow("training_question18"));
-        String training_question19 = cursor.getString(cursor.getColumnIndexOrThrow("training_question19"));
         String training_location = cursor.getString(cursor.getColumnIndexOrThrow("training_location"));
         // Farmer photo as Uri
         String farmer_photo_str = cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo"));
@@ -216,9 +201,6 @@ public class TrainingModel implements Parcelable {
                 training_question14,
                 training_question15,
                 training_question16,
-                training_question17,
-                training_question18,
-                training_question19,
                 training_location,
                 farmer_photo,
                 signature,
@@ -335,18 +317,6 @@ public class TrainingModel implements Parcelable {
         return training_question16;
     }
 
-    public String getTraining_question17() {
-        return training_question17;
-    }
-
-    public String getTraining_question18() {
-        return training_question18;
-    }
-
-    public String getTraining_question19() {
-        return training_question19;
-    }
-
     public String getTraining_location() {
         return training_location;
     }
@@ -449,18 +419,6 @@ public class TrainingModel implements Parcelable {
 
     public void setTraining_question16(String training_question16) {
         this.training_question16 = training_question16;
-    }
-
-    public void setTraining_question17(String training_question17) {
-        this.training_question17 = training_question17;
-    }
-
-    public void setTraining_question18(String training_question18) {
-        this.training_question18 = training_question18;
-    }
-
-    public void setTraining_question19(String training_question19) {
-        this.training_question19 = training_question19;
     }
 
     public void setTraining_location(String training_location) {

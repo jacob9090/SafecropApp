@@ -95,10 +95,14 @@ public class InspectionListFarmersActivity extends AppCompatActivity {
         // Initialize adapter FIRST
         farmerAdapter = new FarmerListAdapter(new ArrayList<>(), farmer -> {
             Intent intent = new Intent(this, InspectionActivity.class);
-            intent.putExtra("farmer_id", farmer.getFid());
-            intent.putExtra("farmer_name", farmer.getName());
             intent.putExtra("district", farmer.getDistrict());
             intent.putExtra("community", farmer.getVillage());
+            intent.putExtra("farmer_id", farmer.getFid());
+            intent.putExtra("farmer_name", farmer.getName());
+            intent.putExtra("ghana_card", farmer.getGhanaCard());
+            intent.putExtra("farmer_yob", farmer.getYob());
+            intent.putExtra("phone_number", farmer.getPhone());
+            intent.putExtra("gender", farmer.getGender());
             startActivity(intent);
         });
 
