@@ -11,20 +11,20 @@ function updateChildLocation(location) {
     survey.setValue('child_location', location);
 }
 
-function populateSurveyFields(farmerId, farmerDistrict, farmerVillage, childLocation) {
-    survey.setValue('farmer_id', farmerId);
-    survey.setValue('farmer_district', farmerDistrict);
-    survey.setValue('farmer_village', farmerVillage);
-    survey.setValue('child_location', childLocation);
+function populateSurveyFields(district, community, farmer_id, child_location) {
+    survey.setValue('farmer_district', district);
+    survey.setValue('farmer_community', community);
+    survey.setValue('farmer_id', farmer_id);
+    survey.setValue('child_location', child_location);
 }
 
 survey.onComplete.add(function (survey, options) {
     const surveyData = survey.data;
-    const { farmer_id, farmer_district, farmer_village, child_location } = surveyData;
+    const { farmer_district, farmer_community, farmer_id, child_location } = surveyData;
 
     // Send updated data to Android (without signature)
     Android.updateSurveyData(
-        farmer_id, farmer_district, farmer_village, child_location
+        farmer_district, farmer_community, farmer_id, child_location
     );
     Android.completeSurvey();
 });

@@ -53,15 +53,6 @@
                     android:text="@string/district"
                     android:layout_marginTop="3dp"/>
 
-<!--                <TextView-->
-<!--                    android:id="@+id/farmerVillage"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:textSize="13sp"-->
-<!--                    android:text="@string/community"-->
-<!--                    android:layout_marginTop="3dp"-->
-<!--                    android:layout_marginStart="5dp"/>-->
-
             </LinearLayout>
 
             <TextView

@@ -39,12 +39,14 @@ public class UpdateSurvedChildActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_surved_child);
 
         // Set the status bar appearance
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_brown));
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            int left = insets.getInsets(WindowInsetsCompat.Type.systemBars()).left;
+            int top = insets.getInsets(WindowInsetsCompat.Type.systemBars()).top;
+            int right = insets.getInsets(WindowInsetsCompat.Type.systemBars()).right;
+            int bottom = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            v.setPadding(left, top, right, bottom);
             return insets;
         });
 
@@ -88,9 +90,9 @@ public class UpdateSurvedChildActivity extends AppCompatActivity {
     private void injectSurveyDetails() {
         if (childModel != null) {
             String js = "javascript:populateSurveyFields('" +
-                    childModel.getFarmerId() + "', '" +
-                    childModel.getFarmerDistrict() + "', '" +
-                    childModel.getFarmerVillage() + "', '" +
+                    childModel.getDistrict() + "', '" +
+                    childModel.getCommunity() + "', '" +
+                    childModel.getFarmer_id() + "', '" +
                     childModel.getChildquestion4() + "', '" +
                     childModel.getChild1question1() + "', '" +
                     childModel.getChild1question2() + "', '" +
@@ -298,7 +300,7 @@ public class UpdateSurvedChildActivity extends AppCompatActivity {
         }
 
         @JavascriptInterface
-        public void updateSurveyData(String farmerId, String farmerDistrict, String farmerVillage,
+        public void updateSurveyData(String district, String community, String farmer_id,
                                      String childquestion4, String child1question1, String child1question2, String child1question3,
                                      String child1question4, String child1question5, String child1question6, String child1question7,
                                      String child1question8, String child1question9, String child1question10, String child1question11,
@@ -359,7 +361,7 @@ public class UpdateSurvedChildActivity extends AppCompatActivity {
             child9question13 = child9question13 == null || child9question13.equals("undefined") ? "" : child9question13;
             child10question13 = child10question13 == null || child10question13.equals("undefined") ? "" : child10question13;
 
-            dbHelper.updateSurveyData(farmerId, farmerDistrict, farmerVillage,
+            dbHelper.updateSurveyData(district, community, farmer_id,
                     childquestion4, child1question1, child1question2, child1question3, child1question4, child1question5,
                     child1question6, child1question7, child1question8, child1question9, child1question10, child1question11,
                     child1question12, child1question13, child1question14, child1question15, child1question16, child1question17,
@@ -433,14 +435,10 @@ public class UpdateSurvedChildActivity extends AppCompatActivity {
 
     private void showExitConfirmationDialog() {
         new AlertDialog.Builder(this)
-                .setTitle("Exiting Update")
-                .setMessage("Are you sure you want to exit edit?")
-                .setPositiveButton("Yes", (dialog, which) -> {
-                    Intent intent = new Intent(UpdateSurvedChildActivity.this, ComDevDashboard.class);
-                    startActivity(intent);
-                    finish(); // Finish AddStudentActivity
-                })
-                .setNegativeButton("No", null) // Dismiss the dialog
+                .setTitle("Exiting Survey")
+                .setMessage("Are you sure you want to exit?")
+                .setPositiveButton("Yes", (dialog, which) -> finish())
+                .setNegativeButton("No", null)
                 .setCancelable(false)
                 .show();
     }

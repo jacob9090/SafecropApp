@@ -23,13 +23,8 @@ function updateFarmerPhoto(photoFarmerUri) {
 }
 
 // Match keys with Java
-function populateSurveyFields(farmer_id, farmer_name, gender, district, community, plot_id) {
-    survey.setValue('farmer_id', farmer_id);
-    survey.setValue('farmer_name', farmer_name);
-    survey.setValue('gender', gender);
-    survey.setValue('district', district);
-    survey.setValue('community', community);
-    survey.setValue('plot_id', plot_id);
+function populateSurveyFields(training_code) {
+    survey.setValue('training_code', training_code);
 }
 
 function notifyAndroidPageLoaded() {

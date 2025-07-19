@@ -12,10 +12,10 @@ function updateChildLocation(location) {
     survey.setValue('child_location', location);
 }
 
-function populateSurveyFields(farmerId, farmerDistrict, farmerVillage) {
-    survey.setValue('farmer_id', farmerId);
-    survey.setValue('farmer_district', farmerDistrict);
-    survey.setValue('farmer_village', farmerVillage);
+function populateSurveyFields(district, community, farmer_id) {
+    survey.setValue('district', district);
+    survey.setValue('community', community);
+     survey.setValue('farmer_id', farmer_id);
 }
 
 function sanitizeInput(value) {
@@ -27,7 +27,7 @@ function sanitizeInput(value) {
 
 survey.onComplete.add(function (survey, options) {
     const surveyData = survey.data;
-    const { farmer_id, farmer_district, farmer_village,
+    const { district, community, farmer_id,
     childquestion4, child1question1, child1question2, child1question3, child1question4, child1question5,
     child1question6, child1question7, child1question8, child1question9, child1question10, child1question11,
     child1question12, child1question13, child1question14, child1question15, child1question16, child1question17,
@@ -64,7 +64,7 @@ survey.onComplete.add(function (survey, options) {
 
     // Send the data including the raw PNG data for the signature
     Android.insertSurveyData(
-    farmer_id || "", farmer_district || "", farmer_village || "", childquestion4 || "",
+    district || "", community || "", farmer_id || "", childquestion4 || "",
     child1question1 || "", child1question2 || "", child1question3 || "", child1question4 || "", child1question5 || "",
     child1question6 || "", child1question7 || "", child1question8 || "", child1question9 || "", child1question10 || "",
     child1question11 || "", child1question12 || "", sanitizeInput(child1question13), child1question14 || "", child1question15 || "",

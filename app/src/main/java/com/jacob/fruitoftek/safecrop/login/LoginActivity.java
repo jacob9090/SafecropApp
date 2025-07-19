@@ -46,7 +46,6 @@ public class LoginActivity extends AppCompatActivity {
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
-
         );
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
@@ -182,6 +181,6 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        dismissProgressDialog(); // Prevent window leaks
+        dismissProgressDialog();
     }
 }

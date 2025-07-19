@@ -10,9 +10,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
-import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -21,13 +19,10 @@ import com.jacob.fruitoftek.safecrop.R;
 import com.jacob.fruitoftek.safecrop.SettingsBottomSheet;
 import com.jacob.fruitoftek.safecrop.login.AccountBottomSheet;
 import com.jacob.fruitoftek.safecrop.login.utils.PreferenceHelper;
-import com.jacob.fruitoftek.safecrop.sustain.inspection.InspectionListFarmersActivity;
+import com.jacob.fruitoftek.safecrop.sustain.inspection.InspectionFarmerListActivity;
 import com.jacob.fruitoftek.safecrop.sustain.pentry.PEActivity;
-import com.jacob.fruitoftek.safecrop.sustain.profiling.GMRDbHelper;
-import com.jacob.fruitoftek.safecrop.sustain.profiling.GMRProfilingWebActivity;
+import com.jacob.fruitoftek.safecrop.sustain.profiling.SusProfilingActivity;
 import com.jacob.fruitoftek.safecrop.sustain.training.TrainingActivity;
-import com.jacob.fruitoftek.safecrop.sustain.training.old.FaceRecoUIActivity;
-import com.jacob.fruitoftek.safecrop.sustain.training.old.TrainingAttendance;
 
 import javax.inject.Inject;
 
@@ -35,9 +30,6 @@ public class SusCertDashboard extends AppCompatActivity {
 
     // to check whether sub FAB buttons are visible or not.
     Boolean isAllFabsVisible;
-
-    @Inject
-    GMRDbHelper dbHelper;
 
     @Inject
     PreferenceHelper preferenceHelper;
@@ -56,12 +48,14 @@ public class SusCertDashboard extends AppCompatActivity {
         injectDependencies();
 
         // Set the status bar appearance
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_brown));
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            int left = insets.getInsets(WindowInsetsCompat.Type.systemBars()).left;
+            int top = insets.getInsets(WindowInsetsCompat.Type.systemBars()).top;
+            int right = insets.getInsets(WindowInsetsCompat.Type.systemBars()).right;
+            int bottom = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            v.setPadding(left, top, right, bottom);
             return insets;
         });
 
@@ -71,7 +65,9 @@ public class SusCertDashboard extends AppCompatActivity {
 
         TextView userFNameTv = findViewById(R.id.userFNameTv);
         TextView userEmailTv = findViewById(R.id.userEmailTv);
-        userFNameTv.setText("Hi, " + requireNotNull(preferenceHelper).getFirstName());
+        String firstName = requireNotNull(preferenceHelper).getFirstName();
+        String greeting = getString(R.string.greeting_format, firstName);
+        userFNameTv.setText(greeting);
         userEmailTv.setText(requireNotNull(preferenceHelper).getEmail());
 
         profileBottomSheet = new AccountBottomSheet();
@@ -110,8 +106,8 @@ public class SusCertDashboard extends AppCompatActivity {
 
         isAllFabsVisible = false;
 
-        profilingCv.setOnClickListener(view -> startActivity(new Intent(SusCertDashboard.this, GMRProfilingWebActivity.class)));
-        inspectionCv.setOnClickListener(view -> startActivity(new Intent(SusCertDashboard.this, InspectionListFarmersActivity.class)));
+        profilingCv.setOnClickListener(view -> startActivity(new Intent(SusCertDashboard.this, SusProfilingActivity.class)));
+        inspectionCv.setOnClickListener(view -> startActivity(new Intent(SusCertDashboard.this, InspectionFarmerListActivity.class)));
         trainingCV.setOnClickListener(v -> startActivity(new Intent(SusCertDashboard.this, TrainingActivity.class)));
         proEnteryCv.setOnClickListener(v -> startActivity(new Intent(SusCertDashboard.this, PEActivity.class)));
 
@@ -169,8 +165,6 @@ public class SusCertDashboard extends AppCompatActivity {
     }
 
     private void injectDependencies() {
-        // In a real-world scenario, replace this with your Dagger/Hilt setup
-        dbHelper = new GMRDbHelper(this);
         preferenceHelper = new PreferenceHelper(this);
     }
 }

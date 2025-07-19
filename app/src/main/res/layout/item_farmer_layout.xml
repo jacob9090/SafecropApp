@@ -33,7 +33,7 @@
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/fidTv"
+                android:id="@+id/farmer_idTv"
                 android:textStyle="bold"
                 android:textColor="#000"
                 android:textSize="17sp"
@@ -47,7 +47,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/nameTv"
+                    android:id="@+id/farmer_nameTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="13sp"
@@ -87,7 +87,7 @@
                     android:layout_marginStart="5dp"/>
 
                 <TextView
-                    android:id="@+id/villageTv"
+                    android:id="@+id/communityTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"

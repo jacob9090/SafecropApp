@@ -3,10 +3,10 @@ package com.jacob.fruitoftek.safecrop.comdev.ch;
 import java.io.Serializable;
 
 public class ChildModel implements Serializable {
-
-    private String farmerId;
-    private String farmerDistrict;
-    private String farmerVillage;
+    
+    private String district;
+    private String community;
+    private String farmer_id;
     private String childquestion4;
     private String child1question1;
     private String child1question2;
@@ -208,7 +208,7 @@ public class ChildModel implements Serializable {
     private String onUpdate;
 
     // Constructor, getters, and setters
-    public ChildModel(String farmerId, String farmerDistrict, String farmerVillage,
+    public ChildModel(String district, String community, String farmer_id,
                       String childquestion4, String child1question1, String child1question2, String child1question3,
                       String child1question4, String child1question5, String child1question6, String child1question7,
                       String child1question8, String child1question9, String child1question10, String child1question11,
@@ -258,9 +258,9 @@ public class ChildModel implements Serializable {
                       String child10question13, String child10question14, String child10question15, String child10question16, String child10question17,
                       String child10question18, String child10question19, String childquestion5, String childLocation,
                       String signature, String userFname, String userLname, String userEmail, String onCreate, String onUpdate) {
-        this.farmerId = farmerId;
-        this.farmerDistrict = farmerDistrict;
-        this.farmerVillage = farmerVillage;
+        this.district = district;
+        this.community = community;
+        this.farmer_id = farmer_id;
         this.childquestion4 = childquestion4;
         this.child1question1 = child1question1;
         this.child1question2 = child1question2;
@@ -462,9 +462,17 @@ public class ChildModel implements Serializable {
         this.onUpdate = onUpdate;
     }
 
-    public String getFarmerId() { return farmerId; }
-    public String getFarmerDistrict() { return farmerDistrict; }
-    public String getFarmerVillage() { return farmerVillage; }
+    public String getFarmer_id() {
+        return farmer_id;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public String getCommunity() {
+        return community;
+    }
 
     public String getChildquestion4() {
         return childquestion4;
@@ -1242,18 +1250,17 @@ public class ChildModel implements Serializable {
     public String getOnCreate() { return onCreate; }
     public String getOnUpdate() { return onUpdate; }
 
-    public void setFarmerId(String farmerId) {
-        this.farmerId = farmerId;
+    public void setFarmer_id(String farmer_id) {
+        this.farmer_id = farmer_id;
     }
 
-    public void setFarmerDistrict(String farmerDistrict) {
-        this.farmerDistrict = farmerDistrict;
+    public void setDistrict(String district) {
+        this.district = district;
     }
 
-    public void setFarmerVillage(String farmerVillage) {
-        this.farmerVillage = farmerVillage;
+    public void setCommunity(String community) {
+        this.community = community;
     }
-
 
     public void setChildquestion4(String childquestion4) {
         this.childquestion4 = childquestion4;

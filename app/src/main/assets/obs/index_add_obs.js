@@ -23,10 +23,10 @@ function updateFarmerPhoto(photoFarmerUri) {
     }
 }
 
-function populateSurveyFields(farmerId, farmerDistrict, farmerVillage) {
-    survey.setValue('obs_name', farmerId);
-    survey.setValue('obs_district', farmerDistrict);
-    survey.setValue('obs_community', farmerVillage);
+function populateSurveyFields(district, community, farmer_id) {
+    survey.setValue('obs_district', district);
+    survey.setValue('obs_community', community);
+    survey.setValue('obs_name', farmer_id);
 }
 
 function sanitizeInput(value) {

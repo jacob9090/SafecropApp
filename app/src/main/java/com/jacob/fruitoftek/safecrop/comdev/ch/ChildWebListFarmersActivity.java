@@ -43,12 +43,14 @@ public class ChildWebListFarmersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_child_web_list_farmers);
 
         // Set the status bar appearance
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_brown));
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            int left = insets.getInsets(WindowInsetsCompat.Type.systemBars()).left;
+            int top = insets.getInsets(WindowInsetsCompat.Type.systemBars()).top;
+            int right = insets.getInsets(WindowInsetsCompat.Type.systemBars()).right;
+            int bottom = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            v.setPadding(left, top, right, bottom);
             return insets;
         });
 
@@ -94,9 +96,9 @@ public class ChildWebListFarmersActivity extends AppCompatActivity {
         // Initialize adapter FIRST
         farmerAdapter = new FarmerListAdapter(new ArrayList<>(), farmer -> {
             Intent intent = new Intent(this, ChildWebSurveyActivity.class);
-            intent.putExtra("farmer_id", farmer.getFid());
-            intent.putExtra("farmer_district", farmer.getDistrict());
-            intent.putExtra("farmer_village", farmer.getVillage());
+            intent.putExtra("farmer_id", farmer.getFarmer_id());
+            intent.putExtra("district", farmer.getDistrict());
+            intent.putExtra("community", farmer.getCommunity());
             startActivity(intent);
         });
 

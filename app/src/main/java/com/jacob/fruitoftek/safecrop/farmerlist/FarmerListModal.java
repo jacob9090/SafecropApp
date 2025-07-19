@@ -5,93 +5,93 @@ import java.io.Serializable;
 public class FarmerListModal implements Serializable {
 
     private String district;
-    private String village;
-    private String fid;
-    private String name;
-    private String ghanaCard;
-    private String yob;
-    private String phone;
-    private String gender;
+    private String community;
+    private String farmer_id;
+    private String farmer_name;
+    private String ghana_card;
+    private String farmer_yob;
+    private String farmer_phone;
+    private String farmer_gender;
     private String photo;
 
-    public FarmerListModal(String district, String village, String fid, String name, String ghanaCard, String yob, String phone, String gender, String photo) {
+    public FarmerListModal(String district, String community, String farmer_id, String farmer_name, String ghana_card, String farmer_yob, String farmer_phone, String farmer_gender, String photo) {
         this.district = district;
-        this.village = village;
-        this.fid = fid;
-        this.name = name;
-        this.ghanaCard = ghanaCard;
-        this.yob = yob;
-        this.phone = phone;
-        this.gender = gender;
+        this.community = community;
+        this.farmer_id = farmer_id;
+        this.farmer_name = farmer_name;
+        this.ghana_card = ghana_card;
+        this.farmer_yob = farmer_yob;
+        this.farmer_phone = farmer_phone;
+        this.farmer_gender = farmer_gender;
         this.photo = photo;
-    }
-
-    public String getFid() {
-        return fid;
-    }
-
-    public void setFid(String fid) {
-        this.fid = fid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getGhanaCard() {
-        return ghanaCard;
-    }
-
-    public String getYob() {
-        return yob;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setGhanaCard(String ghanaCard) {
-        this.ghanaCard = ghanaCard;
-    }
-
-    public void setYob(String yob) {
-        this.yob = yob;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public String getDistrict() {
         return district;
     }
 
-    public void setDistrict(String district) {
-        this.district = district;
+    public String getCommunity() {
+        return community;
     }
 
-    public String getVillage() {
-        return village;
+    public String getFarmer_id() {
+        return farmer_id;
     }
 
-    public void setVillage(String village) {
-        this.village = village;
+    public String getFarmer_name() {
+        return farmer_name;
+    }
+
+    public String getGhana_card() {
+        return ghana_card;
+    }
+
+    public String getFarmer_yob() {
+        return farmer_yob;
+    }
+
+    public String getFarmer_phone() {
+        return farmer_phone;
+    }
+
+    public String getFarmer_gender() {
+        return farmer_gender;
     }
 
     public String getPhoto() {
         return photo;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public void setCommunity(String community) {
+        this.community = community;
+    }
+
+    public void setFarmer_id(String farmer_id) {
+        this.farmer_id = farmer_id;
+    }
+
+    public void setFarmer_name(String farmer_name) {
+        this.farmer_name = farmer_name;
+    }
+
+    public void setGhana_card(String ghana_card) {
+        this.ghana_card = ghana_card;
+    }
+
+    public void setFarmer_yob(String farmer_yob) {
+        this.farmer_yob = farmer_yob;
+    }
+
+    public void setFarmer_phone(String farmer_phone) {
+        this.farmer_phone = farmer_phone;
+    }
+
+    public void setFarmer_gender(String farmer_gender) {
+        this.farmer_gender = farmer_gender;
     }
 
     public void setPhoto(String photo) {

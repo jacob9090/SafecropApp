@@ -26,15 +26,14 @@ import com.jacob.fruitoftek.safecrop.comdev.cra.SurveyedCraActivity;
 import com.jacob.fruitoftek.safecrop.comdev.cra.SyncCraInfoActivity;
 import com.jacob.fruitoftek.safecrop.comdev.gra.SurveyedGraActivity;
 import com.jacob.fruitoftek.safecrop.comdev.gra.SyncGraInfoActivity;
-import com.jacob.fruitoftek.safecrop.sustain.inspection.InspectionActivity;
 import com.jacob.fruitoftek.safecrop.sustain.inspection.InspectionDoneActivity;
 import com.jacob.fruitoftek.safecrop.sustain.inspection.InspectionInfoActivity;
-import com.jacob.fruitoftek.safecrop.sustain.pentry.PEActivity;
 import com.jacob.fruitoftek.safecrop.sustain.pentry.PEDoneActivity;
 import com.jacob.fruitoftek.safecrop.sustain.pentry.PEInfoActivity;
-import com.jacob.fruitoftek.safecrop.sustain.pentry.PEnteryDetailsActivity;
-import com.jacob.fruitoftek.safecrop.sustain.profiling.GMRProfiledFarmersListActivity;
-import com.jacob.fruitoftek.safecrop.sustain.profiling.GMRSurveyInfoActivity;
+import com.jacob.fruitoftek.safecrop.sustain.profiling.SusProfilingActivity;
+import com.jacob.fruitoftek.safecrop.sustain.profiling.SusProfiledInfoActivity;
+import com.jacob.fruitoftek.safecrop.sustain.training.TrainingDoneActivity;
+import com.jacob.fruitoftek.safecrop.sustain.training.TrainingInfoActivity;
 
 public class InfoBottomSheet extends BottomSheetDialogFragment {
 
@@ -46,17 +45,20 @@ public class InfoBottomSheet extends BottomSheetDialogFragment {
         ImageView btnClose = view.findViewById(R.id.closeInfoBtn);
         btnClose.setOnClickListener(v -> dismiss());
 
-//        TextView profilingTv = view.findViewById(R.id.ibsFarmerProfilingTv);
-//        profilingTv.setOnClickListener(v -> { startActivity(new Intent(getActivity(), GMRProfiledFarmersListActivity.class));});
+        TextView profilingTv = view.findViewById(R.id.ibsFarmerProfilingTv);
+        ImageView ibsprofilingIV = view.findViewById(R.id.ibsFarmerProfilingIV);
+        profilingTv.setOnClickListener(v -> { startActivity(new Intent(getActivity(), SusProfilingActivity.class));});
+        ibsprofilingIV.setOnClickListener(v -> { startActivity(new Intent(getActivity(), SusProfiledInfoActivity.class));});
+
         TextView inspectionSurveyTv = view.findViewById(R.id.ibsInspectionSurveyTv);
         ImageView inspectionSurveyIV = view.findViewById(R.id.ibsInspectionSurveyIV);
         inspectionSurveyTv.setOnClickListener(v -> { startActivity(new Intent(getActivity(), InspectionDoneActivity.class));});
         inspectionSurveyIV.setOnClickListener(v -> { startActivity(new Intent(getActivity(), InspectionInfoActivity.class));});
 
-        TextView profilingTv = view.findViewById(R.id.ibsFarmerProfilingTv);
-        ImageView ibsprofilingIV = view.findViewById(R.id.ibsFarmerProfilingIV);
-        profilingTv.setOnClickListener(v -> { startActivity(new Intent(getActivity(), GMRProfiledFarmersListActivity.class));});
-        ibsprofilingIV.setOnClickListener(v -> { startActivity(new Intent(getActivity(), GMRSurveyInfoActivity.class));});
+        TextView trainingTv = view.findViewById(R.id.ibsFarmerTrainingTv);
+        ImageView trainingIV = view.findViewById(R.id.ibsFarmerTrainingIV);
+        trainingTv.setOnClickListener(v -> { startActivity(new Intent(getActivity(), TrainingDoneActivity.class));});
+        trainingIV.setOnClickListener(v -> { startActivity(new Intent(getActivity(), TrainingInfoActivity.class));});
 
         TextView ibsPETv = view.findViewById(R.id.ibsPETv);
         ImageView ibsPEIV = view.findViewById(R.id.ibsPEIV);

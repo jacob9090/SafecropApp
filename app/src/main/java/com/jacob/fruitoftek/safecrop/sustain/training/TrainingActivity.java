@@ -97,16 +97,6 @@ public class TrainingActivity extends AppCompatActivity {
                     TrainingWebView.evaluateJavascript("settraining_code('" + escapeJs(uniqueCode) + "');", null);
                 }
             }
-//            public void onPageFinished(WebView view, String url) {
-//                TrainingProgressBar.setVisibility(View.GONE);
-//                Intent intent = getIntent();
-//                String training_code = intent.getStringExtra("training_code");
-//                String js = String.format(
-//                        "populateSurveyFields('%s');",
-//                        escapeJs(training_code)
-//                );
-//                TrainingWebView.evaluateJavascript(js, null);
-//            }
             @Override
             public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
                 TrainingProgressBar.setVisibility(View.GONE);

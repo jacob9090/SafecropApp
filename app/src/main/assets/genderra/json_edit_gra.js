@@ -12,13 +12,13 @@ const json = {
         },
         {
           "type": "text",
-          "name": "farmer_district",
+          "name": "district",
           "title": "District",
           "readOnly": true
         },
         {
           "type": "text",
-          "name": "farmer_village",
+          "name": "community",
           "title": "Community",
           "readOnly": true
         },

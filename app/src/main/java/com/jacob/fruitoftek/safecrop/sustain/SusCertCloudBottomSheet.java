@@ -2,13 +2,9 @@ package com.jacob.fruitoftek.safecrop.sustain;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.net.ConnectivityManager;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,24 +20,16 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.jacob.fruitoftek.safecrop.R;
 import com.jacob.fruitoftek.safecrop.sustain.inspection.InspectionDbHelper;
 import com.jacob.fruitoftek.safecrop.sustain.inspection.InspectionModel;
-import com.jacob.fruitoftek.safecrop.sustain.pentry.PeDbHelper;
-import com.jacob.fruitoftek.safecrop.sustain.profiling.GMRDbHelper;
-import com.jacob.fruitoftek.safecrop.sustain.profiling.GMRModel;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-
-import javax.inject.Inject;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -174,8 +162,8 @@ public class SusCertCloudBottomSheet extends BottomSheetDialogFragment {
                         obj.put("farmer_name", inspection.getFarmer_name());
                         obj.put("ghana_card", inspection.getGhana_card());
                         obj.put("farmer_yob", inspection.getFarmer_yob());
-                        obj.put("phone_number", inspection.getPhone_number());
-                        obj.put("gender", inspection.getGender());
+                        obj.put("farmer_phone", inspection.getFarmer_phone());
+                        obj.put("gender", inspection.getFarmer_gender());
                         obj.put("inspection_date", inspection.getInspection_date());
                         obj.put("inspector_name", inspection.getInspector_name());
                         obj.put("inspection_question1", inspection.getInspection_question1());

@@ -39,12 +39,14 @@ public class UpdateSurveyedSchoolsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_surveyed_schools);
 
         // Set the status bar appearance
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_brown));
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            int left = insets.getInsets(WindowInsetsCompat.Type.systemBars()).left;
+            int top = insets.getInsets(WindowInsetsCompat.Type.systemBars()).top;
+            int right = insets.getInsets(WindowInsetsCompat.Type.systemBars()).right;
+            int bottom = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            v.setPadding(left, top, right, bottom);
             return insets;
         });
 
@@ -197,12 +199,8 @@ public class UpdateSurveyedSchoolsActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("Exiting Survey")
                 .setMessage("Are you sure you want to exit?")
-                .setPositiveButton("Yes", (dialog, which) -> {
-                    Intent intent = new Intent(UpdateSurveyedSchoolsActivity.this, ComDevDashboard.class);
-                    startActivity(intent);
-                    finish(); // Finish AddStudentActivity
-                })
-                .setNegativeButton("No", null) // Dismiss the dialog
+                .setPositiveButton("Yes", (dialog, which) -> finish())
+                .setNegativeButton("No", null)
                 .setCancelable(false)
                 .show();
     }

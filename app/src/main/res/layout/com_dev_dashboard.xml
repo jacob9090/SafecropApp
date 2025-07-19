@@ -25,6 +25,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="20dp"
             android:layout_centerInParent="true"
+            android:contentDescription="@string/img"
             android:src="@drawable/ic_person_white" />
 
         <TextView
@@ -56,6 +57,7 @@
             android:layout_marginEnd="18dp"
             android:layout_centerInParent="true"
             android:layout_toStartOf="@+id/settingseBtn"
+            android:contentDescription="@string/img"
             android:src="@drawable/ic_info" />
 
         <ImageView
@@ -65,6 +67,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
             android:layout_marginEnd="20dp"
+            android:contentDescription="@string/img"
             android:src="@drawable/settings_white" />
 
     </RelativeLayout>
@@ -107,7 +110,6 @@
 
         </LinearLayout>
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -121,777 +123,725 @@
             app:layout_constraintVertical_bias="0.0"
             app:layout_constraintTop_toBottomOf="@+id/survey_details">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/comSurveyCV"
-                    android:layout_width="0dp"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    app:cardCornerRadius="6dp"
-                    app:cardElevation="2dp"
-                    app:cardUseCompatPadding="true"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
+                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/comSurveyCV"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="15dp">
-
-                        <RelativeLayout
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginTop="1dp">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/shape_default"
-                                app:tint="#E6E6E6"/>
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/ico_image_search"
-                                app:tint="#999999" />
-                        </RelativeLayout>
-
-                        <View
-                            android:layout_width="10dp"
-                            android:layout_height="0dp"/>
+                        android:layout_marginTop="5dp"
+                        app:cardCornerRadius="7dp"
+                        app:cardElevation="2dp"
+                        app:cardUseCompatPadding="true"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
 
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="horizontal"
+                            android:padding="15dp">
 
-                            <TextView
+                            <RelativeLayout
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginTop="1dp">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:contentDescription="@string/img"
+                                    android:src="@drawable/shape_default"
+                                    app:tint="#E6E6E6"/>
+                                <ImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_centerInParent="true"
+                                    android:contentDescription="@string/img"
+                                    android:src="@drawable/ico_image_search"
+                                    app:tint="#999999" />
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="10dp"
+                                android:layout_height="0dp"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/community_survey"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                                    android:textColor="@color/brown" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/start_a_new_community_survey"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                                    android:textColor="#999999"/>
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/community_survey"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                                android:textColor="@color/brown" />
+                                android:layout_gravity="center"
+                                android:gravity="end"
+                                android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/start_a_new_community_survey"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                                android:textColor="#999999"/>
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    app:tint="#999999"
+                                    android:contentDescription="@string/img"
+                                    android:src="@drawable/ic_next_page"/>
+                            </LinearLayout>
+
                         </LinearLayout>
+                    </androidx.cardview.widget.CardView>
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="end"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                app:tint="#999999"
-                                android:src="@drawable/ic_next_page"/>
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/schSurveyCV"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="6dp"
-                    app:cardElevation="2dp"
-                    app:cardUseCompatPadding="true"
-                    app:layout_constraintTop_toBottomOf="@+id/comSurveyCV"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/schSurveyCV"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="15dp">
-
-                        <RelativeLayout
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginTop="1dp">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/shape_default"
-                                app:tint="#E6E6E6"/>
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/ico_image_search"
-                                app:tint="#999999" />
-                        </RelativeLayout>
-
-                        <View
-                            android:layout_width="10dp"
-                            android:layout_height="0dp"/>
+                        app:cardCornerRadius="7dp"
+                        app:cardElevation="2dp"
+                        app:cardUseCompatPadding="true"
+                        app:layout_constraintTop_toBottomOf="@+id/comSurveyCV"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
 
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="horizontal"
+                            android:padding="15dp">
 
-                            <TextView
+                            <RelativeLayout
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginTop="1dp">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/shape_default"
+                                    android:contentDescription="@string/img"
+                                    app:tint="#E6E6E6"/>
+                                <ImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ico_image_search"
+                                    android:contentDescription="@string/img"
+                                    app:tint="#999999" />
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="10dp"
+                                android:layout_height="0dp"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/school_survey"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                                    android:textColor="@color/brown" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/start_a_new_school_survey"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                                    android:textColor="#999999" />
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/school_survey"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                                android:textColor="@color/brown" />
+                                android:layout_gravity="center"
+                                android:gravity="end"
+                                android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/start_a_new_school_survey"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                                android:textColor="#999999" />
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    app:tint="#999999"
+                                    android:contentDescription="@string/img"
+                                    android:src="@drawable/ic_next_page"/>
+                            </LinearLayout>
                         </LinearLayout>
+                    </androidx.cardview.widget.CardView>
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="end"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                app:tint="#999999"
-                                android:src="@drawable/ic_next_page"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/householdCV"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="6dp"
-                    app:cardElevation="2dp"
-                    app:cardUseCompatPadding="true"
-                    app:layout_constraintTop_toBottomOf="@+id/schSurveyCV"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/householdCV"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="15dp">
-
-                        <RelativeLayout
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginTop="1dp">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/shape_default"
-                                app:tint="#E6E6E6"/>
-
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/ico_image_search"
-                                app:tint="#999999" />
-                        </RelativeLayout>
-
-                        <View
-                            android:layout_width="10dp"
-                            android:layout_height="0dp"/>
+                        app:cardCornerRadius="7dp"
+                        app:cardElevation="2dp"
+                        app:cardUseCompatPadding="true"
+                        app:layout_constraintTop_toBottomOf="@+id/schSurveyCV"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
 
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="horizontal"
+                            android:padding="15dp">
 
-                            <TextView
+                            <RelativeLayout
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginTop="1dp">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/shape_default"
+                                    android:contentDescription="@string/img"
+                                    app:tint="#E6E6E6"/>
+
+                                <ImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ico_image_search"
+                                    android:contentDescription="@string/img"
+                                    app:tint="#999999" />
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="10dp"
+                                android:layout_height="0dp"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/household_survey"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                                    android:textColor="@color/brown" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/start_a_new_household_survey"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                                    android:textColor="#999999" />
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/household_survey"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                                android:textColor="@color/brown" />
+                                android:layout_gravity="center"
+                                android:gravity="end"
+                                android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/start_a_new_household_survey"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                                android:textColor="#999999" />
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    app:tint="#999999"
+                                    android:contentDescription="@string/img"
+                                    android:src="@drawable/ic_next_page"/>
+                            </LinearLayout>
                         </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="end"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                app:tint="#999999"
-                                android:src="@drawable/ic_next_page"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                    </androidx.cardview.widget.CardView>
 
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/obsHoldCV"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="6dp"
-                    app:cardElevation="2dp"
-                    app:cardUseCompatPadding="true"
-                    app:layout_constraintTop_toBottomOf="@+id/householdCV"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/obsHoldCV"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="15dp">
-
-                        <RelativeLayout
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginTop="1dp">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/shape_default"
-                                app:tint="#E6E6E6"/>
-
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/ico_image_search"
-                                app:tint="#999999" />
-                        </RelativeLayout>
-
-                        <View
-                            android:layout_width="10dp"
-                            android:layout_height="0dp"/>
+                        app:cardCornerRadius="7dp"
+                        app:cardElevation="2dp"
+                        app:cardUseCompatPadding="true"
+                        app:layout_constraintTop_toBottomOf="@+id/householdCV"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
 
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="horizontal"
+                            android:padding="15dp">
 
-                            <TextView
+                            <RelativeLayout
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginTop="1dp">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/shape_default"
+                                    android:contentDescription="@string/img"
+                                    app:tint="#E6E6E6"/>
+
+                                <ImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ico_image_search"
+                                    android:contentDescription="@string/img"
+                                    app:tint="#999999" />
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="10dp"
+                                android:layout_height="0dp"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/observation_survey"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                                    android:textColor="@color/brown" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/start_a_new_household_survey"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                                    android:textColor="#999999" />
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/observation_survey"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                                android:textColor="@color/brown" />
+                                android:layout_gravity="center"
+                                android:gravity="end"
+                                android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/start_a_new_household_survey"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                                android:textColor="#999999" />
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    app:tint="#999999"
+                                    android:contentDescription="@string/img"
+                                    android:src="@drawable/ic_next_page"/>
+                            </LinearLayout>
                         </LinearLayout>
+                    </androidx.cardview.widget.CardView>
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="end"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                app:tint="#999999"
-                                android:src="@drawable/ic_next_page"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/childSurveyCV"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="6dp"
-                    app:cardElevation="2dp"
-                    app:cardUseCompatPadding="true"
-                    app:layout_constraintTop_toBottomOf="@+id/obsHoldCV"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/childSurveyCV"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="15dp">
-
-                        <RelativeLayout
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginTop="1dp">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/shape_default"
-                                app:tint="#E6E6E6"/>
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/ico_image_search"
-                                app:tint="#999999" />
-                        </RelativeLayout>
-
-                        <View
-                            android:layout_width="10dp"
-                            android:layout_height="0dp"/>
+                        app:cardCornerRadius="7dp"
+                        app:cardElevation="2dp"
+                        app:cardUseCompatPadding="true"
+                        app:layout_constraintTop_toBottomOf="@+id/obsHoldCV"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
 
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="horizontal"
+                            android:padding="15dp">
 
-                            <TextView
+                            <RelativeLayout
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginTop="1dp">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/shape_default"
+                                    android:contentDescription="@string/img"
+                                    app:tint="#E6E6E6"/>
+                                <ImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ico_image_search"
+                                    android:contentDescription="@string/img"
+                                    app:tint="#999999" />
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="10dp"
+                                android:layout_height="0dp"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/child_survey"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                                    android:textColor="@color/brown" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/start_a_new_child_survey"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                                    android:textColor="#999999" />
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/child_survey"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                                android:textColor="@color/brown" />
+                                android:layout_gravity="center"
+                                android:gravity="end"
+                                android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/start_a_new_child_survey"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                                android:textColor="#999999" />
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    app:tint="#999999"
+                                    android:contentDescription="@string/img"
+                                    android:src="@drawable/ic_next_page"/>
+                            </LinearLayout>
                         </LinearLayout>
+                    </androidx.cardview.widget.CardView>
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="end"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                app:tint="#999999"
-                                android:src="@drawable/ic_next_page"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/comRiskAssesCV"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    app:cardCornerRadius="6dp"
-                    app:cardElevation="2dp"
-                    app:cardUseCompatPadding="true"
-                    app:layout_constraintTop_toBottomOf="@+id/childSurveyCV"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/comRiskAssesCV"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="15dp">
-
-                        <RelativeLayout
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginTop="1dp">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/shape_default"
-                                app:tint="#E6E6E6"/>
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/ico_image_search"
-                                app:tint="#999999" />
-                        </RelativeLayout>
-
-                        <View
-                            android:layout_width="10dp"
-                            android:layout_height="0dp"/>
+                        android:layout_marginTop="5dp"
+                        app:cardCornerRadius="7dp"
+                        app:cardElevation="2dp"
+                        app:cardUseCompatPadding="true"
+                        app:layout_constraintTop_toBottomOf="@+id/childSurveyCV"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
 
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="horizontal"
+                            android:padding="15dp">
 
-                            <TextView
+                            <RelativeLayout
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginTop="1dp">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/shape_default"
+                                    android:contentDescription="@string/img"
+                                    app:tint="#E6E6E6"/>
+                                <ImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ico_image_search"
+                                    android:contentDescription="@string/img"
+                                    app:tint="#999999" />
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="10dp"
+                                android:layout_height="0dp"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/community_risk_assessment"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                                    android:textColor="@color/brown" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/start_new_assessment"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                                    android:textColor="#999999"/>
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/community_risk_assessment"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                                android:textColor="@color/brown" />
+                                android:layout_gravity="center"
+                                android:gravity="end"
+                                android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/start_new_assessment"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                                android:textColor="#999999"/>
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    app:tint="#999999"
+                                    android:contentDescription="@string/img"
+                                    android:src="@drawable/ic_next_page"/>
+                            </LinearLayout>
+
                         </LinearLayout>
+                    </androidx.cardview.widget.CardView>
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="end"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                app:tint="#999999"
-                                android:src="@drawable/ic_next_page"/>
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/chForceLaborRiskAssesCV"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="6dp"
-                    app:cardElevation="2dp"
-                    app:cardUseCompatPadding="true"
-                    app:layout_constraintTop_toBottomOf="@+id/comRiskAssesCV"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/chForceLaborRiskAssesCV"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="15dp">
-
-                        <RelativeLayout
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginTop="1dp">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/shape_default"
-                                app:tint="#E6E6E6"/>
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/ico_image_search"
-                                app:tint="#999999" />
-                        </RelativeLayout>
-
-                        <View
-                            android:layout_width="10dp"
-                            android:layout_height="0dp"/>
+                        app:cardCornerRadius="7dp"
+                        app:cardElevation="2dp"
+                        app:cardUseCompatPadding="true"
+                        app:layout_constraintTop_toBottomOf="@+id/comRiskAssesCV"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
 
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="horizontal"
+                            android:padding="15dp">
 
-                            <TextView
+                            <RelativeLayout
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginTop="1dp">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/shape_default"
+                                    android:contentDescription="@string/img"
+                                    app:tint="#E6E6E6"/>
+                                <ImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ico_image_search"
+                                    android:contentDescription="@string/img"
+                                    app:tint="#999999" />
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="10dp"
+                                android:layout_height="0dp"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/child_forced_labour_assessment"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                                    android:textColor="@color/brown" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/start_new_assessment"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                                    android:textColor="#999999" />
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/child_forced_labour_assessment"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                                android:textColor="@color/brown" />
+                                android:layout_gravity="center"
+                                android:gravity="end"
+                                android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/start_new_assessment"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                                android:textColor="#999999" />
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    app:tint="#999999"
+                                    android:contentDescription="@string/img"
+                                    android:src="@drawable/ic_next_page"/>
+                            </LinearLayout>
                         </LinearLayout>
+                    </androidx.cardview.widget.CardView>
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="end"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                app:tint="#999999"
-                                android:src="@drawable/ic_next_page"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/genderRiskAssesCV"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="6dp"
-                    app:cardElevation="2dp"
-                    app:cardUseCompatPadding="true"
-                    app:layout_constraintTop_toBottomOf="@+id/chForceLaborRiskAssesCV"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/genderRiskAssesCV"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="15dp">
-
-                        <RelativeLayout
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginTop="1dp">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/shape_default"
-                                app:tint="#E6E6E6"/>
-
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/ico_image_search"
-                                app:tint="#999999" />
-                        </RelativeLayout>
-
-                        <View
-                            android:layout_width="10dp"
-                            android:layout_height="0dp"/>
+                        app:cardCornerRadius="7dp"
+                        app:cardElevation="2dp"
+                        app:cardUseCompatPadding="true"
+                        app:layout_constraintTop_toBottomOf="@+id/chForceLaborRiskAssesCV"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
 
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="horizontal"
+                            android:padding="15dp">
 
-                            <TextView
+                            <RelativeLayout
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginTop="1dp">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/shape_default"
+                                    android:contentDescription="@string/img"
+                                    app:tint="#E6E6E6"/>
+
+                                <ImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ico_image_search"
+                                    android:contentDescription="@string/img"
+                                    app:tint="#999999" />
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="10dp"
+                                android:layout_height="0dp"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/gender_risk_assessment"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                                    android:textColor="@color/brown" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/start_new_assessment"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                                    android:textColor="#999999" />
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/gender_risk_assessment"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                                android:textColor="@color/brown" />
+                                android:layout_gravity="center"
+                                android:gravity="end"
+                                android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/start_new_assessment"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                                android:textColor="#999999" />
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    app:tint="#999999"
+                                    android:contentDescription="@string/img"
+                                    android:src="@drawable/ic_next_page"/>
+                            </LinearLayout>
                         </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="end"
-                            android:orientation="vertical">
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/comDevBackupFb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="@string/backup"
+                android:src="@drawable/save_white"
+                android:backgroundTint="@color/brown"
+                app:fabSize="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                app:tint="#999999"
-                                android:src="@drawable/ic_next_page"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/cloudBackupFb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:contentDescription="@string/cloud_backup"
+                android:backgroundTint="@color/brown"
+                app:fabSize="normal"
+                app:layout_constraintBottom_toTopOf="@+id/comDevBackupFb"
+                app:layout_constraintEnd_toEndOf="@+id/comDevBackupFb"
+                app:layout_constraintStart_toStartOf="@+id/comDevBackupFb"
+                app:srcCompat="@drawable/outline_backup" />
 
+            <TextView
+                android:id="@+id/cloudBackupTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/cloud_backup"
+                app:layout_constraintBottom_toBottomOf="@+id/cloudBackupFb"
+                app:layout_constraintEnd_toStartOf="@+id/cloudBackupFb"
+                app:layout_constraintTop_toTopOf="@+id/cloudBackupFb" />
 
-<!--                <androidx.cardview.widget.CardView-->
-<!--                    android:id="@+id/comDevTrainingCV"-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    app:cardCornerRadius="6dp"-->
-<!--                    app:cardElevation="2dp"-->
-<!--                    app:cardUseCompatPadding="true"-->
-<!--                    app:layout_constraintTop_toBottomOf="@+id/childSurveyCV"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent">-->
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/localBackupFb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:contentDescription="@string/local_backup"
+                android:backgroundTint="@color/brown"
+                app:fabSize="normal"
+                app:layout_constraintBottom_toTopOf="@+id/cloudBackupFb"
+                app:layout_constraintEnd_toEndOf="@+id/cloudBackupFb"
+                app:layout_constraintStart_toStartOf="@+id/cloudBackupFb"
+                app:srcCompat="@drawable/folder_white" />
 
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:orientation="horizontal"-->
-<!--                        android:padding="15dp">-->
+            <TextView
+                android:id="@+id/localBackupTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/local_backup"
+                app:layout_constraintBottom_toBottomOf="@+id/localBackupFb"
+                app:layout_constraintEnd_toStartOf="@+id/localBackupFb"
+                app:layout_constraintTop_toTopOf="@+id/localBackupFb" />
 
-<!--                        <RelativeLayout-->
-<!--                            android:layout_width="20dp"-->
-<!--                            android:layout_height="20dp"-->
-<!--                            android:layout_marginTop="1dp">-->
-
-<!--                            <ImageView-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="match_parent"-->
-<!--                                android:layout_centerInParent="true"-->
-<!--                                android:src="@drawable/shape_default"-->
-<!--                                app:tint="#E6E6E6"/>-->
-<!--                            <ImageView-->
-<!--                                android:layout_width="15dp"-->
-<!--                                android:layout_height="15dp"-->
-<!--                                android:layout_centerInParent="true"-->
-<!--                                android:src="@drawable/ico_image_search"-->
-<!--                                app:tint="#999999" />-->
-<!--                        </RelativeLayout>-->
-
-<!--                        <View-->
-<!--                            android:layout_width="10dp"-->
-<!--                            android:layout_height="0dp"/>-->
-
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="0dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_weight="1"-->
-<!--                            android:orientation="vertical">-->
-
-<!--                            <TextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:text="@string/com_dev_training"-->
-<!--                                android:textAppearance="@style/TextAppearance.AppCompat.Body2"-->
-<!--                                android:textColor="@color/brown" />-->
-
-<!--                            <TextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:text="@string/start_a_new_training"-->
-<!--                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"-->
-<!--                                android:textColor="#999999" />-->
-<!--                        </LinearLayout>-->
-
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_gravity="center"-->
-<!--                            android:gravity="end"-->
-<!--                            android:orientation="vertical">-->
-
-<!--                            <ImageView-->
-<!--                                android:layout_width="30dp"-->
-<!--                                android:layout_height="30dp"-->
-<!--                                app:tint="#999999"-->
-<!--                                android:src="@drawable/ic_next_page"/>-->
-<!--                        </LinearLayout>-->
-<!--                    </LinearLayout>-->
-<!--                </androidx.cardview.widget.CardView>-->
-
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/comDevBackupFb"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:contentDescription="@string/backup"
-                    android:src="@drawable/save_white"
-                    android:backgroundTint="@color/brown"
-                    app:fabSize="normal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
-
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/cloudBackupFb"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:contentDescription="@string/cloud_backup"
-                    android:backgroundTint="@color/brown"
-                    app:fabSize="normal"
-                    app:layout_constraintBottom_toTopOf="@+id/comDevBackupFb"
-                    app:layout_constraintEnd_toEndOf="@+id/comDevBackupFb"
-                    app:layout_constraintStart_toStartOf="@+id/comDevBackupFb"
-                    app:srcCompat="@drawable/outline_backup" />
-
-                <TextView
-                    android:id="@+id/cloudBackupTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/cloud_backup"
-                    app:layout_constraintBottom_toBottomOf="@+id/cloudBackupFb"
-                    app:layout_constraintEnd_toStartOf="@+id/cloudBackupFb"
-                    app:layout_constraintTop_toTopOf="@+id/cloudBackupFb" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/localBackupFb"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:contentDescription="@string/local_backup"
-                    android:backgroundTint="@color/brown"
-                    app:fabSize="normal"
-                    app:layout_constraintBottom_toTopOf="@+id/cloudBackupFb"
-                    app:layout_constraintEnd_toEndOf="@+id/cloudBackupFb"
-                    app:layout_constraintStart_toStartOf="@+id/cloudBackupFb"
-                    app:srcCompat="@drawable/folder_white" />
-
-                <TextView
-                    android:id="@+id/localBackupTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/local_backup"
-                    app:layout_constraintBottom_toBottomOf="@+id/localBackupFb"
-                    app:layout_constraintEnd_toStartOf="@+id/localBackupFb"
-                    app:layout_constraintTop_toTopOf="@+id/localBackupFb" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

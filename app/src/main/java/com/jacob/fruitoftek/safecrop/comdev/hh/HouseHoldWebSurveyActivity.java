@@ -50,12 +50,14 @@ public class HouseHoldWebSurveyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_house_hold_web_survey);
 
         // Set the status bar appearance
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_brown));
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            int left = insets.getInsets(WindowInsetsCompat.Type.systemBars()).left;
+            int top = insets.getInsets(WindowInsetsCompat.Type.systemBars()).top;
+            int right = insets.getInsets(WindowInsetsCompat.Type.systemBars()).right;
+            int bottom = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            v.setPadding(left, top, right, bottom);
             return insets;
         });
 
@@ -66,9 +68,9 @@ public class HouseHoldWebSurveyActivity extends AppCompatActivity {
 
         // Retrieve passed data from intent
         Intent intent = getIntent();
-        String farmerId = intent.getStringExtra("hh_name");
-        String farmerDistrict = intent.getStringExtra("hh_district");
-        String farmerVillage = intent.getStringExtra("hh_community");
+        String farmer_id = intent.getStringExtra("farmer_id");
+        String district = intent.getStringExtra("district");
+        String community = intent.getStringExtra("community");
         
         dbHelper = new HhDbHelper(this);
         preferenceHelper = new PreferenceHelper(this);
@@ -202,13 +204,13 @@ public class HouseHoldWebSurveyActivity extends AppCompatActivity {
 
     private void injectFarmerData() {
         Intent intent = getIntent();
-        String farmerId = intent.getStringExtra("hh_name");
-        String farmerDistrict = intent.getStringExtra("hh_district");
-        String farmerVillage = intent.getStringExtra("hh_community");
+        String farmer_id = intent.getStringExtra("farmer_id");
+        String district = intent.getStringExtra("district");
+        String community = intent.getStringExtra("community");
 
         String jsCode = String.format(
                 "populateSurveyFields('%s', '%s', '%s');",
-                farmerId, farmerDistrict, farmerVillage
+                farmer_id, district, community
         );
         hhSurveyWebView.evaluateJavascript(jsCode, null);
     }
@@ -268,12 +270,8 @@ public class HouseHoldWebSurveyActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("Exiting Survey")
                 .setMessage("Are you sure you want to exit?")
-                .setPositiveButton("Yes", (dialog, which) -> {
-                    Intent intent = new Intent(HouseHoldWebSurveyActivity.this, HouseHoldWebListFarmersActivity.class);
-                    startActivity(intent);
-                    finish(); // Finish AddStudentActivity
-                })
-                .setNegativeButton("No", null) // Dismiss the dialog
+                .setPositiveButton("Yes", (dialog, which) -> finish())
+                .setNegativeButton("No", null)
                 .setCancelable(false)
                 .show();
     }

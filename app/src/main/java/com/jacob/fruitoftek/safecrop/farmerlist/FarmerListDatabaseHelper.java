@@ -10,17 +10,17 @@ import java.util.ArrayList;
 
 public class FarmerListDatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "myfarmers.db";
+    private static final String DATABASE_NAME = "farmerlist.db";
     private static final int DATABASE_VERSION = 1;
-    private static final String TABLE_NAME = "myfarmers";
+    private static final String TABLE_NAME = "farmerlist";
     private static final String COL_DISTRICT = "district";
-    private static final String COL_VILLAGE = "village";
-    private static final String COL_FID = "fid";
-    private static final String COL_NAME = "name";
+    private static final String COL_COMMUNITY = "community";
+    private static final String COL_FARMER_ID = "farmer_id";
+    private static final String COL_FARMER_NAME = "farmer_name";
     private static final String COL_GHANA_CARD = "ghana_card";
-    private static final String COL_YOB = "yob";
-    private static final String COL_PHONE = "phone";
-    private static final String COL_GENDER = "gender";
+    private static final String COL_FARMER_YOB = "farmer_yob";
+    private static final String COL_FARMER_PHONE = "farmer_phone";
+    private static final String COL_FARMER_GENDER = "farmer_gender";
     private static final String COL_PHOTO = "photo";
 
     public FarmerListDatabaseHelper(Context context) {
@@ -31,13 +31,13 @@ public class FarmerListDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String createTable = "CREATE TABLE " + TABLE_NAME + " ("
                 + COL_DISTRICT + " TEXT, "
-                + COL_VILLAGE + " TEXT, "
-                + COL_FID + " TEXT, "
-                + COL_NAME + " TEXT, "
+                + COL_COMMUNITY + " TEXT, "
+                + COL_FARMER_ID + " TEXT, "
+                + COL_FARMER_NAME + " TEXT, "
                 + COL_GHANA_CARD + " TEXT, "
-                + COL_YOB + " TEXT, "
-                + COL_PHONE + " TEXT, "
-                + COL_GENDER + " TEXT, "
+                + COL_FARMER_YOB + " TEXT, "
+                + COL_FARMER_PHONE + " TEXT, "
+                + COL_FARMER_GENDER + " TEXT, "
                 + COL_PHOTO + " TEXT)";
         db.execSQL(createTable);
     }
@@ -52,13 +52,13 @@ public class FarmerListDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COL_DISTRICT, farmer.getDistrict());
-        values.put(COL_VILLAGE, farmer.getVillage());
-        values.put(COL_FID, farmer.getFid());
-        values.put(COL_NAME, farmer.getName());
-        values.put(COL_GHANA_CARD, farmer.getGhanaCard());
-        values.put(COL_YOB, farmer.getYob());
-        values.put(COL_PHONE, farmer.getPhone());
-        values.put(COL_GENDER, farmer.getGender());
+        values.put(COL_COMMUNITY, farmer.getCommunity());
+        values.put(COL_FARMER_ID, farmer.getFarmer_id());
+        values.put(COL_FARMER_NAME, farmer.getFarmer_name());
+        values.put(COL_GHANA_CARD, farmer.getGhana_card());
+        values.put(COL_FARMER_YOB, farmer.getFarmer_yob());
+        values.put(COL_FARMER_PHONE, farmer.getFarmer_phone());
+        values.put(COL_FARMER_GENDER, farmer.getFarmer_gender());
         values.put(COL_PHOTO, farmer.getPhoto());
         db.insert(TABLE_NAME, null, values);
         db.close();
@@ -72,13 +72,13 @@ public class FarmerListDatabaseHelper extends SQLiteOpenHelper {
             do {
                 farmers.add(new FarmerListModal(
                         cursor.getString(cursor.getColumnIndexOrThrow(COL_DISTRICT)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(COL_VILLAGE)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(COL_FID)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(COL_NAME)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COL_COMMUNITY)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COL_FARMER_ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COL_FARMER_NAME)),
                         cursor.getString(cursor.getColumnIndexOrThrow(COL_GHANA_CARD)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(COL_YOB)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(COL_PHONE)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(COL_GENDER)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COL_FARMER_YOB)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COL_FARMER_PHONE)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COL_FARMER_GENDER)),
                         cursor.getString(cursor.getColumnIndexOrThrow(COL_PHOTO))
                 ));
             } while (cursor.moveToNext());

@@ -444,9 +444,9 @@ public class ComDevLocalBottomSheet extends BottomSheetDialogFragment {
                         "Childquestion5,Location,First Name,Last Name,Email,Created,Updated,Signature\n");
 
                 for (ChildModel child : childList) {
-                    writer.append(escapeCSV(child.getFarmerId())).append(',')
-                            .append(escapeCSV(child.getFarmerDistrict())).append(',')
-                            .append(escapeCSV(child.getFarmerVillage())).append(',')
+                    writer.append(escapeCSV(child.getFarmer_id())).append(',')
+                            .append(escapeCSV(child.getDistrict())).append(',')
+                            .append(escapeCSV(child.getCommunity())).append(',')
                             .append(escapeCSV(child.getChildquestion4())).append(',')
                             .append(escapeCSV(child.getChild1question1())).append(',')
                             .append(escapeCSV(child.getChild1question2())).append(',')

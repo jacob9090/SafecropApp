@@ -427,63 +427,6 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/background_profile_card"
-                android:paddingBottom="24dp">
-
-                <TextView
-                    android:id="@+id/textView27"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/train"
-                    android:textSize="11sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/ibsTSTTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:text="@string/training_tracker"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:drawablePadding="10dp"
-                    android:maxLines="1"
-                    app:drawableLeftCompat="@drawable/library_books_brown"
-                    app:layout_constraintStart_toStartOf="@id/textView27"
-                    app:layout_constraintTop_toBottomOf="@id/textView27" />
-
-                <ImageView
-                    android:id="@+id/ibsTSTIV"
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
-                    android:layout_marginEnd="30dp"
-                    android:contentDescription="@string/info_icon_outline"
-                    android:src="@drawable/ic_info"
-                    app:tint="@color/black_two"
-                    app:layout_constraintBottom_toBottomOf="@id/ibsTSTTv"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/ibsTSTTv" />
-
-                <View
-                    android:id="@+id/ibsDivider9"
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="24dp"
-                    android:background="@color/black"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ibsTSTTv" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

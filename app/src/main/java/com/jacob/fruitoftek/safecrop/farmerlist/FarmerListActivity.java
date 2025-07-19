@@ -13,7 +13,6 @@ import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -54,21 +53,21 @@ public class FarmerListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_farmer_list);
 
         // Set the status bar appearance
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_brown));
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            int left = insets.getInsets(WindowInsetsCompat.Type.systemBars()).left;
+            int top = insets.getInsets(WindowInsetsCompat.Type.systemBars()).top;
+            int right = insets.getInsets(WindowInsetsCompat.Type.systemBars()).right;
+            int bottom = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            v.setPadding(left, top, right, bottom);
             return insets;
         });
 
         setupActionBar();
-
         initializeUI();
         setupInsets();
         if (farmerList.isEmpty()) {
@@ -170,13 +169,13 @@ public class FarmerListActivity extends AppCompatActivity {
                         JSONObject obj = jsonArray.getJSONObject(i);
                         FarmerListModal farmer = new FarmerListModal(
                                 obj.getString("district"),
-                                obj.getString("village_city"),
-                                obj.getString("farm_id"),
-                                obj.getString("name"),
+                                obj.getString("community"),
+                                obj.getString("farmer_id"),
+                                obj.getString("farmer_name"),
                                 obj.getString("ghana_card"),
-                                obj.getString("yob"),
-                                obj.getString("phone_number"),
-                                obj.getString("gender"),
+                                obj.getString("farmer_yob"),
+                                obj.getString("farmer_phone"),
+                                obj.getString("farmer_gender"),
                                 obj.getString("photo")
                         );
                         newFarmers.add(farmer);

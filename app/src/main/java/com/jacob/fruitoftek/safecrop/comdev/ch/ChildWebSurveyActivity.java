@@ -49,12 +49,14 @@ public class ChildWebSurveyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_child_web_survey);
 
         // Set the status bar appearance
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_brown));
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            int left = insets.getInsets(WindowInsetsCompat.Type.systemBars()).left;
+            int top = insets.getInsets(WindowInsetsCompat.Type.systemBars()).top;
+            int right = insets.getInsets(WindowInsetsCompat.Type.systemBars()).right;
+            int bottom = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            v.setPadding(left, top, right, bottom);
             return insets;
         });
 
@@ -113,7 +115,7 @@ public class ChildWebSurveyActivity extends AppCompatActivity {
         }
 
         @JavascriptInterface
-        public void insertSurveyData(String farmerId, String farmerDistrict, String farmerVillage,
+        public void insertSurveyData(String district, String community, String farmer_id,
                                      String childquestion4, String child1question1, String child1question2, String child1question3,
                                      String child1question4, String child1question5, String child1question6, String child1question7,
                                      String child1question8, String child1question9, String child1question10, String child1question11,
@@ -174,13 +176,13 @@ public class ChildWebSurveyActivity extends AppCompatActivity {
             child9question13 = child9question13 == null || child9question13.equals("undefined") ? "" : child9question13;
             child10question13 = child10question13 == null || child10question13.equals("undefined") ? "" : child10question13;
 
-            Log.d("insertSurveyData", "ID: " + farmerId + ", Dis: " + farmerDistrict + ", Vil: " + farmerVillage + ", Loc: " + child_location + ", Signature: " + signature);
+            Log.d("insertSurveyData", "ID: " + farmer_id + ", Dis: " + district + ", Vil: " + community + ", Loc: " + child_location + ", Signature: " + signature);
             String userFname = preferenceHelper.getFirstName();
             String userLname = preferenceHelper.getLastName();
             String userEmail = preferenceHelper.getEmail();
             String onCreate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
             String onUpdate = onCreate;
-            dbHelper.insertSurveyData(farmerId, farmerDistrict, farmerVillage,
+            dbHelper.insertSurveyData(district, community, farmer_id,
                     childquestion4, child1question1, child1question2, child1question3, child1question4, child1question5,
                     child1question6, child1question7, child1question8, child1question9, child1question10, child1question11,
                     child1question12, child1question13, child1question14, child1question15, child1question16, child1question17,
@@ -233,13 +235,13 @@ public class ChildWebSurveyActivity extends AppCompatActivity {
 
     private void injectFarmerData() {
         Intent intent = getIntent();
-        String farmerId = intent.getStringExtra("farmer_id");
-        String farmerDistrict = intent.getStringExtra("farmer_district");
-        String farmerVillage = intent.getStringExtra("farmer_village");
+        String farmer_id = intent.getStringExtra("farmer_id");
+        String district = intent.getStringExtra("district");
+        String community = intent.getStringExtra("community");
 
         String jsCode = String.format(
                 "populateSurveyFields('%s', '%s', '%s');",
-                farmerId, farmerDistrict, farmerVillage
+                farmer_id, district, community
         );
         chSurveyWebView.evaluateJavascript(jsCode, null);
     }
@@ -298,12 +300,8 @@ public class ChildWebSurveyActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("Exiting Survey")
                 .setMessage("Are you sure you want to exit?")
-                .setPositiveButton("Yes", (dialog, which) -> {
-                    Intent intent = new Intent(ChildWebSurveyActivity.this, ComDevDashboard.class);
-                    startActivity(intent);
-                    finish(); // Finish AddStudentActivity
-                })
-                .setNegativeButton("No", null) // Dismiss the dialog
+                .setPositiveButton("Yes", (dialog, which) -> finish())
+                .setNegativeButton("No", null)
                 .setCancelable(false)
                 .show();
     }

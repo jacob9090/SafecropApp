@@ -548,8 +548,8 @@ public class ComDevCloudBottomSheet extends BottomSheetDialogFragment {
                 while (cursor.moveToNext()) {
                     JSONObject jsonObject = new JSONObject();
                     jsonObject.put("farmer_id", cursor.getString(cursor.getColumnIndexOrThrow("farmer_id")));
-                    jsonObject.put("farmer_district", cursor.getString(cursor.getColumnIndexOrThrow("farmer_district")));
-                    jsonObject.put("farmer_village", cursor.getString(cursor.getColumnIndexOrThrow("farmer_village")));
+                    jsonObject.put("district", cursor.getString(cursor.getColumnIndexOrThrow("district")));
+                    jsonObject.put("community", cursor.getString(cursor.getColumnIndexOrThrow("community")));
                     jsonObject.put("childquestion4", cursor.getString(cursor.getColumnIndexOrThrow("childquestion4")));
 
                     jsonObject.put("child1question1", cursor.getString(cursor.getColumnIndexOrThrow("child1question1")));

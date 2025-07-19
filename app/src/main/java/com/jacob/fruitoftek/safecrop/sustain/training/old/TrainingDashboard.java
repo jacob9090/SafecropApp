@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
@@ -15,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
-import androidx.core.view.WindowCompat;
 
 import com.jacob.fruitoftek.safecrop.InfoBottomSheet;
 import com.jacob.fruitoftek.safecrop.SettingsBottomSheet;
@@ -27,9 +25,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.jacob.fruitoftek.safecrop.login.AccountBottomSheet;
 import com.jacob.fruitoftek.safecrop.login.utils.PreferenceHelper;
-import com.jacob.fruitoftek.safecrop.sustain.traintopic.TrainingListActivity;
-import com.jacob.fruitoftek.safecrop.sustain.traintopic.TrainingListDatabaseHelper;
-import com.jacob.fruitoftek.safecrop.sustain.traintopic.TrainingListModal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,9 +39,7 @@ public class TrainingDashboard extends AppCompatActivity {
     private SettingsBottomSheet settingsBottomSheet;
 
     private RecyclerView trainingRecyclerView;
-    private TrainingListAdapter trainingAdapter;
     private TextView emptyState;
-//    private TextView totalTrainingLoaded;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,12 +51,14 @@ public class TrainingDashboard extends AppCompatActivity {
         injectDependencies();
 
         // Set the status bar appearance
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_brown));
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            int left = insets.getInsets(WindowInsetsCompat.Type.systemBars()).left;
+            int top = insets.getInsets(WindowInsetsCompat.Type.systemBars()).top;
+            int right = insets.getInsets(WindowInsetsCompat.Type.systemBars()).right;
+            int bottom = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            v.setPadding(left, top, right, bottom);
             return insets;
         });
 
@@ -75,7 +70,9 @@ public class TrainingDashboard extends AppCompatActivity {
 
         TextView userFNameTv = findViewById(R.id.userFNameTv);
         TextView userEmailTv = findViewById(R.id.userEmailTv);
-        userFNameTv.setText("Hi, " + requireNotNull(preferenceHelper).getFirstName());
+        String firstName = requireNotNull(preferenceHelper).getFirstName();
+        String greeting = getString(R.string.greeting_format, firstName);
+        userFNameTv.setText(greeting);
         userEmailTv.setText(requireNotNull(preferenceHelper).getEmail());
 
         profileBottomSheet = new AccountBottomSheet();
@@ -103,37 +100,6 @@ public class TrainingDashboard extends AppCompatActivity {
         trainingRecyclerView = findViewById(R.id.trainingRecyclerView);
         emptyState = findViewById(R.id.emptyState);
 
-        // Initialize adapter FIRST
-        trainingAdapter = new TrainingListAdapter(new ArrayList<>(), farmer -> {
-            Intent intent = new Intent(this, TrainingAttendance.class);
-            intent.putExtra("topic", farmer.getTopic());
-            intent.putExtra("description", farmer.getDescription());
-            startActivity(intent);
-        });
-
-        if (trainingRecyclerView != null) {
-            trainingRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-            trainingRecyclerView.setAdapter(trainingAdapter);
-        }
-
-        // Now load data AFTER adapter is initialized
-        if (!TrainingListActivity.trainingList.isEmpty()) {
-            updateUIWithFarmers();
-        } else {
-            loadCachedFarmers();
-        }
-    }
-
-    private void loadCachedFarmers() {
-        TrainingListDatabaseHelper dbHelper = new TrainingListDatabaseHelper(this);
-        List<TrainingListModal> cachedFarmers = dbHelper.getAllTraining();
-        trainingAdapter.updateList(cachedFarmers);
-        emptyState.setVisibility(cachedFarmers.isEmpty() ? View.VISIBLE : View.GONE);
-    }
-
-    private void updateUIWithFarmers() {
-        trainingAdapter.updateList(TrainingListActivity.trainingList);
-        emptyState.setVisibility(View.GONE);
     }
 
     private <T> T requireNotNull(T obj) {

@@ -10,79 +10,142 @@ import com.google.gson.annotations.SerializedName;
 public class InspectionModel implements Parcelable {
 
     private int id;
-    private String district;
-    private String community;
     private String farmer_id;
     private String farmer_name;
+    private String district;
+    private String community;
     private String ghana_card;
     private String farmer_yob;
-    private String phone_number;
-    private String gender;
+    private String farmer_phone;
+    private String farmer_gender;
     private String inspection_date;
     private String inspector_name;
     private String inspection_question1;
+    private String inspection_question1b;
     private String inspection_question2;
+    private String inspection_question2b;
     private String inspection_question3;
+    private String inspection_question3b;
     private String inspection_question4;
+    private String inspection_question4b;
     private String inspection_question5;
+    private String inspection_question5b;
     private String inspection_question6;
+    private String inspection_question6b;
     private String inspection_question7;
+    private String inspection_question7b;
     private String inspection_question8;
+    private String inspection_question8b;
     private String inspection_question9;
+    private String inspection_question9b;
     private String inspection_question10;
+    private String inspection_question10b;
     private String inspection_question11;
+    private String inspection_question11b;
     private String inspection_question12;
+    private String inspection_question12b;
     private String inspection_question13;
+    private String inspection_question13b;
     private String inspection_question14;
+    private String inspection_question14b;
     private String inspection_question15;
+    private String inspection_question15b;
     private String inspection_question16;
+    private String inspection_question16b;
     private String inspection_question17;
+    private String inspection_question17b;
     private String inspection_question18;
+    private String inspection_question18b;
     private String inspection_question19;
+    private String inspection_question19b;
     private String inspection_question20;
+    private String inspection_question20b;
     private String inspection_question21;
+    private String inspection_question21b;
     private String inspection_question22;
+    private String inspection_question22b;
     private String inspection_question23;
+    private String inspection_question23b;
     private String inspection_question24;
+    private String inspection_question24b;
     private String inspection_question25;
+    private String inspection_question25b;
     private String inspection_question26;
+    private String inspection_question26b;
     private String inspection_question27;
+    private String inspection_question27b;
     private String inspection_question28;
+    private String inspection_question28b;
     private String inspection_question29;
+    private String inspection_question29b;
     private String inspection_question30;
+    private String inspection_question30b;
     private String inspection_question31;
+    private String inspection_question31b;
     private String inspection_question32;
+    private String inspection_question32b;
     private String inspection_question33;
+    private String inspection_question33b;
     private String inspection_question34;
+    private String inspection_question34b;
     private String inspection_question35;
+    private String inspection_question35b;
     private String inspection_question36;
+    private String inspection_question36b;
     private String inspection_question37;
+    private String inspection_question37b;
     private String inspection_question38;
+    private String inspection_question38b;
     private String inspection_question39;
+    private String inspection_question39b;
     private String inspection_question40;
+    private String inspection_question40b;
     private String inspection_question41;
+    private String inspection_question41b;
     private String inspection_question42;
+    private String inspection_question42b;
     private String inspection_question43;
+    private String inspection_question43b;
     private String inspection_question44;
+    private String inspection_question44b;
     private String inspection_question45;
+    private String inspection_question45b;
     private String inspection_question46;
+    private String inspection_question46b;
     private String inspection_question47;
+    private String inspection_question47b;
     private String inspection_question48;
+    private String inspection_question48b;
     private String inspection_question49;
+    private String inspection_question49b;
     private String inspection_question50;
+    private String inspection_question50b;
     private String inspection_question51;
+    private String inspection_question51b;
     private String inspection_question52;
+    private String inspection_question52b;
     private String inspection_question53;
+    private String inspection_question53b;
     private String inspection_question54;
+    private String inspection_question54b;
     private String inspection_question55;
+    private String inspection_question55b;
     private String inspection_question56;
+    private String inspection_question56b;
     private String inspection_question57;
+    private String inspection_question57b;
     private String inspection_question58;
+    private String inspection_question58b;
     private String inspection_question59;
+    private String inspection_question59b;
     private String inspection_question60;
+    private String inspection_question60b;
     private String inspection_question61;
+    private String inspection_question61b;
     private String inspection_question62;
+    private String inspection_question62b;
     private String inspection_question63;
+    private String inspection_question63b;
     private String inspection_location;
     private Uri farmer_photo;
     private String signature;
@@ -94,106 +157,180 @@ public class InspectionModel implements Parcelable {
     private String onCreate;
     private String onUpdate;
 
-    public InspectionModel(int id, String district, String community, String farmer_id, String farmer_name,
-                           String ghana_card, String farmer_yob, String phone_number, String gender,
+    public InspectionModel(int id, String farmer_id, String farmer_name, String district, String community,
+                           String ghana_card, String farmer_yob, String farmer_phone, String farmer_gender,
                            String inspection_date, String inspector_name, String inspection_question1,
-                           String inspection_question2, String inspection_question3, String inspection_question4,
-                           String inspection_question5, String inspection_question6, String inspection_question7,
-                           String inspection_question8, String inspection_question9, String inspection_question10,
-                           String inspection_question11, String inspection_question12, String inspection_question13,
-                           String inspection_question14, String inspection_question15, String inspection_question16,
-                           String inspection_question17, String inspection_question18, String inspection_question19,
-                           String inspection_question20, String inspection_question21, String inspection_question22,
-                           String inspection_question23, String inspection_question24, String inspection_question25,
-                           String inspection_question26, String inspection_question27, String inspection_question28,
-                           String inspection_question29, String inspection_question30, String inspection_question31,
-                           String inspection_question32, String inspection_question33, String inspection_question34,
-                           String inspection_question35, String inspection_question36, String inspection_question37,
-                           String inspection_question38, String inspection_question39, String inspection_question40,
-                           String inspection_question41, String inspection_question42, String inspection_question43,
-                           String inspection_question44, String inspection_question45, String inspection_question46,
-                           String inspection_question47, String inspection_question48, String inspection_question49,
-                           String inspection_question50, String inspection_question51, String inspection_question52,
-                           String inspection_question53, String inspection_question54, String inspection_question55,
-                           String inspection_question56, String inspection_question57, String inspection_question58,
-                           String inspection_question59, String inspection_question60, String inspection_question61,
-                           String inspection_question62, String inspection_question63, String inspection_location,
+                           String inspection_question1b, String inspection_question2, String inspection_question2b,
+                           String inspection_question3, String inspection_question3b, String inspection_question4, String inspection_question4b,
+                           String inspection_question5, String inspection_question5b, String inspection_question6, String inspection_question6b,
+                           String inspection_question7, String inspection_question7b, String inspection_question8, String inspection_question8b,
+                           String inspection_question9, String inspection_question9b, String inspection_question10, String inspection_question10b,
+                           String inspection_question11, String inspection_question11b, String inspection_question12, String inspection_question12b,
+                           String inspection_question13, String inspection_question13b, String inspection_question14, String inspection_question14b,
+                           String inspection_question15, String inspection_question15b, String inspection_question16, String inspection_question16b,
+                           String inspection_question17, String inspection_question17b, String inspection_question18, String inspection_question18b,
+                           String inspection_question19, String inspection_question19b, String inspection_question20, String inspection_question20b,
+                           String inspection_question21, String inspection_question21b, String inspection_question22, String inspection_question22b,
+                           String inspection_question23, String inspection_question23b, String inspection_question24, String inspection_question24b,
+                           String inspection_question25, String inspection_question25b, String inspection_question26, String inspection_question26b,
+                           String inspection_question27, String inspection_question27b, String inspection_question28, String inspection_question28b,
+                           String inspection_question29, String inspection_question29b, String inspection_question30, String inspection_question30b,
+                           String inspection_question31, String inspection_question31b, String inspection_question32, String inspection_question32b,
+                           String inspection_question33, String inspection_question33b, String inspection_question34, String inspection_question34b,
+                           String inspection_question35, String inspection_question35b, String inspection_question36, String inspection_question36b,
+                           String inspection_question37, String inspection_question37b, String inspection_question38, String inspection_question38b,
+                           String inspection_question39, String inspection_question39b, String inspection_question40, String inspection_question40b,
+                           String inspection_question41, String inspection_question41b, String inspection_question42, String inspection_question42b,
+                           String inspection_question43, String inspection_question43b, String inspection_question44, String inspection_question44b,
+                           String inspection_question45, String inspection_question45b, String inspection_question46, String inspection_question46b,
+                           String inspection_question47, String inspection_question47b, String inspection_question48, String inspection_question48b,
+                           String inspection_question49, String inspection_question49b, String inspection_question50, String inspection_question50b,
+                           String inspection_question51, String inspection_question51b, String inspection_question52, String inspection_question52b,
+                           String inspection_question53, String inspection_question53b, String inspection_question54, String inspection_question54b,
+                           String inspection_question55, String inspection_question55b, String inspection_question56, String inspection_question56b,
+                           String inspection_question57, String inspection_question57b, String inspection_question58, String inspection_question58b,
+                           String inspection_question59, String inspection_question59b, String inspection_question60, String inspection_question60b,
+                           String inspection_question61, String inspection_question61b, String inspection_question62, String inspection_question62b,
+                           String inspection_question63, String inspection_question63b, String inspection_location,
                            Uri farmer_photo, String signature, String is_sync, String is_draft, String userFname,
                            String userLname, String userEmail, String onCreate, String onUpdate) {
         this.id = id;
-        this.district = district;
-        this.community = community;
         this.farmer_id = farmer_id;
         this.farmer_name = farmer_name;
+        this.district = district;
+        this.community = community;
         this.ghana_card = ghana_card;
         this.farmer_yob = farmer_yob;
-        this.phone_number = phone_number;
-        this.gender = gender;
+        this.farmer_phone = farmer_phone;
+        this.farmer_gender = farmer_gender;
         this.inspection_date = inspection_date;
         this.inspector_name = inspector_name;
         this.inspection_question1 = inspection_question1;
+        this.inspection_question1b = inspection_question1b;
         this.inspection_question2 = inspection_question2;
+        this.inspection_question2b = inspection_question2b;
         this.inspection_question3 = inspection_question3;
+        this.inspection_question3b = inspection_question3b;
         this.inspection_question4 = inspection_question4;
+        this.inspection_question4b = inspection_question4b;
         this.inspection_question5 = inspection_question5;
+        this.inspection_question5b = inspection_question5b;
         this.inspection_question6 = inspection_question6;
+        this.inspection_question6b = inspection_question6b;
         this.inspection_question7 = inspection_question7;
+        this.inspection_question7b = inspection_question7b;
         this.inspection_question8 = inspection_question8;
+        this.inspection_question8b = inspection_question8b;
         this.inspection_question9 = inspection_question9;
+        this.inspection_question9b = inspection_question9b;
         this.inspection_question10 = inspection_question10;
+        this.inspection_question10b = inspection_question10b;
         this.inspection_question11 = inspection_question11;
+        this.inspection_question11b = inspection_question11b;
         this.inspection_question12 = inspection_question12;
+        this.inspection_question12b = inspection_question12b;
         this.inspection_question13 = inspection_question13;
+        this.inspection_question13b = inspection_question13b;
         this.inspection_question14 = inspection_question14;
+        this.inspection_question14b = inspection_question14b;
         this.inspection_question15 = inspection_question15;
+        this.inspection_question15b = inspection_question15b;
         this.inspection_question16 = inspection_question16;
+        this.inspection_question16b = inspection_question16b;
         this.inspection_question17 = inspection_question17;
+        this.inspection_question17b = inspection_question17b;
         this.inspection_question18 = inspection_question18;
+        this.inspection_question18b = inspection_question18b;
         this.inspection_question19 = inspection_question19;
+        this.inspection_question19b = inspection_question19b;
         this.inspection_question20 = inspection_question20;
+        this.inspection_question20b = inspection_question20b;
         this.inspection_question21 = inspection_question21;
+        this.inspection_question21b = inspection_question21b;
         this.inspection_question22 = inspection_question22;
+        this.inspection_question22b = inspection_question22b;
         this.inspection_question23 = inspection_question23;
+        this.inspection_question23b = inspection_question23b;
         this.inspection_question24 = inspection_question24;
+        this.inspection_question24b = inspection_question24b;
         this.inspection_question25 = inspection_question25;
+        this.inspection_question25b = inspection_question25b;
         this.inspection_question26 = inspection_question26;
+        this.inspection_question26b = inspection_question26b;
         this.inspection_question27 = inspection_question27;
+        this.inspection_question27b = inspection_question27b;
         this.inspection_question28 = inspection_question28;
+        this.inspection_question28b = inspection_question28b;
         this.inspection_question29 = inspection_question29;
+        this.inspection_question29b = inspection_question29b;
         this.inspection_question30 = inspection_question30;
+        this.inspection_question30b = inspection_question30b;
         this.inspection_question31 = inspection_question31;
+        this.inspection_question31b = inspection_question31b;
         this.inspection_question32 = inspection_question32;
+        this.inspection_question32b = inspection_question32b;
         this.inspection_question33 = inspection_question33;
+        this.inspection_question33b = inspection_question33b;
         this.inspection_question34 = inspection_question34;
+        this.inspection_question34b = inspection_question34b;
         this.inspection_question35 = inspection_question35;
+        this.inspection_question35b = inspection_question35b;
         this.inspection_question36 = inspection_question36;
+        this.inspection_question36b = inspection_question36b;
         this.inspection_question37 = inspection_question37;
+        this.inspection_question37b = inspection_question37b;
         this.inspection_question38 = inspection_question38;
+        this.inspection_question38b = inspection_question38b;
         this.inspection_question39 = inspection_question39;
+        this.inspection_question39b = inspection_question39b;
         this.inspection_question40 = inspection_question40;
+        this.inspection_question40b = inspection_question40b;
         this.inspection_question41 = inspection_question41;
+        this.inspection_question41b = inspection_question41b;
         this.inspection_question42 = inspection_question42;
+        this.inspection_question42b = inspection_question42b;
         this.inspection_question43 = inspection_question43;
+        this.inspection_question43b = inspection_question43b;
         this.inspection_question44 = inspection_question44;
+        this.inspection_question44b = inspection_question44b;
         this.inspection_question45 = inspection_question45;
+        this.inspection_question45b = inspection_question45b;
         this.inspection_question46 = inspection_question46;
+        this.inspection_question46b = inspection_question46b;
         this.inspection_question47 = inspection_question47;
+        this.inspection_question47b = inspection_question47b;
         this.inspection_question48 = inspection_question48;
+        this.inspection_question48b = inspection_question48b;
         this.inspection_question49 = inspection_question49;
+        this.inspection_question49b = inspection_question49b;
         this.inspection_question50 = inspection_question50;
+        this.inspection_question50b = inspection_question50b;
         this.inspection_question51 = inspection_question51;
+        this.inspection_question51b = inspection_question51b;
         this.inspection_question52 = inspection_question52;
+        this.inspection_question52b = inspection_question52b;
         this.inspection_question53 = inspection_question53;
+        this.inspection_question53b = inspection_question53b;
         this.inspection_question54 = inspection_question54;
+        this.inspection_question54b = inspection_question54b;
         this.inspection_question55 = inspection_question55;
+        this.inspection_question55b = inspection_question55b;
         this.inspection_question56 = inspection_question56;
+        this.inspection_question56b = inspection_question56b;
         this.inspection_question57 = inspection_question57;
+        this.inspection_question57b = inspection_question57b;
         this.inspection_question58 = inspection_question58;
+        this.inspection_question58b = inspection_question58b;
         this.inspection_question59 = inspection_question59;
+        this.inspection_question59b = inspection_question59b;
         this.inspection_question60 = inspection_question60;
+        this.inspection_question60b = inspection_question60b;
         this.inspection_question61 = inspection_question61;
+        this.inspection_question61b = inspection_question61b;
         this.inspection_question62 = inspection_question62;
+        this.inspection_question62b = inspection_question62b;
         this.inspection_question63 = inspection_question63;
+        this.inspection_question63b = inspection_question63b;
         this.inspection_location = inspection_location;
         this.farmer_photo = farmer_photo;
         this.signature = signature;
@@ -214,73 +351,136 @@ public class InspectionModel implements Parcelable {
         community = in.readString();
         ghana_card = in.readString();
         farmer_yob = in.readString();
-        phone_number = in.readString();
-        gender = in.readString();
+        farmer_phone = in.readString();
+        farmer_gender = in.readString();
         inspection_date = in.readString();
         inspector_name = in.readString();
         inspection_question1 = in.readString();
+        inspection_question1b = in.readString();
         inspection_question2 = in.readString();
+        inspection_question2b = in.readString();
         inspection_question3 = in.readString();
+        inspection_question3b = in.readString();
         inspection_question4 = in.readString();
+        inspection_question4b = in.readString();
         inspection_question5 = in.readString();
+        inspection_question5b = in.readString();
         inspection_question6 = in.readString();
+        inspection_question6b = in.readString();
         inspection_question7 = in.readString();
+        inspection_question7b = in.readString();
         inspection_question8 = in.readString();
+        inspection_question8b = in.readString();
         inspection_question9 = in.readString();
+        inspection_question9b = in.readString();
         inspection_question10 = in.readString();
+        inspection_question10b = in.readString();
         inspection_question11 = in.readString();
+        inspection_question11b = in.readString();
         inspection_question12 = in.readString();
+        inspection_question12b = in.readString();
         inspection_question13 = in.readString();
+        inspection_question13b = in.readString();
         inspection_question14 = in.readString();
+        inspection_question14b = in.readString();
         inspection_question15 = in.readString();
+        inspection_question15b = in.readString();
         inspection_question16 = in.readString();
+        inspection_question16b = in.readString();
         inspection_question17 = in.readString();
+        inspection_question17b = in.readString();
         inspection_question18 = in.readString();
+        inspection_question18b = in.readString();
         inspection_question19 = in.readString();
+        inspection_question19b = in.readString();
         inspection_question20 = in.readString();
+        inspection_question20b = in.readString();
         inspection_question21 = in.readString();
+        inspection_question21b = in.readString();
         inspection_question22 = in.readString();
+        inspection_question22b = in.readString();
         inspection_question23 = in.readString();
+        inspection_question23b = in.readString();
         inspection_question24 = in.readString();
+        inspection_question24b = in.readString();
         inspection_question25 = in.readString();
+        inspection_question25b = in.readString();
         inspection_question26 = in.readString();
+        inspection_question26b = in.readString();
         inspection_question27 = in.readString();
+        inspection_question27b = in.readString();
         inspection_question28 = in.readString();
+        inspection_question28b = in.readString();
         inspection_question29 = in.readString();
+        inspection_question29b = in.readString();
         inspection_question30 = in.readString();
+        inspection_question30b = in.readString();
         inspection_question31 = in.readString();
+        inspection_question31b = in.readString();
         inspection_question32 = in.readString();
+        inspection_question32b = in.readString();
         inspection_question33 = in.readString();
+        inspection_question33b = in.readString();
         inspection_question34 = in.readString();
+        inspection_question34b = in.readString();
         inspection_question35 = in.readString();
+        inspection_question35b = in.readString();
         inspection_question36 = in.readString();
+        inspection_question36b = in.readString();
         inspection_question37 = in.readString();
+        inspection_question37b = in.readString();
         inspection_question38 = in.readString();
+        inspection_question38b = in.readString();
         inspection_question39 = in.readString();
+        inspection_question39b = in.readString();
         inspection_question40 = in.readString();
+        inspection_question40b = in.readString();
         inspection_question41 = in.readString();
+        inspection_question41b = in.readString();
         inspection_question42 = in.readString();
+        inspection_question42b = in.readString();
         inspection_question43 = in.readString();
+        inspection_question43b = in.readString();
         inspection_question44 = in.readString();
+        inspection_question44b = in.readString();
         inspection_question45 = in.readString();
+        inspection_question45b = in.readString();
         inspection_question46 = in.readString();
+        inspection_question46b = in.readString();
         inspection_question47 = in.readString();
+        inspection_question47b = in.readString();
         inspection_question48 = in.readString();
+        inspection_question48b = in.readString();
         inspection_question49 = in.readString();
+        inspection_question49b = in.readString();
         inspection_question50 = in.readString();
+        inspection_question50b = in.readString();
         inspection_question51 = in.readString();
+        inspection_question51b = in.readString();
         inspection_question52 = in.readString();
+        inspection_question52b = in.readString();
         inspection_question53 = in.readString();
+        inspection_question53b = in.readString();
         inspection_question54 = in.readString();
+        inspection_question54b = in.readString();
         inspection_question55 = in.readString();
+        inspection_question55b = in.readString();
         inspection_question56 = in.readString();
+        inspection_question56b = in.readString();
         inspection_question57 = in.readString();
+        inspection_question57b = in.readString();
         inspection_question58 = in.readString();
+        inspection_question58b = in.readString();
         inspection_question59 = in.readString();
+        inspection_question59b = in.readString();
         inspection_question60 = in.readString();
+        inspection_question60b = in.readString();
         inspection_question61 = in.readString();
+        inspection_question61b = in.readString();
         inspection_question62 = in.readString();
+        inspection_question62b = in.readString();
         inspection_question63 = in.readString();
+        inspection_question63b = in.readString();
         inspection_location = in.readString();
         farmer_photo = in.readParcelable(Uri.class.getClassLoader());
         signature = in.readString();
@@ -296,79 +496,142 @@ public class InspectionModel implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
-        dest.writeString(district);
-        dest.writeString(community);
         dest.writeString(farmer_id);
         dest.writeString(farmer_name);
+        dest.writeString(district);
+        dest.writeString(community);
         dest.writeString(ghana_card);
         dest.writeString(farmer_yob);
-        dest.writeString(phone_number);
-        dest.writeString(gender);
+        dest.writeString(farmer_phone);
+        dest.writeString(farmer_gender);
         dest.writeString(inspection_date);
         dest.writeString(inspector_name);
         dest.writeString(inspection_question1);
+        dest.writeString(inspection_question1b);
         dest.writeString(inspection_question2);
+        dest.writeString(inspection_question2b);
         dest.writeString(inspection_question3);
+        dest.writeString(inspection_question3b);
         dest.writeString(inspection_question4);
+        dest.writeString(inspection_question4b);
         dest.writeString(inspection_question5);
+        dest.writeString(inspection_question5b);
         dest.writeString(inspection_question6);
+        dest.writeString(inspection_question6b);
         dest.writeString(inspection_question7);
+        dest.writeString(inspection_question7b);
         dest.writeString(inspection_question8);
+        dest.writeString(inspection_question8b);
         dest.writeString(inspection_question9);
+        dest.writeString(inspection_question9b);
         dest.writeString(inspection_question10);
+        dest.writeString(inspection_question10b);
         dest.writeString(inspection_question11);
+        dest.writeString(inspection_question11b);
         dest.writeString(inspection_question12);
+        dest.writeString(inspection_question12b);
         dest.writeString(inspection_question13);
+        dest.writeString(inspection_question13b);
         dest.writeString(inspection_question14);
+        dest.writeString(inspection_question14b);
         dest.writeString(inspection_question15);
+        dest.writeString(inspection_question15b);
         dest.writeString(inspection_question16);
+        dest.writeString(inspection_question16b);
         dest.writeString(inspection_question17);
+        dest.writeString(inspection_question17b);
         dest.writeString(inspection_question18);
+        dest.writeString(inspection_question18b);
         dest.writeString(inspection_question19);
+        dest.writeString(inspection_question19b);
         dest.writeString(inspection_question20);
+        dest.writeString(inspection_question20b);
         dest.writeString(inspection_question21);
+        dest.writeString(inspection_question21b);
         dest.writeString(inspection_question22);
+        dest.writeString(inspection_question22b);
         dest.writeString(inspection_question23);
+        dest.writeString(inspection_question23b);
         dest.writeString(inspection_question24);
+        dest.writeString(inspection_question24b);
         dest.writeString(inspection_question25);
+        dest.writeString(inspection_question25b);
         dest.writeString(inspection_question26);
+        dest.writeString(inspection_question26b);
         dest.writeString(inspection_question27);
+        dest.writeString(inspection_question27b);
         dest.writeString(inspection_question28);
+        dest.writeString(inspection_question28b);
         dest.writeString(inspection_question29);
+        dest.writeString(inspection_question29b);
         dest.writeString(inspection_question30);
+        dest.writeString(inspection_question30b);
         dest.writeString(inspection_question31);
+        dest.writeString(inspection_question31b);
         dest.writeString(inspection_question32);
+        dest.writeString(inspection_question32b);
         dest.writeString(inspection_question33);
+        dest.writeString(inspection_question33b);
         dest.writeString(inspection_question34);
+        dest.writeString(inspection_question34b);
         dest.writeString(inspection_question35);
+        dest.writeString(inspection_question35b);
         dest.writeString(inspection_question36);
+        dest.writeString(inspection_question36b);
         dest.writeString(inspection_question37);
+        dest.writeString(inspection_question37b);
         dest.writeString(inspection_question38);
+        dest.writeString(inspection_question38b);
         dest.writeString(inspection_question39);
+        dest.writeString(inspection_question39b);
         dest.writeString(inspection_question40);
+        dest.writeString(inspection_question40b);
         dest.writeString(inspection_question41);
+        dest.writeString(inspection_question41b);
         dest.writeString(inspection_question42);
+        dest.writeString(inspection_question42b);
         dest.writeString(inspection_question43);
+        dest.writeString(inspection_question43b);
         dest.writeString(inspection_question44);
+        dest.writeString(inspection_question44b);
         dest.writeString(inspection_question45);
+        dest.writeString(inspection_question45b);
         dest.writeString(inspection_question46);
+        dest.writeString(inspection_question46b);
         dest.writeString(inspection_question47);
+        dest.writeString(inspection_question47b);
         dest.writeString(inspection_question48);
+        dest.writeString(inspection_question48b);
         dest.writeString(inspection_question49);
+        dest.writeString(inspection_question49b);
         dest.writeString(inspection_question50);
+        dest.writeString(inspection_question50b);
         dest.writeString(inspection_question51);
+        dest.writeString(inspection_question51b);
         dest.writeString(inspection_question52);
+        dest.writeString(inspection_question52b);
         dest.writeString(inspection_question53);
+        dest.writeString(inspection_question53b);
         dest.writeString(inspection_question54);
+        dest.writeString(inspection_question54b);
         dest.writeString(inspection_question55);
+        dest.writeString(inspection_question55b);
         dest.writeString(inspection_question56);
+        dest.writeString(inspection_question56b);
         dest.writeString(inspection_question57);
+        dest.writeString(inspection_question57b);
         dest.writeString(inspection_question58);
+        dest.writeString(inspection_question58b);
         dest.writeString(inspection_question59);
+        dest.writeString(inspection_question59b);
         dest.writeString(inspection_question60);
+        dest.writeString(inspection_question60b);
         dest.writeString(inspection_question61);
+        dest.writeString(inspection_question61b);
         dest.writeString(inspection_question62);
+        dest.writeString(inspection_question62b);
         dest.writeString(inspection_question63);
+        dest.writeString(inspection_question63b);
         dest.writeString(inspection_location);
         dest.writeParcelable(farmer_photo, flags);
         dest.writeString(signature);
@@ -383,79 +646,142 @@ public class InspectionModel implements Parcelable {
 
     public static InspectionModel fromCursor(Cursor cursor) {
         int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
-        String district = cursor.getString(cursor.getColumnIndexOrThrow("district"));
-        String community = cursor.getString(cursor.getColumnIndexOrThrow("community"));
         String farmer_id = cursor.getString(cursor.getColumnIndexOrThrow("farmer_id"));
         String farmer_name = cursor.getString(cursor.getColumnIndexOrThrow("farmer_name"));
+        String district = cursor.getString(cursor.getColumnIndexOrThrow("district"));
+        String community = cursor.getString(cursor.getColumnIndexOrThrow("community"));
         String ghana_card = cursor.getString(cursor.getColumnIndexOrThrow("ghana_card"));
         String farmer_yob = cursor.getString(cursor.getColumnIndexOrThrow("farmer_yob"));
-        String phone_number = cursor.getString(cursor.getColumnIndexOrThrow("phone_number"));
-        String gender = cursor.getString(cursor.getColumnIndexOrThrow("gender"));
+        String farmer_phone = cursor.getString(cursor.getColumnIndexOrThrow("farmer_phone"));
+        String farmer_gender = cursor.getString(cursor.getColumnIndexOrThrow("farmer_gender"));
         String inspection_date = cursor.getString(cursor.getColumnIndexOrThrow("inspection_date"));
         String inspector_name = cursor.getString(cursor.getColumnIndexOrThrow("inspector_name"));
         String inspection_question1 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question1"));
+        String inspection_question1b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question1b"));
         String inspection_question2 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question2"));
+        String inspection_question2b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question2b"));
         String inspection_question3 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question3"));
+        String inspection_question3b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question3b"));
         String inspection_question4 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question4"));
+        String inspection_question4b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question4b"));
         String inspection_question5 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question5"));
+        String inspection_question5b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question5b"));
         String inspection_question6 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question6"));
+        String inspection_question6b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question6b"));
         String inspection_question7 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question7"));
+        String inspection_question7b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question7b"));
         String inspection_question8 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question8"));
+        String inspection_question8b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question8b"));
         String inspection_question9 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question9"));
+        String inspection_question9b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question9b"));
         String inspection_question10 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question10"));
+        String inspection_question10b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question10b"));
         String inspection_question11 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question11"));
+        String inspection_question11b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question11b"));
         String inspection_question12 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question12"));
+        String inspection_question12b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question12b"));
         String inspection_question13 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question13"));
+        String inspection_question13b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question13b"));
         String inspection_question14 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question14"));
+        String inspection_question14b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question14b"));
         String inspection_question15 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question15"));
+        String inspection_question15b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question15b"));
         String inspection_question16 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question16"));
+        String inspection_question16b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question16b"));
         String inspection_question17 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question17"));
+        String inspection_question17b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question17b"));
         String inspection_question18 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question18"));
+        String inspection_question18b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question18b"));
         String inspection_question19 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question19"));
+        String inspection_question19b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question19b"));
         String inspection_question20 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question20"));
+        String inspection_question20b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question20b"));
         String inspection_question21 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question21"));
+        String inspection_question21b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question21b"));
         String inspection_question22 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question22"));
+        String inspection_question22b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question22b"));
         String inspection_question23 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question23"));
+        String inspection_question23b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question23b"));
         String inspection_question24 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question24"));
+        String inspection_question24b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question24b"));
         String inspection_question25 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question25"));
+        String inspection_question25b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question25b"));
         String inspection_question26 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question26"));
+        String inspection_question26b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question26b"));
         String inspection_question27 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question27"));
+        String inspection_question27b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question27b"));
         String inspection_question28 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question28"));
+        String inspection_question28b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question28b"));
         String inspection_question29 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question29"));
+        String inspection_question29b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question29b"));
         String inspection_question30 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question30"));
+        String inspection_question30b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question30b"));
         String inspection_question31 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question31"));
+        String inspection_question31b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question31b"));
         String inspection_question32 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question32"));
+        String inspection_question32b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question32b"));
         String inspection_question33 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question33"));
+        String inspection_question33b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question33b"));
         String inspection_question34 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question34"));
+        String inspection_question34b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question34b"));
         String inspection_question35 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question35"));
+        String inspection_question35b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question35b"));
         String inspection_question36 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question36"));
+        String inspection_question36b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question36b"));
         String inspection_question37 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question37"));
+        String inspection_question37b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question37b"));
         String inspection_question38 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question38"));
+        String inspection_question38b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question38b"));
         String inspection_question39 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question39"));
+        String inspection_question39b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question39b"));
         String inspection_question40 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question40"));
+        String inspection_question40b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question40b"));
         String inspection_question41 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question41"));
+        String inspection_question41b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question41b"));
         String inspection_question42 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question42"));
+        String inspection_question42b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question42b"));
         String inspection_question43 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question43"));
+        String inspection_question43b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question43b"));
         String inspection_question44 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question44"));
+        String inspection_question44b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question44b"));
         String inspection_question45 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question45"));
+        String inspection_question45b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question45b"));
         String inspection_question46 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question46"));
+        String inspection_question46b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question46b"));
         String inspection_question47 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question47"));
+        String inspection_question47b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question47b"));
         String inspection_question48 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question48"));
+        String inspection_question48b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question48b"));
         String inspection_question49 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question49"));
+        String inspection_question49b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question49b"));
         String inspection_question50 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question50"));
+        String inspection_question50b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question50b"));
         String inspection_question51 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question51"));
+        String inspection_question51b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question51b"));
         String inspection_question52 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question52"));
+        String inspection_question52b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question52b"));
         String inspection_question53 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question53"));
+        String inspection_question53b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question53b"));
         String inspection_question54 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question54"));
+        String inspection_question54b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question54b"));
         String inspection_question55 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question55"));
+        String inspection_question55b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question55b"));
         String inspection_question56 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question56"));
+        String inspection_question56b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question56b"));
         String inspection_question57 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question57"));
+        String inspection_question57b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question57b"));
         String inspection_question58 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question58"));
+        String inspection_question58b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question58b"));
         String inspection_question59 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question59"));
+        String inspection_question59b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question59b"));
         String inspection_question60 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question60"));
+        String inspection_question60b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question60b"));
         String inspection_question61 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question61"));
+        String inspection_question61b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question61b"));
         String inspection_question62 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question62"));
+        String inspection_question62b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question62b"));
         String inspection_question63 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question63"));
+        String inspection_question63b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question63b"));
         String inspection_location = cursor.getString(cursor.getColumnIndexOrThrow("inspection_location"));
         // Farmer photo as Uri
         String farmer_photo_str = cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo"));
@@ -471,79 +797,142 @@ public class InspectionModel implements Parcelable {
 
         return new InspectionModel(
                 id,
-                district,
-                community,
                 farmer_id,
                 farmer_name,
+                district,
+                community,
                 ghana_card,
                 farmer_yob,
-                phone_number,
-                gender,
+                farmer_phone,
+                farmer_gender,
                 inspection_date,
                 inspector_name,
                 inspection_question1,
+                inspection_question1b,
                 inspection_question2,
+                inspection_question2b,
                 inspection_question3,
+                inspection_question3b,
                 inspection_question4,
+                inspection_question4b,
                 inspection_question5,
+                inspection_question5b,
                 inspection_question6,
+                inspection_question6b,
                 inspection_question7,
+                inspection_question7b,
                 inspection_question8,
+                inspection_question8b,
                 inspection_question9,
+                inspection_question9b,
                 inspection_question10,
+                inspection_question10b,
                 inspection_question11,
+                inspection_question11b,
                 inspection_question12,
+                inspection_question12b,
                 inspection_question13,
+                inspection_question13b,
                 inspection_question14,
+                inspection_question14b,
                 inspection_question15,
+                inspection_question15b,
                 inspection_question16,
+                inspection_question16b,
                 inspection_question17,
+                inspection_question17b,
                 inspection_question18,
+                inspection_question18b,
                 inspection_question19,
+                inspection_question19b,
                 inspection_question20,
+                inspection_question20b,
                 inspection_question21,
+                inspection_question21b,
                 inspection_question22,
+                inspection_question22b,
                 inspection_question23,
+                inspection_question23b,
                 inspection_question24,
+                inspection_question24b,
                 inspection_question25,
+                inspection_question25b,
                 inspection_question26,
+                inspection_question26b,
                 inspection_question27,
+                inspection_question27b,
                 inspection_question28,
+                inspection_question28b,
                 inspection_question29,
+                inspection_question29b,
                 inspection_question30,
+                inspection_question30b,
                 inspection_question31,
+                inspection_question31b,
                 inspection_question32,
+                inspection_question32b,
                 inspection_question33,
+                inspection_question33b,
                 inspection_question34,
+                inspection_question34b,
                 inspection_question35,
+                inspection_question35b,
                 inspection_question36,
+                inspection_question36b,
                 inspection_question37,
+                inspection_question37b,
                 inspection_question38,
+                inspection_question38b,
                 inspection_question39,
+                inspection_question39b,
                 inspection_question40,
+                inspection_question40b,
                 inspection_question41,
+                inspection_question41b,
                 inspection_question42,
+                inspection_question42b,
                 inspection_question43,
+                inspection_question43b,
                 inspection_question44,
+                inspection_question44b,
                 inspection_question45,
+                inspection_question45b,
                 inspection_question46,
+                inspection_question46b,
                 inspection_question47,
+                inspection_question47b,
                 inspection_question48,
+                inspection_question48b,
                 inspection_question49,
+                inspection_question49b,
                 inspection_question50,
+                inspection_question50b,
                 inspection_question51,
+                inspection_question51b,
                 inspection_question52,
+                inspection_question52b,
                 inspection_question53,
+                inspection_question53b,
                 inspection_question54,
+                inspection_question54b,
                 inspection_question55,
+                inspection_question55b,
                 inspection_question56,
+                inspection_question56b,
                 inspection_question57,
+                inspection_question57b,
                 inspection_question58,
+                inspection_question58b,
                 inspection_question59,
+                inspection_question59b,
                 inspection_question60,
+                inspection_question60b,
                 inspection_question61,
+                inspection_question61b,
                 inspection_question62,
+                inspection_question62b,
                 inspection_question63,
+                inspection_question63b,
                 inspection_location,
                 farmer_photo,
                 signature,
@@ -582,30 +971,6 @@ public class InspectionModel implements Parcelable {
     // Getters and setters
     public int getId() {
         return id;
-    }
-
-    public String getGhana_card() {
-        return ghana_card;
-    }
-
-    public String getFarmer_yob() {
-        return farmer_yob;
-    }
-
-    public String getPhone_number() {
-        return phone_number;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public String getInspection_date() {
-        return inspection_date;
-    }
-
-    public String getInspector_name() {
-        return inspector_name;
     }
 
     public String getFarmer_id() { return farmer_id; }
@@ -838,24 +1203,48 @@ public class InspectionModel implements Parcelable {
         return inspection_question58;
     }
 
+    public String getInspection_question58b() {
+        return inspection_question58b;
+    }
+
     public String getInspection_question59() {
         return inspection_question59;
+    }
+
+    public String getInspection_question59b() {
+        return inspection_question59b;
     }
 
     public String getInspection_question60() {
         return inspection_question60;
     }
 
+    public String getInspection_question60b() {
+        return inspection_question60b;
+    }
+
     public String getInspection_question61() {
         return inspection_question61;
+    }
+
+    public String getInspection_question61b() {
+        return inspection_question61b;
     }
 
     public String getInspection_question62() {
         return inspection_question62;
     }
 
+    public String getInspection_question62b() {
+        return inspection_question62b;
+    }
+
     public String getInspection_question63() {
         return inspection_question63;
+    }
+
+    public String getInspection_question63b() {
+        return inspection_question63b;
     }
 
     public String getInspection_location() { return inspection_location; }
@@ -880,34 +1269,261 @@ public class InspectionModel implements Parcelable {
 
     public String getOnUpdate() { return onUpdate; }
 
+    public String getGhana_card() {
+        return ghana_card;
+    }
+
+    public String getFarmer_yob() {
+        return farmer_yob;
+    }
+
+    public String getFarmer_phone() {
+        return farmer_phone;
+    }
+
+    public String getFarmer_gender() {
+        return farmer_gender;
+    }
+
+    public String getInspection_date() {
+        return inspection_date;
+    }
+
+    public String getInspector_name() {
+        return inspector_name;
+    }
+
+    public String getInspection_question1b() {
+        return inspection_question1b;
+    }
+
+    public String getInspection_question2b() {
+        return inspection_question2b;
+    }
+
+    public String getInspection_question3b() {
+        return inspection_question3b;
+    }
+
+    public String getInspection_question4b() {
+        return inspection_question4b;
+    }
+
+    public String getInspection_question5b() {
+        return inspection_question5b;
+    }
+
+    public String getInspection_question6b() {
+        return inspection_question6b;
+    }
+
+    public String getInspection_question7b() {
+        return inspection_question7b;
+    }
+
+    public String getInspection_question8b() {
+        return inspection_question8b;
+    }
+
+    public String getInspection_question9b() {
+        return inspection_question9b;
+    }
+
+    public String getInspection_question10b() {
+        return inspection_question10b;
+    }
+
+    public String getInspection_question11b() {
+        return inspection_question11b;
+    }
+
+    public String getInspection_question12b() {
+        return inspection_question12b;
+    }
+
+    public String getInspection_question13b() {
+        return inspection_question13b;
+    }
+
+    public String getInspection_question14b() {
+        return inspection_question14b;
+    }
+
+    public String getInspection_question15b() {
+        return inspection_question15b;
+    }
+
+    public String getInspection_question16b() {
+        return inspection_question16b;
+    }
+
+    public String getInspection_question17b() {
+        return inspection_question17b;
+    }
+
+    public String getInspection_question18b() {
+        return inspection_question18b;
+    }
+
+    public String getInspection_question19b() {
+        return inspection_question19b;
+    }
+
+    public String getInspection_question20b() {
+        return inspection_question20b;
+    }
+
+    public String getInspection_question21b() {
+        return inspection_question21b;
+    }
+
+    public String getInspection_question22b() {
+        return inspection_question22b;
+    }
+
+    public String getInspection_question23b() {
+        return inspection_question23b;
+    }
+
+    public String getInspection_question24b() {
+        return inspection_question24b;
+    }
+
+    public String getInspection_question25b() {
+        return inspection_question25b;
+    }
+
+    public String getInspection_question26b() {
+        return inspection_question26b;
+    }
+
+    public String getInspection_question27b() {
+        return inspection_question27b;
+    }
+
+    public String getInspection_question28b() {
+        return inspection_question28b;
+    }
+
+    public String getInspection_question29b() {
+        return inspection_question29b;
+    }
+
+    public String getInspection_question30b() {
+        return inspection_question30b;
+    }
+
+    public String getInspection_question31b() {
+        return inspection_question31b;
+    }
+
+    public String getInspection_question32b() {
+        return inspection_question32b;
+    }
+
+    public String getInspection_question33b() {
+        return inspection_question33b;
+    }
+
+    public String getInspection_question34b() {
+        return inspection_question34b;
+    }
+
+    public String getInspection_question35b() {
+        return inspection_question35b;
+    }
+
+    public String getInspection_question36b() {
+        return inspection_question36b;
+    }
+
+    public String getInspection_question37b() {
+        return inspection_question37b;
+    }
+
+    public String getInspection_question38b() {
+        return inspection_question38b;
+    }
+
+    public String getInspection_question39b() {
+        return inspection_question39b;
+    }
+
+    public String getInspection_question40b() {
+        return inspection_question40b;
+    }
+
+    public String getInspection_question41b() {
+        return inspection_question41b;
+    }
+
+    public String getInspection_question42b() {
+        return inspection_question42b;
+    }
+
+    public String getInspection_question43b() {
+        return inspection_question43b;
+    }
+
+    public String getInspection_question44b() {
+        return inspection_question44b;
+    }
+
+    public String getInspection_question45b() {
+        return inspection_question45b;
+    }
+
+    public String getInspection_question46b() {
+        return inspection_question46b;
+    }
+
+    public String getInspection_question47b() {
+        return inspection_question47b;
+    }
+
+    public String getInspection_question48b() {
+        return inspection_question48b;
+    }
+
+    public String getInspection_question49b() {
+        return inspection_question49b;
+    }
+
+    public String getInspection_question50b() {
+        return inspection_question50b;
+    }
+
+    public String getInspection_question51b() {
+        return inspection_question51b;
+    }
+
+    public String getInspection_question52b() {
+        return inspection_question52b;
+    }
+
+    public String getInspection_question53b() {
+        return inspection_question53b;
+    }
+
+    public String getInspection_question54b() {
+        return inspection_question54b;
+    }
+
+    public String getInspection_question55b() {
+        return inspection_question55b;
+    }
+
+    public String getInspection_question56b() {
+        return inspection_question56b;
+    }
+
+    public String getInspection_question57b() {
+        return inspection_question57b;
+    }
 
     public void setInspection_question5(String inspection_question5) { this.inspection_question5 = inspection_question5; }
 
     public void setId(int id) { this.id = id; }
-
-    public void setGhana_card(String ghana_card) {
-        this.ghana_card = ghana_card;
-    }
-
-    public void setFarmer_yob(String farmer_yob) {
-        this.farmer_yob = farmer_yob;
-    }
-
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public void setInspection_date(String inspection_date) {
-        this.inspection_date = inspection_date;
-    }
-
-    public void setInspector_name(String inspector_name) {
-        this.inspector_name = inspector_name;
-    }
 
     public void setFarmer_id(String farmer_id) { this.farmer_id = farmer_id; }
 
@@ -1137,26 +1753,6 @@ public class InspectionModel implements Parcelable {
         this.inspection_question58 = inspection_question58;
     }
 
-    public void setInspection_question59(String inspection_question59) {
-        this.inspection_question59 = inspection_question59;
-    }
-
-    public void setInspection_question60(String inspection_question60) {
-        this.inspection_question60 = inspection_question60;
-    }
-
-    public void setInspection_question61(String inspection_question61) {
-        this.inspection_question61 = inspection_question61;
-    }
-
-    public void setInspection_question62(String inspection_question62) {
-        this.inspection_question62 = inspection_question62;
-    }
-
-    public void setInspection_question63(String inspection_question63) {
-        this.inspection_question63 = inspection_question63;
-    }
-
     public void setInspection_location(String inspection_location) { this.inspection_location = inspection_location; }
 
     public void setFarmer_photo(String farmer_photo) {
@@ -1179,4 +1775,300 @@ public class InspectionModel implements Parcelable {
     public void setOnCreate(String onCreate) { this.onCreate = onCreate; }
 
     public void setOnUpdate(String onUpdate) { this.onUpdate = onUpdate; }
+
+    public void setGhana_card(String ghana_card) {
+        this.ghana_card = ghana_card;
+    }
+
+    public void setFarmer_yob(String farmer_yob) {
+        this.farmer_yob = farmer_yob;
+    }
+
+    public void setFarmer_phone(String farmer_phone) {
+        this.farmer_phone = farmer_phone;
+    }
+
+    public void setFarmer_gender(String farmer_gender) {
+        this.farmer_gender = farmer_gender;
+    }
+
+    public void setInspection_date(String inspection_date) {
+        this.inspection_date = inspection_date;
+    }
+
+    public void setInspector_name(String inspector_name) {
+        this.inspector_name = inspector_name;
+    }
+
+    public void setInspection_question1b(String inspection_question1b) {
+        this.inspection_question1b = inspection_question1b;
+    }
+
+    public void setInspection_question2b(String inspection_question2b) {
+        this.inspection_question2b = inspection_question2b;
+    }
+
+    public void setInspection_question3b(String inspection_question3b) {
+        this.inspection_question3b = inspection_question3b;
+    }
+
+    public void setInspection_question4b(String inspection_question4b) {
+        this.inspection_question4b = inspection_question4b;
+    }
+
+    public void setInspection_question5b(String inspection_question5b) {
+        this.inspection_question5b = inspection_question5b;
+    }
+
+    public void setInspection_question6b(String inspection_question6b) {
+        this.inspection_question6b = inspection_question6b;
+    }
+
+    public void setInspection_question7b(String inspection_question7b) {
+        this.inspection_question7b = inspection_question7b;
+    }
+
+    public void setInspection_question8b(String inspection_question8b) {
+        this.inspection_question8b = inspection_question8b;
+    }
+
+    public void setInspection_question9b(String inspection_question9b) {
+        this.inspection_question9b = inspection_question9b;
+    }
+
+    public void setInspection_question10b(String inspection_question10b) {
+        this.inspection_question10b = inspection_question10b;
+    }
+
+    public void setInspection_question11b(String inspection_question11b) {
+        this.inspection_question11b = inspection_question11b;
+    }
+
+    public void setInspection_question12b(String inspection_question12b) {
+        this.inspection_question12b = inspection_question12b;
+    }
+
+    public void setInspection_question13b(String inspection_question13b) {
+        this.inspection_question13b = inspection_question13b;
+    }
+
+    public void setInspection_question14b(String inspection_question14b) {
+        this.inspection_question14b = inspection_question14b;
+    }
+
+    public void setInspection_question15b(String inspection_question15b) {
+        this.inspection_question15b = inspection_question15b;
+    }
+
+    public void setInspection_question16b(String inspection_question16b) {
+        this.inspection_question16b = inspection_question16b;
+    }
+
+    public void setInspection_question17b(String inspection_question17b) {
+        this.inspection_question17b = inspection_question17b;
+    }
+
+    public void setInspection_question18b(String inspection_question18b) {
+        this.inspection_question18b = inspection_question18b;
+    }
+
+    public void setInspection_question19b(String inspection_question19b) {
+        this.inspection_question19b = inspection_question19b;
+    }
+
+    public void setInspection_question20b(String inspection_question20b) {
+        this.inspection_question20b = inspection_question20b;
+    }
+
+    public void setInspection_question21b(String inspection_question21b) {
+        this.inspection_question21b = inspection_question21b;
+    }
+
+    public void setInspection_question22b(String inspection_question22b) {
+        this.inspection_question22b = inspection_question22b;
+    }
+
+    public void setInspection_question23b(String inspection_question23b) {
+        this.inspection_question23b = inspection_question23b;
+    }
+
+    public void setInspection_question24b(String inspection_question24b) {
+        this.inspection_question24b = inspection_question24b;
+    }
+
+    public void setInspection_question25b(String inspection_question25b) {
+        this.inspection_question25b = inspection_question25b;
+    }
+
+    public void setInspection_question26b(String inspection_question26b) {
+        this.inspection_question26b = inspection_question26b;
+    }
+
+    public void setInspection_question27b(String inspection_question27b) {
+        this.inspection_question27b = inspection_question27b;
+    }
+
+    public void setInspection_question28b(String inspection_question28b) {
+        this.inspection_question28b = inspection_question28b;
+    }
+
+    public void setInspection_question29b(String inspection_question29b) {
+        this.inspection_question29b = inspection_question29b;
+    }
+
+    public void setInspection_question30b(String inspection_question30b) {
+        this.inspection_question30b = inspection_question30b;
+    }
+
+    public void setInspection_question31b(String inspection_question31b) {
+        this.inspection_question31b = inspection_question31b;
+    }
+
+    public void setInspection_question32b(String inspection_question32b) {
+        this.inspection_question32b = inspection_question32b;
+    }
+
+    public void setInspection_question33b(String inspection_question33b) {
+        this.inspection_question33b = inspection_question33b;
+    }
+
+    public void setInspection_question34b(String inspection_question34b) {
+        this.inspection_question34b = inspection_question34b;
+    }
+
+    public void setInspection_question35b(String inspection_question35b) {
+        this.inspection_question35b = inspection_question35b;
+    }
+
+    public void setInspection_question36b(String inspection_question36b) {
+        this.inspection_question36b = inspection_question36b;
+    }
+
+    public void setInspection_question37b(String inspection_question37b) {
+        this.inspection_question37b = inspection_question37b;
+    }
+
+    public void setInspection_question38b(String inspection_question38b) {
+        this.inspection_question38b = inspection_question38b;
+    }
+
+    public void setInspection_question39b(String inspection_question39b) {
+        this.inspection_question39b = inspection_question39b;
+    }
+
+    public void setInspection_question40b(String inspection_question40b) {
+        this.inspection_question40b = inspection_question40b;
+    }
+
+    public void setInspection_question41b(String inspection_question41b) {
+        this.inspection_question41b = inspection_question41b;
+    }
+
+    public void setInspection_question42b(String inspection_question42b) {
+        this.inspection_question42b = inspection_question42b;
+    }
+
+    public void setInspection_question43b(String inspection_question43b) {
+        this.inspection_question43b = inspection_question43b;
+    }
+
+    public void setInspection_question44b(String inspection_question44b) {
+        this.inspection_question44b = inspection_question44b;
+    }
+
+    public void setInspection_question45b(String inspection_question45b) {
+        this.inspection_question45b = inspection_question45b;
+    }
+
+    public void setInspection_question46b(String inspection_question46b) {
+        this.inspection_question46b = inspection_question46b;
+    }
+
+    public void setInspection_question47b(String inspection_question47b) {
+        this.inspection_question47b = inspection_question47b;
+    }
+
+    public void setInspection_question48b(String inspection_question48b) {
+        this.inspection_question48b = inspection_question48b;
+    }
+
+    public void setInspection_question49b(String inspection_question49b) {
+        this.inspection_question49b = inspection_question49b;
+    }
+
+    public void setInspection_question50b(String inspection_question50b) {
+        this.inspection_question50b = inspection_question50b;
+    }
+
+    public void setInspection_question51b(String inspection_question51b) {
+        this.inspection_question51b = inspection_question51b;
+    }
+
+    public void setInspection_question52b(String inspection_question52b) {
+        this.inspection_question52b = inspection_question52b;
+    }
+
+    public void setInspection_question53b(String inspection_question53b) {
+        this.inspection_question53b = inspection_question53b;
+    }
+
+    public void setInspection_question54b(String inspection_question54b) {
+        this.inspection_question54b = inspection_question54b;
+    }
+
+    public void setInspection_question55b(String inspection_question55b) {
+        this.inspection_question55b = inspection_question55b;
+    }
+
+    public void setInspection_question56b(String inspection_question56b) {
+        this.inspection_question56b = inspection_question56b;
+    }
+
+    public void setInspection_question57b(String inspection_question57b) {
+        this.inspection_question57b = inspection_question57b;
+    }
+
+    public void setInspection_question58b(String inspection_question58b) {
+        this.inspection_question58b = inspection_question58b;
+    }
+
+    public void setInspection_question59(String inspection_question59) {
+        this.inspection_question59 = inspection_question59;
+    }
+
+    public void setInspection_question59b(String inspection_question59b) {
+        this.inspection_question59b = inspection_question59b;
+    }
+
+    public void setInspection_question60(String inspection_question60) {
+        this.inspection_question60 = inspection_question60;
+    }
+
+    public void setInspection_question60b(String inspection_question60b) {
+        this.inspection_question60b = inspection_question60b;
+    }
+
+    public void setInspection_question61(String inspection_question61) {
+        this.inspection_question61 = inspection_question61;
+    }
+
+    public void setInspection_question61b(String inspection_question61b) {
+        this.inspection_question61b = inspection_question61b;
+    }
+
+    public void setInspection_question62(String inspection_question62) {
+        this.inspection_question62 = inspection_question62;
+    }
+
+    public void setInspection_question62b(String inspection_question62b) {
+        this.inspection_question62b = inspection_question62b;
+    }
+
+    public void setInspection_question63(String inspection_question63) {
+        this.inspection_question63 = inspection_question63;
+    }
+
+    public void setInspection_question63b(String inspection_question63b) {
+        this.inspection_question63b = inspection_question63b;
+    }
 }

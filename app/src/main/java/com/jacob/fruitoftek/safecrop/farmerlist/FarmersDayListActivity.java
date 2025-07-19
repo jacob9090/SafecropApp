@@ -62,7 +62,7 @@ public class FarmersDayListActivity extends AppCompatActivity {
         if (recyclerView != null) {
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             farmerAdapter = new FarmerListAdapter(new ArrayList<>(), farmer -> {
-                Toast.makeText(this, "Clicked on: " + farmer.getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Clicked on: " + farmer.getFarmer_name(), Toast.LENGTH_SHORT).show();
             });
             recyclerView.setAdapter(farmerAdapter);
         } else {
@@ -75,7 +75,7 @@ public class FarmersDayListActivity extends AppCompatActivity {
 
     private void filterList(String query) {
         List<FarmerListModal> filteredList = FarmerListActivity.farmerList.stream()
-                .filter(farmer -> farmer.getName().toLowerCase().contains(query.toLowerCase()))
+                .filter(farmer -> farmer.getFarmer_name().toLowerCase().contains(query.toLowerCase()))
                 .collect(Collectors.toList());
         farmerAdapter.updateList(filteredList);
         emptyState.setVisibility(filteredList.isEmpty() ? View.VISIBLE : View.GONE);

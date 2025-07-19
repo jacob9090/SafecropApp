@@ -7,8 +7,7 @@ const json = {
         {
           "type": "text",
           "name": "training_code",
-          "title": "Date",
-          "inputType": "date",
+          "title": "Training ID",
           "isRequired": true
         },
         {
@@ -73,9 +72,24 @@ const json = {
           "name": "train_question6",
           "title": "Training Topics (Checkbox of all training)",
           "choices": [
-            "Item 1",
-            "Item 2",
-            "Item 3"
+            "Agrochemical Handling And Usage",
+            "Assess And Address /Grievance Mechanism/ Human Rights",
+            "Basic Understanding Of RA Certification And Importance Of Sustainable Farming.",
+            "Climate Smart Agriculture (CSA) (GEP)",
+            "Environment And Ecosystem Protection",
+            "EUDR European Union Deforestation Regulations",
+            "Farmer Contracting. Records keeping",
+            "Soil Fertility Management. The use of farm by-products as organic matter.",
+            "Good Agronomic Practices - GAP (Planting And Rotation Including Pruning)",
+            "Integrated Pests Management (IPM) (GAP)",
+            "Income Generating Activities",
+            "Integrated Pest Management (IPM).",
+            "SOCIAL: Assess and Address committee activities, workplace violence and harassment. (GSP).",
+            "Pest And Diseases Management.",
+            "Product Quality And Food Safety",
+            "Records Keeping",
+            "Right To Consent",
+            "Water and Waste Management."
           ]
         },
         {

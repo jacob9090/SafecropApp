@@ -18,7 +18,7 @@ const json = {
         },
         {
           "type": "text",
-          "name": "farmer_village",
+          "name": "community",
           "title": "Community",
           "readOnly": true
         },

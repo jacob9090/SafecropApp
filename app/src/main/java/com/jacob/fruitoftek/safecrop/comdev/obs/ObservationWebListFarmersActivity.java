@@ -42,17 +42,19 @@ public class ObservationWebListFarmersActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_observation_web_list_farmers);
 
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        // Set the status bar appearance
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_brown));
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            int left = insets.getInsets(WindowInsetsCompat.Type.systemBars()).left;
+            int top = insets.getInsets(WindowInsetsCompat.Type.systemBars()).top;
+            int right = insets.getInsets(WindowInsetsCompat.Type.systemBars()).right;
+            int bottom = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            v.setPadding(left, top, right, bottom);
             return insets;
         });
 
         setupActionBar();
-
         initializeUI();
 
     }
@@ -93,9 +95,9 @@ public class ObservationWebListFarmersActivity extends AppCompatActivity {
         // Initialize adapter FIRST
         farmerAdapter = new FarmerListAdapter(new ArrayList<>(), farmer -> {
             Intent intent = new Intent(this, ObservationWebSurveyActivity.class);
-            intent.putExtra("obs_name", farmer.getFid());
-            intent.putExtra("obs_district", farmer.getDistrict());
-            intent.putExtra("obs_community", farmer.getVillage());
+            intent.putExtra("farmer_id", farmer.getFarmer_id());
+            intent.putExtra("district", farmer.getDistrict());
+            intent.putExtra("community", farmer.getCommunity());
             startActivity(intent);
         });
 
@@ -125,26 +127,6 @@ public class ObservationWebListFarmersActivity extends AppCompatActivity {
         emptyState.setVisibility(View.GONE);
         totalFarmersLoaded.setText(String.valueOf(FarmerListActivity.farmerList.size()));
     }
-
-//    private void initializeUI() {
-//        recyclerView = findViewById(R.id.obsRecyclerView);
-//        if (recyclerView != null) {
-//            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//            farmerAdapter = new FarmerListAdapter(new ArrayList<>(), farmer -> {
-//                // Navigate to EditFarmerActivity with farmer details
-//                Intent intent = new Intent(ObservationWebListFarmersActivity.this, ObservationWebSurveyActivity.class);
-//                intent.putExtra("obs_id", farmer.getFid());
-//                intent.putExtra("obs_district", farmer.getDistrict());
-//                intent.putExtra("obs_village", farmer.getVillage());
-//                startActivity(intent);
-//            });
-//            recyclerView.setAdapter(farmerAdapter);
-//        } else {
-//            throw new NullPointerException("RecyclerView is null. Ensure it is defined in the layout file.");
-//        }
-//
-//        emptyState = findViewById(R.id.emptyState);
-//    }
 
     private void setupActionBar() {
         ActionBar actionBar = getSupportActionBar();

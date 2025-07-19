@@ -50,25 +50,26 @@ public class ObservationWebSurveyActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_observation_web_survey);
 
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        // Set the status bar appearance
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_brown));
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            int left = insets.getInsets(WindowInsetsCompat.Type.systemBars()).left;
+            int top = insets.getInsets(WindowInsetsCompat.Type.systemBars()).top;
+            int right = insets.getInsets(WindowInsetsCompat.Type.systemBars()).right;
+            int bottom = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            v.setPadding(left, top, right, bottom);
             return insets;
         });
 
         setupActionBar();
-
-        // Initialize PreferenceHelper
         injectDependencies();
 
         // Retrieve passed data from intent
         Intent intent = getIntent();
-        String farmerId = intent.getStringExtra("obs_name");
-        String farmerDistrict = intent.getStringExtra("obs_district");
-        String farmerVillage = intent.getStringExtra("obs_community");
+        String farmer_id = intent.getStringExtra("farmer_id");
+        String district = intent.getStringExtra("district");
+        String community = intent.getStringExtra("community");
         
         dbHelper = new ObsDbHelper(this);
         preferenceHelper = new PreferenceHelper(this);
@@ -194,13 +195,13 @@ public class ObservationWebSurveyActivity extends AppCompatActivity {
 
     private void injectFarmerData() {
         Intent intent = getIntent();
-        String farmerId = intent.getStringExtra("obs_name");
-        String farmerDistrict = intent.getStringExtra("obs_district");
-        String farmerVillage = intent.getStringExtra("obs_community");
+        String farmer_id = intent.getStringExtra("farmer_id");
+        String district = intent.getStringExtra("district");
+        String community = intent.getStringExtra("community");
 
         String jsCode = String.format(
                 "populateSurveyFields('%s', '%s', '%s');",
-                farmerId, farmerDistrict, farmerVillage
+                farmer_id, district, community
         );
         obsSurveyWebView.evaluateJavascript(jsCode, null);
     }
@@ -260,14 +261,9 @@ public class ObservationWebSurveyActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("Exiting Survey")
                 .setMessage("Are you sure you want to exit?")
-                .setPositiveButton("Yes", (dialog, which) -> {
-                    Intent intent = new Intent(ObservationWebSurveyActivity.this, ObservationWebListFarmersActivity.class);
-                    startActivity(intent);
-                    finish(); // Finish AddStudentActivity
-                })
-                .setNegativeButton("No", null) // Dismiss the dialog
+                .setPositiveButton("Yes", (dialog, which) -> finish())
+                .setNegativeButton("No", null)
                 .setCancelable(false)
                 .show();
     }
-
 }

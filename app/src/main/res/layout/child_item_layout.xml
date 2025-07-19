@@ -35,7 +35,7 @@
                 android:textStyle="bold"
                 android:textColor="#000"
                 android:textSize="17sp"
-                android:id="@+id/farmerId"
+                android:id="@+id/farmer_id"
                 android:text="@string/aa_aa_aa001"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -46,7 +46,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/farmerDistrict"
+                    android:id="@+id/district"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="13sp"
@@ -54,7 +54,7 @@
                     android:layout_marginTop="3dp"/>
 
                 <TextView
-                    android:id="@+id/farmerVillage"
+                    android:id="@+id/community"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="13sp"
@@ -90,28 +90,5 @@
             android:contentDescription="@string/child_survey"/>
 
     </RelativeLayout>
-
-
-
-<!--    <LinearLayout-->
-<!--        android:id="@+id/content_layout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="vertical"-->
-<!--        android:padding="16dp"-->
-<!--        android:background="@android:color/white">-->
-
-<!--        <TextView android:id="@+id/farmerId" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Farmer ID"/>-->
-<!--        <TextView android:id="@+id/farmerDistrict" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="District"/>-->
-<!--        <TextView android:id="@+id/farmerVillage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Village"/>-->
-<!--        <TextView android:id="@+id/childLocation" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Geo-Location"/>-->
-<!--        <TextView android:id="@+id/userFname" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="First Name"/>-->
-<!--        <TextView android:id="@+id/userLname" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Other Name"/>-->
-
-<!--        <TextView android:id="@+id/oncreate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="First Name"/>-->
-<!--        <TextView android:id="@+id/onupdate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Other Name"/>-->
-<!--        <ImageView android:id="@+id/signatureImage" android:layout_width="match_parent" android:layout_height="100dp" android:contentDescription="Signature"/>-->
-
-<!--    </LinearLayout>-->
 
 </androidx.cardview.widget.CardView>

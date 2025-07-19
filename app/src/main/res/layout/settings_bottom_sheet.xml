@@ -221,19 +221,19 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/ibsDivider8"/>
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/updateTrainingListBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/round_end_btn_brown_background"
-                    style="@android:style/Widget.Button"
-                    android:text="@string/load_train_topic"
-                    android:textSize="17sp"
-                    android:textColor="@color/white"
-                    android:layout_margin="24dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/updateFarmerListBtn"/>
+<!--                <androidx.appcompat.widget.AppCompatButton-->
+<!--                    android:id="@+id/updateTrainingListBtn"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/round_end_btn_brown_background"-->
+<!--                    style="@android:style/Widget.Button"-->
+<!--                    android:text="@string/load_train_topic"-->
+<!--                    android:textSize="17sp"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:layout_margin="24dp"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/updateFarmerListBtn"/>-->
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

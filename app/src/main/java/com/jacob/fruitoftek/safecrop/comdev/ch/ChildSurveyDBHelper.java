@@ -24,9 +24,9 @@ public class ChildSurveyDBHelper extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "ChildSurveyTbl";
 
     private static final String COLUMN_ID = "_id";
+    private static final String COLUMN_DISTRICT = "district";
+    private static final String COLUMN_COMMUNITY = "community";
     private static final String COLUMN_FARMER_ID = "farmer_id";
-    private static final String COLUMN_FARMER_DISTRICT = "farmer_district";
-    private static final String COLUMN_FARMER_VILLAGE = "farmer_village";
     private static final String COLUMN_CHILDQUESTION4 = "childquestion4";
     private static final String COLUMN_CHILD1QUESTION1 = "child1question1";
     private static final String COLUMN_CHILD1QUESTION2 = "child1question2";
@@ -238,9 +238,9 @@ public class ChildSurveyDBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " ("
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + COLUMN_DISTRICT + " TEXT,"
+                + COLUMN_COMMUNITY + " TEXT,"
                 + COLUMN_FARMER_ID + " TEXT,"
-                + COLUMN_FARMER_DISTRICT + " TEXT,"
-                + COLUMN_FARMER_VILLAGE + " TEXT,"
                 + COLUMN_CHILDQUESTION4 + " TEXT,"
                 + COLUMN_CHILD1QUESTION1 + " TEXT,"
                 + COLUMN_CHILD1QUESTION2 + " TEXT,"
@@ -450,15 +450,7 @@ public class ChildSurveyDBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-//    @Override
-//    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-//        if (oldVersion < 2) { // Assuming version 2 introduces new columns
-//            db.execSQL("ALTER TABLE " + TABLE_NAME + " ADD COLUMN child10question15 TEXT DEFAULT '';");
-//            db.execSQL("ALTER TABLE " + TABLE_NAME + " ADD COLUMN user_email TEXT DEFAULT '';");
-//        }
-//    }
-
-    public void insertSurveyData(String farmerId, String farmerDistrict, String farmerVillage,
+    public void insertSurveyData(String district, String community, String farmer_id,
                                  String childquestion4, String child1question1, String child1question2, String child1question3,
                                  String child1question4, String child1question5, String child1question6, String child1question7,
                                  String child1question8, String child1question9, String child1question10, String child1question11,
@@ -518,9 +510,9 @@ public class ChildSurveyDBHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_FARMER_ID, farmerId);
-        values.put(COLUMN_FARMER_DISTRICT, farmerDistrict);
-        values.put(COLUMN_FARMER_VILLAGE, farmerVillage);
+        values.put(COLUMN_DISTRICT, district);
+        values.put(COLUMN_COMMUNITY, community);
+        values.put(COLUMN_FARMER_ID, farmer_id);
         values.put(COLUMN_CHILDQUESTION4, childquestion4);
         values.put(COLUMN_CHILD1QUESTION1, child1question1);
         values.put(COLUMN_CHILD1QUESTION2, child1question2);
@@ -764,7 +756,7 @@ public class ChildSurveyDBHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void updateSurveyData(String farmerId, String farmerDistrict, String farmerVillage,
+    public void updateSurveyData(String district, String community, String farmer_id,
                                  String childquestion4, String child1question1, String child1question2, String child1question3,
                                  String child1question4, String child1question5, String child1question6, String child1question7,
                                  String child1question8, String child1question9, String child1question10, String child1question11,
@@ -815,8 +807,8 @@ public class ChildSurveyDBHelper extends SQLiteOpenHelper {
                                  String child10question18, String child10question19, String childquestion5, String childLocation) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("farmer_district", farmerDistrict);
-        values.put("farmer_village", farmerVillage);
+        values.put("district", district);
+        values.put("community", community);
         values.put("childquestion4", childquestion4);
         values.put("child1question1", child1question1);
         values.put("child1question2", child1question2);
@@ -1011,7 +1003,7 @@ public class ChildSurveyDBHelper extends SQLiteOpenHelper {
         values.put("childquestion5", childquestion5);
         values.put("child_location", childLocation);
 
-        db.update(TABLE_NAME, values, "farmer_id = ?", new String[]{farmerId});
+        db.update(TABLE_NAME, values, "farmer_id = ?", new String[]{farmer_id});
         db.close();
     }
 
@@ -1024,9 +1016,9 @@ public class ChildSurveyDBHelper extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do {
-                String farmerId = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_FARMER_ID));
-                String farmerDistrict = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_FARMER_DISTRICT));
-                String farmerVillage = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_FARMER_VILLAGE));
+                String district = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DISTRICT));
+                String community = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_COMMUNITY));
+                String farmer_id = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_FARMER_ID));
                 String childquestion4 = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CHILDQUESTION4));
                 String child1question1 = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CHILD1QUESTION1));
                 String child1question2 = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CHILD1QUESTION2));
@@ -1227,7 +1219,7 @@ public class ChildSurveyDBHelper extends SQLiteOpenHelper {
                 String onCreate = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_ON_CREATE));
                 String onUpdate = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_ON_UPDATE));
 
-                ChildModel child = new ChildModel(farmerId, farmerDistrict, farmerVillage,
+                ChildModel child = new ChildModel(district, community, farmer_id,
                         childquestion4, child1question1, child1question2, child1question3, child1question4,
                         child1question5, child1question6, child1question7, child1question8, child1question9,
                         child1question10, child1question11, child1question12, child1question13, child1question14,

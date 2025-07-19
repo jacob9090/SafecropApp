@@ -134,7 +134,7 @@
 <!--                    android:layout_width="0dp"-->
 <!--                    android:layout_height="wrap_content"-->
 <!--                    android:layout_marginTop="5dp"-->
-<!--                    app:cardCornerRadius="6dp"-->
+<!--                    app:cardCornerRadius="7dp"-->
 <!--                    app:cardElevation="2dp"-->
 <!--                    app:cardUseCompatPadding="true"-->
 <!--                    app:layout_constraintTop_toBottomOf="@+id/susCertTxt"-->
@@ -212,7 +212,7 @@
 <!--&lt;!&ndash;                    android:id="@+id/schSurveyCV"&ndash;&gt;-->
 <!--&lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
 <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                    app:cardCornerRadius="6dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:cardCornerRadius="7dp"&ndash;&gt;-->
 <!--&lt;!&ndash;                    app:cardElevation="2dp"&ndash;&gt;-->
 <!--&lt;!&ndash;                    app:cardUseCompatPadding="true"&ndash;&gt;-->
 <!--&lt;!&ndash;                    app:layout_constraintTop_toBottomOf="@+id/orgProfileNewFarmerCV"&ndash;&gt;-->
@@ -289,7 +289,7 @@
 <!--&lt;!&ndash;                    android:id="@+id/householdCV"&ndash;&gt;-->
 <!--&lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
 <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                    app:cardCornerRadius="6dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:cardCornerRadius="7dp"&ndash;&gt;-->
 <!--&lt;!&ndash;                    app:cardElevation="2dp"&ndash;&gt;-->
 <!--&lt;!&ndash;                    app:cardUseCompatPadding="true"&ndash;&gt;-->
 <!--&lt;!&ndash;                    app:layout_constraintTop_toBottomOf="@+id/schSurveyCV"&ndash;&gt;-->
@@ -368,7 +368,7 @@
 <!--&lt;!&ndash;                    android:id="@+id/obsHoldCV"&ndash;&gt;-->
 <!--&lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
 <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                    app:cardCornerRadius="6dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:cardCornerRadius="7dp"&ndash;&gt;-->
 <!--&lt;!&ndash;                    app:cardElevation="2dp"&ndash;&gt;-->
 <!--&lt;!&ndash;                    app:cardUseCompatPadding="true"&ndash;&gt;-->
 <!--&lt;!&ndash;                    app:layout_constraintTop_toBottomOf="@+id/householdCV"&ndash;&gt;-->
@@ -451,7 +451,7 @@
 <!--&lt;!&ndash;                    android:id="@+id/childSurveyCV"&ndash;&gt;-->
 <!--&lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
 <!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                    app:cardCornerRadius="6dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:cardCornerRadius="7dp"&ndash;&gt;-->
 <!--&lt;!&ndash;                    app:cardElevation="2dp"&ndash;&gt;-->
 <!--&lt;!&ndash;                    app:cardUseCompatPadding="true"&ndash;&gt;-->
 <!--&lt;!&ndash;                    app:layout_constraintTop_toBottomOf="@+id/obsHoldCV"&ndash;&gt;-->

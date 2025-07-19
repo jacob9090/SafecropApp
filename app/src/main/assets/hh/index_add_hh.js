@@ -23,10 +23,10 @@ function updateFarmerPhoto(photoFarmerUri) {
     }
 }
 
-function populateSurveyFields(farmerId, farmerDistrict, farmerVillage) {
-    survey.setValue('hh_name', farmerId);
-    survey.setValue('hh_district', farmerDistrict);
-    survey.setValue('hh_community', farmerVillage);
+function populateSurveyFields(district, community, farmer_id) {
+    survey.setValue('district', district);
+    survey.setValue('community', community);
+    survey.setValue('farmer_id', farmer_id);
 }
 
 function sanitizeInput(value) {
@@ -38,7 +38,7 @@ function sanitizeInput(value) {
 
 survey.onComplete.add(function (survey, options) {
     const surveyData = survey.data;
-    const { hh_name, hh_district, hh_community,
+    const { district, community, farmer_id
     hhquestion4, hhquestion5, hhquestion6, hhquestion7, hhquestion8, hhquestion9, hhquestion10, hhquestion11,
     hhquestion12, hhquestion13, hhquestion14, hhquestion15, hhquestion16, hhquestion17, hhquestion18, hhquestion19,
     hhquestion20, hhquestion21, hhquestion22, hhquestion23, hhquestion24, hhquestion25, hhquestion26, hhquestion27,
@@ -47,7 +47,7 @@ survey.onComplete.add(function (survey, options) {
 
     // Send the data including the raw PNG data for the signature
     Android.insertHh(
-    hh_name || "", hh_district || "", hh_community || "", hhquestion4 || "", hhquestion5 || "",
+    district || "", community || "", farmer_id || "", hhquestion4 || "", hhquestion5 || "",
     hhquestion6 || "", hhquestion7 || "", hhquestion8 || "", hhquestion9 || "", hhquestion10 || "",
     hhquestion11 || "", hhquestion12 || "", hhquestion13 || "", hhquestion14 || "", hhquestion15 || "",
     hhquestion16 || "", hhquestion17 || "", hhquestion18 || "", hhquestion19 || "", hhquestion20 || "",

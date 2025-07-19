@@ -39,9 +39,9 @@ public class ChildWebSurveyedAdapter extends RecyclerView.Adapter<ChildWebSurvey
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         ChildModel child = childList.get(position);
-        holder.farmerId.setText(child.getFarmerId());
-        holder.farmerDistrict.setText(child.getFarmerDistrict());
-        holder.farmerVillage.setText(child.getFarmerVillage());
+        holder.farmer_id.setText(child.getFarmer_id());
+        holder.district.setText(child.getDistrict());
+        holder.community.setText(child.getCommunity());
         holder.oncreate.setText(child.getOnCreate());
 
         String signaturePath = child.getSignature();
@@ -85,19 +85,18 @@ public class ChildWebSurveyedAdapter extends RecyclerView.Adapter<ChildWebSurvey
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView farmerId, farmerDistrict, farmerVillage, oncreate;
+        public TextView farmer_id, district, community, oncreate;
         public ImageView signatureImage;
         public ImageButton csmoreBtn;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            farmerId = itemView.findViewById(R.id.farmerId);
-            farmerDistrict = itemView.findViewById(R.id.farmerDistrict);
-            farmerVillage = itemView.findViewById(R.id.farmerVillage);
+            farmer_id = itemView.findViewById(R.id.farmer_id);
+            district = itemView.findViewById(R.id.district);
+            community = itemView.findViewById(R.id.community);
             oncreate = itemView.findViewById(R.id.oncreate);
             signatureImage = itemView.findViewById(R.id.signatureImage);
             csmoreBtn = itemView.findViewById(R.id.csmoreBtn); // Bind the ImageButton
         }
     }
 }
-

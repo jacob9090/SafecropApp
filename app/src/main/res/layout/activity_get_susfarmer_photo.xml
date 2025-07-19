@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    tools:context=".sustain.profiling.GetSusFarmerPhotoActivity">
+
+    <ImageView
+        android:id="@+id/gmrFarmerImageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:padding="20dp"
+        android:src="@drawable/camera_brown"
+        android:background="@android:color/darker_gray"
+        android:contentDescription="@string/selected_or_captured_image" />
+
+    <Button
+        android:id="@+id/gmrFarmerCaptureOrSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/selected_or_captured_image"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/gmrFarmerbtnOk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ok"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

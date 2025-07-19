@@ -15,8 +15,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.jacob.fruitoftek.safecrop.R;
 import com.jacob.fruitoftek.safecrop.sustain.SusCertDashboard;
-import com.jacob.fruitoftek.safecrop.sustain.pentry.PEActivity;
-import com.jacob.fruitoftek.safecrop.sustain.pentry.PEnteryCompletedActivity;
 
 public class InspectionCompletedActivity extends AppCompatActivity {
 
@@ -51,7 +49,7 @@ public class InspectionCompletedActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent nsintent = new Intent(InspectionCompletedActivity.this, InspectionListFarmersActivity.class);
+                Intent nsintent = new Intent(InspectionCompletedActivity.this, InspectionFarmerListActivity.class);
                 startActivity(nsintent);
                 finish();
 

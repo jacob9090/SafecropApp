@@ -53,12 +53,14 @@ public class ComDevDashboard extends AppCompatActivity {
         injectDependencies();
 
         // Set the status bar appearance
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_brown));
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            int left = insets.getInsets(WindowInsetsCompat.Type.systemBars()).left;
+            int top = insets.getInsets(WindowInsetsCompat.Type.systemBars()).top;
+            int right = insets.getInsets(WindowInsetsCompat.Type.systemBars()).right;
+            int bottom = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            v.setPadding(left, top, right, bottom);
             return insets;
         });
 
@@ -68,7 +70,9 @@ public class ComDevDashboard extends AppCompatActivity {
 
         TextView userFNameTv = findViewById(R.id.userFNameTv);
         TextView userEmailTv = findViewById(R.id.userEmailTv);
-        userFNameTv.setText("Hi, " + requireNotNull(preferenceHelper).getFirstName());
+        String firstName = requireNotNull(preferenceHelper).getFirstName();
+        String greeting = getString(R.string.greeting_format, firstName);
+        userFNameTv.setText(greeting);
         userEmailTv.setText(requireNotNull(preferenceHelper).getEmail());
 
         profileBottomSheet = new AccountBottomSheet();
