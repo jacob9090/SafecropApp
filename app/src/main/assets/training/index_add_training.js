@@ -7,7 +7,7 @@ function handleGetLocation() {
     Android.openLocationActivity();
 }
 
-function updateInspectionLocation(location) {
+function updateTrainingLocation(location) {
     survey.setValue('training_location', location);
 }
 
@@ -23,7 +23,7 @@ function updateFarmerPhoto(photoFarmerUri) {
 }
 
 // Match keys with Java
-function populateSurveyFields(training_code) {
+function setTraining_code(training_code) {
     survey.setValue('training_code', training_code);
 }
 
@@ -45,32 +45,31 @@ function sanitizeInput(value) {
     return value || "";
 }
 
-function saveInspection(isDraft) {
+function saveTraining(isDraft) {
     const data = survey.data;
     const is_sync = "0";
-    Android.insertOrUpdateInspection(
+    Android.insertOrUpdateTraining(
         data.training_code || "",
         data.district || "",
         data.community || "",
-        data.training_question1 || "",
-        data.training_question2 || "",
-        data.training_question3 || "",
-        data.training_question4 || "",
-        data.training_question5 || "",
-        data.training_question6 || "",
-        data.training_question7 || "",
-        data.training_question8 || "",
-        data.training_question9 || "",
-        data.training_question10 || "",
-        data.training_question11 || "",
-        data.training_question12 || "",
-        data.training_question13 || "",
-        data.training_question14 || "",
-        data.training_question15 || "",
-        data.training_question16 || "",
-        data.inspection_location || "",
+        data.train_question1 || "",
+        data.train_question2 || "",
+        data.train_question3 || "",
+        data.train_question4 || "",
+        data.train_question5 || "",
+        data.train_question6 || "",
+        data.train_question7 || "",
+        data.training_location || "",
         data.farmer_photo || "",
         data.signature ? data.signature : null,
+        data.train_question8 || "",
+        data.train_question9 || "",
+        data.train_question10 || "",
+        data.train_question11 || "",
+        data.train_question12 || "",
+        data.train_question13 || "",
+        data.train_question14 || "",
+        data.train_question15 || "",
         is_sync,
         isDraft ? "1" : "0"
     );
@@ -82,5 +81,5 @@ function saveInspection(isDraft) {
 // Only trigger on explicit user actions:
 // - For final save: via SurveyJS completion event
 survey.onComplete.add(function (survey, options) {
-    saveInspection(false);
+    saveTraining(false);
 });

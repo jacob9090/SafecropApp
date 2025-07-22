@@ -43,15 +43,16 @@ public class InspectionAdapter extends RecyclerView.Adapter<InspectionAdapter.In
     @Override
     public void onBindViewHolder(@NonNull InspectionAdapter.InspectionViewHolder holder, int position) {
         InspectionModel model = filteredList.get(position);
-        holder.nameTextView.setText(model.getFarmer_id());
-        holder.districtTextView.setText(model.getFarmer_name());
-        holder.communityTextView.setText(model.getDistrict());
+        holder.farmerIDTv.setText(model.getDistrict());
+        holder.farmerNameTv.setText(model.getCommunity());
+        holder.districtTv.setText(model.getFarmer_id());
+        holder.communityTv.setText(model.getFarmer_name());
         holder.createdAtTextView.setText(model.getOnCreate());
 
         if (model.getFarmer_photo() != null) {
             holder.peproImage.setImageURI(model.getFarmer_photo());
         } else {
-            holder.peproImage.setImageResource(R.drawable.farmer_not_found);
+            holder.peproImage.setImageResource(R.drawable.user);
         }
 
         holder.moreOptions.setOnClickListener(v -> showMoreDialog(position, model));
@@ -110,15 +111,16 @@ public class InspectionAdapter extends RecyclerView.Adapter<InspectionAdapter.In
     }
 
     public static class InspectionViewHolder extends RecyclerView.ViewHolder {
-        public TextView nameTextView, districtTextView, communityTextView, createdAtTextView;
+        public TextView farmerIDTv, farmerNameTv, districtTv, communityTv, createdAtTextView;
         public ImageView peproImage;
         ImageButton moreOptions;
 
         public InspectionViewHolder(@NonNull View itemView) {
             super(itemView);
-            nameTextView = itemView.findViewById(R.id.nameTextView);
-            districtTextView = itemView.findViewById(R.id.districtTextView);
-            communityTextView = itemView.findViewById(R.id.communityTextView);
+            farmerIDTv = itemView.findViewById(R.id.farmerIDTv);
+            farmerNameTv = itemView.findViewById(R.id.farmerNameTv);
+            districtTv = itemView.findViewById(R.id.districtTv);
+            communityTv = itemView.findViewById(R.id.communityTv);
             peproImage = itemView.findViewById(R.id.photoTextView);
             createdAtTextView = itemView.findViewById(R.id.createdAtTextView);
             moreOptions = itemView.findViewById(R.id.peMoreBtn);

@@ -87,16 +87,14 @@ public class TrainingActivity extends AppCompatActivity {
             }
             @Override
             public void onPageFinished(WebView view, String url) {
-                TrainingProgressBar.setVisibility(View.GONE);
-                Intent intent = getIntent();
-                String training_code = intent.getStringExtra("training_code");
-                if (training_code != null && !training_code.isEmpty()) {
-                    TrainingWebView.evaluateJavascript("settraining_code('" + escapeJs(training_code) + "');", null);
-                } else {
-                    String uniqueCode = generateUniqueCode();
-                    TrainingWebView.evaluateJavascript("settraining_code('" + escapeJs(uniqueCode) + "');", null);
-                }
+                TrainingProgressBar.setVisibility(View.GONE); // Hide progress bar when page finishes
+                Log.d("WebView", "Page finished loading: " + url);
+
+                // Your JavaScript execution for unique code and "GHA-"
+                String uniqueCode = generateUniqueCode();
+                TrainingWebView.evaluateJavascript("setTraining_code('" + uniqueCode + "');", null);
             }
+
             @Override
             public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
                 TrainingProgressBar.setVisibility(View.GONE);
@@ -178,11 +176,11 @@ public class TrainingActivity extends AppCompatActivity {
         public void insertOrUpdateTraining(String training_code, String district, String community, 
                                            String training_question1, String training_question2, String training_question3,
                                            String training_question4, String training_question5, String training_question6,
-                                           String training_question7, String training_question8, String training_question9,
-                                           String training_question10, String training_question11, String training_question12,
-                                           String training_question13, String training_question14, String training_question15,
-                                           String training_question16, String training_location, String farmer_photo,
-                                           String signature, String is_sync, String is_draft) {
+                                           String training_question7, String training_location, String farmer_photo, String signature,
+                                           String training_question8, String training_question9, String training_question10,
+                                           String training_question11, String training_question12, String training_question13,
+                                           String training_question14, String training_question15,
+                                           String is_sync, String is_draft) {
 
             Log.d("WebAppInterface", "--- insertOrUpdateTraining CALLED ---");
             Log.d("WebAppInterface", "Raw input Q1: " + training_question1 + ", Q2: " + training_question2);
@@ -200,6 +198,9 @@ public class TrainingActivity extends AppCompatActivity {
             training_question5 = isNull(training_question5);
             training_question6 = isNull(training_question6);
             training_question7 = isNull(training_question7);
+            training_location = isNull(training_location);
+            farmer_photo = isNull(farmer_photo);
+            signature = isNull(signature);
             training_question8 = isNull(training_question8);
             training_question9 = isNull(training_question9);
             training_question10 = isNull(training_question10);
@@ -208,10 +209,6 @@ public class TrainingActivity extends AppCompatActivity {
             training_question13 = isNull(training_question13);
             training_question14 = isNull(training_question14);
             training_question15 = isNull(training_question15);
-            training_question16 = isNull(training_question16);
-            training_location = isNull(training_location);
-            farmer_photo = isNull(farmer_photo);
-            signature = isNull(signature);
             is_sync = "0";
 
             Log.d("WebAppInterface", "After isNull: training_code: " + training_code + ", Q1: " + training_question1);
@@ -227,17 +224,16 @@ public class TrainingActivity extends AppCompatActivity {
                         TextUtils.isEmpty(training_question3) ||
                         TextUtils.isEmpty(training_question4) ||
                         TextUtils.isEmpty(training_question5) ||
-                        TextUtils.isEmpty(training_question6) ||
-                        TextUtils.isEmpty(training_question7) ||
-                        TextUtils.isEmpty(training_question8) ||
-                        TextUtils.isEmpty(training_question9) ||
-                        TextUtils.isEmpty(training_question10) ||
-                        TextUtils.isEmpty(training_question11) ||
-                        TextUtils.isEmpty(training_question12) ||
-                        TextUtils.isEmpty(training_question13) ||
-                        TextUtils.isEmpty(training_question14) ||
-                        TextUtils.isEmpty(training_question15) ||
-                        TextUtils.isEmpty(training_question16)) {
+//                        TextUtils.isEmpty(training_question6) ||
+//                        TextUtils.isEmpty(training_question7) ||
+//                        TextUtils.isEmpty(training_question8) ||
+//                        TextUtils.isEmpty(training_question9) ||
+//                        TextUtils.isEmpty(training_question10) ||
+//                        TextUtils.isEmpty(training_question11) ||
+//                        TextUtils.isEmpty(training_question12) ||
+//                        TextUtils.isEmpty(training_question13) ||
+//                        TextUtils.isEmpty(training_question14) ||
+                        TextUtils.isEmpty(training_question7)) {
 
                     Log.e("WebAppInterface", "Validation FAILED: Required fields are empty for non-draft save.");
                     runOnUiThread(() ->
@@ -267,9 +263,9 @@ public class TrainingActivity extends AppCompatActivity {
             boolean success = dbHelper.insertOrUpdateTraining(
                     training_code, district, community, training_question1, training_question2,
                     training_question3, training_question4, training_question5, training_question6,
-                    training_question7, training_question8, training_question9, training_question10,
-                    training_question11, training_question12, training_question13, training_question14,
-                    training_question15, training_question16, training_location, farmer_photo,
+                    training_question7, training_location, farmer_photo, training_question8,
+                    training_question9, training_question10, training_question11, training_question12,
+                    training_question13, training_question14, training_question15,
                     signature, is_sync, is_draft, userFname, userLname, userEmail, onCreate, onUpdate
             );
 

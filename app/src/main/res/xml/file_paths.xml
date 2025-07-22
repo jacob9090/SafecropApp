@@ -14,6 +14,10 @@
     <files-path name="inspectionsign_photos" path="InspectionSignPhoto/" />
     <external-files-path name="external_inspectionphoto" path="Pictures/InspectionPhoto/" />
 
+    <files-path name="training_photos" path="TrainingPhoto/" />
+    <files-path name="trainingsign_photos" path="TrainingSignPhoto/" />
+    <external-files-path name="external_trainingphoto" path="Pictures/TrainingPhoto/" />
+
     <files-path name="com_photos" path="ComPhoto/" />
     <files-path name="comsign_photos" path="ComSignPhoto/" />
     <external-files-path name="external_comphoto" path="Pictures/ComPhoto/" />

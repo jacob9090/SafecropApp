@@ -375,6 +375,8 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
                                             String inspection_location, String farmer_photo, String signatureBase64, String is_sync, String is_draft, String userFname,
                                             String userLname, String user_email, String onCreate, String onUpdate) {
 
+        Log.d("DB-INSERT", "Insert/Update called. farmer_id: " + farmer_id + " | district: " + district + " | is_draft: " + is_draft);
+
         String signaturePath = null;
         if (signatureBase64 != null && signatureBase64.startsWith("data:image")) {
             try {
@@ -535,6 +537,10 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
         values.put(COLUMN_USER_LNAME, userLname);
         values.put(COLUMN_USER_EMAIL, user_email);
         values.put(COLUMN_ON_UPDATE, onUpdate);
+
+        Log.d("DB-INSERT", "Prepared for DB. farmer_id: " + values.getAsString(COLUMN_FARMER_ID)
+                + " | district: " + values.getAsString(COLUMN_DISTRICT)
+                + " | is_draft: " + is_draft);
 
         // Check if record exists (by farmer_id)
         Cursor cursor = db.query(TABLE_NAME, null, COLUMN_FARMER_ID + "=?", new String[]{farmer_id}, null, null, null);
@@ -813,11 +819,6 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
         return currentSignature;
     }
 
-
-
-
-
-
     public Cursor getInspectopnSurveyData() {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
@@ -977,6 +978,8 @@ public class InspectionDbHelper extends SQLiteOpenHelper {
                 String user_email = cursor.getString(cursor.getColumnIndexOrThrow("user_email"));
                 String onCreate = cursor.getString(cursor.getColumnIndexOrThrow("on_create"));
                 String onUpdate = cursor.getString(cursor.getColumnIndexOrThrow("on_update"));
+
+                Log.d("DB-READ", "Read from DB. farmer_id: " + farmer_id + " | district: " + district);
 
                 InspectionModel model = new InspectionModel(
                         id, farmer_id, farmer_name, district, community, ghana_card, farmer_yob, farmer_phone,

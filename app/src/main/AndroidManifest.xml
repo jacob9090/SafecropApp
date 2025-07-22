@@ -39,13 +39,10 @@
         android:theme="@style/Theme.FEDCOINTERNALINSPECTION"
         tools:targetApi="31">
         <activity
-            android:name=".sustain.profiling.SusProfilingListFarmersActivity"
+            android:name=".sustain.profiling.GetSusProfilingLocationActivity"
             android:exported="false" />
         <activity
             android:name=".sustain.profiling.UpdateProfilingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".sustain.profiling.SusProfilingDoneActivity"
             android:exported="false" />
         <activity
             android:name=".sustain.profiling.SusProfilingDetailsActivity"
@@ -79,9 +76,6 @@
             android:exported="false" />
         <activity
             android:name=".sustain.training.TrainingDoneActivity"
-            android:exported="false" />
-        <activity
-            android:name=".sustain.training.TrainingAdapter"
             android:exported="false" />
         <activity
             android:name=".sustain.training.TrainingActivity"

@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.util.Base64;
 import android.util.Log;
 
@@ -24,37 +25,45 @@ public class SusProfilingDbHelper extends SQLiteOpenHelper {
 
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_FARMER_ID = "farmer_id";
-    private static final String COLUMN_FARMER_NAME = "farmer_name";
-    private static final String COLUMN_FARMER_GENDER = "farmer_gender";
     private static final String COLUMN_DISTRICT = "district";
     private static final String COLUMN_COMMUNITY = "community";
-    private static final String COLUMN_FARMER_DOB = "farmer_dob";
-    private static final String COLUMN_GHANA_CARD = "ghana_card";
     private static final String COLUMN_SUSPRO_QUESTION1 = "suspro_question1";
     private static final String COLUMN_SUSPRO_QUESTION2 = "suspro_question2";
     private static final String COLUMN_SUSPRO_QUESTION3 = "suspro_question3";
     private static final String COLUMN_SUSPRO_QUESTION4 = "suspro_question4";
+    private static final String COLUMN_SUSPRO_QUESTION4B = "suspro_question4b";
+    private static final String COLUMN_SUSPRO_QUESTION4C = "suspro_question4c";
     private static final String COLUMN_SUSPRO_QUESTION5 = "suspro_question5";
     private static final String COLUMN_SUSPRO_QUESTION6 = "suspro_question6";
     private static final String COLUMN_SUSPRO_QUESTION7 = "suspro_question7";
+    private static final String COLUMN_SUSPRO_QUESTION7B = "suspro_question7b";
     private static final String COLUMN_SUSPRO_QUESTION8 = "suspro_question8";
+    private static final String COLUMN_SUSPRO_QUESTION8B = "suspro_question8b";
     private static final String COLUMN_SUSPRO_QUESTION9 = "suspro_question9";
     private static final String COLUMN_SUSPRO_QUESTION10 = "suspro_question10";
     private static final String COLUMN_SUSPRO_QUESTION11 = "suspro_question11";
+    private static final String COLUMN_SUSPRO_QUESTION11B = "suspro_question11b";
+    private static final String COLUMN_SUSPRO_QUESTION11C = "suspro_question11c";
     private static final String COLUMN_SUSPRO_QUESTION12 = "suspro_question12";
+    private static final String COLUMN_SUSPRO_QUESTION12B = "suspro_question12b";
     private static final String COLUMN_SUSPRO_QUESTION13 = "suspro_question13";
     private static final String COLUMN_SUSPRO_QUESTION14 = "suspro_question14";
+    private static final String COLUMN_SUSPRO_QUESTION14B = "suspro_question14b";
+    private static final String COLUMN_SUSPRO_QUESTION14C = "suspro_question14c";
+    private static final String COLUMN_SUSPRO_QUESTION14D = "suspro_question14d";
     private static final String COLUMN_SUSPRO_QUESTION15 = "suspro_question15";
+    private static final String COLUMN_SUSPRO_QUESTION15B = "suspro_question15b";
     private static final String COLUMN_SUSPRO_QUESTION16 = "suspro_question16";
+    private static final String COLUMN_SUSPRO_QUESTION16B = "suspro_question16b";
     private static final String COLUMN_SUSPRO_QUESTION17 = "suspro_question17";
+    private static final String COLUMN_SUSPRO_QUESTION17B = "suspro_question17b";
+    private static final String COLUMN_SUSPRO_QUESTION17C = "suspro_question17c";
     private static final String COLUMN_SUSPRO_QUESTION18 = "suspro_question18";
     private static final String COLUMN_SUSPRO_QUESTION19 = "suspro_question19";
     private static final String COLUMN_SUSPRO_QUESTION20 = "suspro_question20";
     private static final String COLUMN_SUSPRO_QUESTION21 = "suspro_question21";
-    private static final String COLUMN_SUSPRO_QUESTION22 = "suspro_question22";
-    private static final String COLUMN_SUSPRO_QUESTION23 = "suspro_question23";
-    private static final String COLUMN_SUSPRO_QUESTION24 = "suspro_question24";
-    private static final String COLUMN_SUSPRO_QUESTION25 = "suspro_question25";
+    private static final String COLUMN_SUSPRO_LOCATION = "suspro_location";
+    private static final String COLUMN_FARMER_PHOTO = "farmer_photo";
     private static final String COLUMN_SIGNATURE = "signature";
     private static final String COLUMN_IS_SYNC = "is_sync";
     private static final String COLUMN_IS_DRAFT = "is_draft";
@@ -76,37 +85,45 @@ public class SusProfilingDbHelper extends SQLiteOpenHelper {
         String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " ("
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + COLUMN_FARMER_ID + " TEXT UNIQUE,"
-                + COLUMN_FARMER_NAME + " TEXT,"
-                + COLUMN_FARMER_GENDER + " TEXT,"
                 + COLUMN_DISTRICT + " TEXT,"
                 + COLUMN_COMMUNITY + " TEXT,"
-                + COLUMN_FARMER_DOB + " TEXT,"
-                + COLUMN_GHANA_CARD + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION1 + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION2 + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION3 + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION4 + " TEXT,"
+                + COLUMN_SUSPRO_QUESTION4B + " TEXT,"
+                + COLUMN_SUSPRO_QUESTION4C + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION5 + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION6 + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION7 + " TEXT,"
+                + COLUMN_SUSPRO_QUESTION7B + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION8 + " TEXT,"
+                + COLUMN_SUSPRO_QUESTION8B + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION9 + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION10 + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION11 + " TEXT,"
+                + COLUMN_SUSPRO_QUESTION11B + " TEXT,"
+                + COLUMN_SUSPRO_QUESTION11C + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION12 + " TEXT,"
+                + COLUMN_SUSPRO_QUESTION12B + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION13 + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION14 + " TEXT,"
+                + COLUMN_SUSPRO_QUESTION14B + " TEXT,"
+                + COLUMN_SUSPRO_QUESTION14C + " TEXT,"
+                + COLUMN_SUSPRO_QUESTION14D + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION15 + " TEXT,"
+                + COLUMN_SUSPRO_QUESTION15B + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION16 + " TEXT,"
+                + COLUMN_SUSPRO_QUESTION16B + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION17 + " TEXT,"
+                + COLUMN_SUSPRO_QUESTION17B + " TEXT,"
+                + COLUMN_SUSPRO_QUESTION17C + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION18 + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION19 + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION20 + " TEXT,"
                 + COLUMN_SUSPRO_QUESTION21 + " TEXT,"
-                + COLUMN_SUSPRO_QUESTION22 + " TEXT,"
-                + COLUMN_SUSPRO_QUESTION23 + " TEXT,"
-                + COLUMN_SUSPRO_QUESTION24 + " TEXT,"
-                + COLUMN_SUSPRO_QUESTION25 + " TEXT,"
+                + COLUMN_SUSPRO_LOCATION + " TEXT,"
+                + COLUMN_FARMER_PHOTO + " TEXT,"
                 + COLUMN_SIGNATURE + " TEXT,"
                 + COLUMN_IS_SYNC + " INTEGER DEFAULT 0,"
                 + COLUMN_IS_DRAFT + " INTEGER DEFAULT 0,"
@@ -125,16 +142,21 @@ public class SusProfilingDbHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertOrUpdateSusProfiling(String farmer_id, String farmer_name, String farmer_gender, String district, String community,
-                                              String farmer_dob, String ghana_card, String suspro_question1, String suspro_question2, 
-                                              String suspro_question3, String suspro_question4, String suspro_question5, String suspro_question6, 
-                                              String suspro_question7, String suspro_question8, String suspro_question9, String suspro_question10,
-                                              String suspro_question11, String suspro_question12, String suspro_question13, String suspro_question14,
-                                              String suspro_question15, String suspro_question16, String suspro_question17, String suspro_question18,
-                                              String suspro_question19, String suspro_question20, String suspro_question21, String suspro_question22,
-                                              String suspro_question23, String suspro_question24, String suspro_question25, String signatureBase64, 
-                                              String is_sync, String is_draft, String userFname, String userLname, String user_email, String onCreate, 
-                                              String onUpdate) {
+    public boolean insertOrUpdateSusProfiling(String farmer_id, String district, String community, String suspro_question1,
+                                              String suspro_question2, String suspro_question3, String suspro_question4,
+                                              String suspro_question4b, String suspro_question4c, String suspro_question5,
+                                              String suspro_question6, String suspro_question7, String suspro_question7b,
+                                              String suspro_question8, String suspro_question8b, String suspro_question9,
+                                              String suspro_question10, String suspro_question11, String suspro_question11b,
+                                              String suspro_question11c, String suspro_question12, String suspro_question12b,
+                                              String suspro_question13, String suspro_question14, String suspro_question14b,
+                                              String suspro_question14c, String suspro_question14d, String suspro_question15,
+                                              String suspro_question15b, String suspro_question16, String suspro_question16b,
+                                              String suspro_question17, String suspro_question17b, String suspro_question17c,
+                                              String suspro_question18, String suspro_question19, String suspro_question20,
+                                              String suspro_question21, String suspro_location, String farmer_photo,
+                                              String signatureBase64, String is_sync, String is_draft, String userFname,
+                                              String userLname, String user_email, String onCreate, String onUpdate) {
 
         String signaturePath = null;
         if (signatureBase64 != null && signatureBase64.startsWith("data:image")) {
@@ -152,37 +174,45 @@ public class SusProfilingDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_FARMER_ID, farmer_id);
-        values.put(COLUMN_FARMER_NAME, farmer_name);
-        values.put(COLUMN_FARMER_GENDER, farmer_gender);
         values.put(COLUMN_DISTRICT, district);
         values.put(COLUMN_COMMUNITY, community);
-        values.put(COLUMN_FARMER_DOB, farmer_dob);
-        values.put(COLUMN_GHANA_CARD, ghana_card);
         values.put(COLUMN_SUSPRO_QUESTION1, suspro_question1);
         values.put(COLUMN_SUSPRO_QUESTION2, suspro_question2);
         values.put(COLUMN_SUSPRO_QUESTION3, suspro_question3);
         values.put(COLUMN_SUSPRO_QUESTION4, suspro_question4);
+        values.put(COLUMN_SUSPRO_QUESTION4B, suspro_question4b);
+        values.put(COLUMN_SUSPRO_QUESTION4C, suspro_question4c);
         values.put(COLUMN_SUSPRO_QUESTION5, suspro_question5);
         values.put(COLUMN_SUSPRO_QUESTION6, suspro_question6);
         values.put(COLUMN_SUSPRO_QUESTION7, suspro_question7);
+        values.put(COLUMN_SUSPRO_QUESTION7B, suspro_question7b);
         values.put(COLUMN_SUSPRO_QUESTION8, suspro_question8);
+        values.put(COLUMN_SUSPRO_QUESTION8B, suspro_question8b);
         values.put(COLUMN_SUSPRO_QUESTION9, suspro_question9);
         values.put(COLUMN_SUSPRO_QUESTION10, suspro_question10);
         values.put(COLUMN_SUSPRO_QUESTION11, suspro_question11);
+        values.put(COLUMN_SUSPRO_QUESTION11B, suspro_question11b);
+        values.put(COLUMN_SUSPRO_QUESTION11C, suspro_question11c);
         values.put(COLUMN_SUSPRO_QUESTION12, suspro_question12);
+        values.put(COLUMN_SUSPRO_QUESTION12B, suspro_question12b);
         values.put(COLUMN_SUSPRO_QUESTION13, suspro_question13);
         values.put(COLUMN_SUSPRO_QUESTION14, suspro_question14);
+        values.put(COLUMN_SUSPRO_QUESTION14B, suspro_question14b);
+        values.put(COLUMN_SUSPRO_QUESTION14C, suspro_question14c);
+        values.put(COLUMN_SUSPRO_QUESTION14D, suspro_question14d);
         values.put(COLUMN_SUSPRO_QUESTION15, suspro_question15);
+        values.put(COLUMN_SUSPRO_QUESTION15B, suspro_question15b);
         values.put(COLUMN_SUSPRO_QUESTION16, suspro_question16);
+        values.put(COLUMN_SUSPRO_QUESTION16B, suspro_question16b);
         values.put(COLUMN_SUSPRO_QUESTION17, suspro_question17);
+        values.put(COLUMN_SUSPRO_QUESTION17B, suspro_question17b);
+        values.put(COLUMN_SUSPRO_QUESTION17C, suspro_question17c);
         values.put(COLUMN_SUSPRO_QUESTION18, suspro_question18);
         values.put(COLUMN_SUSPRO_QUESTION19, suspro_question19);
         values.put(COLUMN_SUSPRO_QUESTION20, suspro_question20);
         values.put(COLUMN_SUSPRO_QUESTION21, suspro_question21);
-        values.put(COLUMN_SUSPRO_QUESTION22, suspro_question22);
-        values.put(COLUMN_SUSPRO_QUESTION23, suspro_question23);
-        values.put(COLUMN_SUSPRO_QUESTION24, suspro_question24);
-        values.put(COLUMN_SUSPRO_QUESTION25, suspro_question25);
+        values.put(COLUMN_SUSPRO_LOCATION, suspro_location);
+        values.put(COLUMN_FARMER_PHOTO, farmer_photo);
         values.put(COLUMN_SIGNATURE, signaturePath);
         values.put(COLUMN_IS_SYNC, is_sync);
         values.put(COLUMN_IS_DRAFT, is_draft);
@@ -234,7 +264,7 @@ public class SusProfilingDbHelper extends SQLiteOpenHelper {
                 throw new IOException("Failed to create parent directory");
             }
 
-            // Create profiling-signature" directory
+            // Create susprofiling-signature" directory
             File directory = new File(parentDirectory, "susprofiling-signature");
             if (!directory.exists() && !directory.mkdirs()) {
                 throw new IOException("Failed to create susprofiling directory");
@@ -253,48 +283,62 @@ public class SusProfilingDbHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean updateSusProfiling(String id, String farmer_id, String farmer_name, String farmer_gender, String district, String community,
-                                    String farmer_dob, String ghana_card, String suspro_question1, String suspro_question2, String suspro_question3,
-                                    String suspro_question4, String suspro_question5, String suspro_question6, String suspro_question7,
-                                    String suspro_question8, String suspro_question9, String suspro_question10, String suspro_question11,
-                                    String suspro_question12, String suspro_question13, String suspro_question14, String suspro_question15,
-                                    String suspro_question16, String suspro_question17, String suspro_question18, String suspro_question19,
-                                    String suspro_question20, String suspro_question21, String suspro_question22, String suspro_question23,
-                                    String suspro_question24, String suspro_question25, String signature, String is_sync, String is_draft) {
+    public boolean updateSusProfiling(String id, String farmer_id, String district, String community,
+                                      String suspro_question1, String suspro_question2, String suspro_question3,
+                                      String suspro_question4, String suspro_question4b, String suspro_question4c,
+                                      String suspro_question5, String suspro_question6, String suspro_question7,
+                                      String suspro_question7b, String suspro_question8, String suspro_question8b,
+                                      String suspro_question9, String suspro_question10, String suspro_question11,
+                                      String suspro_question11b, String suspro_question11c, String suspro_question12,
+                                      String suspro_question12b, String suspro_question13, String suspro_question14,
+                                      String suspro_question14b, String suspro_question14c, String suspro_question14d,
+                                      String suspro_question15, String suspro_question15b, String suspro_question16,
+                                      String suspro_question16b, String suspro_question17, String suspro_question17b,
+                                      String suspro_question17c, String suspro_question18, String suspro_question19,
+                                      String suspro_question20, String suspro_question21, String suspro_location,
+                                      String farmer_photo, String signature, String is_sync, String is_draft) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_FARMER_ID, farmer_id);
-        values.put(COLUMN_FARMER_NAME, farmer_name);
-        values.put(COLUMN_FARMER_GENDER, farmer_gender);
         values.put(COLUMN_DISTRICT, district);
         values.put(COLUMN_COMMUNITY, community);
-        values.put(COLUMN_FARMER_DOB, farmer_dob);
-        values.put(COLUMN_GHANA_CARD, ghana_card);
         values.put(COLUMN_SUSPRO_QUESTION1, suspro_question1);
         values.put(COLUMN_SUSPRO_QUESTION2, suspro_question2);
         values.put(COLUMN_SUSPRO_QUESTION3, suspro_question3);
         values.put(COLUMN_SUSPRO_QUESTION4, suspro_question4);
+        values.put(COLUMN_SUSPRO_QUESTION4B, suspro_question4b);
+        values.put(COLUMN_SUSPRO_QUESTION4C, suspro_question4c);
         values.put(COLUMN_SUSPRO_QUESTION5, suspro_question5);
         values.put(COLUMN_SUSPRO_QUESTION6, suspro_question6);
         values.put(COLUMN_SUSPRO_QUESTION7, suspro_question7);
+        values.put(COLUMN_SUSPRO_QUESTION7B, suspro_question7b);
         values.put(COLUMN_SUSPRO_QUESTION8, suspro_question8);
+        values.put(COLUMN_SUSPRO_QUESTION8B, suspro_question8b);
         values.put(COLUMN_SUSPRO_QUESTION9, suspro_question9);
         values.put(COLUMN_SUSPRO_QUESTION10, suspro_question10);
         values.put(COLUMN_SUSPRO_QUESTION11, suspro_question11);
+        values.put(COLUMN_SUSPRO_QUESTION11B, suspro_question11b);
+        values.put(COLUMN_SUSPRO_QUESTION11C, suspro_question11c);
         values.put(COLUMN_SUSPRO_QUESTION12, suspro_question12);
+        values.put(COLUMN_SUSPRO_QUESTION12B, suspro_question12b);
         values.put(COLUMN_SUSPRO_QUESTION13, suspro_question13);
         values.put(COLUMN_SUSPRO_QUESTION14, suspro_question14);
+        values.put(COLUMN_SUSPRO_QUESTION14B, suspro_question14b);
+        values.put(COLUMN_SUSPRO_QUESTION14C, suspro_question14c);
+        values.put(COLUMN_SUSPRO_QUESTION14D, suspro_question14d);
         values.put(COLUMN_SUSPRO_QUESTION15, suspro_question15);
+        values.put(COLUMN_SUSPRO_QUESTION15B, suspro_question15b);
         values.put(COLUMN_SUSPRO_QUESTION16, suspro_question16);
+        values.put(COLUMN_SUSPRO_QUESTION16B, suspro_question16b);
         values.put(COLUMN_SUSPRO_QUESTION17, suspro_question17);
+        values.put(COLUMN_SUSPRO_QUESTION17B, suspro_question17b);
+        values.put(COLUMN_SUSPRO_QUESTION17C, suspro_question17c);
         values.put(COLUMN_SUSPRO_QUESTION18, suspro_question18);
         values.put(COLUMN_SUSPRO_QUESTION19, suspro_question19);
         values.put(COLUMN_SUSPRO_QUESTION20, suspro_question20);
         values.put(COLUMN_SUSPRO_QUESTION21, suspro_question21);
-        values.put(COLUMN_SUSPRO_QUESTION22, suspro_question22);
-        values.put(COLUMN_SUSPRO_QUESTION23, suspro_question23);
-        values.put(COLUMN_SUSPRO_QUESTION24, suspro_question24);
-        values.put(COLUMN_SUSPRO_QUESTION25, suspro_question25);
+        values.put(COLUMN_SUSPRO_LOCATION, suspro_location);
+        values.put(COLUMN_FARMER_PHOTO, farmer_photo);
         values.put(COLUMN_IS_SYNC, is_sync);
         values.put(COLUMN_IS_DRAFT, is_draft);
         values.put(COLUMN_ON_UPDATE, System.currentTimeMillis());
@@ -334,7 +378,7 @@ public class SusProfilingDbHelper extends SQLiteOpenHelper {
         }
         return currentSignature;
     }
-
+    
     public Cursor getSusProfilingSurveyData() {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
@@ -349,37 +393,45 @@ public class SusProfilingDbHelper extends SQLiteOpenHelper {
             do {
                 int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
                 String farmer_id = cursor.getString(cursor.getColumnIndexOrThrow("farmer_id"));
-                String farmer_name = cursor.getString(cursor.getColumnIndexOrThrow("farmer_name"));
-                String farmer_gender = cursor.getString(cursor.getColumnIndexOrThrow("farmer_gender"));
                 String district = cursor.getString(cursor.getColumnIndexOrThrow("district"));
                 String community = cursor.getString(cursor.getColumnIndexOrThrow("community"));
-                String farmer_dob = cursor.getString(cursor.getColumnIndexOrThrow("farmer_dob"));
-                String ghana_card = cursor.getString(cursor.getColumnIndexOrThrow("ghana_card"));
                 String suspro_question1 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question1"));
                 String suspro_question2 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question2"));
                 String suspro_question3 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question3"));
                 String suspro_question4 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question4"));
+                String suspro_question4b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question4b"));
+                String suspro_question4c = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question4c"));
                 String suspro_question5 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question5"));
                 String suspro_question6 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question6"));
                 String suspro_question7 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question7"));
+                String suspro_question7b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question7b"));
                 String suspro_question8 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question8"));
+                String suspro_question8b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question8b"));
                 String suspro_question9 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question9"));
                 String suspro_question10 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question10"));
                 String suspro_question11 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question11"));
+                String suspro_question11b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question11b"));
+                String suspro_question11c = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question11c"));
                 String suspro_question12 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question12"));
+                String suspro_question12b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question12b"));
                 String suspro_question13 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question13"));
                 String suspro_question14 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question14"));
+                String suspro_question14b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question14b"));
+                String suspro_question14c = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question14c"));
+                String suspro_question14d = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question14d"));
                 String suspro_question15 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question15"));
+                String suspro_question15b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question15b"));
                 String suspro_question16 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question16"));
+                String suspro_question16b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question16b"));
                 String suspro_question17 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question17"));
+                String suspro_question17b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question17b"));
+                String suspro_question17c = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question17c"));
                 String suspro_question18 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question18"));
                 String suspro_question19 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question19"));
                 String suspro_question20 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question20"));
                 String suspro_question21 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question21"));
-                String suspro_question22 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question22"));
-                String suspro_question23 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question23"));
-                String suspro_question24 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question24"));
-                String suspro_question25 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question25"));
+                String suspro_location = cursor.getString(cursor.getColumnIndexOrThrow("suspro_location"));
+                String farmer_photo = cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo"));
                 String signature = cursor.getString(cursor.getColumnIndexOrThrow("signature"));
                 String is_sync = cursor.getString(cursor.getColumnIndexOrThrow("is_sync"));
                 String is_draft = cursor.getString(cursor.getColumnIndexOrThrow("is_draft"));
@@ -389,14 +441,16 @@ public class SusProfilingDbHelper extends SQLiteOpenHelper {
                 String onCreate = cursor.getString(cursor.getColumnIndexOrThrow("on_create"));
                 String onUpdate = cursor.getString(cursor.getColumnIndexOrThrow("on_update"));
 
-                SusProfilingModel model = new SusProfilingModel( id, farmer_id, farmer_name, farmer_gender,
-                        district, community, farmer_dob, ghana_card, suspro_question1, suspro_question2,
-                        suspro_question3, suspro_question4, suspro_question5, suspro_question6, suspro_question7,
-                        suspro_question8, suspro_question9, suspro_question10, suspro_question11, suspro_question12,
-                        suspro_question13, suspro_question14, suspro_question15, suspro_question16, suspro_question17,
-                        suspro_question18, suspro_question19, suspro_question20, suspro_question21, suspro_question22,
-                        suspro_question23, suspro_question24, suspro_question25, signature, is_sync, is_draft,
-                        userFname, userLname, user_email, onCreate, onUpdate
+                SusProfilingModel model = new SusProfilingModel(
+                        id, farmer_id, district, community, suspro_question1, suspro_question2, suspro_question3,
+                        suspro_question4, suspro_question4b, suspro_question4c, suspro_question5, suspro_question6,
+                        suspro_question7, suspro_question7b, suspro_question8, suspro_question8b, suspro_question9,
+                        suspro_question10, suspro_question11, suspro_question11b, suspro_question11c, suspro_question12,
+                        suspro_question12b, suspro_question13, suspro_question14, suspro_question14b, suspro_question14c,
+                        suspro_question14d, suspro_question15, suspro_question15b, suspro_question16, suspro_question16b,
+                        suspro_question17, suspro_question17b, suspro_question17c, suspro_question18, suspro_question19,
+                        suspro_question20, suspro_question21, suspro_location, farmer_photo != null ? Uri.parse(farmer_photo) : null,
+                        signature, is_sync, is_draft, userFname, userLname, user_email, onCreate, onUpdate
                 );
 
                 surveyList.add(model);
@@ -423,37 +477,47 @@ public class SusProfilingDbHelper extends SQLiteOpenHelper {
 
         if (cursor != null && cursor.moveToFirst()) {
             int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
-            String farmer_name = cursor.getString(cursor.getColumnIndexOrThrow("farmer_name"));
-            String farmer_gender = cursor.getString(cursor.getColumnIndexOrThrow("farmer_gender"));
             String district = cursor.getString(cursor.getColumnIndexOrThrow("district"));
             String community = cursor.getString(cursor.getColumnIndexOrThrow("community"));
-            String farmer_dob = cursor.getString(cursor.getColumnIndexOrThrow("farmer_dob"));
-            String ghana_card = cursor.getString(cursor.getColumnIndexOrThrow("ghana_card"));
             String suspro_question1 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question1"));
             String suspro_question2 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question2"));
             String suspro_question3 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question3"));
             String suspro_question4 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question4"));
+            String suspro_question4b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question4b"));
+            String suspro_question4c = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question4c"));
             String suspro_question5 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question5"));
             String suspro_question6 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question6"));
             String suspro_question7 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question7"));
+            String suspro_question7b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question7b"));
             String suspro_question8 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question8"));
+            String suspro_question8b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question8b"));
             String suspro_question9 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question9"));
             String suspro_question10 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question10"));
             String suspro_question11 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question11"));
+            String suspro_question11b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question11b"));
+            String suspro_question11c = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question11c"));
             String suspro_question12 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question12"));
+            String suspro_question12b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question12b"));
             String suspro_question13 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question13"));
             String suspro_question14 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question14"));
+            String suspro_question14b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question14b"));
+            String suspro_question14c = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question14c"));
+            String suspro_question14d = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question14d"));
             String suspro_question15 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question15"));
+            String suspro_question15b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question15b"));
             String suspro_question16 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question16"));
+            String suspro_question16b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question16b"));
             String suspro_question17 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question17"));
+            String suspro_question17b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question17b"));
+            String suspro_question17c = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question17c"));
             String suspro_question18 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question18"));
             String suspro_question19 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question19"));
             String suspro_question20 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question20"));
             String suspro_question21 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question21"));
-            String suspro_question22 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question22"));
-            String suspro_question23 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question23"));
-            String suspro_question24 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question24"));
-            String suspro_question25 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question25"));
+            String suspro_location = cursor.getString(cursor.getColumnIndexOrThrow("suspro_location"));
+            Uri farmer_photo = cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo")) != null
+                    ? Uri.parse(cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo")))
+                    : null;
             String signature = cursor.getString(cursor.getColumnIndexOrThrow("signature"));
             String is_sync = cursor.getString(cursor.getColumnIndexOrThrow("is_sync"));
             String is_draft = cursor.getString(cursor.getColumnIndexOrThrow("is_draft"));
@@ -463,12 +527,15 @@ public class SusProfilingDbHelper extends SQLiteOpenHelper {
             String on_create = cursor.getString(cursor.getColumnIndexOrThrow("on_create"));
             String on_update = cursor.getString(cursor.getColumnIndexOrThrow("on_update"));
 
-            susProfilingModel = new SusProfilingModel(id, farmer_id, farmer_name, farmer_gender, district, community, farmer_dob, ghana_card,
-                    suspro_question1, suspro_question2, suspro_question3, suspro_question4, suspro_question5, suspro_question6, suspro_question7,
-                    suspro_question8, suspro_question9, suspro_question10, suspro_question11, suspro_question12, suspro_question13, suspro_question14,
-                    suspro_question15, suspro_question16, suspro_question17, suspro_question18, suspro_question19, suspro_question20, suspro_question21,
-                    suspro_question22, suspro_question23, suspro_question24, suspro_question25, signature, is_sync, is_draft, userFname, userLname, 
-                    user_email, on_create, on_update);
+            susProfilingModel = new SusProfilingModel(id, farmer_id, district, community, suspro_question1,
+                    suspro_question2, suspro_question3, suspro_question4, suspro_question4b, suspro_question4c,
+                    suspro_question5, suspro_question6, suspro_question7, suspro_question7b, suspro_question8,
+                    suspro_question8b, suspro_question9, suspro_question10, suspro_question11, suspro_question11b,
+                    suspro_question11c, suspro_question12, suspro_question12b, suspro_question13, suspro_question14,
+                    suspro_question14b, suspro_question14c, suspro_question14d, suspro_question15, suspro_question15b,
+                    suspro_question16, suspro_question16b, suspro_question17, suspro_question17b, suspro_question17c,
+                    suspro_question18, suspro_question19, suspro_question20, suspro_question21, suspro_location,
+                    farmer_photo, signature, is_sync, is_draft, userFname, userLname, user_email, on_create, on_update);
             cursor.close();
         }
         return susProfilingModel;
@@ -496,12 +563,12 @@ public class SusProfilingDbHelper extends SQLiteOpenHelper {
     }
 
     // (Optional) Mark multiple as synced in a batch
-    public void markBatchAsSynced(List<SusProfilingModel> susprofiling) {
+    public void markBatchAsSynced(List<SusProfilingModel> susprofilings) {
         SQLiteDatabase db = this.getWritableDatabase();
-        for (SusProfilingModel inspection : susprofiling) {
+        for (SusProfilingModel susprofiling : susprofilings) {
             ContentValues values = new ContentValues();
             values.put("is_sync", "1");
-            db.update("SusProfilingTbl", values, "farmer_id = ?", new String[]{inspection.getFarmer_id()});
+            db.update("SusProfilingTbl", values, "farmer_id = ?", new String[]{susprofiling.getFarmer_id()});
         }
         db.close();
     }

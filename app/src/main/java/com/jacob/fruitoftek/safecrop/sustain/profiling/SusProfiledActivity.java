@@ -1,6 +1,7 @@
 package com.jacob.fruitoftek.safecrop.sustain.profiling;
 
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -88,26 +89,24 @@ public class SusProfiledActivity extends AppCompatActivity {
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextSubmit(String query) {
-                    filterPeList(query); // Apply the search filter
+                    filterSusProfilingList(query); // Apply the search filter
                     return false;
                 }
 
                 @Override
                 public boolean onQueryTextChange(String newText) {
-                    filterPeList(newText); // Apply the search filter
+                    filterSusProfilingList(newText); // Apply the search filter
                     return false;
                 }
             });
         }
     }
 
-    private void filterPeList(String query) {
+    private void filterSusProfilingList(String query) {
         List<SusProfilingModel> filteredList = new ArrayList<>();
-        for (SusProfilingModel pen : susProfilingList) {
-            if (pen.getCommunity().toLowerCase().contains(query.toLowerCase()) ||
-                    pen.getFarmer_name().toLowerCase().contains(query.toLowerCase()) ||
-                    pen.getDistrict().toLowerCase().contains(query.toLowerCase())) {
-                filteredList.add(pen);
+        for (SusProfilingModel susprofiling : susProfilingList) {
+            if (susprofiling.getFarmer_id().toLowerCase().contains(query.toLowerCase())) {
+                filteredList.add(susprofiling);
             }
         }
 
@@ -130,37 +129,47 @@ public class SusProfiledActivity extends AppCompatActivity {
             do {
                 int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
                 String farmer_id = cursor.getString(cursor.getColumnIndexOrThrow("farmer_id"));
-                String farmer_name = cursor.getString(cursor.getColumnIndexOrThrow("farmer_name"));
-                String farmer_gender = cursor.getString(cursor.getColumnIndexOrThrow("farmer_gender"));
                 String district = cursor.getString(cursor.getColumnIndexOrThrow("district"));
                 String community = cursor.getString(cursor.getColumnIndexOrThrow("community"));
-                String farmer_dob = cursor.getString(cursor.getColumnIndexOrThrow("farmer_dob"));
-                String ghana_card = cursor.getString(cursor.getColumnIndexOrThrow("ghana_card"));
                 String suspro_question1 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question1"));
                 String suspro_question2 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question2"));
                 String suspro_question3 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question3"));
                 String suspro_question4 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question4"));
+                String suspro_question4b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question4b"));
+                String suspro_question4c = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question4c"));
                 String suspro_question5 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question5"));
                 String suspro_question6 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question6"));
                 String suspro_question7 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question7"));
+                String suspro_question7b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question7b"));
                 String suspro_question8 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question8"));
+                String suspro_question8b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question8b"));
                 String suspro_question9 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question9"));
                 String suspro_question10 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question10"));
                 String suspro_question11 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question11"));
+                String suspro_question11b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question11b"));
+                String suspro_question11c = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question11c"));
                 String suspro_question12 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question12"));
+                String suspro_question12b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question12b"));
                 String suspro_question13 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question13"));
                 String suspro_question14 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question14"));
+                String suspro_question14b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question14b"));
+                String suspro_question14c = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question14c"));
+                String suspro_question14d = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question14d"));
                 String suspro_question15 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question15"));
+                String suspro_question15b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question15b"));
                 String suspro_question16 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question16"));
+                String suspro_question16b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question16b"));
                 String suspro_question17 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question17"));
+                String suspro_question17b = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question17b"));
+                String suspro_question17c = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question17c"));
                 String suspro_question18 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question18"));
                 String suspro_question19 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question19"));
                 String suspro_question20 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question20"));
                 String suspro_question21 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question21"));
-                String suspro_question22 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question22"));
-                String suspro_question23 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question23"));
-                String suspro_question24 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question24"));
-                String suspro_question25 = cursor.getString(cursor.getColumnIndexOrThrow("suspro_question25"));
+                String suspro_location = cursor.getString(cursor.getColumnIndexOrThrow("suspro_location"));
+                Uri farmer_photo = cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo")) != null
+                        ? Uri.parse(cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo")))
+                        : null;
                 String signature = cursor.getString(cursor.getColumnIndexOrThrow("signature"));
                 String is_sync = cursor.getString(cursor.getColumnIndexOrThrow("is_sync"));
                 String is_draft = cursor.getString(cursor.getColumnIndexOrThrow("is_draft"));
@@ -170,14 +179,15 @@ public class SusProfiledActivity extends AppCompatActivity {
                 String onCreate = cursor.getString(cursor.getColumnIndexOrThrow("on_create"));
                 String onUpdate = cursor.getString(cursor.getColumnIndexOrThrow("on_update"));
 
-                list.add(new SusProfilingModel(id, farmer_id, farmer_name, farmer_gender, district, community,
-                        farmer_dob, ghana_card, suspro_question1, suspro_question2, suspro_question3, suspro_question4,
-                        suspro_question5, suspro_question6, suspro_question7, suspro_question8, suspro_question9,
-                        suspro_question10, suspro_question11, suspro_question12, suspro_question13, suspro_question14,
-                        suspro_question15, suspro_question16, suspro_question17, suspro_question18, suspro_question19,
-                        suspro_question20, suspro_question21, suspro_question22, suspro_question23, suspro_question24,
-                        suspro_question25, signature, is_sync, is_draft, user_fname, user_lname, user_email, onCreate,
-                        onUpdate));
+                list.add(new SusProfilingModel(id, farmer_id, district, community, suspro_question1, suspro_question2,
+                        suspro_question3, suspro_question4, suspro_question4b, suspro_question4c, suspro_question5,
+                        suspro_question6, suspro_question7, suspro_question7b, suspro_question8, suspro_question8b,
+                        suspro_question9, suspro_question10, suspro_question11, suspro_question11b, suspro_question11c,
+                        suspro_question12, suspro_question12b, suspro_question13, suspro_question14, suspro_question14b,
+                        suspro_question14c, suspro_question14d, suspro_question15, suspro_question15b, suspro_question16,
+                        suspro_question16b, suspro_question17, suspro_question17b, suspro_question17c, suspro_question18,
+                        suspro_question19, suspro_question20, suspro_question21, suspro_location, farmer_photo, signature,
+                        is_sync, is_draft, user_fname, user_lname, user_email, onCreate, onUpdate));
             } while (cursor.moveToNext());
             cursor.close();
         }

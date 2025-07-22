@@ -17,6 +17,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/photoTextView"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/sign_pen"
+            app:civ_border_width="1dp"
+            app:civ_border_color="@color/brown"/>
+
         <LinearLayout
             android:layout_marginStart="10dp"
             android:orientation="vertical"

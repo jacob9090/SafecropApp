@@ -145,14 +145,14 @@ const json = {
           "elements": [
             {
               "type": "html",
-              "name": "train_question8",
+              "name": "train_evaluation",
               "html": "<div style=\"background-color: #A52B2A; color: #FFFFFF; padding: 10px;\"><strong>Instructions:</strong> Please tick your level of agreement with the statements listed below (Strongly Agree 3, Agree 2, Disagree 1)</h5></div>"
             }
           ]
         },
         {
           "type": "slider",
-          "name": "train_question9",
+          "name": "train_question8",
           "title": "The objectives of the training were met",
           "isRequired": true,
           "min": 1,
@@ -161,7 +161,7 @@ const json = {
         },
         {
           "type": "slider",
-          "name": "train_question10",
+          "name": "train_question9",
           "title": "The presenter(s) were engaging",
           "isRequired": true,
           "min": 1,
@@ -170,7 +170,7 @@ const json = {
         },
         {
           "type": "slider",
-          "name": "train_question11",
+          "name": "train_question10",
           "title": "The presentation materials were relevant",
           "isRequired": true,
           "min": 1,
@@ -179,7 +179,7 @@ const json = {
         },
         {
           "type": "slider",
-          "name": "train_question12",
+          "name": "train_question11",
           "title": "The course length was appropriate",
           "isRequired": true,
           "min": 1,
@@ -188,7 +188,7 @@ const json = {
         },
         {
           "type": "slider",
-          "name": "train_question13",
+          "name": "train_question12",
           "title": "The pace of the course was appropriate to the content and attendees",
           "isRequired": true,
           "min": 1,
@@ -197,7 +197,7 @@ const json = {
         },
         {
           "type": "slider",
-          "name": "train_question14",
+          "name": "train_question13",
           "title": "The exercises/role play were helpful and relevant",
           "isRequired": true,
           "min": 1,
@@ -206,7 +206,7 @@ const json = {
         },
         {
           "type": "slider",
-          "name": "train_question15",
+          "name": "train_question14",
           "title": "The venue was appropriate for the event",
           "isRequired": true,
           "min": 1,
@@ -215,7 +215,7 @@ const json = {
         },
         {
           "type": "text",
-          "name": "train_question16",
+          "name": "train_question15",
           "title": "Other comments"
         }
       ]

@@ -44,15 +44,15 @@ public class SusProfilingAdapter extends RecyclerView.Adapter<SusProfilingAdapte
     public void onBindViewHolder(@NonNull SusProfilingViewHolder holder, int position) {
         SusProfilingModel model = filteredList.get(position);
         holder.nameTextView.setText(model.getFarmer_id());
-        holder.districtTextView.setText(model.getFarmer_name());
+        holder.districtTextView.setText(model.getSuspro_question3());
         holder.communityTextView.setText(model.getDistrict());
         holder.createdAtTextView.setText(model.getOnCreate());
 
-//        if (model.getSignature() != null) {
-//            holder.peproImage.setImageURI(model.getSignature());
-//        } else {
-//            holder.peproImage.setImageResource(R.drawable.farmer_not_found);
-//        }
+        if (model.getSignature() != null) {
+            holder.susFarmerImage.setImageURI(model.getFarmer_photo());
+        } else {
+            holder.susFarmerImage.setImageResource(R.drawable.user);
+        }
 
         holder.moreOptions.setOnClickListener(v -> showMoreDialog(position, model));
     }
@@ -111,6 +111,7 @@ public class SusProfilingAdapter extends RecyclerView.Adapter<SusProfilingAdapte
 
     public static class SusProfilingViewHolder extends RecyclerView.ViewHolder {
         public TextView nameTextView, districtTextView, communityTextView, createdAtTextView;
+        public ImageView susFarmerImage;
         ImageButton moreOptions;
 
         public SusProfilingViewHolder(@NonNull View itemView) {
@@ -118,6 +119,7 @@ public class SusProfilingAdapter extends RecyclerView.Adapter<SusProfilingAdapte
             nameTextView = itemView.findViewById(R.id.nameTextView);
             districtTextView = itemView.findViewById(R.id.districtTextView);
             communityTextView = itemView.findViewById(R.id.communityTextView);
+            susFarmerImage = itemView.findViewById(R.id.photoTextView);
             createdAtTextView = itemView.findViewById(R.id.createdAtTextView);
             moreOptions = itemView.findViewById(R.id.peMoreBtn);
         }

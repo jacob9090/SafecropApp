@@ -30,6 +30,7 @@ import com.jacob.fruitoftek.safecrop.sustain.inspection.InspectionDoneActivity;
 import com.jacob.fruitoftek.safecrop.sustain.inspection.InspectionInfoActivity;
 import com.jacob.fruitoftek.safecrop.sustain.pentry.PEDoneActivity;
 import com.jacob.fruitoftek.safecrop.sustain.pentry.PEInfoActivity;
+import com.jacob.fruitoftek.safecrop.sustain.profiling.SusProfiledActivity;
 import com.jacob.fruitoftek.safecrop.sustain.profiling.SusProfilingActivity;
 import com.jacob.fruitoftek.safecrop.sustain.profiling.SusProfiledInfoActivity;
 import com.jacob.fruitoftek.safecrop.sustain.training.TrainingDoneActivity;
@@ -47,7 +48,7 @@ public class InfoBottomSheet extends BottomSheetDialogFragment {
 
         TextView profilingTv = view.findViewById(R.id.ibsFarmerProfilingTv);
         ImageView ibsprofilingIV = view.findViewById(R.id.ibsFarmerProfilingIV);
-        profilingTv.setOnClickListener(v -> { startActivity(new Intent(getActivity(), SusProfilingActivity.class));});
+        profilingTv.setOnClickListener(v -> { startActivity(new Intent(getActivity(), SusProfiledActivity.class));});
         ibsprofilingIV.setOnClickListener(v -> { startActivity(new Intent(getActivity(), SusProfiledInfoActivity.class));});
 
         TextView inspectionSurveyTv = view.findViewById(R.id.ibsInspectionSurveyTv);
