@@ -36,10 +36,10 @@ android {
     }
 //    aaptOptions.noCompress.addAll(listOf("tflite", "lite"))
 
-    androidResources {
-        noCompress.add("tflite")
+//    androidResources {
+//        noCompress.add("tflite")
 //        noCompress.add("lite") // If you still want to include "lite"
-    }
+//    }
 }
 
 dependencies {
@@ -126,23 +126,23 @@ dependencies {
     implementation ("org.osmdroid:osmdroid-android:6.1.20")
 
     //ML Kit (To detect faces)
-    implementation ("com.google.mlkit:face-detection:16.1.7")
-    implementation ("com.google.android.gms:play-services-mlkit-face-detection:17.1.0")
+//    implementation ("com.google.mlkit:face-detection:16.1.7")
+//    implementation ("com.google.android.gms:play-services-mlkit-face-detection:17.1.0")
 
     //GSON (Conversion of String to Map & Vice-Versa)
     implementation ("com.google.code.gson:gson:2.8.9")
 
     //Lottie-files (Splash-screen Animation)
-    implementation ("com.airbnb.android:lottie:4.2.2")
+//    implementation ("com.airbnb.android:lottie:4.2.2")
 
     //TensorFlow Lite libraries (To recognize faces)
-    implementation ("org.tensorflow:tensorflow-lite-task-vision:0.3.0")
-    implementation ("org.tensorflow:tensorflow-lite-support:0.3.0")
-    implementation ("org.tensorflow:tensorflow-lite:0.0.0-nightly-SNAPSHOT")
+//    implementation ("org.tensorflow:tensorflow-lite-task-vision:0.3.0")
+//    implementation ("org.tensorflow:tensorflow-lite-support:0.3.0")
+//    implementation ("org.tensorflow:tensorflow-lite:0.0.0-nightly-SNAPSHOT")
 
     // Room
-    implementation ("androidx.room:room-runtime:2.5.2")
-    annotationProcessor ("androidx.room:room-compiler:2.5.2")
+//    implementation ("androidx.room:room-runtime:2.5.2")
+//    annotationProcessor ("androidx.room:room-compiler:2.5.2")
 
     implementation ("androidx.security:security-crypto:1.1.0-alpha06")
 

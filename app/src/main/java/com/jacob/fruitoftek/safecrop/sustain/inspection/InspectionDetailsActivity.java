@@ -216,16 +216,6 @@ public class InspectionDetailsActivity extends AppCompatActivity {
                         "document.getElementById('inspection_question57b').textContent = '%s';" +
                         "document.getElementById('inspection_question58').textContent = '%s';" +
                         "document.getElementById('inspection_question58b').textContent = '%s';" +
-                        "document.getElementById('inspection_question59').textContent = '%s';" +
-                        "document.getElementById('inspection_question59b').textContent = '%s';" +
-                        "document.getElementById('inspection_question60').textContent = '%s';" +
-                        "document.getElementById('inspection_question60b').textContent = '%s';" +
-                        "document.getElementById('inspection_question61').textContent = '%s';" +
-                        "document.getElementById('inspection_question61b').textContent = '%s';" +
-                        "document.getElementById('inspection_question62').textContent = '%s';" +
-                        "document.getElementById('inspection_question62b').textContent = '%s';" +
-                        "document.getElementById('inspection_question63').textContent = '%s';" +
-                        "document.getElementById('inspection_question63b').textContent = '%s';" +
                         "document.getElementById('inspection_location').textContent = '%s';" +
                         "document.getElementById('farmer_photo').src = '%s';" +
                         "document.getElementById('signature').src = '%s';" +
@@ -362,16 +352,6 @@ public class InspectionDetailsActivity extends AppCompatActivity {
                 sanitize(inspectionModel.getInspection_question57b()),
                 sanitize(inspectionModel.getInspection_question58()),
                 sanitize(inspectionModel.getInspection_question58b()),
-                sanitize(inspectionModel.getInspection_question59()),
-                sanitize(inspectionModel.getInspection_question59b()),
-                sanitize(inspectionModel.getInspection_question60()),
-                sanitize(inspectionModel.getInspection_question60b()),
-                sanitize(inspectionModel.getInspection_question61()),
-                sanitize(inspectionModel.getInspection_question61b()),
-                sanitize(inspectionModel.getInspection_question62()),
-                sanitize(inspectionModel.getInspection_question62b()),
-                sanitize(inspectionModel.getInspection_question63()),
-                sanitize(inspectionModel.getInspection_question63b()),
                 sanitize(inspectionModel.getInspection_location()),
                 inspectionModel.getFarmer_photo() != null ? sanitize(inspectionModel.getFarmer_photo().toString()) : "",
                 sanitize(signatureUri),

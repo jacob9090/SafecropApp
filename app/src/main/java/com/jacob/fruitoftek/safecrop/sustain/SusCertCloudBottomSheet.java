@@ -224,11 +224,6 @@ public class SusCertCloudBottomSheet extends BottomSheetDialogFragment {
                         obj.put("inspection_question56", inspection.getInspection_question56());
                         obj.put("inspection_question57", inspection.getInspection_question57());
                         obj.put("inspection_question58", inspection.getInspection_question58());
-                        obj.put("inspection_question59", inspection.getInspection_question59());
-                        obj.put("inspection_question60", inspection.getInspection_question60());
-                        obj.put("inspection_question61", inspection.getInspection_question61());
-                        obj.put("inspection_question62", inspection.getInspection_question62());
-                        obj.put("inspection_question63", inspection.getInspection_question63());
                         obj.put("inspection_location", inspection.getInspection_location());
                         obj.put("is_sync", inspection.getIs_sync());
                         obj.put("is_draft", inspection.getIs_draft());

@@ -218,10 +218,7 @@ public class InspectionActivity extends AppCompatActivity {
                                              String inspection_question53, String inspection_question53b, String inspection_question54, String inspection_question54b,
                                              String inspection_question55, String inspection_question55b, String inspection_question56, String inspection_question56b,
                                              String inspection_question57, String inspection_question57b, String inspection_question58, String inspection_question58b,
-                                             String inspection_question59, String inspection_question59b, String inspection_question60, String inspection_question60b,
-                                             String inspection_question61, String inspection_question61b, String inspection_question62, String inspection_question62b,
-                                             String inspection_question63, String inspection_question63b, String inspection_location,
-                                             String farmer_photo, String signature, String is_sync, String is_draft) {
+                                             String inspection_location, String farmer_photo, String signature, String is_sync, String is_draft) {
 
             Log.d("WebAppInterface", "--- insertOrUpdateInspection CALLED ---");
             Log.d("WebAppInterface", "Raw input district: " + district + ", community: " + community + ", farmer_id: " + farmer_id);
@@ -359,16 +356,6 @@ public class InspectionActivity extends AppCompatActivity {
             inspection_question57b = isNull(inspection_question57b);
             inspection_question58 = isNull(inspection_question58);
             inspection_question58b = isNull(inspection_question58b);
-            inspection_question59 = isNull(inspection_question59);
-            inspection_question59b = isNull(inspection_question59b);
-            inspection_question60 = isNull(inspection_question60);
-            inspection_question60b = isNull(inspection_question60b);
-            inspection_question61 = isNull(inspection_question61);
-            inspection_question61b = isNull(inspection_question61b);
-            inspection_question62 = isNull(inspection_question62);
-            inspection_question62b = isNull(inspection_question62b);
-            inspection_question63 = isNull(inspection_question63);
-            inspection_question63b = isNull(inspection_question63b);
             inspection_location = isNull(inspection_location);
             farmer_photo = isNull(farmer_photo);
             signature = isNull(signature);
@@ -447,12 +434,7 @@ public class InspectionActivity extends AppCompatActivity {
                         TextUtils.isEmpty(inspection_question55) ||
                         TextUtils.isEmpty(inspection_question56) ||
                         TextUtils.isEmpty(inspection_question57) ||
-                        TextUtils.isEmpty(inspection_question58) ||
-                        TextUtils.isEmpty(inspection_question59) ||
-                        TextUtils.isEmpty(inspection_question60) ||
-                        TextUtils.isEmpty(inspection_question61) ||
-                        TextUtils.isEmpty(inspection_question62) ||
-                        TextUtils.isEmpty(inspection_question63)) {
+                        TextUtils.isEmpty(inspection_question58)) {
 
                     Log.e("WebAppInterface", "Validation FAILED: Required fields are empty for non-draft save.");
                     runOnUiThread(() ->
@@ -510,10 +492,8 @@ public class InspectionActivity extends AppCompatActivity {
                     inspection_question52b, inspection_question53, inspection_question53b, inspection_question54,
                     inspection_question54b, inspection_question55, inspection_question55b, inspection_question56,
                     inspection_question56b, inspection_question57, inspection_question57b, inspection_question58,
-                    inspection_question58b, inspection_question59, inspection_question59b, inspection_question60,
-                    inspection_question60b, inspection_question61, inspection_question61b, inspection_question62,
-                    inspection_question62b, inspection_question63, inspection_question63b, inspection_location,
-                    farmer_photo, signature, is_sync, is_draft, userFname, userLname, userEmail, onCreate, onUpdate
+                    inspection_question58b, inspection_location, farmer_photo, signature, is_sync, is_draft,
+                    userFname, userLname, userEmail, onCreate, onUpdate
             );
 
             if (success) {

@@ -13,9 +13,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="get_location">Get Location</string>
     <string name="get_photo">Get Photo</string>
-    <string name="get_idcard_photo">Photo of ID Card</string>
     <string name="get_farmer_photo">Photo of Farmer</string>
-    <string name="get_tp_photo">Photo of Sign/Thumbprint</string>
 
     <!--Internal Inspection Survey-->
 
@@ -83,7 +81,6 @@
     <string name="ch_survey">Child Survey</string>
 
 
-    <string name="update_gmrsurvey">Update Profiled Farmer</string>
     <string name="user_name">User Name</string>
     <string name="sustainability_certification_survey">Sustainability/Certification Survey</string>
 
@@ -124,16 +121,12 @@
     <string name="community">Community</string>
 
     <string name="observed_farmers">Observed Farmers</string>
-    <string name="profiled_farmers">Profiled Farmers</string>
     <string name="date_time">DateTime</string>
     <string name="selected_or_captured_image">Selected or Captured Image</string>
     <string name="ok">OK</string>
     <string name="no_record_found">No Record Found</string>
 
-    <string name="training_attendance">Training Attendance</string>
     <string name="added_face">Added Face</string>
-    <string name="add_face">Add Face</string>
-    <string name="recognise_face">Recognise Face</string>
     <string name="sync_info">Sync Survey</string>
     <string name="start_date">Start Date</string>
     <string name="end_date">End Date</string>
@@ -155,8 +148,6 @@
     <string name="gender_risk_assessment">Gender risk assessment</string>
     <!-- Strings used for fragments for navigation -->
 
-    <string name="save_attendance">Save Attendance</string>
-    <string name="training_tracker">Training Tracker</string>
     <string name="community_assessment_infobs">Community Assessment</string>
     <string name="child_forced_labour_assmt">Child/Forced Labour Assmt.</string>
     <string name="gender_assessment">Gender Assessment</string>

@@ -256,16 +256,6 @@ public class InspectionDoneActivity extends AppCompatActivity {
                 String inspection_question57b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question57b"));
                 String inspection_question58 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question58"));
                 String inspection_question58b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question58b"));
-                String inspection_question59 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question59"));
-                String inspection_question59b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question59b"));
-                String inspection_question60 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question60"));
-                String inspection_question60b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question60b"));
-                String inspection_question61 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question61"));
-                String inspection_question61b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question61b"));
-                String inspection_question62 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question62"));
-                String inspection_question62b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question62b"));
-                String inspection_question63 = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question63"));
-                String inspection_question63b = cursor.getString(cursor.getColumnIndexOrThrow("inspection_question63b"));
                 String inspection_location = cursor.getString(cursor.getColumnIndexOrThrow("inspection_location"));
                 Uri farmer_photo = cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo")) != null
                         ? Uri.parse(cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo")))
@@ -303,9 +293,7 @@ public class InspectionDoneActivity extends AppCompatActivity {
                         inspection_question49b, inspection_question50, inspection_question50b, inspection_question51, inspection_question51b,
                         inspection_question52, inspection_question52b, inspection_question53, inspection_question53b, inspection_question54,
                         inspection_question54b, inspection_question55, inspection_question55b, inspection_question56, inspection_question56b,
-                        inspection_question57, inspection_question57b, inspection_question58, inspection_question58b, inspection_question59,
-                        inspection_question59b, inspection_question60, inspection_question60b, inspection_question61, inspection_question61b,
-                        inspection_question62, inspection_question62b, inspection_question63, inspection_question63b, inspection_location,
+                        inspection_question57, inspection_question57b, inspection_question58, inspection_question58b, inspection_location,
                         farmer_photo, signature, is_sync, is_draft, user_fname, user_lname, user_email, onCreate, onUpdate));
             } while (cursor.moveToNext());
             cursor.close();

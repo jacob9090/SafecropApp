@@ -27,7 +27,7 @@ import androidx.work.WorkManager;
 import com.jacob.fruitoftek.safecrop.comdev.ComDevDashboard;
 import com.jacob.fruitoftek.safecrop.comdev.ExportCsvWorker;
 import com.jacob.fruitoftek.safecrop.comdev.SyncDataWorker;
-import com.jacob.fruitoftek.safecrop.facerecognition.AddFaceActivity;
+//import com.jacob.fruitoftek.safecrop.facerecognition.AddFaceActivity;
 import com.jacob.fruitoftek.safecrop.login.AccountBottomSheet;
 import com.jacob.fruitoftek.safecrop.login.utils.PreferenceHelper;
 import com.jacob.fruitoftek.safecrop.sustain.SusCertDashboard;

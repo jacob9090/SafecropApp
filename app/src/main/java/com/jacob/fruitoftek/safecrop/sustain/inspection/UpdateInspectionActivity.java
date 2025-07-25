@@ -159,10 +159,8 @@ public class UpdateInspectionActivity extends AppCompatActivity {
                                      String inspection_question52, String inspection_question52b, String inspection_question53, String inspection_question53b,
                                      String inspection_question54, String inspection_question54b, String inspection_question55, String inspection_question55b,
                                      String inspection_question56, String inspection_question56b, String inspection_question57, String inspection_question57b,
-                                     String inspection_question58, String inspection_question58b, String inspection_question59, String inspection_question59b,
-                                     String inspection_question60, String inspection_question60b, String inspection_question61, String inspection_question61b,
-                                     String inspection_question62, String inspection_question62b, String inspection_question63, String inspection_question63b,
-                                     String inspection_location, String farmer_photo, String signature, String is_sync, String is_draft) {
+                                     String inspection_question58, String inspection_question58b, String inspection_location, String farmer_photo,
+                                     String signature, String is_sync, String is_draft) {
             // Fallback: If JS sends blank, use old values!
             if (farmer_photo == null || farmer_photo.isEmpty()) {
                 farmer_photo = inspectionModel.getFarmer_photo() != null ? inspectionModel.getFarmer_photo().toString() : "";
@@ -297,16 +295,6 @@ public class UpdateInspectionActivity extends AppCompatActivity {
             inspectionModel.setInspection_question57b(inspection_question57b);
             inspectionModel.setInspection_question58(inspection_question58);
             inspectionModel.setInspection_question58b(inspection_question58b);
-            inspectionModel.setInspection_question59(inspection_question59);
-            inspectionModel.setInspection_question59b(inspection_question59b);
-            inspectionModel.setInspection_question60(inspection_question60);
-            inspectionModel.setInspection_question60b(inspection_question60b);
-            inspectionModel.setInspection_question61(inspection_question61);
-            inspectionModel.setInspection_question61b(inspection_question61b);
-            inspectionModel.setInspection_question62(inspection_question62);
-            inspectionModel.setInspection_question62b(inspection_question62b);
-            inspectionModel.setInspection_question63(inspection_question63);
-            inspectionModel.setInspection_question63b(inspection_question63b);
             inspectionModel.setInspection_location(inspection_location);
             inspectionModel.setFarmer_photo(farmer_photo != null && !farmer_photo.isEmpty() ? Uri.parse(farmer_photo) : null);
             inspectionModel.setSignature(signature);
@@ -345,10 +333,8 @@ public class UpdateInspectionActivity extends AppCompatActivity {
                     inspection_question52, inspection_question52b, inspection_question53, inspection_question53b,
                     inspection_question54, inspection_question54b, inspection_question55, inspection_question55b,
                     inspection_question56, inspection_question56b, inspection_question57, inspection_question57b,
-                    inspection_question58, inspection_question58b, inspection_question59, inspection_question59b,
-                    inspection_question60, inspection_question60b, inspection_question61, inspection_question61b,
-                    inspection_question62, inspection_question62b, inspection_question63, inspection_question63b,
-                    inspection_location, farmer_photo, signature, is_sync, is_draft
+                    inspection_question58, inspection_question58b, inspection_location, farmer_photo, signature,
+                    is_sync, is_draft
             );
 
             runOnUiThread(() -> {
