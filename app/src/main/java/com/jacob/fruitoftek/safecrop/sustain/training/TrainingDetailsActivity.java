@@ -96,11 +96,9 @@ public class TrainingDetailsActivity extends AppCompatActivity {
                         "document.getElementById('training_question3').textContent = '%s';" +
                         "document.getElementById('training_question4').textContent = '%s';" +
                         "document.getElementById('training_question5').textContent = '%s';" +
-                        "document.getElementById('training_question6').textContent = '%s';" +
+//                        "document.getElementById('training_question6').textContent = '%s';" +
+                        "document.getElementById('training_question6').innerHTML = '%s';" +
                         "document.getElementById('training_question7').textContent = '%s';" +
-                        "document.getElementById('training_location').textContent = '%s';" +
-                        "document.getElementById('farmer_photo').src = '%s';" +
-                        "document.getElementById('signature').src = '%s';" +
                         "document.getElementById('training_question8').textContent = '%s';" +
                         "document.getElementById('training_question9').textContent = '%s';" +
                         "document.getElementById('training_question10').textContent = '%s';" +
@@ -109,6 +107,9 @@ public class TrainingDetailsActivity extends AppCompatActivity {
                         "document.getElementById('training_question13').textContent = '%s';" +
                         "document.getElementById('training_question14').textContent = '%s';" +
                         "document.getElementById('training_question15').textContent = '%s';" +
+                        "document.getElementById('training_location').textContent = '%s';" +
+                        "document.getElementById('farmer_photo').src = '%s';" +
+                        "document.getElementById('signature').src = '%s';" +
                         "document.getElementById('is_sync').textContent = '%s';" +
                         "document.getElementById('is_draft').textContent = '%s';" +
                         "document.getElementById('on_create').textContent = '%s';" +
@@ -127,9 +128,6 @@ public class TrainingDetailsActivity extends AppCompatActivity {
                 sanitize(trainingModel.getTraining_question5()),
                 sanitize(trainingModel.getTraining_question6()),
                 sanitize(trainingModel.getTraining_question7()),
-                sanitize(trainingModel.getTraining_location()),
-                trainingModel.getFarmer_photo() != null ? sanitize(trainingModel.getFarmer_photo().toString()) : "",
-                sanitize(signatureUri),
                 sanitize(trainingModel.getTraining_question8()),
                 sanitize(trainingModel.getTraining_question9()),
                 sanitize(trainingModel.getTraining_question10()),
@@ -138,6 +136,9 @@ public class TrainingDetailsActivity extends AppCompatActivity {
                 sanitize(trainingModel.getTraining_question13()),
                 sanitize(trainingModel.getTraining_question14()),
                 sanitize(trainingModel.getTraining_question15()),
+                sanitize(trainingModel.getTraining_location()),
+                trainingModel.getFarmer_photo() != null ? sanitize(trainingModel.getFarmer_photo().toString()) : "",
+                sanitize(signatureUri),
                 sanitize(trainingModel.getIs_sync()),
                 sanitize(trainingModel.getIs_draft()),
                 sanitize(trainingModel.getOnCreate()),

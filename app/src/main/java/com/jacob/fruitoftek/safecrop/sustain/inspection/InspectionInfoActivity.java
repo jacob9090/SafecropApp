@@ -197,6 +197,7 @@ public class InspectionInfoActivity extends AppCompatActivity {
                     }
                 } catch (JSONException e) {
                     Log.e("SyncSurveyInfo", "JSON Parsing Error: " + e.getMessage());
+                    Log.e("SyncSurveyInfo", "Response content: " + responseString);
                     runOnUiThread(() -> {
                         syncInspectionInfoProgressBar.setVisibility(View.GONE);
                         syncInspectionInfoCountTextView.setText("Error parsing sync count");

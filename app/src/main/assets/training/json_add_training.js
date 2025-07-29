@@ -16,8 +16,10 @@ const json = {
           "title": "Select district",
           "isRequired": true,
           "choices": [
-            "Tepa",
-            "Bechem"
+            "Adwumapa Coorperative",
+            "Anidaso Mmaa Coorperative",
+            "Assinman Women",
+            "Bitre Cooperative"
           ],
           "otherText": "Other (Specify)"
         },
@@ -27,49 +29,141 @@ const json = {
           "title": "Select community",
           "isRequired": true,
           "choices": [
+            "Abebresekrom",
+            "Abechem",
+            "Abekoase",
+            "Abole",
+            "Abotareye",
+            "Adiepena",
+            "Adukrom",
+            "Agoloso",
+            "Alhassankrom",
+            "Amoakrom",
+            "Anhweasu",
+            "Aniakragya",
+            "Ankaase",
+            "Apesika",
+            "Apotoyewa",
+            "Appiahkrom",
+            "Arkofudi Patasi",
+            "Asenchem",
+            "Asibrem",
+            "Assin Abodwese",
+            "Assin Akropong Wawase",
+            "Assin Dwanakye Adwanpa",
+            "Assin Krofofrom",
+            "Assin Kyeikrom",
+            "Assin Nkukuasa",
+            "Assin Ntowkrom",
+            "Assin Nyamebekyere",
+            "Assin Sabena",
+            "Assin Sienkyem",
+            "Assin Swedru",
+            "Assin Yaw Saman",
+            "Assin Zamboli",
+            "Asuadai",
+            "Asukaiss",
+            "Atentan",
+            "Atwerboanda",
+            "Aworabo",
+            "Aworkrom",
+            "Ayitey",
+            "Basofi Ningo",
             "Bomaa",
-            "Derma"
+            "Brosankro",
+            "Brosankro Old Town",
+            "Daudakrom",
+            "Dechem",
+            "Derma",
+            "Derma Nkwankyire",
+            "Dumakwai",
+            "Dwomo",
+            "Fawobotoso",
+            "Fianko",
+            "Gambia",
+            "Ghana Camp",
+            "Gold Coast Camp",
+            "Jacobu",
+            "Kadadwen",
+            "Kadonko",
+            "Katapei",
+            "Kensere",
+            "Kojomiakrom",
+            "Kramokrom",
+            "Kruboa",
+            "Kusuogya",
+            "Kwadwoaddaekrom",
+            "Kwaku Dua Krom",
+            "Kwamemensahkrom",
+            "Kwantene",
+            "Kyekyewere",
+            "Mampong",
+            "Manteykrom",
+            "Mfante",
+            "Mim",
+            "Montwi",
+            "Nkrankrom",
+            "Nuamakrom",
+            "Nuanua Mampong",
+            "Nyankomago",
+            "Ohiaanimguase",
+            "Ohiantua",
+            "Olumankrom",
+            "Pokua",
+            "Pokuakura",
+            "Subompang",
+            "Sumsei",
+            "Tanokrom",
+            "Techimantia",
+            "Techimantia B",
+            "Tuagyankrom",
+            "Twifo Aboso",
+            "Twifo Afosua",
+            "Twifo Akweikrom",
+            "Twifo Ekurakese",
+            "Twifo Kenkuase",
+            "Yawkrakrom"
           ],
           "showOtherItem": true,
           "otherText": "Other (Specify)"
         },
         {
           "type": "text",
-          "name": "train_question1",
+          "name": "training_question1",
           "title": "Date",
           "inputType": "date",
           "isRequired": true
         },
         {
           "type": "text",
-          "name": "train_question2",
+          "name": "training_question2",
           "title": "Duration",
           "isRequired": true
         },
         {
           "type": "text",
-          "name": "train_question3",
+          "name": "training_question3",
           "title": "Year of Certification",
           "inputType": "number",
           "isRequired": true
         },
         {
           "type": "text",
-          "name": "train_question4",
+          "name": "training_question4",
           "title": "Number of male",
           "inputType": "number",
           "isRequired": true
         },
         {
           "type": "text",
-          "name": "train_question5",
+          "name": "training_question5",
           "title": "Number of Female",
           "inputType": "number",
           "isRequired": true
         },
         {
           "type": "tagbox",
-          "name": "train_question6",
+          "name": "training_question6",
           "title": "Training Topics (Checkbox of all training)",
           "choices": [
             "Agrochemical Handling And Usage",
@@ -94,17 +188,91 @@ const json = {
         },
         {
           "type": "text",
-          "name": "train_question7",
+          "name": "training_question7",
           "title": "Name of Facilitator",
           "isRequired": true
         },
         {
-          "type": "signaturepad",
-          "name": "signature",
-          "title": "Signature of enumerator",
-          "isRequired": true
+          "type": "panel",
+          "name": "training_panel8",
+          "title": "TRAINING EVALUATION",
+          "elements": [
+            {
+              "type": "html",
+              "name": "training_evaluation",
+              "html": "<div style=\"background-color: #A52B2A; color: #FFFFFF; padding: 10px;\"><strong>Instructions:</strong> Please tick your level of agreement with the statements listed below (Strongly Agree 3, Agree 2, Disagree 1)</h5></div>"
+            }
+          ]
         },
-       {
+        {
+          "type": "slider",
+          "name": "training_question8",
+          "title": "The objectives of the training were met",
+          "isRequired": true,
+          "min": 1,
+          "max": 3,
+          "labelCount": 3
+        },
+        {
+          "type": "slider",
+          "name": "training_question9",
+          "title": "The presenter(s) were engaging",
+          "isRequired": true,
+          "min": 1,
+          "max": 3,
+          "labelCount": 3
+        },
+        {
+          "type": "slider",
+          "name": "training_question10",
+          "title": "The presentation materials were relevant",
+          "isRequired": true,
+          "min": 1,
+          "max": 3,
+          "labelCount": 3
+        },
+        {
+          "type": "slider",
+          "name": "training_question11",
+          "title": "The course length was appropriate",
+          "isRequired": true,
+          "min": 1,
+          "max": 3,
+          "labelCount": 3
+        },
+        {
+          "type": "slider",
+          "name": "training_question12",
+          "title": "The pace of the course was appropriate to the content and attendees",
+          "isRequired": true,
+          "min": 1,
+          "max": 3,
+          "labelCount": 3
+        },
+        {
+          "type": "slider",
+          "name": "training_question13",
+          "title": "The exercises/role play were helpful and relevant",
+          "isRequired": true,
+          "min": 1,
+          "max": 3,
+          "labelCount": 3
+        },
+        {
+          "type": "slider",
+          "name": "training_question14",
+          "title": "The venue was appropriate for the event",
+          "isRequired": true,
+          "min": 1,
+          "max": 3,
+          "labelCount": 3
+        },
+        {
+          "type": "text",
+          "name": "training_question15",
+          "title": "Other comments"
+        },
+        {
          "type": "panel",
          "name": "location_panel",
          "elements": [
@@ -122,7 +290,7 @@ const json = {
              <button id='getTrainingLocation' style='width: 100%; background-color: brown; color: white; display: block; margin: 0 auto;' type='button' onclick='handleGetLocation()'>Get Location</button>\</div>"
            }
          ]
-       },
+        },
         {
           "type": "panel",
           "name": "photo_panel",
@@ -139,84 +307,11 @@ const json = {
           ]
         },
         {
-          "type": "panel",
-          "name": "train_panel8",
-          "title": "TRAINING EVALUATION",
-          "elements": [
-            {
-              "type": "html",
-              "name": "train_evaluation",
-              "html": "<div style=\"background-color: #A52B2A; color: #FFFFFF; padding: 10px;\"><strong>Instructions:</strong> Please tick your level of agreement with the statements listed below (Strongly Agree 3, Agree 2, Disagree 1)</h5></div>"
-            }
-          ]
-        },
-        {
-          "type": "slider",
-          "name": "train_question8",
-          "title": "The objectives of the training were met",
+          "type": "signaturepad",
+          "name": "signature",
+          "title": "Signature of enumerator",
           "isRequired": true,
-          "min": 1,
-          "max": 3,
-          "labelCount": 3
-        },
-        {
-          "type": "slider",
-          "name": "train_question9",
-          "title": "The presenter(s) were engaging",
-          "isRequired": true,
-          "min": 1,
-          "max": 3,
-          "labelCount": 3
-        },
-        {
-          "type": "slider",
-          "name": "train_question10",
-          "title": "The presentation materials were relevant",
-          "isRequired": true,
-          "min": 1,
-          "max": 3,
-          "labelCount": 3
-        },
-        {
-          "type": "slider",
-          "name": "train_question11",
-          "title": "The course length was appropriate",
-          "isRequired": true,
-          "min": 1,
-          "max": 3,
-          "labelCount": 3
-        },
-        {
-          "type": "slider",
-          "name": "train_question12",
-          "title": "The pace of the course was appropriate to the content and attendees",
-          "isRequired": true,
-          "min": 1,
-          "max": 3,
-          "labelCount": 3
-        },
-        {
-          "type": "slider",
-          "name": "train_question13",
-          "title": "The exercises/role play were helpful and relevant",
-          "isRequired": true,
-          "min": 1,
-          "max": 3,
-          "labelCount": 3
-        },
-        {
-          "type": "slider",
-          "name": "train_question14",
-          "title": "The venue was appropriate for the event",
-          "isRequired": true,
-          "min": 1,
-          "max": 3,
-          "labelCount": 3
-        },
-        {
-          "type": "text",
-          "name": "train_question15",
-          "title": "Other comments"
+          "signatureWidth": 600
         }
       ]
     }

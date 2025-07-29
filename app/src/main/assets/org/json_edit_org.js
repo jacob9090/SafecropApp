@@ -394,7 +394,9 @@ const json = {
         {
           "type": "signaturepad",
           "name": "gmrquestion42",
-          "title": "Agent Signature\n"
+          "title": "Agent Signature",
+          "isRequired": true,
+          "signatureWidth": 600
         },
         {
           "type": "panel",

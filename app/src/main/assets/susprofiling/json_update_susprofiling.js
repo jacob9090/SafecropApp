@@ -5,34 +5,133 @@ const json = {
       "name": "page1",
       "elements": [
         {
+          "type": "text",
+          "name": "farmer_id",
+          "title": "UserID",
+          "isRequired": true,
+          "readOnly": true
+        },
+        {
           "type": "dropdown",
-          "name": "gmrquestion1",
+          "name": "district",
           "title": "Select district",
           "isRequired": true,
           "choices": [
-            "Tepa",
-            "Bechem"
+            "Adwumapa Coorperative",
+            "Anidaso Mmaa Coorperative",
+            "Assinman Women",
+            "Bitre Cooperative"
           ],
-          "otherText": "Other (Specify)"
+          "showOtherItem": true,
+          "otherText": "Other (District)"
         },
         {
           "type": "dropdown",
-          "name": "gmrquestion2",
+          "name": "community",
           "title": "Select community",
           "isRequired": true,
           "choices": [
+            "Abebresekrom",
+            "Abechem",
+            "Abekoase",
+            "Abole",
+            "Abotareye",
+            "Adiepena",
+            "Adukrom",
+            "Agoloso",
+            "Alhassankrom",
+            "Amoakrom",
+            "Anhweasu",
+            "Aniakragya",
+            "Ankaase",
+            "Apesika",
+            "Apotoyewa",
+            "Appiahkrom",
+            "Arkofudi Patasi",
+            "Asenchem",
+            "Asibrem",
+            "Assin Abodwese",
+            "Assin Akropong Wawase",
+            "Assin Dwanakye Adwanpa",
+            "Assin Krofofrom",
+            "Assin Kyeikrom",
+            "Assin Nkukuasa",
+            "Assin Ntowkrom",
+            "Assin Nyamebekyere",
+            "Assin Sabena",
+            "Assin Sienkyem",
+            "Assin Swedru",
+            "Assin Yaw Saman",
+            "Assin Zamboli",
+            "Asuadai",
+            "Asukaiss",
+            "Atentan",
+            "Atwerboanda",
+            "Aworabo",
+            "Aworkrom",
+            "Ayitey",
+            "Basofi Ningo",
             "Bomaa",
+            "Brosankro",
+            "Brosankro Old Town",
+            "Daudakrom",
+            "Dechem",
             "Derma",
+            "Derma Nkwankyire",
             "Dumakwai",
-            "Subompan",
-            "Techimantia"
+            "Dwomo",
+            "Fawobotoso",
+            "Fianko",
+            "Gambia",
+            "Ghana Camp",
+            "Gold Coast Camp",
+            "Jacobu",
+            "Kadadwen",
+            "Kadonko",
+            "Katapei",
+            "Kensere",
+            "Kojomiakrom",
+            "Kramokrom",
+            "Kruboa",
+            "Kusuogya",
+            "Kwadwoaddaekrom",
+            "Kwaku Dua Krom",
+            "Kwamemensahkrom",
+            "Kwantene",
+            "Kyekyewere",
+            "Mampong",
+            "Manteykrom",
+            "Mfante",
+            "Mim",
+            "Montwi",
+            "Nkrankrom",
+            "Nuamakrom",
+            "Nuanua Mampong",
+            "Nyankomago",
+            "Ohiaanimguase",
+            "Ohiantua",
+            "Olumankrom",
+            "Pokua",
+            "Pokuakura",
+            "Subompang",
+            "Sumsei",
+            "Tanokrom",
+            "Techimantia",
+            "Techimantia B",
+            "Tuagyankrom",
+            "Twifo Aboso",
+            "Twifo Afosua",
+            "Twifo Akweikrom",
+            "Twifo Ekurakese",
+            "Twifo Kenkuase",
+            "Yawkrakrom"
           ],
           "showOtherItem": true,
-          "otherText": "Other (Specify)"
+          "otherText": "Other (Community)"
         },
         {
           "type": "dropdown",
-          "name": "gmrquestion3",
+          "name": "suspro_question1",
           "title": "Which cooperative do you belong in",
           "choices": [
             "Anidaso Cooperative",
@@ -42,7 +141,7 @@ const json = {
         },
         {
           "type": "dropdown",
-          "name": "gmrquestion4",
+          "name": "suspro_question2",
           "title": "Varieties of cocoa",
           "choices": [
             "Hybrid",
@@ -52,19 +151,13 @@ const json = {
         },
         {
           "type": "text",
-          "name": "gmrquestion5",
-          "title": "Farmer code",
-          "isRequired": true
-        },
-        {
-          "type": "text",
-          "name": "gmrquestion6",
+          "name": "suspro_question3",
           "title": "Farmer name",
           "isRequired": true
         },
         {
           "type": "dropdown",
-          "name": "gmrquestion7",
+          "name": "suspro_question4",
           "title": "Do you have a valid identification card",
           "choices": [
             "Yes",
@@ -73,8 +166,8 @@ const json = {
         },
         {
           "type": "dropdown",
-          "name": "gmrquestion8",
-          "visibleIf": "{gmrquestion7} = 'Yes'",
+          "name": "suspro_question4b",
+          "visibleIf": "{suspro_question4} = 'Yes'",
           "title": "Identification card type",
           "choices": [
             "Ghana card",
@@ -84,30 +177,15 @@ const json = {
         },
         {
           "type": "text",
-          "name": "gmrquestion9",
-          "visibleIf": "{gmrquestion7} = 'Yes'",
+          "name": "suspro_question4c",
+          "visibleIf": "{suspro_question4} = 'Yes'",
           "title": "ID Number"
         },
         {
-          "type": "panel",
-          "name": "photo_panel",
-          "visibleIf": "{gmrquestion7} = 'Yes'",
-          "title": "10. Photo of ID card\n",
-          "elements": [
-            {
-              "type": "html",
-              "name": "gmrquestion10",
-              "html": "<div id='photo-container' style='text-align: center;'>\
-                <img id='photoIdDisplay' src='file:///android_asset/imgs/cam.png' style='width: 50%; height: auto;' alt='ID Card Photo'/>\
-                <button id='getIdPhoto' style='width: 100%; background-color: brown; color: white; display: block; margin: 0 auto;' type='button' onclick='handleGetIdPhoto()'>Get Photo</button>\
-              </div>"
-            }
-          ]
-        },
-        {
           "type": "dropdown",
-          "name": "gmrquestion11",
+          "name": "suspro_question5",
           "title": "Gender",
+          "isRequired": true,
           "choices": [
             "Male",
             "Female"
@@ -115,16 +193,17 @@ const json = {
         },
         {
           "type": "text",
-          "name": "gmrquestion12",
+          "name": "suspro_question6",
           "title": "Date of birth",
           "inputType": "date",
           "min": "1900-01-01",
-          "max": "2006-01-01"
+          "max": "2010-01-01"
         },
         {
           "type": "dropdown",
-          "name": "gmrquestion13",
+          "name": "suspro_question7",
           "title": "Do you have a registered SIM card",
+          "isRequired": true,
           "choices": [
             "Yes",
             "No"
@@ -132,14 +211,15 @@ const json = {
         },
         {
           "type": "text",
-          "name": "gmrquestion14",
-          "visibleIf": "{gmrquestion13} = 'Yes'",
+          "name": "suspro_question7b",
+          "visibleIf": "{suspro_question7} = 'Yes'",
           "title": "SIM Number"
         },
         {
           "type": "dropdown",
-          "name": "gmrquestion15",
+          "name": "suspro_question8",
           "title": "Do you have a registered mobile money number",
+          "isRequired": true,
           "choices": [
             "Yes",
             "No"
@@ -147,13 +227,13 @@ const json = {
         },
         {
           "type": "text",
-          "name": "gmrquestion16",
-          "visibleIf": "{gmrquestion15} = 'Yes'",
+          "name": "suspro_question8b",
+          "visibleIf": "{suspro_question8} = 'Yes'",
           "title": "MoMo number"
         },
         {
           "type": "dropdown",
-          "name": "gmrquestion17",
+          "name": "suspro_question9",
           "title": "What is your level of education?",
           "choices": [
             "Kindergarten",
@@ -166,13 +246,14 @@ const json = {
         },
         {
           "type": "text",
-          "name": "gmrquestion18",
+          "name": "suspro_question10",
           "title": "Total number of members living in the household?",
-          "inputType": "number"
+          "inputType": "number",
+          "isRequired": true
         },
         {
           "type": "dropdown",
-          "name": "gmrquestion19",
+          "name": "suspro_question11",
           "title": "How many children aged 0 to 17 currently live in your household?",
           "choices": [
             "1",
@@ -190,32 +271,32 @@ const json = {
         },
         {
           "type": "text",
-          "name": "gmrquestion20",
-          "visibleIf": "{gmrquestion19} anyof [2, 1, 3, 4, 5, 6, 7, 8, 9, 10]",
+          "name": "suspro_question11b",
+          "visibleIf": "{suspro_question11} anyof [2, 1, 3, 4, 5, 6, 7, 8, 9, 10]",
           "title": "How many of the children mentioned above are of school-going age (5 to 17 years)?"
         },
         {
           "type": "text",
-          "name": "gmrquestion21",
-          "visibleIf": "{gmrquestion19} anyof [1, 2, 3, 4, 5, 6, 8, 7, 9, 10]",
+          "name": "suspro_question11c",
+          "visibleIf": "{suspro_question11} anyof [1, 2, 3, 4, 5, 6, 8, 7, 9, 10]",
           "title": "How many of the school-going children (aged 5 to 17) are currently enrolled in school?",
           "inputType": "number"
         },
         {
           "type": "panel",
           "name": "genderdistributionpanel",
-          "visibleIf": "{gmrquestion19} anyof [1, 3, 2, 4, 5, 6, 7, 8, 9, 10]",
+          "visibleIf": "{suspro_question11} anyof [1, 3, 2, 4, 5, 6, 7, 8, 9, 10]",
           "title": "What is the gender distribution of the children in the household? Please specify the number of boys and girls. (0 - 17)",
           "elements": [
             {
               "type": "text",
-              "name": "gmrquestion22",
+              "name": "suspro_question12",
               "title": "Male",
               "inputType": "number"
             },
             {
               "type": "text",
-              "name": "gmrquestion23",
+              "name": "suspro_question12b",
               "title": "Female",
               "inputType": "number"
             }
@@ -223,13 +304,14 @@ const json = {
         },
         {
           "type": "text",
-          "name": "gmrquestion24",
+          "name": "suspro_question13",
           "title": "How many cocoa plots do you have?\n",
-          "inputType": "number"
+          "inputType": "number",
+          "isRequired": true
         },
         {
           "type": "dropdown",
-          "name": "gmrquestion25",
+          "name": "suspro_question14",
           "title": "Do you have any other plots?\n",
           "choices": [
             "Yes",
@@ -238,21 +320,21 @@ const json = {
         },
         {
           "type": "text",
-          "name": "gmrquestion26",
-          "visibleIf": "{gmrquestion25} = 'Yes'",
+          "name": "suspro_question14b",
+          "visibleIf": "{suspro_question14} = 'Yes'",
           "title": "How many plots do you have?\n",
           "inputType": "number"
         },
         {
           "type": "text",
-          "name": "gmrquestion27",
-          "visibleIf": "{gmrquestion25} = 'Yes'",
+          "name": "suspro_question14c",
+          "visibleIf": "{suspro_question14} = 'Yes'",
           "title": "What are the acreages of your plots?\r\n"
         },
         {
-          "type": "dropdown",
-          "name": "gmrquestion28",
-          "visibleIf": "{gmrquestion25} = 'Yes'",
+          "type": "tagbox",
+          "name": "suspro_question14d",
+          "visibleIf": "{suspro_question14} = 'Yes'",
           "title": "What type of crop do you grow on the plots?\n",
           "choices": [
             "Vegetables",
@@ -262,7 +344,7 @@ const json = {
         },
         {
           "type": "dropdown",
-          "name": "gmrquestion29",
+          "name": "suspro_question15",
           "title": "Do you apply pesticides?\n",
           "choices": [
             "Yes",
@@ -271,8 +353,8 @@ const json = {
         },
         {
           "type": "dropdown",
-          "name": "gmrquestion30",
-          "visibleIf": "{gmrquestion29} = 'Yes'",
+          "name": "suspro_question15b",
+          "visibleIf": "{suspro_question15} = 'Yes'",
           "title": "How many times do you apply it in a season?\r\n",
           "choices": [
             "Once a year",
@@ -282,7 +364,7 @@ const json = {
         },
         {
           "type": "dropdown",
-          "name": "gmrquestion31",
+          "name": "suspro_question16",
           "title": "Do you apply fungicides?\n",
           "choices": [
             "Yes",
@@ -291,8 +373,8 @@ const json = {
         },
         {
           "type": "dropdown",
-          "name": "gmrquestion32",
-          "visibleIf": "{gmrquestion31} = 'Yes'",
+          "name": "suspro_question16b",
+          "visibleIf": "{suspro_question16} = 'Yes'",
           "title": "How many times do you apply it in a season?\r\n",
           "choices": [
             "Once a year",
@@ -302,7 +384,7 @@ const json = {
         },
         {
           "type": "dropdown",
-          "name": "gmrquestion33",
+          "name": "suspro_question17",
           "title": "Do you use organic fertilizer?\r\n",
           "choices": [
             "Yes",
@@ -311,8 +393,8 @@ const json = {
         },
         {
           "type": "dropdown",
-          "name": "gmrquestion34",
-          "visibleIf": "{gmrquestion33} = 'Yes'",
+          "name": "suspro_question17b",
+          "visibleIf": "{suspro_question17} = 'Yes'",
           "title": "What type of organic fertilizer do you use?\r\n",
           "choices": [
             "Poultry manure",
@@ -323,8 +405,8 @@ const json = {
         },
         {
           "type": "dropdown",
-          "name": "gmrquestion35",
-          "visibleIf": "{gmrquestion33} = 'Yes'",
+          "name": "suspro_question17c",
+          "visibleIf": "{suspro_question17} = 'Yes'",
           "title": "How many times do you apply it in a season?\r\n",
           "choices": [
             "Once a year",
@@ -334,17 +416,17 @@ const json = {
         },
         {
           "type": "text",
-          "name": "gmrquestion36",
-          "title": "How many bags of cocoa did you produce/harvest last season 23/24?\r\n"
+          "name": "suspro_question18",
+          "title": "How many bags of cocoa did you produce/harvest last season 24/25?\r\n"
         },
         {
           "type": "text",
-          "name": "gmrquestion37",
-          "title": "How many bags of cocoa do you estimate to produce this season 24/25?\r\n"
+          "name": "suspro_question19",
+          "title": "How many bags of cocoa do you estimate to produce this season 25/26?\r\n"
         },
         {
           "type": "dropdown",
-          "name": "gmrquestion38",
+          "name": "suspro_question20",
           "title": "Is your farm located near a high conservation area (forest)\r\n",
           "choices": [
             "Yes",
@@ -353,7 +435,7 @@ const json = {
         },
         {
           "type": "dropdown",
-          "name": "gmrquestion39",
+          "name": "suspro_question21",
           "title": "Do you agree to work with safe crop Agricultural services and will abide by all internal rules and standards the group\r\n",
           "isRequired": true,
           "choices": [
@@ -363,55 +445,40 @@ const json = {
         },
         {
           "type": "panel",
-          "name": "photo_panel",
-          "title": "Photo of farmer\n",
+          "name": "location_panel",
           "elements": [
             {
+              "type": "text",
+              "name": "suspro_location",
+              "title": "Geolocation of farm",
+              "isRequired": true,
+              "readOnly": true
+            },
+            {
               "type": "html",
-              "name": "gmrquestion40",
-              "html": "<div id='photo-container' style='text-align: center;'>\
-                <img id='photoFarmerDisplay' src='file:///android_asset/imgs/cam.png' style='width: 50%; height: auto;' alt='School Photo'/>\
-                <button id='getFarmerPhoto' style='width: 100%; background-color: brown; color: white; display: block; margin: 0 auto;' type='button' onclick='handleGetFarmerPhoto()'>Get Photo</button>\
-              </div>"
+              "name": "getSusProLocation",
+              "html": "<div id='location-container' style='text-align: center;'><button id='getInspectionLocation' style='width: 100%; background-color: brown; color: white; display: block; margin: 0 auto;' type='button' onclick='handleGetLocation()'>Get Location</button></div>"
             }
           ]
         },
         {
           "type": "panel",
           "name": "photo_panel",
-          "title": "Signature/Thumbprint of farmer\n",
+          "title": "Farmer thumbprint",
           "elements": [
             {
               "type": "html",
-              "name": "gmrquestion41",
-              "html": "<div id='photo-container' style='text-align: center;'>\
-                <img id='photoTpDisplay' src='file:///android_asset/imgs/cam.png' style='width: 50%; height: auto;' alt='School Photo'/>\
-                <button id='getTpPhoto' style='width: 100%; background-color: brown; color: white; display: block; margin: 0 auto;' type='button' onclick='handleGetTpPhoto()'>Get Photo</button>\
-              </div>"
+              "name": "suspro_photo",
+              "html": "<div id='photo-container' style='text-align: center;'><img id='FarmerPhotoDisplay' src='file:///android_asset/imgs/cam.png' style='width: 50%; height: auto;' alt='Farmer Photo'/><button id='getFarmerPhoto' style='width: 100%; background-color: brown; color: white; display: block; margin: 0 auto;' type='button' onclick='handleGetFarmerPhoto()'>Get Photo</button></div>"
             }
           ]
         },
         {
           "type": "signaturepad",
-          "name": "gmrquestion42",
-          "title": "Agent Signature\n"
-        },
-        {
-          "type": "panel",
-          "name": "location_panel",
-          "elements": [
-            {
-              "type": "text",
-              "name": "gmrquestion43",
-              "title": "Geo-Location",
-              "readOnly": true
-            },
-            {
-              "type": "html",
-              "name": "getGMRLocation",
-              "html": "<div style=\"text-align: center;\"><button id=\"getGMRLocation\" style=\"width: 100%; background-color: brown; color: white; display: block;\" type=\"button\" onclick=\"handleGetGMRLocation()\">Get Location</button></div>"
-            }
-          ]
+          "name": "signature",
+          "title": "Signature of enumerator",
+          "isRequired": true,
+          "signatureWidth": 600
         }
       ]
     }

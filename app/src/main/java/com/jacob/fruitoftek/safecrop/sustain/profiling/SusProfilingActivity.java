@@ -248,42 +248,7 @@ public class SusProfilingActivity extends AppCompatActivity {
             if (!draftMode) {
                 if (TextUtils.isEmpty(farmer_id) ||
                         TextUtils.isEmpty(district) ||
-                        TextUtils.isEmpty(community) ||
-                        TextUtils.isEmpty(suspro_question1) ||
-//                        TextUtils.isEmpty(suspro_question2) ||
-//                        TextUtils.isEmpty(suspro_question3) ||
-//                        TextUtils.isEmpty(suspro_question4) ||
-//                        TextUtils.isEmpty(suspro_question4b) ||
-//                        TextUtils.isEmpty(suspro_question4c) ||
-//                        TextUtils.isEmpty(suspro_question5) ||
-//                        TextUtils.isEmpty(suspro_question6) ||
-//                        TextUtils.isEmpty(suspro_question7) ||
-//                        TextUtils.isEmpty(suspro_question7b) ||
-//                        TextUtils.isEmpty(suspro_question8) ||
-//                        TextUtils.isEmpty(suspro_question8b) ||
-//                        TextUtils.isEmpty(suspro_question9) ||
-//                        TextUtils.isEmpty(suspro_question10) ||
-//                        TextUtils.isEmpty(suspro_question11) ||
-//                        TextUtils.isEmpty(suspro_question11b) ||
-//                        TextUtils.isEmpty(suspro_question11c) ||
-//                        TextUtils.isEmpty(suspro_question12) ||
-//                        TextUtils.isEmpty(suspro_question12b) ||
-//                        TextUtils.isEmpty(suspro_question13) ||
-//                        TextUtils.isEmpty(suspro_question14) ||
-//                        TextUtils.isEmpty(suspro_question14b) ||
-//                        TextUtils.isEmpty(suspro_question14c) ||
-//                        TextUtils.isEmpty(suspro_question14d) ||
-//                        TextUtils.isEmpty(suspro_question15) ||
-//                        TextUtils.isEmpty(suspro_question15b) ||
-//                        TextUtils.isEmpty(suspro_question16) ||
-//                        TextUtils.isEmpty(suspro_question16b) ||
-//                        TextUtils.isEmpty(suspro_question17) ||
-//                        TextUtils.isEmpty(suspro_question17b) ||
-//                        TextUtils.isEmpty(suspro_question17c) ||
-//                        TextUtils.isEmpty(suspro_question18) ||
-//                        TextUtils.isEmpty(suspro_question19) ||
-//                        TextUtils.isEmpty(suspro_question20) ||
-                        TextUtils.isEmpty(suspro_question21)) {
+                        TextUtils.isEmpty(community)) {
 
                     Log.e("WebAppInterface", "Validation FAILED: Required fields are empty for non-draft save.");
                     runOnUiThread(() ->

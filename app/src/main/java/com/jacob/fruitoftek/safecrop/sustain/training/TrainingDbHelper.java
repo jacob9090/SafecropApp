@@ -34,9 +34,6 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
     private static final String COLUMN_TRAIN_QUESTION5 = "training_question5";
     private static final String COLUMN_TRAIN_QUESTION6 = "training_question6";
     private static final String COLUMN_TRAIN_QUESTION7 = "training_question7";
-    private static final String COLUMN_TRAINING_LOCATION = "training_location";
-    private static final String COLUMN_FARMER_PHOTO = "farmer_photo";
-    private static final String COLUMN_SIGNATURE = "signature";
     private static final String COLUMN_TRAIN_QUESTION8 = "training_question8";
     private static final String COLUMN_TRAIN_QUESTION9 = "training_question9";
     private static final String COLUMN_TRAIN_QUESTION10 = "training_question10";
@@ -45,6 +42,9 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
     private static final String COLUMN_TRAIN_QUESTION13 = "training_question13";
     private static final String COLUMN_TRAIN_QUESTION14 = "training_question14";
     private static final String COLUMN_TRAIN_QUESTION15 = "training_question15";
+    private static final String COLUMN_TRAINING_LOCATION = "training_location";
+    private static final String COLUMN_FARMER_PHOTO = "farmer_photo";
+    private static final String COLUMN_SIGNATURE = "signature";
     private static final String COLUMN_IS_SYNC = "is_sync";
     private static final String COLUMN_IS_DRAFT = "is_draft";
     private static final String COLUMN_USER_FNAME = "user_fname";
@@ -74,9 +74,6 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
                 + COLUMN_TRAIN_QUESTION5 + " TEXT,"
                 + COLUMN_TRAIN_QUESTION6 + " TEXT,"
                 + COLUMN_TRAIN_QUESTION7 + " TEXT,"
-                + COLUMN_TRAINING_LOCATION + " TEXT,"
-                + COLUMN_FARMER_PHOTO + " TEXT,"
-                + COLUMN_SIGNATURE + " TEXT,"
                 + COLUMN_TRAIN_QUESTION8 + " TEXT,"
                 + COLUMN_TRAIN_QUESTION9 + " TEXT,"
                 + COLUMN_TRAIN_QUESTION10 + " TEXT,"
@@ -85,6 +82,9 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
                 + COLUMN_TRAIN_QUESTION13 + " TEXT,"
                 + COLUMN_TRAIN_QUESTION14 + " TEXT,"
                 + COLUMN_TRAIN_QUESTION15 + " TEXT,"
+                + COLUMN_TRAINING_LOCATION + " TEXT,"
+                + COLUMN_FARMER_PHOTO + " TEXT,"
+                + COLUMN_SIGNATURE + " TEXT,"
                 + COLUMN_IS_SYNC + " INTEGER DEFAULT 0,"
                 + COLUMN_IS_DRAFT + " INTEGER DEFAULT 0,"
                 + COLUMN_USER_FNAME + " TEXT,"
@@ -105,11 +105,11 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
     public boolean insertOrUpdateTraining(String training_code, String district, String community,
                                           String training_question1, String training_question2, String training_question3, 
                                           String training_question4, String training_question5, String training_question6, 
-                                          String training_question7, String training_location, String farmer_photo, 
-                                          String signatureBase64, String training_question8, String training_question9, 
+                                          String training_question7, String training_question8, String training_question9,
                                           String training_question10, String training_question11, String training_question12, 
-                                          String training_question13, String training_question14, String training_question15, 
-                                          String is_sync, String is_draft, String userFname, String userLname, String user_email, 
+                                          String training_question13, String training_question14, String training_question15,
+                                          String training_location, String farmer_photo, String signatureBase64, String is_sync,
+                                          String is_draft, String userFname, String userLname, String user_email,
                                           String onCreate, String onUpdate) {
 
         String signaturePath = null;
@@ -137,9 +137,6 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
         values.put(COLUMN_TRAIN_QUESTION5, training_question5);
         values.put(COLUMN_TRAIN_QUESTION6, training_question6);
         values.put(COLUMN_TRAIN_QUESTION7, training_question7);
-        values.put(COLUMN_TRAINING_LOCATION, training_location);
-        values.put(COLUMN_FARMER_PHOTO, farmer_photo);
-        values.put(COLUMN_SIGNATURE, signaturePath);
         values.put(COLUMN_TRAIN_QUESTION8, training_question8);
         values.put(COLUMN_TRAIN_QUESTION9, training_question9);
         values.put(COLUMN_TRAIN_QUESTION10, training_question10);
@@ -148,6 +145,9 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
         values.put(COLUMN_TRAIN_QUESTION13, training_question13);
         values.put(COLUMN_TRAIN_QUESTION14, training_question14);
         values.put(COLUMN_TRAIN_QUESTION15, training_question15);
+        values.put(COLUMN_TRAINING_LOCATION, training_location);
+        values.put(COLUMN_FARMER_PHOTO, farmer_photo);
+        values.put(COLUMN_SIGNATURE, signaturePath);
         values.put(COLUMN_IS_SYNC, is_sync);
         values.put(COLUMN_IS_DRAFT, is_draft);
         values.put(COLUMN_USER_FNAME, userFname);
@@ -219,10 +219,10 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
 
     public boolean updateTraining(String id, String training_code, String district, String community,
                                     String training_question1, String training_question2, String training_question3, String training_question4,
-                                    String training_question5, String training_question6, String training_question7, String training_location, 
-                                    String farmer_photo, String signature, String training_question8, String training_question9, 
-                                    String training_question10, String training_question11, String training_question12, String training_question13, 
-                                    String training_question14, String training_question15, String is_sync, String is_draft) {
+                                    String training_question5, String training_question6, String training_question7, String training_question8,
+                                    String training_question9, String training_question10, String training_question11, String training_question12,
+                                    String training_question13, String training_question14, String training_question15, String training_location,
+                                    String farmer_photo, String signature, String is_sync, String is_draft) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_TRAINING_CODE, training_code);
@@ -235,8 +235,6 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
         values.put(COLUMN_TRAIN_QUESTION5, training_question5);
         values.put(COLUMN_TRAIN_QUESTION6, training_question6);
         values.put(COLUMN_TRAIN_QUESTION7, training_question7);
-        values.put(COLUMN_TRAINING_LOCATION, training_location);
-        values.put(COLUMN_FARMER_PHOTO, farmer_photo);
         values.put(COLUMN_TRAIN_QUESTION8, training_question8);
         values.put(COLUMN_TRAIN_QUESTION9, training_question9);
         values.put(COLUMN_TRAIN_QUESTION10, training_question10);
@@ -245,6 +243,8 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
         values.put(COLUMN_TRAIN_QUESTION13, training_question13);
         values.put(COLUMN_TRAIN_QUESTION14, training_question14);
         values.put(COLUMN_TRAIN_QUESTION15, training_question15);
+        values.put(COLUMN_TRAINING_LOCATION, training_location);
+        values.put(COLUMN_FARMER_PHOTO, farmer_photo);
         values.put(COLUMN_IS_SYNC, is_sync);
         values.put(COLUMN_IS_DRAFT, is_draft);
         values.put(COLUMN_ON_UPDATE, System.currentTimeMillis());
@@ -308,9 +308,6 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
                 String training_question5 = cursor.getString(cursor.getColumnIndexOrThrow("training_question5"));
                 String training_question6 = cursor.getString(cursor.getColumnIndexOrThrow("training_question6"));
                 String training_question7 = cursor.getString(cursor.getColumnIndexOrThrow("training_question7"));
-                String training_location = cursor.getString(cursor.getColumnIndexOrThrow("training_location"));
-                String farmer_photo = cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo"));
-                String signature = cursor.getString(cursor.getColumnIndexOrThrow("signature"));
                 String training_question8 = cursor.getString(cursor.getColumnIndexOrThrow("training_question8"));
                 String training_question9 = cursor.getString(cursor.getColumnIndexOrThrow("training_question9"));
                 String training_question10 = cursor.getString(cursor.getColumnIndexOrThrow("training_question10"));
@@ -319,6 +316,9 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
                 String training_question13 = cursor.getString(cursor.getColumnIndexOrThrow("training_question13"));
                 String training_question14 = cursor.getString(cursor.getColumnIndexOrThrow("training_question14"));
                 String training_question15 = cursor.getString(cursor.getColumnIndexOrThrow("training_question15"));
+                String training_location = cursor.getString(cursor.getColumnIndexOrThrow("training_location"));
+                String farmer_photo = cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo"));
+                String signature = cursor.getString(cursor.getColumnIndexOrThrow("signature"));
                 String is_sync = cursor.getString(cursor.getColumnIndexOrThrow("is_sync"));
                 String is_draft = cursor.getString(cursor.getColumnIndexOrThrow("is_draft"));
                 String userFname = cursor.getString(cursor.getColumnIndexOrThrow("user_fname"));
@@ -327,12 +327,12 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
                 String onCreate = cursor.getString(cursor.getColumnIndexOrThrow("on_create"));
                 String onUpdate = cursor.getString(cursor.getColumnIndexOrThrow("on_update"));
 
-                TrainingModel model = new TrainingModel( id, training_code,
-                        district, community, training_question1, training_question2, training_question3,
-                        training_question4, training_question5, training_question6, training_question7,
-                        training_location, farmer_photo != null ? Uri.parse(farmer_photo) : null,
-                        signature, training_question8, training_question9, training_question10, training_question11,
-                        training_question12, training_question13, training_question14, training_question15,
+                TrainingModel model = new TrainingModel( id, training_code, district, community,
+                        training_question1, training_question2, training_question3, training_question4,
+                        training_question5, training_question6, training_question7, training_question8,
+                        training_question9, training_question10, training_question11, training_question12,
+                        training_question13, training_question14, training_question15, training_location,
+                        farmer_photo != null ? Uri.parse(farmer_photo) : null, signature,
                         is_sync, is_draft, userFname, userLname, user_email, onCreate, onUpdate
                 );
 
@@ -369,11 +369,6 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
             String training_question5 = cursor.getString(cursor.getColumnIndexOrThrow("training_question5"));
             String training_question6 = cursor.getString(cursor.getColumnIndexOrThrow("training_question6"));
             String training_question7 = cursor.getString(cursor.getColumnIndexOrThrow("training_question7"));
-            String training_location = cursor.getString(cursor.getColumnIndexOrThrow("training_location"));
-            Uri farmer_photo = cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo")) != null
-                    ? Uri.parse(cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo")))
-                    : null;
-            String signature = cursor.getString(cursor.getColumnIndexOrThrow("signature"));
             String training_question8 = cursor.getString(cursor.getColumnIndexOrThrow("training_question8"));
             String training_question9 = cursor.getString(cursor.getColumnIndexOrThrow("training_question9"));
             String training_question10 = cursor.getString(cursor.getColumnIndexOrThrow("training_question10"));
@@ -382,6 +377,11 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
             String training_question13 = cursor.getString(cursor.getColumnIndexOrThrow("training_question13"));
             String training_question14 = cursor.getString(cursor.getColumnIndexOrThrow("training_question14"));
             String training_question15 = cursor.getString(cursor.getColumnIndexOrThrow("training_question15"));
+            String training_location = cursor.getString(cursor.getColumnIndexOrThrow("training_location"));
+            Uri farmer_photo = cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo")) != null
+                    ? Uri.parse(cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo")))
+                    : null;
+            String signature = cursor.getString(cursor.getColumnIndexOrThrow("signature"));
             String is_sync = cursor.getString(cursor.getColumnIndexOrThrow("is_sync"));
             String is_draft = cursor.getString(cursor.getColumnIndexOrThrow("is_draft"));
             String userFname = cursor.getString(cursor.getColumnIndexOrThrow("user_fname"));
@@ -392,9 +392,9 @@ public class TrainingDbHelper extends SQLiteOpenHelper {
 
             trainingModel = new TrainingModel(id, training_code, district, community, training_question1,
                     training_question2, training_question3, training_question4, training_question5, training_question6,
-                    training_question7, training_location, farmer_photo, signature, training_question8, training_question9, 
-                    training_question10, training_question11, training_question12, training_question13, training_question14, 
-                    training_question15, is_sync, is_draft, userFname, userLname, user_email, on_create, on_update);
+                    training_question7, training_question8, training_question9, training_question10, training_question11,
+                    training_question12, training_question13, training_question14, training_question15, training_location,
+                    farmer_photo, signature, is_sync, is_draft, userFname, userLname, user_email, on_create, on_update);
             cursor.close();
         }
         return trainingModel;

@@ -20,6 +20,10 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.jacob.fruitoftek.safecrop.R;
 import com.jacob.fruitoftek.safecrop.sustain.inspection.InspectionDbHelper;
 import com.jacob.fruitoftek.safecrop.sustain.inspection.InspectionModel;
+import com.jacob.fruitoftek.safecrop.sustain.profiling.SusProfilingDbHelper;
+import com.jacob.fruitoftek.safecrop.sustain.profiling.SusProfilingModel;
+import com.jacob.fruitoftek.safecrop.sustain.training.TrainingDbHelper;
+import com.jacob.fruitoftek.safecrop.sustain.training.TrainingModel;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -41,10 +45,14 @@ import okhttp3.Response;
 public class SusCertCloudBottomSheet extends BottomSheetDialogFragment {
 
     public InspectionDbHelper inspectionDbHelper;
+    public SusProfilingDbHelper susProfilingDbHelper;
+    public TrainingDbHelper trainingDbHelper;
     private ProgressDialog progressDialog;
     private boolean isSyncing = false;
 
-    private static final String SERVER_URL = "https://app.safecropgh.org/sus_cert/safecrop_inspection.php";
+    private static final String INSPECTIONSERVER_URL = "https://app.safecropgh.org/sus_cert/safecrop_inspection.php";
+    private static final String SUSPROFILINGSERVER_URL = "https://app.safecropgh.org/sus_cert/safecrop_susprofiling.php";
+    private static final String TRAININGSERVER_URL = "https://app.safecropgh.org/sus_cert/safecrop_training.php";
     private static final int BATCH_SIZE = 10;
     private static final int MAX_RETRIES = 3;
     private static final int RETRY_DELAY_MS = 2000;
@@ -58,6 +66,8 @@ public class SusCertCloudBottomSheet extends BottomSheetDialogFragment {
         closeCloudBackupBtn.setOnClickListener(v -> dismiss());
 
         inspectionDbHelper = new InspectionDbHelper(getActivity());
+        susProfilingDbHelper = new SusProfilingDbHelper(getActivity());
+        trainingDbHelper = new TrainingDbHelper(getActivity());
 
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Preparing sync...");
@@ -70,13 +80,31 @@ public class SusCertCloudBottomSheet extends BottomSheetDialogFragment {
                 Toast.makeText(getActivity(), "Sync already in progress", Toast.LENGTH_SHORT).show();
                 return;
             }
-            startSyncProcess();
+            syncInspectionProcess();
+        });
+
+        TextView scbsCloudBackupTrainingTv = view.findViewById(R.id.scbsCloudBackupTrainingTv);
+        scbsCloudBackupTrainingTv.setOnClickListener(v -> {
+            if (isSyncing) {
+                Toast.makeText(getActivity(), "Sync already in progress", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            syncTrainingProcess();
+        });
+
+        TextView scbsCloudBackupProfilingTv = view.findViewById(R.id.scbsCloudBackupProfilingTv);
+        scbsCloudBackupProfilingTv.setOnClickListener(v -> {
+            if (isSyncing) {
+                Toast.makeText(getActivity(), "Sync already in progress", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            syncProfilingProcess();
         });
 
         return view;
     }
 
-    private void startSyncProcess() {
+    private void syncInspectionProcess() {
         if (!isNetworkConnected()) {
             showToast("No internet connection");
             return;
@@ -85,7 +113,7 @@ public class SusCertCloudBottomSheet extends BottomSheetDialogFragment {
         progressDialog.show();
         isSyncing = true;
 
-        syncInspectionsToServer(requireContext(), SERVER_URL, new SyncCallback() {
+        syncInspectionsToServer(requireContext(), INSPECTIONSERVER_URL, new SyncCallback() {
             @Override
             public void onBatchSynced(int batchNum, int totalBatches, int successCount) {
                 requireActivity().runOnUiThread(() -> {
@@ -111,8 +139,7 @@ public class SusCertCloudBottomSheet extends BottomSheetDialogFragment {
                     if (totalFailed == 0) {
                         message = "Sync complete! " + totalSynced + " records synced";
                     } else {
-                        message = String.format("Sync completed with %d successes and %d failures",
-                                totalSynced, totalFailed);
+                        message = String.format("Sync completed with %d successes and %d failures", totalSynced, totalFailed);
                     }
                     showToast(message);
                 });
@@ -339,6 +366,476 @@ public class SusCertCloudBottomSheet extends BottomSheetDialogFragment {
             callback.onSyncComplete(totalSynced, totalFailed);
         }).start();
     }
+
+    private void syncProfilingProcess() {
+        if (!isNetworkConnected()) {
+            showToast("No internet connection");
+            return;
+        }
+
+        progressDialog.show();
+        isSyncing = true;
+
+        syncProfilingToServer(requireContext(), SUSPROFILINGSERVER_URL, new SyncCallback() {
+            @Override
+            public void onBatchSynced(int batchNum, int totalBatches, int successCount) {
+                requireActivity().runOnUiThread(() -> {
+                    progressDialog.setMessage(String.format("Syncing batch %d of %d", batchNum, totalBatches));
+                    progressDialog.setProgress((batchNum * 100) / totalBatches);
+                });
+            }
+
+            @Override
+            public void onBatchFailed(int batchNum, String errorMessage) {
+                requireActivity().runOnUiThread(() -> {
+                    progressDialog.setMessage(String.format("Failed batch %d: %s", batchNum, errorMessage));
+                    showToast("Batch " + batchNum + " failed: " + errorMessage);
+                });
+            }
+
+            @Override
+            public void onSyncComplete(int totalSynced, int totalFailed) {
+                requireActivity().runOnUiThread(() -> {
+                    progressDialog.dismiss();
+                    isSyncing = false;
+                    String message;
+                    if (totalFailed == 0) {
+                        message = "Sync complete! " + totalSynced + " records synced";
+                    } else {
+                        message = String.format("Sync completed with %d successes and %d failures", totalSynced, totalFailed);
+                    }
+                    showToast(message);
+                });
+            }
+        });
+    }
+
+    public void syncProfilingToServer(Context context, String serverUrl, SyncCallback callback) {
+        new Thread(() -> {
+            List<SusProfilingModel> unsyncedSusprofilings = susProfilingDbHelper.getUnsyncedSusProfiling();
+            if (unsyncedSusprofilings.isEmpty()) {
+                requireActivity().runOnUiThread(() -> {
+                    progressDialog.dismiss();
+                    showToast("No unsynced profilings found");
+                });
+                callback.onSyncComplete(0, 0);
+                return;
+            }
+
+            int totalBatches = (unsyncedSusprofilings.size() + BATCH_SIZE - 1) / BATCH_SIZE;
+            OkHttpClient client = new OkHttpClient.Builder()
+                    .connectTimeout(30, TimeUnit.SECONDS)
+                    .writeTimeout(30, TimeUnit.SECONDS)
+                    .readTimeout(30, TimeUnit.SECONDS)
+                    .build();
+
+            int totalSynced = 0;
+            int totalFailed = 0;
+
+            for (int i = 0; i < unsyncedSusprofilings.size(); i += BATCH_SIZE) {
+                int end = Math.min(i + BATCH_SIZE, unsyncedSusprofilings.size());
+                List<SusProfilingModel> batch = unsyncedSusprofilings.subList(i, end);
+                int batchNum = (i / BATCH_SIZE) + 1;
+                String batchError = null;
+
+                // Prepare multipart request
+                MultipartBody.Builder multipartBuilder = new MultipartBody.Builder()
+                        .setType(MultipartBody.FORM);
+                JSONArray batchArray = new JSONArray();
+
+                try {
+                    for (SusProfilingModel profiling : batch) {
+                        JSONObject obj = new JSONObject();
+                        obj.put("farmer_id", profiling.getFarmer_id());
+                        obj.put("district", profiling.getDistrict());
+                        obj.put("community", profiling.getCommunity());
+                        obj.put("suspro_question1", profiling.getSuspro_question1());
+                        obj.put("suspro_question2", profiling.getSuspro_question2());
+                        obj.put("suspro_question3", profiling.getSuspro_question3());
+                        obj.put("suspro_question4", profiling.getSuspro_question4());
+                        obj.put("suspro_question4b", profiling.getSuspro_question4b());
+                        obj.put("suspro_question4c", profiling.getSuspro_question4c());
+                        obj.put("suspro_question5", profiling.getSuspro_question5());
+                        obj.put("suspro_question6", profiling.getSuspro_question6());
+                        obj.put("suspro_question7", profiling.getSuspro_question7());
+                        obj.put("suspro_question7b", profiling.getSuspro_question7b());
+                        obj.put("suspro_question8", profiling.getSuspro_question8());
+                        obj.put("suspro_question8b", profiling.getSuspro_question8b());
+                        obj.put("suspro_question9", profiling.getSuspro_question9());
+                        obj.put("suspro_question10", profiling.getSuspro_question10());
+                        obj.put("suspro_question11", profiling.getSuspro_question11());
+                        obj.put("suspro_question11b", profiling.getSuspro_question11b());
+                        obj.put("suspro_question11c", profiling.getSuspro_question11c());
+                        obj.put("suspro_question12", profiling.getSuspro_question12());
+                        obj.put("suspro_question12b", profiling.getSuspro_question12b());
+                        obj.put("suspro_question13", profiling.getSuspro_question13());
+                        obj.put("suspro_question14", profiling.getSuspro_question14());
+                        obj.put("suspro_question14b", profiling.getSuspro_question14b());
+                        obj.put("suspro_question14c", profiling.getSuspro_question14c());
+                        obj.put("suspro_question14d", profiling.getSuspro_question14d());
+                        obj.put("suspro_question15", profiling.getSuspro_question15());
+                        obj.put("suspro_question15b", profiling.getSuspro_question15b());
+                        obj.put("suspro_question16", profiling.getSuspro_question16());
+                        obj.put("suspro_question16b", profiling.getSuspro_question16b());
+                        obj.put("suspro_question17", profiling.getSuspro_question17());
+                        obj.put("suspro_question17b", profiling.getSuspro_question17b());
+                        obj.put("suspro_question17c", profiling.getSuspro_question17c());
+                        obj.put("suspro_question18", profiling.getSuspro_question18());
+                        obj.put("suspro_question19", profiling.getSuspro_question19());
+                        obj.put("suspro_question20", profiling.getSuspro_question20());
+                        obj.put("suspro_question21", profiling.getSuspro_question21());
+                        obj.put("suspro_location", profiling.getSuspro_location());
+                        obj.put("is_sync", profiling.getIs_sync());
+                        obj.put("is_draft", profiling.getIs_draft());
+                        obj.put("user_fname", profiling.getUserFname());
+                        obj.put("user_lname", profiling.getUserLname());
+                        obj.put("user_email", profiling.getUserEmail());
+                        obj.put("on_create", profiling.getOnCreate());
+                        obj.put("on_update", profiling.getOnUpdate());
+
+                        // Handle files
+                        obj.put("signature_filename",
+                                profiling.getSignature() != null ?
+                                        profiling.getFarmer_id() + "_signature.png" :
+                                        JSONObject.NULL);
+
+                        obj.put("farmer_photo_filename",
+                                profiling.getFarmer_photo() != null ?
+                                        profiling.getFarmer_id() + "_photo.jpg" :
+                                        JSONObject.NULL);
+
+                        batchArray.put(obj);
+
+                        // Add signature file if exists
+                        if (profiling.getSignature() != null) {
+                            File signatureFile = new File(profiling.getSignature());
+                            if (signatureFile.exists()) {
+                                multipartBuilder.addFormDataPart(
+                                        "signature_files[]",
+                                        profiling.getFarmer_id() + "_signature.png",
+                                        RequestBody.create(signatureFile, MediaType.parse("image/png"))
+                                );
+                            }
+                        }
+
+                        // Add farmer photo if exists
+                        if (profiling.getFarmer_photo() != null) {
+                            try (InputStream inputStream = context.getContentResolver()
+                                    .openInputStream(profiling.getFarmer_photo())) {
+                                if (inputStream != null) {
+                                    byte[] fileBytes = readBytesFromStream(inputStream);
+                                    multipartBuilder.addFormDataPart(
+                                            "farmer_photo_files[]",
+                                            profiling.getFarmer_id() + "_photo.jpg",
+                                            RequestBody.create(fileBytes, MediaType.parse("image/jpeg"))
+                                    );
+                                }
+                            } catch (Exception e) {
+                                Log.e("Sync", "Error reading photo: " + e.getMessage());
+                            }
+                        }
+                    }
+
+                    multipartBuilder.addFormDataPart("batch", batchArray.toString());
+                    RequestBody requestBody = multipartBuilder.build();
+                    Request request = new Request.Builder()
+                            .url(serverUrl)
+                            .post(requestBody)
+                            .build();
+
+                    boolean batchSuccess = false;
+                    int retryCount = 0;
+
+                    while (!batchSuccess && retryCount < MAX_RETRIES) {
+                        try (Response response = client.newCall(request).execute()) {
+                            if (response.isSuccessful()) {
+                                String responseBody = response.body().string();
+                                JSONObject jsonResponse = new JSONObject(responseBody);
+
+                                if (jsonResponse.getString("status").equals("success") ||
+                                        jsonResponse.getString("status").equals("partial")) {
+
+                                    // Mark successful records as synced
+                                    int syncedInBatch = jsonResponse.getInt("synced");
+                                    susProfilingDbHelper.markBatchAsSynced(batch);
+                                    totalSynced += syncedInBatch;
+                                    totalFailed += (batch.size() - syncedInBatch);
+                                    batchSuccess = true;
+                                    callback.onBatchSynced(batchNum, totalBatches, syncedInBatch);
+                                } else {
+                                    batchError = "Server rejected batch";
+                                    retryCount++;
+                                    if (retryCount < MAX_RETRIES) {
+                                        Thread.sleep(RETRY_DELAY_MS);
+                                    }
+                                }
+                            } else {
+                                batchError = "HTTP " + response.code() + ": " + response.message();
+                                retryCount++;
+                                if (retryCount < MAX_RETRIES) {
+                                    Thread.sleep(RETRY_DELAY_MS);
+                                }
+                            }
+                        } catch (Exception e) {
+                            batchError = e.getMessage();
+                            retryCount++;
+                            if (retryCount < MAX_RETRIES) {
+                                Thread.sleep(RETRY_DELAY_MS);
+                            }
+                        }
+                    }
+
+                    if (!batchSuccess) {
+                        totalFailed += batch.size();
+                        callback.onBatchFailed(batchNum, batchError != null ? batchError : "Unknown error");
+                    }
+
+                } catch (Exception e) {
+                    totalFailed += batch.size();
+                    callback.onBatchFailed(batchNum, e.getMessage());
+                }
+            }
+
+            callback.onSyncComplete(totalSynced, totalFailed);
+        }).start();
+    }
+
+
+
+
+
+
+
+
+
+
+
+    private void syncTrainingProcess() {
+        if (!isNetworkConnected()) {
+            showToast("No internet connection");
+            return;
+        }
+
+        progressDialog.show();
+        isSyncing = true;
+
+        syncTrainingToServer(requireContext(), TRAININGSERVER_URL, new SyncCallback() {
+            @Override
+            public void onBatchSynced(int batchNum, int totalBatches, int successCount) {
+                requireActivity().runOnUiThread(() -> {
+                    progressDialog.setMessage(String.format("Syncing batch %d of %d", batchNum, totalBatches));
+                    progressDialog.setProgress((batchNum * 100) / totalBatches);
+                });
+            }
+
+            @Override
+            public void onBatchFailed(int batchNum, String errorMessage) {
+                requireActivity().runOnUiThread(() -> {
+                    progressDialog.setMessage(String.format("Failed batch %d: %s", batchNum, errorMessage));
+                    showToast("Batch " + batchNum + " failed: " + errorMessage);
+                });
+            }
+
+            @Override
+            public void onSyncComplete(int totalSynced, int totalFailed) {
+                requireActivity().runOnUiThread(() -> {
+                    progressDialog.dismiss();
+                    isSyncing = false;
+                    String message;
+                    if (totalFailed == 0) {
+                        message = "Sync complete! " + totalSynced + " records synced";
+                    } else {
+                        message = String.format("Sync completed with %d successes and %d failures", totalSynced, totalFailed);
+                    }
+                    showToast(message);
+                });
+            }
+        });
+    }
+
+    public void syncTrainingToServer(Context context, String serverUrl, SyncCallback callback) {
+        new Thread(() -> {
+            List<TrainingModel> unsyncedTraings = trainingDbHelper.getUnsyncedTrainings();
+            if (unsyncedTraings.isEmpty()) {
+                requireActivity().runOnUiThread(() -> {
+                    progressDialog.dismiss();
+                    showToast("No unsynced training found");
+                });
+                callback.onSyncComplete(0, 0);
+                return;
+            }
+
+            int totalBatches = (unsyncedTraings.size() + BATCH_SIZE - 1) / BATCH_SIZE;
+            OkHttpClient client = new OkHttpClient.Builder()
+                    .connectTimeout(30, TimeUnit.SECONDS)
+                    .writeTimeout(30, TimeUnit.SECONDS)
+                    .readTimeout(30, TimeUnit.SECONDS)
+                    .build();
+
+            int totalSynced = 0;
+            int totalFailed = 0;
+
+            for (int i = 0; i < unsyncedTraings.size(); i += BATCH_SIZE) {
+                int end = Math.min(i + BATCH_SIZE, unsyncedTraings.size());
+                List<TrainingModel> batch = unsyncedTraings.subList(i, end);
+                int batchNum = (i / BATCH_SIZE) + 1;
+                String batchError = null;
+
+                // Prepare multipart request
+                MultipartBody.Builder multipartBuilder = new MultipartBody.Builder()
+                        .setType(MultipartBody.FORM);
+                JSONArray batchArray = new JSONArray();
+
+                try {
+                    for (TrainingModel training : batch) {
+                        JSONObject obj = new JSONObject();
+                        obj.put("training_code", training.getTraining_code());
+                        obj.put("district", training.getDistrict());
+                        obj.put("community", training.getCommunity());
+                        obj.put("training_question1", training.getTraining_question1());
+                        obj.put("training_question2", training.getTraining_question2());
+                        obj.put("training_question3", training.getTraining_question3());
+                        obj.put("training_question4", training.getTraining_question4());
+                        obj.put("training_question5", training.getTraining_question5());
+                        obj.put("training_question6", training.getTraining_question6());
+                        obj.put("training_question7", training.getTraining_question7());
+                        obj.put("training_question8", training.getTraining_question8());
+                        obj.put("training_question9", training.getTraining_question9());
+                        obj.put("training_question10", training.getTraining_question10());
+                        obj.put("training_question11", training.getTraining_question11());
+                        obj.put("training_question12", training.getTraining_question12());
+                        obj.put("training_question13", training.getTraining_question13());
+                        obj.put("training_question14", training.getTraining_question14());
+                        obj.put("training_question15", training.getTraining_question15());
+                        obj.put("training_location", training.getTraining_location());
+                        obj.put("is_sync", training.getIs_sync());
+                        obj.put("is_draft", training.getIs_draft());
+                        obj.put("user_fname", training.getUserFname());
+                        obj.put("user_lname", training.getUserLname());
+                        obj.put("user_email", training.getUserEmail());
+                        obj.put("on_create", training.getOnCreate());
+                        obj.put("on_update", training.getOnUpdate());
+
+                        // Handle files
+                        obj.put("signature_filename",
+                                training.getSignature() != null ?
+                                        training.getTraining_code() + "_signature.png" :
+                                        JSONObject.NULL);
+
+                        obj.put("farmer_photo_filename",
+                                training.getFarmer_photo() != null ?
+                                        training.getTraining_code() + "_photo.jpg" :
+                                        JSONObject.NULL);
+
+                        batchArray.put(obj);
+
+                        // Add signature file if exists
+                        if (training.getSignature() != null) {
+                            File signatureFile = new File(training.getSignature());
+                            if (signatureFile.exists()) {
+                                multipartBuilder.addFormDataPart(
+                                        "signature_files[]",
+                                        training.getTraining_code() + "_signature.png",
+                                        RequestBody.create(signatureFile, MediaType.parse("image/png"))
+                                );
+                            }
+                        }
+
+                        // Add farmer photo if exists
+                        if (training.getFarmer_photo() != null) {
+                            try (InputStream inputStream = context.getContentResolver()
+                                    .openInputStream(training.getFarmer_photo())) {
+                                if (inputStream != null) {
+                                    byte[] fileBytes = readBytesFromStream(inputStream);
+                                    multipartBuilder.addFormDataPart(
+                                            "farmer_photo_files[]",
+                                            training.getTraining_code() + "_photo.jpg",
+                                            RequestBody.create(fileBytes, MediaType.parse("image/jpeg"))
+                                    );
+                                }
+                            } catch (Exception e) {
+                                Log.e("Sync", "Error reading photo: " + e.getMessage());
+                            }
+                        }
+                    }
+
+                    multipartBuilder.addFormDataPart("batch", batchArray.toString());
+                    RequestBody requestBody = multipartBuilder.build();
+                    Request request = new Request.Builder()
+                            .url(serverUrl)
+                            .post(requestBody)
+                            .build();
+
+                    boolean batchSuccess = false;
+                    int retryCount = 0;
+
+                    while (!batchSuccess && retryCount < MAX_RETRIES) {
+                        try (Response response = client.newCall(request).execute()) {
+                            if (response.isSuccessful()) {
+                                String responseBody = response.body().string();
+                                JSONObject jsonResponse = new JSONObject(responseBody);
+
+                                if (jsonResponse.getString("status").equals("success") ||
+                                        jsonResponse.getString("status").equals("partial")) {
+
+                                    // Mark successful records as synced
+                                    int syncedInBatch = jsonResponse.getInt("synced");
+                                    trainingDbHelper.markBatchAsSynced(batch);
+                                    totalSynced += syncedInBatch;
+                                    totalFailed += (batch.size() - syncedInBatch);
+                                    batchSuccess = true;
+                                    callback.onBatchSynced(batchNum, totalBatches, syncedInBatch);
+                                } else {
+                                    batchError = "Server rejected batch";
+                                    retryCount++;
+                                    if (retryCount < MAX_RETRIES) {
+                                        Thread.sleep(RETRY_DELAY_MS);
+                                    }
+                                }
+                            } else {
+                                batchError = "HTTP " + response.code() + ": " + response.message();
+                                retryCount++;
+                                if (retryCount < MAX_RETRIES) {
+                                    Thread.sleep(RETRY_DELAY_MS);
+                                }
+                            }
+                        } catch (Exception e) {
+                            batchError = e.getMessage();
+                            retryCount++;
+                            if (retryCount < MAX_RETRIES) {
+                                Thread.sleep(RETRY_DELAY_MS);
+                            }
+                        }
+                    }
+
+                    if (!batchSuccess) {
+                        totalFailed += batch.size();
+                        callback.onBatchFailed(batchNum, batchError != null ? batchError : "Unknown error");
+                    }
+
+                } catch (Exception e) {
+                    totalFailed += batch.size();
+                    callback.onBatchFailed(batchNum, e.getMessage());
+                }
+            }
+
+            callback.onSyncComplete(totalSynced, totalFailed);
+        }).start();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private byte[] readBytesFromStream(InputStream inputStream) throws IOException {
         ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();

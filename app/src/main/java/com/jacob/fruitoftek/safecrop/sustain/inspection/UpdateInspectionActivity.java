@@ -173,7 +173,7 @@ public class UpdateInspectionActivity extends AppCompatActivity {
             inspectionModel.setFarmer_name(farmer_name);
             inspectionModel.setDistrict(district);
             inspectionModel.setCommunity(community);
-            inspectionModel.setFarmer_name(ghana_card);
+            inspectionModel.setGhana_card(ghana_card);
             inspectionModel.setFarmer_yob(farmer_yob);
             inspectionModel.setFarmer_phone(farmer_phone);
             inspectionModel.setFarmer_gender(farmer_gender);

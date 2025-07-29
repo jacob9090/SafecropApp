@@ -33,7 +33,7 @@ function updateFarmerPhoto(photoFarmerUri) {
     if (photoFarmerImg) {
         photoFarmerImg.src = photoFarmerUri;
     }
-    survey.setValue('farmer_photo', photoFarmerUri); // Ensure it's in the survey data!
+    survey.setValue('farmer_photo', photoFarmerUri);
 }
 
 function notifyAndroidPageLoaded() {

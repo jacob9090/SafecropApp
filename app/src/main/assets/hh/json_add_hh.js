@@ -360,7 +360,8 @@ const json = {
           "type": "signaturepad",
           "name": "signature",
           "title": "Signature of field agent",
-          "isRequired": true
+          "isRequired": true,
+          "signatureWidth": 600
         }
       ]
     }

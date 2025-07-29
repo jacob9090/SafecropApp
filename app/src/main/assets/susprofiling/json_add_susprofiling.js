@@ -8,7 +8,8 @@ const json = {
           "type": "text",
           "name": "farmer_id",
           "title": "UserID",
-          "isRequired": true
+          "isRequired": true,
+          "readOnly": true
         },
         {
           "type": "dropdown",
@@ -16,10 +17,10 @@ const json = {
           "title": "Select district",
           "isRequired": true,
           "choices": [
-            "Assin Fosu",
-            "Bechem",
-            'Goaso',
-            "Tepa"
+            "Adwumapa Coorperative",
+            "Anidaso Mmaa Coorperative",
+            "Assinman Women",
+            "Bitre Cooperative"
           ],
           "showOtherItem": true,
           "otherText": "Other (District)"
@@ -30,11 +31,100 @@ const json = {
           "title": "Select community",
           "isRequired": true,
           "choices": [
+            "Abebresekrom",
+            "Abechem",
+            "Abekoase",
+            "Abole",
+            "Abotareye",
+            "Adiepena",
+            "Adukrom",
+            "Agoloso",
+            "Alhassankrom",
+            "Amoakrom",
+            "Anhweasu",
+            "Aniakragya",
+            "Ankaase",
+            "Apesika",
+            "Apotoyewa",
+            "Appiahkrom",
+            "Arkofudi Patasi",
+            "Asenchem",
+            "Asibrem",
+            "Assin Abodwese",
+            "Assin Akropong Wawase",
+            "Assin Dwanakye Adwanpa",
+            "Assin Krofofrom",
+            "Assin Kyeikrom",
+            "Assin Nkukuasa",
+            "Assin Ntowkrom",
+            "Assin Nyamebekyere",
+            "Assin Sabena",
+            "Assin Sienkyem",
+            "Assin Swedru",
+            "Assin Yaw Saman",
+            "Assin Zamboli",
+            "Asuadai",
+            "Asukaiss",
+            "Atentan",
+            "Atwerboanda",
+            "Aworabo",
+            "Aworkrom",
+            "Ayitey",
+            "Basofi Ningo",
             "Bomaa",
+            "Brosankro",
+            "Brosankro Old Town",
+            "Daudakrom",
+            "Dechem",
             "Derma",
+            "Derma Nkwankyire",
             "Dumakwai",
-            "Subompan",
-            "Techimantia"
+            "Dwomo",
+            "Fawobotoso",
+            "Fianko",
+            "Gambia",
+            "Ghana Camp",
+            "Gold Coast Camp",
+            "Jacobu",
+            "Kadadwen",
+            "Kadonko",
+            "Katapei",
+            "Kensere",
+            "Kojomiakrom",
+            "Kramokrom",
+            "Kruboa",
+            "Kusuogya",
+            "Kwadwoaddaekrom",
+            "Kwaku Dua Krom",
+            "Kwamemensahkrom",
+            "Kwantene",
+            "Kyekyewere",
+            "Mampong",
+            "Manteykrom",
+            "Mfante",
+            "Mim",
+            "Montwi",
+            "Nkrankrom",
+            "Nuamakrom",
+            "Nuanua Mampong",
+            "Nyankomago",
+            "Ohiaanimguase",
+            "Ohiantua",
+            "Olumankrom",
+            "Pokua",
+            "Pokuakura",
+            "Subompang",
+            "Sumsei",
+            "Tanokrom",
+            "Techimantia",
+            "Techimantia B",
+            "Tuagyankrom",
+            "Twifo Aboso",
+            "Twifo Afosua",
+            "Twifo Akweikrom",
+            "Twifo Ekurakese",
+            "Twifo Kenkuase",
+            "Yawkrakrom"
           ],
           "showOtherItem": true,
           "otherText": "Other (Community)"
@@ -95,6 +185,7 @@ const json = {
           "type": "dropdown",
           "name": "suspro_question5",
           "title": "Gender",
+          "isRequired": true,
           "choices": [
             "Male",
             "Female"
@@ -112,6 +203,7 @@ const json = {
           "type": "dropdown",
           "name": "suspro_question7",
           "title": "Do you have a registered SIM card",
+          "isRequired": true,
           "choices": [
             "Yes",
             "No"
@@ -127,6 +219,7 @@ const json = {
           "type": "dropdown",
           "name": "suspro_question8",
           "title": "Do you have a registered mobile money number",
+          "isRequired": true,
           "choices": [
             "Yes",
             "No"
@@ -155,7 +248,8 @@ const json = {
           "type": "text",
           "name": "suspro_question10",
           "title": "Total number of members living in the household?",
-          "inputType": "number"
+          "inputType": "number",
+          "isRequired": true
         },
         {
           "type": "dropdown",
@@ -211,13 +305,14 @@ const json = {
         {
           "type": "text",
           "name": "suspro_question13",
-          "title": "How many cocoa plots do you have?\n",
-          "inputType": "number"
+          "title": "How many cocoa plots do you have?",
+          "inputType": "number",
+          "isRequired": true
         },
         {
           "type": "dropdown",
           "name": "suspro_question14",
-          "title": "Do you have any other plots?\n",
+          "title": "Do you have any other plots?",
           "choices": [
             "Yes",
             "No"
@@ -227,20 +322,20 @@ const json = {
           "type": "text",
           "name": "suspro_question14b",
           "visibleIf": "{suspro_question14} = 'Yes'",
-          "title": "How many plots do you have?\n",
+          "title": "How many plots do you have?",
           "inputType": "number"
         },
         {
           "type": "text",
           "name": "suspro_question14c",
           "visibleIf": "{suspro_question14} = 'Yes'",
-          "title": "What are the acreages of your plots?\r\n"
+          "title": "What are the acreages of your plots?"
         },
         {
           "type": "tagbox",
           "name": "suspro_question14d",
           "visibleIf": "{suspro_question14} = 'Yes'",
-          "title": "What type of crop do you grow on the plots?\n",
+          "title": "What type of crop do you grow on the plots?",
           "choices": [
             "Vegetables",
             "Food crop",
@@ -250,7 +345,7 @@ const json = {
         {
           "type": "dropdown",
           "name": "suspro_question15",
-          "title": "Do you apply pesticides?\n",
+          "title": "Do you apply pesticides?",
           "choices": [
             "Yes",
             "No"
@@ -260,7 +355,7 @@ const json = {
           "type": "dropdown",
           "name": "suspro_question15b",
           "visibleIf": "{suspro_question15} = 'Yes'",
-          "title": "How many times do you apply it in a season?\r\n",
+          "title": "How many times do you apply it in a season?",
           "choices": [
             "Once a year",
             "2-4 times a year",
@@ -270,7 +365,7 @@ const json = {
         {
           "type": "dropdown",
           "name": "suspro_question16",
-          "title": "Do you apply fungicides?\n",
+          "title": "Do you apply fungicides?",
           "choices": [
             "Yes",
             "No"
@@ -280,7 +375,7 @@ const json = {
           "type": "dropdown",
           "name": "suspro_question16b",
           "visibleIf": "{suspro_question16} = 'Yes'",
-          "title": "How many times do you apply it in a season?\r\n",
+          "title": "How many times do you apply it in a season?",
           "choices": [
             "Once a year",
             "2-4 times a year",
@@ -290,7 +385,7 @@ const json = {
         {
           "type": "dropdown",
           "name": "suspro_question17",
-          "title": "Do you use organic fertilizer?\r\n",
+          "title": "Do you use organic fertilizer?",
           "choices": [
             "Yes",
             "No"
@@ -300,7 +395,7 @@ const json = {
           "type": "dropdown",
           "name": "suspro_question17b",
           "visibleIf": "{suspro_question17} = 'Yes'",
-          "title": "What type of organic fertilizer do you use?\r\n",
+          "title": "What type of organic fertilizer do you use?",
           "choices": [
             "Poultry manure",
             "Compost",
@@ -312,7 +407,7 @@ const json = {
           "type": "dropdown",
           "name": "suspro_question17c",
           "visibleIf": "{suspro_question17} = 'Yes'",
-          "title": "How many times do you apply it in a season?\r\n",
+          "title": "How many times do you apply it in a season?",
           "choices": [
             "Once a year",
             "2-4 times a year",
@@ -322,17 +417,17 @@ const json = {
         {
           "type": "text",
           "name": "suspro_question18",
-          "title": "How many bags of cocoa did you produce/harvest last season 24/25?\r\n"
+          "title": "How many bags of cocoa did you produce/harvest last season 24/25?"
         },
         {
           "type": "text",
           "name": "suspro_question19",
-          "title": "How many bags of cocoa do you estimate to produce this season 25/26?\r\n"
+          "title": "How many bags of cocoa do you estimate to produce this season 25/26?"
         },
         {
           "type": "dropdown",
           "name": "suspro_question20",
-          "title": "Is your farm located near a high conservation area (forest)\r\n",
+          "title": "Is your farm located near a high conservation area (forest)",
           "choices": [
             "Yes",
             "No"
@@ -341,7 +436,7 @@ const json = {
         {
           "type": "dropdown",
           "name": "suspro_question21",
-          "title": "Do you agree to work with safe crop Agricultural services and will abide by all internal rules and standards the group\r\n",
+          "title": "Do you agree to work with safe crop Agricultural services and will abide by all internal rules and standards the group",
           "isRequired": true,
           "choices": [
             "Yes",
@@ -382,7 +477,8 @@ const json = {
           "type": "signaturepad",
           "name": "signature",
           "title": "Signature of enumerator",
-          "isRequired": true
+          "isRequired": true,
+          "signatureWidth": 600
         }
       ]
     }

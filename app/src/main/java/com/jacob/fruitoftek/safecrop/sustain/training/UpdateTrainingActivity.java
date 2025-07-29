@@ -126,10 +126,10 @@ public class UpdateTrainingActivity extends AppCompatActivity {
         public void updateTraining(String training_code, String district, String community, String training_question1,
                                    String training_question2, String training_question3, String training_question4,
                                    String training_question5, String training_question6, String training_question7,
-                                   String training_location, String farmer_photo, String signature,
                                    String training_question8, String training_question9, String training_question10,
                                    String training_question11, String training_question12, String training_question13,
-                                   String training_question14, String training_question15, String is_sync, String is_draft) {
+                                   String training_question14, String training_question15, String training_location,
+                                   String farmer_photo, String signature, String is_sync, String is_draft) {
             // Fallback: If JS sends blank, use old values!
             if (farmer_photo == null || farmer_photo.isEmpty()) {
                 farmer_photo = trainingModel.getFarmer_photo() != null ? trainingModel.getFarmer_photo().toString() : "";
@@ -148,9 +148,6 @@ public class UpdateTrainingActivity extends AppCompatActivity {
             trainingModel.setTraining_question5(training_question5);
             trainingModel.setTraining_question6(training_question6);
             trainingModel.setTraining_question7(training_question7);
-            trainingModel.setTraining_location(training_location);
-            trainingModel.setFarmer_photo(farmer_photo != null && !farmer_photo.isEmpty() ? Uri.parse(farmer_photo) : null);
-            trainingModel.setSignature(signature);
             trainingModel.setTraining_question8(training_question8);
             trainingModel.setTraining_question9(training_question9);
             trainingModel.setTraining_question10(training_question10);
@@ -159,15 +156,18 @@ public class UpdateTrainingActivity extends AppCompatActivity {
             trainingModel.setTraining_question13(training_question13);
             trainingModel.setTraining_question14(training_question14);
             trainingModel.setTraining_question15(training_question15);
+            trainingModel.setTraining_location(training_location);
+            trainingModel.setFarmer_photo(farmer_photo != null && !farmer_photo.isEmpty() ? Uri.parse(farmer_photo) : null);
+            trainingModel.setSignature(signature);
             trainingModel.setIs_sync(is_sync);
             trainingModel.setIs_draft(is_draft);
 
             boolean success = dbHelper.updateTraining(
                     String.valueOf(trainingModel.getId()),
                     training_code, district, community, training_question1, training_question2, training_question3,
-                    training_question4, training_question5, training_question6, training_question7, training_location,
-                    farmer_photo, signature, training_question8, training_question9, training_question10, training_question11,
-                    training_question12, training_question13, training_question14, training_question15, is_sync, is_draft
+                    training_question4, training_question5, training_question6, training_question7, training_question8,
+                    training_question9, training_question10, training_question11, training_question12, training_question13,
+                    training_question14, training_question15, training_location, farmer_photo, signature, is_sync, is_draft
             );
 
             runOnUiThread(() -> {

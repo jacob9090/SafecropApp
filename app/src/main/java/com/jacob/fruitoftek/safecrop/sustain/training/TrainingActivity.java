@@ -176,16 +176,20 @@ public class TrainingActivity extends AppCompatActivity {
         public void insertOrUpdateTraining(String training_code, String district, String community, 
                                            String training_question1, String training_question2, String training_question3,
                                            String training_question4, String training_question5, String training_question6,
-                                           String training_question7, String training_location, String farmer_photo, String signature,
-                                           String training_question8, String training_question9, String training_question10,
-                                           String training_question11, String training_question12, String training_question13,
-                                           String training_question14, String training_question15,
-                                           String is_sync, String is_draft) {
+                                           String training_question7, String training_question8, String training_question9,
+                                           String training_question10, String training_question11, String training_question12,
+                                           String training_question13, String training_question14, String training_question15,
+                                           String training_location, String farmer_photo, String signature, String is_sync,
+                                           String is_draft) {
 
             Log.d("WebAppInterface", "--- insertOrUpdateTraining CALLED ---");
             Log.d("WebAppInterface", "Raw input Q1: " + training_question1 + ", Q2: " + training_question2);
             Log.d("WebAppInterface", "Raw input Q3: " + training_question3 + ", Q4: " + training_question4);
             Log.d("WebAppInterface", "Raw input Q5: " + training_question5 + ", Q6: " + training_question6);
+            Log.d("WebAppInterface", "Raw input Q7: " + training_question7 + ", Q8: " + training_question8);
+            Log.d("WebAppInterface", "Raw input Q9: " + training_question9 + ", Q10: " + training_question10);
+            Log.d("WebAppInterface", "Raw input Q11: " + training_question11 + ", Q12: " + training_question12);
+            Log.d("WebAppInterface", "Raw input Q13: " + training_question13 + ", Q14: " + training_question14 + ", Q15: " + training_question15);
             Log.d("WebAppInterface", "Raw input location: " + training_location + ", photo: " + farmer_photo + ", signature: " + signature);
 
             training_code = isNull(training_code);
@@ -198,9 +202,6 @@ public class TrainingActivity extends AppCompatActivity {
             training_question5 = isNull(training_question5);
             training_question6 = isNull(training_question6);
             training_question7 = isNull(training_question7);
-            training_location = isNull(training_location);
-            farmer_photo = isNull(farmer_photo);
-            signature = isNull(signature);
             training_question8 = isNull(training_question8);
             training_question9 = isNull(training_question9);
             training_question10 = isNull(training_question10);
@@ -209,21 +210,25 @@ public class TrainingActivity extends AppCompatActivity {
             training_question13 = isNull(training_question13);
             training_question14 = isNull(training_question14);
             training_question15 = isNull(training_question15);
+            training_location = isNull(training_location);
+            farmer_photo = isNull(farmer_photo);
+            signature = isNull(signature);
             is_sync = "0";
 
-            Log.d("WebAppInterface", "After isNull: training_code: " + training_code + ", Q1: " + training_question1);
+            Log.d("WebAppInterface", "After isNull: training_code: " + training_code + ", Dis: " + district+ ", Com: " + community);
+            Log.d("WebAppInterface", "After isNull: Q1: " + training_question1 + ", Q2: " + training_question2+ ", Q3: " + training_question3);
 
             boolean draftMode = "1".equals(is_draft);
 
             if (!draftMode) {
                 if (TextUtils.isEmpty(training_code) ||
                         TextUtils.isEmpty(district) ||
-                        TextUtils.isEmpty(community) ||
-                        TextUtils.isEmpty(training_question1) ||
-                        TextUtils.isEmpty(training_question2) ||
-                        TextUtils.isEmpty(training_question3) ||
-                        TextUtils.isEmpty(training_question4) ||
-                        TextUtils.isEmpty(training_question5) ||
+//                        TextUtils.isEmpty(community) ||
+//                        TextUtils.isEmpty(training_question1) ||
+//                        TextUtils.isEmpty(training_question2) ||
+//                        TextUtils.isEmpty(training_question3) ||
+//                        TextUtils.isEmpty(training_question4) ||
+//                        TextUtils.isEmpty(training_question5) ||
 //                        TextUtils.isEmpty(training_question6) ||
 //                        TextUtils.isEmpty(training_question7) ||
 //                        TextUtils.isEmpty(training_question8) ||
@@ -233,7 +238,7 @@ public class TrainingActivity extends AppCompatActivity {
 //                        TextUtils.isEmpty(training_question12) ||
 //                        TextUtils.isEmpty(training_question13) ||
 //                        TextUtils.isEmpty(training_question14) ||
-                        TextUtils.isEmpty(training_question7)) {
+                        TextUtils.isEmpty(community)) {
 
                     Log.e("WebAppInterface", "Validation FAILED: Required fields are empty for non-draft save.");
                     runOnUiThread(() ->
@@ -263,10 +268,10 @@ public class TrainingActivity extends AppCompatActivity {
             boolean success = dbHelper.insertOrUpdateTraining(
                     training_code, district, community, training_question1, training_question2,
                     training_question3, training_question4, training_question5, training_question6,
-                    training_question7, training_location, farmer_photo, training_question8,
-                    training_question9, training_question10, training_question11, training_question12,
-                    training_question13, training_question14, training_question15,
-                    signature, is_sync, is_draft, userFname, userLname, userEmail, onCreate, onUpdate
+                    training_question7, training_question8, training_question9, training_question10,
+                    training_question11, training_question12, training_question13, training_question14,
+                    training_question15, training_location, farmer_photo, signature, is_sync, is_draft,
+                    userFname, userLname, userEmail, onCreate, onUpdate
             );
 
             if (success) {

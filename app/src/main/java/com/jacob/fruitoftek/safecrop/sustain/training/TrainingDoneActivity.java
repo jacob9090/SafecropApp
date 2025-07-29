@@ -136,11 +136,6 @@ public class TrainingDoneActivity extends AppCompatActivity {
                 String training_question5 = cursor.getString(cursor.getColumnIndexOrThrow("training_question5"));
                 String training_question6 = cursor.getString(cursor.getColumnIndexOrThrow("training_question6"));
                 String training_question7 = cursor.getString(cursor.getColumnIndexOrThrow("training_question7"));
-                String training_location = cursor.getString(cursor.getColumnIndexOrThrow("training_location"));
-                Uri farmer_photo = cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo")) != null
-                        ? Uri.parse(cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo")))
-                        : null;
-                String signature = cursor.getString(cursor.getColumnIndexOrThrow("signature"));
                 String training_question8 = cursor.getString(cursor.getColumnIndexOrThrow("training_question8"));
                 String training_question9 = cursor.getString(cursor.getColumnIndexOrThrow("training_question9"));
                 String training_question10 = cursor.getString(cursor.getColumnIndexOrThrow("training_question10"));
@@ -149,6 +144,11 @@ public class TrainingDoneActivity extends AppCompatActivity {
                 String training_question13 = cursor.getString(cursor.getColumnIndexOrThrow("training_question13"));
                 String training_question14 = cursor.getString(cursor.getColumnIndexOrThrow("training_question14"));
                 String training_question15 = cursor.getString(cursor.getColumnIndexOrThrow("training_question15"));
+                String training_location = cursor.getString(cursor.getColumnIndexOrThrow("training_location"));
+                Uri farmer_photo = cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo")) != null
+                        ? Uri.parse(cursor.getString(cursor.getColumnIndexOrThrow("farmer_photo")))
+                        : null;
+                String signature = cursor.getString(cursor.getColumnIndexOrThrow("signature"));
                 String is_sync = cursor.getString(cursor.getColumnIndexOrThrow("is_sync"));
                 String is_draft = cursor.getString(cursor.getColumnIndexOrThrow("is_draft"));
                 String user_fname = cursor.getString(cursor.getColumnIndexOrThrow("user_fname"));
@@ -159,8 +159,8 @@ public class TrainingDoneActivity extends AppCompatActivity {
 
                 list.add(new TrainingModel(id, training_code, district, community, training_question1, training_question2,
                         training_question3, training_question4, training_question5, training_question6, training_question7,
-                        training_location, farmer_photo, signature, training_question8, training_question9, training_question10,
-                        training_question11, training_question12, training_question13, training_question14, training_question15,
+                        training_question8, training_question9, training_question10, training_question11, training_question12,
+                        training_question13, training_question14, training_question15, training_location, farmer_photo, signature,
                         is_sync, is_draft, user_fname, user_lname, user_email, onCreate, onUpdate));
             } while (cursor.moveToNext());
             cursor.close();
