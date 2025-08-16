@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "458415032463",
+    "project_id": "fruitoftek-safecrop",
+    "storage_bucket": "fruitoftek-safecrop.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:458415032463:android:d789ff5140b00b32d248fa",
+        "android_client_info": {
+          "package_name": "com.jacob.fruitoftek.safecrop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCppSoCJafmFIIQSmKSwauAlfHIJAcfGZ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

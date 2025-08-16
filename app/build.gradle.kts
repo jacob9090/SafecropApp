@@ -34,12 +34,6 @@ android {
     buildFeatures {
         viewBinding = true
     }
-//    aaptOptions.noCompress.addAll(listOf("tflite", "lite"))
-
-//    androidResources {
-//        noCompress.add("tflite")
-//        noCompress.add("lite") // If you still want to include "lite"
-//    }
 }
 
 dependencies {
@@ -149,5 +143,8 @@ dependencies {
     // ViewModel & LiveData
     implementation ("androidx.lifecycle:lifecycle-viewmodel:2.6.2")
     implementation ("androidx.lifecycle:lifecycle-livedata:2.6.2")
+
+    implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
+    implementation("com.google.firebase:firebase-messaging")
 
 }

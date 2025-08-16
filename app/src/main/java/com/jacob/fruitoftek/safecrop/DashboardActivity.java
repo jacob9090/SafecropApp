@@ -24,6 +24,7 @@ import androidx.work.NetworkType;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
 
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.jacob.fruitoftek.safecrop.comdev.ComDevDashboard;
 import com.jacob.fruitoftek.safecrop.comdev.ExportCsvWorker;
 import com.jacob.fruitoftek.safecrop.comdev.SyncDataWorker;
@@ -129,12 +130,20 @@ public class DashboardActivity extends AppCompatActivity {
         // Card click actions
         certSusCv.setOnClickListener(v -> startActivity(new Intent(this, SusCertDashboard.class)));
         comDevCv.setOnClickListener(v -> startActivity(new Intent(this, ComDevDashboard.class)));
-//        environmentalCV.setOnClickListener(v -> startActivity(new Intent(this, EnvironmentalDashboard.class)));
-//        orgProCV.setOnClickListener(v -> startActivity(new Intent(this, OrgProDashboard.class)));
-
 
         scheduleDailyExport();
         scheduleDailySync();
+
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) {
+                        Log.w("FCMToken", "Fetching FCM token failed", task.getException());
+                        return;
+                    }
+                    String token = task.getResult();
+                    Log.d("FCMToken", "Token: " + token);
+                    // Optionally sendTokenToServer(token) here if you want
+                });
     }
 
     private void showCardByAccess(String access) {

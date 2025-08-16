@@ -45,23 +45,6 @@ public class PreferenceHelper {
         editor.apply();
     }
 
-    // Save user JSON data
-//    public void saveUserData(JSONObject user) throws JSONException {
-//        SharedPreferences.Editor editor = sharedPrefs.edit();
-//        editor.putString(KEY_FIRST_NAME, user.getString(KEY_FIRST_NAME));
-//        editor.putString(KEY_LAST_NAME, user.getString(KEY_LAST_NAME));
-//        editor.putString(KEY_GENDER, user.getString(KEY_GENDER));
-//        editor.putString(KEY_ROLE, user.getString(KEY_ROLE));
-//        editor.putString(KEY_SURVEY_ACCESS, user.getString(KEY_SURVEY_ACCESS));
-//        editor.putString(KEY_PHONE, user.getString(KEY_PHONE));
-//        editor.putString(KEY_DISTRICT, user.getString(KEY_DISTRICT));
-//        editor.putString(KEY_COMMUNITY, user.getString(KEY_COMMUNITY));
-//        editor.putString(KEY_COOPERATIVE, user.getString(KEY_COOPERATIVE));
-//        editor.putString(KEY_EMAIL, user.getString(KEY_EMAIL));
-//        editor.putBoolean(KEY_IS_LOGGED_IN, true);
-//        editor.apply();
-//    }
-
     // Individual Setters
     public void putFirstName(String fname) {
         sharedPrefs.edit().putString(KEY_FIRST_NAME, fname).apply();
